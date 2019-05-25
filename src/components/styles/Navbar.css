@@ -1,0 +1,42 @@
+.bg-home {
+  background-image: url("../../images/bg-home.jpg");
+  height: 700px;
+}
+
+.navbar {
+  background: white !important;
+  top: 40px;
+}
+
+li {
+  margin-top: 10px;
+  margin-right: 15px;
+}
+
+li a {
+  font-size: 18px;
+  color: #000 !important;
+  transition: all 200ms ease;
+}
+
+li a:hover {
+  color: #9b2911 !important;
+}
+
+li i,
+.dBoton i {
+  margin-right: 5px;
+}
+
+.dBoton {
+  text-decoration: none !important;
+  top: 8px;
+  font-size: 18px;
+  background: #9b2911;
+
+  left: 15%;
+}
+
+.dBoton a {
+  color: white !important;
+}
