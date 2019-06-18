@@ -277,7 +277,7 @@ create table CONTEXTO_UNIDAD_ESTUDIO (
 /*==============================================================*/
 create table DESCRIPCION_EVENTO (
    DESCRIPCION_EVENTO_ID SERIAL               not null,
-   FUNDAMENTO_PROYECTIVO_ID INT4                 null,
+   FUNDAMENTO_PROYECTIVO_ID INT4                not  null,
    DESCRIPCION          VARCHAR(250)         not null,
    ACTIVE    boolean not null,
    constraint PK_DESCRIPCION_EVENTO primary key (DESCRIPCION_EVENTO_ID)
@@ -330,7 +330,7 @@ create table DISCIPLINA_EVENTO (
 /*==============================================================*/
 create table EFECTO_LOGRAR (
    EFECTO_LOGRAR_ID     SERIAL               not null,
-   FUNDAMENTO_PROYECTIVO_ID INT4                 null,
+   FUNDAMENTO_PROYECTIVO_ID INT4             not  null,
    EFECTO               VARCHAR(250)         not null,
    ACTIVE    boolean not null,
    constraint PK_EFECTO_LOGRAR primary key (EFECTO_LOGRAR_ID)
@@ -383,7 +383,7 @@ create table EVENTO_PROYECTIVA (
 /*==============================================================*/
 create table EXPLICACION (
    EXPLICACION_ID       SERIAL               not null,
-   FUNDAMENTO_PROYECTIVO_ID INT4                 null,
+   FUNDAMENTO_PROYECTIVO_ID INT4             not null,
    EXPLICACION          VARCHAR(250)         not null,
    ACTIVE    boolean not null,
    constraint PK_EXPLICACION primary key (EXPLICACION_ID)
@@ -393,8 +393,8 @@ create table EXPLICACION (
 /* Table: FUNDAMENTO_PROYECTIVO                                 */
 /*==============================================================*/
 create table FUNDAMENTO_PROYECTIVO (
-   FUNDAMENTO_PROYECTIVO_ID SERIAL               not null,
-   PROYECTIVA_ID        INT4                 null,
+   FUNDAMENTO_PROYECTIVO_ID SERIAL           not null,
+   PROYECTIVA_ID        INT4                 not null,
    TEORIA               VARCHAR(250)         not null,
    ACTIVE    boolean not null,
    constraint PK_FUNDAMENTO_PROYECTIVO primary key (FUNDAMENTO_PROYECTIVO_ID)
@@ -405,8 +405,8 @@ create table FUNDAMENTO_PROYECTIVO (
 /*==============================================================*/
 create table FUNDAMENTO_PROYECTIVO_ASPECTO_L (
    FUNDAMENTO_PROYECTIVO_ASPECTO_L SERIAL               not null,
-   ASPECTO_LEGAL_ID     INT4                 null,
-   FUNDAMENTO_PROYECTIVO_ID INT4                 null,
+   ASPECTO_LEGAL_ID     INT4                 not null,
+   FUNDAMENTO_PROYECTIVO_ID INT4             not null,
    ACTIVE    boolean not null,
    constraint PK_FUNDAMENTO_PROYECTIVO_ASPEC primary key (FUNDAMENTO_PROYECTIVO_ASPECTO_L)
 );
@@ -416,8 +416,8 @@ create table FUNDAMENTO_PROYECTIVO_ASPECTO_L (
 /*==============================================================*/
 create table FUNDAMENTO_PROYECTIVO_INVESTIGA (
    FUNDAMENTO_PROYECTIVO_INVESTIGA INT4                 not null,
-   FUNDAMENTO_PROYECTIVO_ID INT4                 null,
-   TEMA_INVESTIGACION_ID INT4                 null,
+   FUNDAMENTO_PROYECTIVO_ID INT4                 not null,
+   TEMA_INVESTIGACION_ID INT4                 not null,
    ACTIVE    boolean not null,
    constraint PK_FUNDAMENTO_PROYECTIVO_INVES primary key (FUNDAMENTO_PROYECTIVO_INVESTIGA)
 );
@@ -447,7 +447,7 @@ create table INVOLUCRADO (
 /*==============================================================*/
 create table INVOLUCRADO_TEMA_INVESTIGACION (
    INVOLUCRADO_TEMA_ID  SERIAL               not null,
-   INVOLCURADO_ID       INT4                 null,
+   INVOLCURADO_ID       INT4                 not null,
    TEMA_INVESTIGACION_ID INT4                 not null,
    ACTIVE    boolean not null,
    constraint PK_INVOLUCRADO_TEMA_INVESTIGAC primary key (INVOLUCRADO_TEMA_ID)
@@ -468,8 +468,8 @@ create table MUESTRA (
 /*==============================================================*/
 create table OBJETIVO_ESPECIFICO (
    OBJETIVO_ESPECIFICO_ID SERIAL               not null,
-   PROYECTIVA_ID        INT4                 null,
-   ESTADIO_ID           INT4                 null,
+   PROYECTIVA_ID        INT4                 not null,
+   ESTADIO_ID           INT4                 not null,
    OBJETIVO             VARCHAR(250)         not null,
    ACTIVE    boolean not null,
    constraint PK_OBJETIVO_ESPECIFICO primary key (OBJETIVO_ESPECIFICO_ID)
@@ -511,7 +511,7 @@ create table POBLACION (
 /*==============================================================*/
 create table PREDICCION (
    PREDICCION_ID        SERIAL               not null,
-   FUNDAMENTO_PROYECTIVO_ID INT4                 null,
+   FUNDAMENTO_PROYECTIVO_ID INT4              not   null,
    PREDICCION           VARCHAR(250)         not null,
    ACTIVE    boolean not null,
    constraint PK_PREDICCION primary key (PREDICCION_ID)
@@ -522,7 +522,7 @@ create table PREDICCION (
 /*==============================================================*/
 create table PROCESO_EXPLICATIVO (
    PROCESO_EXPLICATIVO_ID SERIAL               not null,
-   FUNDAMENTO_PROYECTIVO_ID INT4                 null,
+   FUNDAMENTO_PROYECTIVO_ID INT4                 not null,
    PROCESO              VARCHAR(250)         not null,
    ACTIVE    boolean not null,
    constraint PK_PROCESO_EXPLICATIVO primary key (PROCESO_EXPLICATIVO_ID)
@@ -533,7 +533,7 @@ create table PROCESO_EXPLICATIVO (
 /*==============================================================*/
 create table PROGRAMA_ALTERNATIVO (
    PROGRAMA_ALTERNATIVO_ID SERIAL               not null,
-   FUNDAMENTO_PROYECTIVO_ID INT4                 null,
+   FUNDAMENTO_PROYECTIVO_ID INT4                not null,
    PROGRAMA             VARCHAR(250)         not null,
    ACTIVE    boolean not null,
    constraint PK_PROGRAMA_ALTERNATIVO primary key (PROGRAMA_ALTERNATIVO_ID)
@@ -564,8 +564,8 @@ create table ROL (
 /*==============================================================*/
 create table ROL_USUARIO (
    ROL                  SERIAL               not null,
-   USUARIO_ID           INT4                 null,
-   ROL_ID               INT4                 null,
+   USUARIO_ID           INT4                 not null,
+   ROL_ID               INT4                 not null,
    ACTIVE    boolean not null,
    constraint PK_ROL_USUARIO primary key (ROL)
 );
@@ -642,7 +642,7 @@ create table TEMPORALIDAD_MEDICION (
 /*==============================================================*/
 create table TEMPORALIDAD_MEDICION_CONTEXTO (
    TEMPORALIDAD_CONTEXTO_ID SERIAL               not null,
-   TEMPORALIDAD_ID      INT4                 null,
+   TEMPORALIDAD_ID      INT4                 not null,
    CONTEXTO_ID          INT4                 not null,
    ARGUMENTO            VARCHAR(15)          not null,
    ACTIVE    boolean not null,
@@ -655,7 +655,7 @@ create table TEMPORALIDAD_MEDICION_CONTEXTO (
 create table UNIDAD_ESTUDIO (
    UNIDAD_ESTUDIO_ID    SERIAL               not null,
    POBLACION_ID         INT4                 not null,
-   MUESTRA_ID           INT4                 null,
+   MUESTRA_ID           INT4                 not null,
    ACTIVE    boolean not null,
    constraint PK_UNIDAD_ESTUDIO primary key (UNIDAD_ESTUDIO_ID)
 );
@@ -682,9 +682,9 @@ create table USUARIO (
    CORREO               VARCHAR(50)          not null,
    PASSWORD             VARCHAR(50)          not null,
    NOMBRE               VARCHAR(50)          not null,
-   SEGUNDO_NOMBRE       VARCHAR(50)          null,
+   SEGUNDO_NOMBRE       VARCHAR(50)                  ,
    APELLIDO             VARCHAR(50)          not null,
-   SEGUNDO_APELLIDO     VARCHAR(50)          not null,
+   SEGUNDO_APELLIDO     VARCHAR(50)                  ,
    ACTIVE    boolean not null,
    constraint PK_USUARIO primary key (USUARIO_ID)
 );
