@@ -119,7 +119,7 @@ create table ABORDAJE (
    GRADO_PARTICIPACION_ID INT4                 null,
    PERSPECTIVA_INTERPRETACION_ID INT4                 null,
    PROYECTIVA_ID        INT4                 null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_ABORDAJE primary key (ABORDAJE_ID)
 );
 
@@ -130,7 +130,7 @@ create table ANALISIS_EVENTO (
    ANALISIS_EVENTO_ID   SERIAL               not null,
    FUNDAMENTO_PROYECTIVO_ID INT4                 null,
    ANALISIS             VARCHAR(250)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_ANALISIS_EVENTO primary key (ANALISIS_EVENTO_ID)
 );
 
@@ -140,7 +140,7 @@ create table ANALISIS_EVENTO (
 create table ASPECTO_LEGAL (
    ASPECTO_LEGAL_ID     SERIAL               not null,
    ASPECTO              VARCHAR(250)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_ASPECTO_LEGAL primary key (ASPECTO_LEGAL_ID)
 );
 
@@ -150,7 +150,7 @@ create table ASPECTO_LEGAL (
 create table CATEGORIA (
    CATEGORIA_ID         SERIAL               not null,
    RELACION_TEMA_UNIDAD VARCHAR(250)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_CATEGORIA primary key (CATEGORIA_ID)
 );
 
@@ -161,7 +161,7 @@ create table CATEGORIA_UNIDAD_INFORMATIVA (
    CATEGORIA_UNIDAD_ID  SERIAL               not null,
    UNIDAD_INFORMATIVA_ID INT4                 not null,
    CATEGORIA_ID         INT4                 not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_CATEGORIA_UNIDAD_INFORMATIV primary key (CATEGORIA_UNIDAD_ID)
 );
 
@@ -171,7 +171,7 @@ create table CATEGORIA_UNIDAD_INFORMATIVA (
 create table CLASE_EVENTO (
    CLASE_EVENTO_ID      SERIAL               not null,
    CLASE                VARCHAR(50)          not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_CLASE_EVENTO primary key (CLASE_EVENTO_ID)
 );
 
@@ -182,7 +182,7 @@ create table COMPARACION (
    COMPARACION_ID       SERIAL               not null,
    FUNDAMENTO_PROYECTIVO_ID INT4                 null,
    COMPARACION          VARCHAR(250)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_COMPARACION primary key (COMPARACION_ID)
 );
 
@@ -196,7 +196,7 @@ create table CONDICION_METODOLOGICA (
    ABORDAJE_POSIBLE     BOOL                 not null,
    INSTRUMENTO_MEDICION BOOL                 not null,
    ESTUDIOS_PREVIOS     BOOL                 not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_CONDICION_METODOLOGICA primary key (CONDICION_METODOLOGICA_ID)
 );
 
@@ -211,7 +211,7 @@ create table CONDICION_PERSONAL (
    CONOCIMIENTO         BOOL                 not null,
    ASESORIA_ORIENTACION BOOL                 not null,
    ACCESO_INFORMACION   BOOL                 not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_CONDICION_PERSONAL primary key (CONDICION_PERSONAL_ID)
 );
 
@@ -225,7 +225,7 @@ create table CONDICION_SOCIAL (
    NECESIDAD            BOOL                 not null,
    APORTE               BOOL                 not null,
    APLICACION           BOOL                 not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_CONDICION_SOCIAL primary key (CONDICION_SOCIAL_ID)
 );
 
@@ -235,7 +235,7 @@ create table CONDICION_SOCIAL (
 create table CONSECUENCIA (
    CONSECUENCIA_ID      SERIAL               not null,
    CONSECUENCIA         VARCHAR(250)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_CONSECUENCIA primary key (CONSECUENCIA_ID)
 );
 
@@ -246,7 +246,7 @@ create table CONSECUENCIA_TEMA_INVESTIGACION (
    CONSECUENCIA_TEMA_ID SERIAL               not null,
    TEMA_INVESTIGACION_ID INT4                 not null,
    CONSECUENCIA_ID      INT4                 null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_CONSECUENCIA_TEMA_INVESTIGA primary key (CONSECUENCIA_TEMA_ID)
 );
 
@@ -256,7 +256,7 @@ create table CONSECUENCIA_TEMA_INVESTIGACION (
 create table CONTEXTO (
    CONTEXTO_ID          SERIAL               not null,
    CONTEXTO             VARCHAR(250)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_CONTEXTO primary key (CONTEXTO_ID)
 );
 
@@ -268,7 +268,7 @@ create table CONTEXTO_UNIDAD_ESTUDIO (
    CONTEXTO_ID          INT4                 not null,
    UNIDAD_ESTUDIO_ID    INT4                 not null,
    ARGUMENTO            VARCHAR(250)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_CONTEXTO_UNIDAD_ESTUDIO primary key (CONTEXTO_UNIDAD_ID)
 );
 
@@ -279,7 +279,7 @@ create table DESCRIPCION_EVENTO (
    DESCRIPCION_EVENTO_ID SERIAL               not null,
    FUNDAMENTO_PROYECTIVO_ID INT4                 null,
    DESCRIPCION          VARCHAR(250)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_DESCRIPCION_EVENTO primary key (DESCRIPCION_EVENTO_ID)
 );
 
@@ -289,7 +289,7 @@ create table DESCRIPCION_EVENTO (
 create table DIFERENCIA (
    DIFERENCIA_ID        SERIAL               not null,
    DIFERENCIA           VARCHAR(250)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_DIFERENCIA primary key (DIFERENCIA_ID)
 );
 
@@ -300,7 +300,7 @@ create table DIFERENCIA_CATEGORIA (
    DIFERENCIA_CATEGORIA_ID SERIAL               not null,
    DIFERENCIA_ID        INT4                 not null,
    CATEGORIA_ID         INT4                 not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_DIFERENCIA_CATEGORIA primary key (DIFERENCIA_CATEGORIA_ID)
 );
 
@@ -310,7 +310,7 @@ create table DIFERENCIA_CATEGORIA (
 create table DISCIPLINA (
    DISCIPLINA_ID        SERIAL               not null,
    DISCIPLINA           VARCHAR(50)          not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_DISCIPLINA primary key (DISCIPLINA_ID)
 );
 
@@ -321,7 +321,7 @@ create table DISCIPLINA_EVENTO (
    DISCIPLINA_EVENTO_ID SERIAL               not null,
    DISCIPLINA_ID        INT4                 not null,
    EVENTO_ID            INT4                 not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_DISCIPLINA_EVENTO primary key (DISCIPLINA_EVENTO_ID)
 );
 
@@ -332,7 +332,7 @@ create table EFECTO_LOGRAR (
    EFECTO_LOGRAR_ID     SERIAL               not null,
    FUNDAMENTO_PROYECTIVO_ID INT4                 null,
    EFECTO               VARCHAR(250)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_EFECTO_LOGRAR primary key (EFECTO_LOGRAR_ID)
 );
 
@@ -342,7 +342,7 @@ create table EFECTO_LOGRAR (
 create table ESTADIO (
    ESTADIO_ID           SERIAL               not null,
    ESTADIO              VARCHAR(30)          not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_ESTADIO primary key (ESTADIO_ID)
 );
 
@@ -352,7 +352,7 @@ create table ESTADIO (
 create table ESTRUCTURACION_PREVIA (
    ESTRUCTURACION_PREVIA_ID SERIAL               not null,
    ESTRUCTURACION_PREVIA VARCHAR(30)          not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_ESTRUCTURACION_PREVIA primary key (ESTRUCTURACION_PREVIA_ID)
 );
 
@@ -363,7 +363,7 @@ create table EVENTO (
    EVENTO_ID            SERIAL               not null,
    CLASE_EVENTO_ID      INT4                 not null,
    EVENTO               VARCHAR(50)          not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_EVENTO primary key (EVENTO_ID)
 );
 
@@ -374,7 +374,7 @@ create table EVENTO_PROYECTIVA (
    EVENTO_PROYECTIVA_ID SERIAL               not null,
    EVENTO_ID            INT4                 not null,
    PROYECTIVA_ID        INT4                 not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_EVENTO_PROYECTIVA primary key (EVENTO_PROYECTIVA_ID)
 );
 
@@ -385,7 +385,7 @@ create table EXPLICACION (
    EXPLICACION_ID       SERIAL               not null,
    FUNDAMENTO_PROYECTIVO_ID INT4                 null,
    EXPLICACION          VARCHAR(250)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_EXPLICACION primary key (EXPLICACION_ID)
 );
 
@@ -396,7 +396,7 @@ create table FUNDAMENTO_PROYECTIVO (
    FUNDAMENTO_PROYECTIVO_ID SERIAL               not null,
    PROYECTIVA_ID        INT4                 null,
    TEORIA               VARCHAR(250)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_FUNDAMENTO_PROYECTIVO primary key (FUNDAMENTO_PROYECTIVO_ID)
 );
 
@@ -407,7 +407,7 @@ create table FUNDAMENTO_PROYECTIVO_ASPECTO_L (
    FUNDAMENTO_PROYECTIVO_ASPECTO_L SERIAL               not null,
    ASPECTO_LEGAL_ID     INT4                 null,
    FUNDAMENTO_PROYECTIVO_ID INT4                 null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_FUNDAMENTO_PROYECTIVO_ASPEC primary key (FUNDAMENTO_PROYECTIVO_ASPECTO_L)
 );
 
@@ -418,7 +418,7 @@ create table FUNDAMENTO_PROYECTIVO_INVESTIGA (
    FUNDAMENTO_PROYECTIVO_INVESTIGA INT4                 not null,
    FUNDAMENTO_PROYECTIVO_ID INT4                 null,
    TEMA_INVESTIGACION_ID INT4                 null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_FUNDAMENTO_PROYECTIVO_INVES primary key (FUNDAMENTO_PROYECTIVO_INVESTIGA)
 );
 
@@ -428,7 +428,7 @@ create table FUNDAMENTO_PROYECTIVO_INVESTIGA (
 create table GRADO_PARTICIPACION (
    GRADO_PARTICIPACION_ID SERIAL               not null,
    GRADO_PARTICIPACION  VARCHAR(30)          not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_GRADO_PARTICIPACION primary key (GRADO_PARTICIPACION_ID)
 );
 
@@ -438,7 +438,7 @@ create table GRADO_PARTICIPACION (
 create table INVOLUCRADO (
    INVOLCURADO_ID       SERIAL               not null,
    INVOLCURADO          VARCHAR(250)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_INVOLUCRADO primary key (INVOLCURADO_ID)
 );
 
@@ -449,7 +449,7 @@ create table INVOLUCRADO_TEMA_INVESTIGACION (
    INVOLUCRADO_TEMA_ID  SERIAL               not null,
    INVOLCURADO_ID       INT4                 null,
    TEMA_INVESTIGACION_ID INT4                 not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_INVOLUCRADO_TEMA_INVESTIGAC primary key (INVOLUCRADO_TEMA_ID)
 );
 
@@ -459,7 +459,7 @@ create table INVOLUCRADO_TEMA_INVESTIGACION (
 create table MUESTRA (
    MUESTRA_ID           SERIAL               not null,
    MUESTRA              VARCHAR(100)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_MUESTRA primary key (MUESTRA_ID)
 );
 
@@ -471,7 +471,7 @@ create table OBJETIVO_ESPECIFICO (
    PROYECTIVA_ID        INT4                 null,
    ESTADIO_ID           INT4                 null,
    OBJETIVO             VARCHAR(250)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_OBJETIVO_ESPECIFICO primary key (OBJETIVO_ESPECIFICO_ID)
 );
 
@@ -482,7 +482,7 @@ create table OBJETIVO_GENERAL (
    OBJETIVO_GENERAL_ID  SERIAL               not null,
    PROYECTIVA_ID        INT4                 not null,
    OBJETIVO             VARCHAR(250)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_OBJETIVO_GENERAL primary key (OBJETIVO_GENERAL_ID)
 );
 
@@ -492,7 +492,7 @@ create table OBJETIVO_GENERAL (
 create table PERSPECTIVA_INTERPRETACION (
    PERSPECTIVA_INTERPRETACION_ID SERIAL               not null,
    PERSPECTIVA_INTERPRETACION VARCHAR(30)          not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_PERSPECTIVA_INTERPRETACION primary key (PERSPECTIVA_INTERPRETACION_ID)
 );
 
@@ -502,7 +502,7 @@ create table PERSPECTIVA_INTERPRETACION (
 create table POBLACION (
    POBLACION_ID         SERIAL               not null,
    POBLACION            VARCHAR(100)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_POBLACION primary key (POBLACION_ID)
 );
 
@@ -513,7 +513,7 @@ create table PREDICCION (
    PREDICCION_ID        SERIAL               not null,
    FUNDAMENTO_PROYECTIVO_ID INT4                 null,
    PREDICCION           VARCHAR(250)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_PREDICCION primary key (PREDICCION_ID)
 );
 
@@ -524,7 +524,7 @@ create table PROCESO_EXPLICATIVO (
    PROCESO_EXPLICATIVO_ID SERIAL               not null,
    FUNDAMENTO_PROYECTIVO_ID INT4                 null,
    PROCESO              VARCHAR(250)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_PROCESO_EXPLICATIVO primary key (PROCESO_EXPLICATIVO_ID)
 );
 
@@ -535,7 +535,7 @@ create table PROGRAMA_ALTERNATIVO (
    PROGRAMA_ALTERNATIVO_ID SERIAL               not null,
    FUNDAMENTO_PROYECTIVO_ID INT4                 null,
    PROGRAMA             VARCHAR(250)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_PROGRAMA_ALTERNATIVO primary key (PROGRAMA_ALTERNATIVO_ID)
 );
 
@@ -545,7 +545,7 @@ create table PROGRAMA_ALTERNATIVO (
 create table PROYECTIVA (
    PROYECTIVA_ID        SERIAL               not null,
    UNIDAD_ESTUDIO_ID    INT4                 not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_PROYECTIVA primary key (PROYECTIVA_ID)
 );
 
@@ -555,7 +555,7 @@ create table PROYECTIVA (
 create table ROL (
    ROL_ID               SERIAL               not null,
    NOMBRE_ROL           VARCHAR(50)          not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_ROL primary key (ROL_ID)
 );
 
@@ -566,7 +566,7 @@ create table ROL_USUARIO (
    ROL                  SERIAL               not null,
    USUARIO_ID           INT4                 null,
    ROL_ID               INT4                 null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_ROL_USUARIO primary key (ROL)
 );
 
@@ -576,7 +576,7 @@ create table ROL_USUARIO (
 create table SEMEJANZA (
    SEMEJANZA_ID         SERIAL               not null,
    SEMEJANZA            VARCHAR(250)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_SEMEJANZA primary key (SEMEJANZA_ID)
 );
 
@@ -587,7 +587,7 @@ create table SEMEJANZA_CATEGORIA (
    SEMEJANZA_CATEGORIA_ID SERIAL               not null,
    SEMEJANZA_ID         INT4                 not null,
    CATEGORIA_ID         INT4                 not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_SEMEJANZA_CATEGORIA primary key (SEMEJANZA_CATEGORIA_ID)
 );
 
@@ -597,7 +597,7 @@ create table SEMEJANZA_CATEGORIA (
 create table TECNICA_OBTENCION_INFORMACION (
    TECNICA_OBTENCION_ID SERIAL               not null,
    TECNICA              VARCHAR(100)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_TECNICA_OBTENCION_INFORMACI primary key (TECNICA_OBTENCION_ID)
 );
 
@@ -608,7 +608,7 @@ create table TECNICA_OBTENCION_INFORMACION_C (
    TECNICA_CONDICION_ID SERIAL               not null,
    TECNICA_OBTENCION_ID INT4                 not null,
    CONDICION_METODOLOGICA_ID INT4                 not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_TECNICA_OBTENCION_INFORMACI primary key (TECNICA_CONDICION_ID)
 );
 
@@ -623,7 +623,7 @@ create table TEMA_INVESTIGACION (
    TEMA                 VARCHAR(250)         not null,
    SITUACION_PREOCUPANTE VARCHAR(250)         not null,
    CONEXION_OTROS_TEMAS VARCHAR(250)         not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_TEMA_INVESTIGACION primary key (TEMA_INVESTIGACION_ID)
 );
 
@@ -633,7 +633,7 @@ create table TEMA_INVESTIGACION (
 create table TEMPORALIDAD_MEDICION (
    TEMPORALIDAD_ID      SERIAL               not null,
    TEMPORALIDAD         VARCHAR(50)          not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_TEMPORALIDAD_MEDICION primary key (TEMPORALIDAD_ID)
 );
 
@@ -645,7 +645,7 @@ create table TEMPORALIDAD_MEDICION_CONTEXTO (
    TEMPORALIDAD_ID      INT4                 null,
    CONTEXTO_ID          INT4                 not null,
    ARGUMENTO            VARCHAR(15)          not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_TEMPORALIDAD_MEDICION_CONTE primary key (TEMPORALIDAD_CONTEXTO_ID)
 );
 
@@ -656,7 +656,7 @@ create table UNIDAD_ESTUDIO (
    UNIDAD_ESTUDIO_ID    SERIAL               not null,
    POBLACION_ID         INT4                 not null,
    MUESTRA_ID           INT4                 null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_UNIDAD_ESTUDIO primary key (UNIDAD_ESTUDIO_ID)
 );
 
@@ -670,7 +670,7 @@ create table UNIDAD_INFORMATIVA (
    CITA                 VARCHAR(250)         not null,
    REFERENCIA           VARCHAR(250)         not null,
    EVENTO_ID            INT4                 not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_UNIDAD_INFORMATIVA primary key (UNIDAD_INFORMATIVA_ID)
 );
 
@@ -685,8 +685,7 @@ create table USUARIO (
    SEGUNDO_NOMBRE       VARCHAR(50)          null,
    APELLIDO             VARCHAR(50)          not null,
    SEGUNDO_APELLIDO     VARCHAR(50)          not null,
-   STATUS               BOOL                 not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_USUARIO primary key (USUARIO_ID)
 );
 
@@ -697,7 +696,7 @@ create table VERSION (
    VERSION_ID           SERIAL               not null,
    TEMA_INVESTIGACION_ID INT4                 not null,
    FECHA                TIMESTAMP            not null,
-   STATUS boolean not null,
+   ACTIVE    boolean not null,
    constraint PK_VERSION primary key (VERSION_ID)
 );
 
