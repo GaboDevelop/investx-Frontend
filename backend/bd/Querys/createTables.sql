@@ -58,7 +58,7 @@ drop table FUNDAMENTO_PROYECTIVO;
 
 drop table FUNDAMENTO_PROYECTIVO_ASPECTO_L;
 
-drop table FUNDAMENTO_PROYECTIVO_INVESTIGA;
+drop table FUNDAMENTO_PROYECTIVO_INVESTIGACION;
 
 drop table GRADO_PARTICIPACION;
 
@@ -114,859 +114,859 @@ drop table VERSION;
 /* Table: ABORDAJE                                              */
 /*==============================================================*/
 create table ABORDAJE (
-   ABORDAJE_ID          SERIAL               not null,
-   ESTRUCTURACION_PREVIA_ID INT4                 null,
-   GRADO_PARTICIPACION_ID INT4                 null,
-   PERSPECTIVA_INTERPRETACION_ID INT4                 null,
-   PROYECTIVA_ID        INT4                 null,
-   ACTIVE    boolean not null,
-   constraint PK_ABORDAJE primary key (ABORDAJE_ID)
+   idAbordaje          SERIAL               not null,
+   idEstructuracionPrevia INT4                 null,
+   idGradoParticipacion INT4                 null,
+   idPerspectivaInterpretacion INT4                 null,
+   idProyectiva        INT4                 null,
+   active    boolean not null default true,
+   constraint PK_ABORDAJE primary key (idAbordaje)
 );
 
 /*==============================================================*/
 /* Table: ANALISIS_EVENTO                                       */
 /*==============================================================*/
 create table ANALISIS_EVENTO (
-   ANALISIS_EVENTO_ID   SERIAL               not null,
-   FUNDAMENTO_PROYECTIVO_ID INT4                 null,
-   ANALISIS             VARCHAR(250)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_ANALISIS_EVENTO primary key (ANALISIS_EVENTO_ID)
+   idAnalisisEvento   SERIAL               not null,
+   idFundamentoProyectivo INT4                 null,
+   analisis             VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_ANALISIS_EVENTO primary key (idAnalisisEvento)
 );
 
 /*==============================================================*/
 /* Table: ASPECTO_LEGAL                                         */
 /*==============================================================*/
 create table ASPECTO_LEGAL (
-   ASPECTO_LEGAL_ID     SERIAL               not null,
-   ASPECTO              VARCHAR(250)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_ASPECTO_LEGAL primary key (ASPECTO_LEGAL_ID)
+   idAspectoLegal     SERIAL               not null,
+   aspecto              VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_ASPECTO_LEGAL primary key (idAspectoLegal)
 );
 
 /*==============================================================*/
 /* Table: CATEGORIA                                             */
 /*==============================================================*/
 create table CATEGORIA (
-   CATEGORIA_ID         SERIAL               not null,
-   RELACION_TEMA_UNIDAD VARCHAR(250)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_CATEGORIA primary key (CATEGORIA_ID)
+   idCategoria         SERIAL               not null,
+   relacionTemaUnidad VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_CATEGORIA primary key (idCategoria)
 );
 
 /*==============================================================*/
 /* Table: CATEGORIA_UNIDAD_INFORMATIVA                          */
 /*==============================================================*/
 create table CATEGORIA_UNIDAD_INFORMATIVA (
-   CATEGORIA_UNIDAD_ID  SERIAL               not null,
-   UNIDAD_INFORMATIVA_ID INT4                 not null,
-   CATEGORIA_ID         INT4                 not null,
-   ACTIVE    boolean not null,
-   constraint PK_CATEGORIA_UNIDAD_INFORMATIV primary key (CATEGORIA_UNIDAD_ID)
+   idCategoriaUnidad  SERIAL               not null,
+   idUnidadInformativa INT4                 not null,
+   idCategoria         INT4                 not null,
+   active    boolean not null default true,
+   constraint PK_CATEGORIA_UNIDAD_INFORMATIV primary key (idCategoriaUnidad)
 );
 
 /*==============================================================*/
 /* Table: CLASE_EVENTO                                          */
 /*==============================================================*/
 create table CLASE_EVENTO (
-   CLASE_EVENTO_ID      SERIAL               not null,
-   CLASE                VARCHAR(50)          not null,
-   ACTIVE    boolean not null,
-   constraint PK_CLASE_EVENTO primary key (CLASE_EVENTO_ID)
+   idClaseEvento      SERIAL               not null,
+   clase                VARCHAR(50)          not null,
+   active    boolean not null default true,
+   constraint PK_CLASE_EVENTO primary key (idClaseEvento)
 );
 
 /*==============================================================*/
 /* Table: COMPARACION                                           */
 /*==============================================================*/
 create table COMPARACION (
-   COMPARACION_ID       SERIAL               not null,
-   FUNDAMENTO_PROYECTIVO_ID INT4                 null,
-   COMPARACION          VARCHAR(250)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_COMPARACION primary key (COMPARACION_ID)
+   idComparacion       SERIAL               not null,
+   idFundamentoProyectivo INT4                 null,
+   comparacion          VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_COMPARACION primary key (idComparacion)
 );
 
 /*==============================================================*/
 /* Table: CONDICION_METODOLOGICA                                */
 /*==============================================================*/
 create table CONDICION_METODOLOGICA (
-   CONDICION_METODOLOGICA_ID SERIAL               not null,
-   TEMA_INVESTIGACION_ID INT4                 not null,
-   POBLACION_ACCESIBLE  BOOL                 not null,
-   ABORDAJE_POSIBLE     BOOL                 not null,
-   INSTRUMENTO_MEDICION BOOL                 not null,
-   ESTUDIOS_PREVIOS     BOOL                 not null,
-   ACTIVE    boolean not null,
-   constraint PK_CONDICION_METODOLOGICA primary key (CONDICION_METODOLOGICA_ID)
+   idCondicionMetodologica SERIAL               not null,
+   idTemaInvestigacion INT4                 not null,
+   poblacionAccesible  BOOL                 not null,
+   abordajePosible     BOOL                 not null,
+   instrumentoMedicion BOOL                 not null,
+   estudiosPrevios     BOOL                 not null,
+   active    boolean not null default true,
+   constraint PK_CONDICION_METODOLOGICA primary key (idCondicionMetodologica)
 );
 
 /*==============================================================*/
 /* Table: CONDICION_PERSONAL                                    */
 /*==============================================================*/
 create table CONDICION_PERSONAL (
-   CONDICION_PERSONAL_ID SERIAL               not null,
-   TEMA_INVESTIGACION_ID INT4                 not null,
-   RECURSOS             BOOL                 not null,
-   EXPECTATIVA          BOOL                 not null,
-   CONOCIMIENTO         BOOL                 not null,
-   ASESORIA_ORIENTACION BOOL                 not null,
-   ACCESO_INFORMACION   BOOL                 not null,
-   ACTIVE    boolean not null,
-   constraint PK_CONDICION_PERSONAL primary key (CONDICION_PERSONAL_ID)
+   idCondicionPersonal SERIAL               not null,
+   idTemaInvestigacion INT4                 not null,
+   recursos             BOOL                 not null,
+   expectativa          BOOL                 not null,
+   conocimiento         BOOL                 not null,
+   AsesoriaInformacion BOOL                 not null,
+   accesoInformacion   BOOL                 not null,
+   active    boolean not null default true,
+   constraint PK_CONDICION_PERSONAL primary key (idCondicionPersonal)
 );
 
 /*==============================================================*/
 /* Table: CONDICION_SOCIAL                                      */
 /*==============================================================*/
 create table CONDICION_SOCIAL (
-   CONDICION_SOCIAL_ID  SERIAL               not null,
-   TEMA_INVESTIGACION_ID INT4                 not null,
-   CONTRIBUCION         BOOL                 not null,
-   NECESIDAD            BOOL                 not null,
-   APORTE               BOOL                 not null,
-   APLICACION           BOOL                 not null,
-   ACTIVE    boolean not null,
-   constraint PK_CONDICION_SOCIAL primary key (CONDICION_SOCIAL_ID)
+   idCondicionSocial  SERIAL               not null,
+   idTemaInvestigacion INT4                 not null,
+   contribucion         BOOL                 not null,
+   necesidad            BOOL                 not null,
+   aporte               BOOL                 not null,
+   aplicacion           BOOL                 not null,
+   active    boolean not null default true,
+   constraint PK_CONDICION_SOCIAL primary key (idCondicionSocial)
 );
 
 /*==============================================================*/
 /* Table: CONSECUENCIA                                          */
 /*==============================================================*/
 create table CONSECUENCIA (
-   CONSECUENCIA_ID      SERIAL               not null,
-   CONSECUENCIA         VARCHAR(250)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_CONSECUENCIA primary key (CONSECUENCIA_ID)
+   idConsecuencia      SERIAL               not null,
+   consecuencia         VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_CONSECUENCIA primary key (idConsecuencia)
 );
 
 /*==============================================================*/
 /* Table: CONSECUENCIA_TEMA_INVESTIGACION                       */
 /*==============================================================*/
 create table CONSECUENCIA_TEMA_INVESTIGACION (
-   CONSECUENCIA_TEMA_ID SERIAL               not null,
-   TEMA_INVESTIGACION_ID INT4                 not null,
-   CONSECUENCIA_ID      INT4                 null,
-   ACTIVE    boolean not null,
-   constraint PK_CONSECUENCIA_TEMA_INVESTIGA primary key (CONSECUENCIA_TEMA_ID)
+   idConsecuenciaTema SERIAL               not null,
+   idTemaInvestigacion INT4                 not null,
+   idConsecuencia      INT4                 null,
+   active    boolean not null default true,
+   constraint PK_CONSECUENCIA_TEMA_INVESTIGA primary key (idConsecuenciaTema)
 );
 
 /*==============================================================*/
 /* Table: CONTEXTO                                              */
 /*==============================================================*/
 create table CONTEXTO (
-   CONTEXTO_ID          SERIAL               not null,
-   CONTEXTO             VARCHAR(250)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_CONTEXTO primary key (CONTEXTO_ID)
+   idContexto          SERIAL               not null,
+   contexto             VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_CONTEXTO primary key (idContexto)
 );
 
 /*==============================================================*/
 /* Table: CONTEXTO_UNIDAD_ESTUDIO                               */
 /*==============================================================*/
 create table CONTEXTO_UNIDAD_ESTUDIO (
-   CONTEXTO_UNIDAD_ID   SERIAL               not null,
-   CONTEXTO_ID          INT4                 not null,
-   UNIDAD_ESTUDIO_ID    INT4                 not null,
-   ARGUMENTO            VARCHAR(250)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_CONTEXTO_UNIDAD_ESTUDIO primary key (CONTEXTO_UNIDAD_ID)
+   idContextoUnidadEstudio   SERIAL               not null,
+   idContexto          INT4                 not null,
+   idUnidadEstudio    INT4                 not null,
+   argumento            VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_CONTEXTO_UNIDAD_ESTUDIO primary key (idContextoUnidadEstudio)
 );
 
 /*==============================================================*/
 /* Table: DESCRIPCION_EVENTO                                    */
 /*==============================================================*/
 create table DESCRIPCION_EVENTO (
-   DESCRIPCION_EVENTO_ID SERIAL               not null,
-   FUNDAMENTO_PROYECTIVO_ID INT4                not  null,
-   DESCRIPCION          VARCHAR(250)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_DESCRIPCION_EVENTO primary key (DESCRIPCION_EVENTO_ID)
+   idDescripcionEvento SERIAL               not null,
+   idFundamentoProyectivo INT4                not  null,
+   descripcion          VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_DESCRIPCION_EVENTO primary key (idDescripcionEvento)
 );
 
 /*==============================================================*/
 /* Table: DIFERENCIA                                            */
 /*==============================================================*/
 create table DIFERENCIA (
-   DIFERENCIA_ID        SERIAL               not null,
-   DIFERENCIA           VARCHAR(250)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_DIFERENCIA primary key (DIFERENCIA_ID)
+   idDiferencia        SERIAL               not null,
+   diferencia           VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_DIFERENCIA primary key (idDiferencia)
 );
 
 /*==============================================================*/
 /* Table: DIFERENCIA_CATEGORIA                                  */
 /*==============================================================*/
 create table DIFERENCIA_CATEGORIA (
-   DIFERENCIA_CATEGORIA_ID SERIAL               not null,
-   DIFERENCIA_ID        INT4                 not null,
-   CATEGORIA_ID         INT4                 not null,
-   ACTIVE    boolean not null,
-   constraint PK_DIFERENCIA_CATEGORIA primary key (DIFERENCIA_CATEGORIA_ID)
+   idDiferenciaCategoria SERIAL               not null,
+   idDiferencia        INT4                 not null,
+   idCategoria         INT4                 not null,
+   active    boolean not null default true,
+   constraint PK_DIFERENCIA_CATEGORIA primary key (idDiferenciaCategoria)
 );
 
 /*==============================================================*/
 /* Table: DISCIPLINA                                            */
 /*==============================================================*/
 create table DISCIPLINA (
-   DISCIPLINA_ID        SERIAL               not null,
+   idDisciplina        SERIAL               not null,
    DISCIPLINA           VARCHAR(50)          not null,
-   ACTIVE    boolean not null,
-   constraint PK_DISCIPLINA primary key (DISCIPLINA_ID)
+   active    boolean not null default true,
+   constraint PK_DISCIPLINA primary key (idDisciplina)
 );
 
 /*==============================================================*/
 /* Table: DISCIPLINA_EVENTO                                     */
 /*==============================================================*/
 create table DISCIPLINA_EVENTO (
-   DISCIPLINA_EVENTO_ID SERIAL               not null,
-   DISCIPLINA_ID        INT4                 not null,
-   EVENTO_ID            INT4                 not null,
-   ACTIVE    boolean not null,
-   constraint PK_DISCIPLINA_EVENTO primary key (DISCIPLINA_EVENTO_ID)
+   idDisciplinaEvento SERIAL               not null,
+   idDisciplina        INT4                 not null,
+   idEvento            INT4                 not null,
+   active    boolean not null default true,
+   constraint PK_DISCIPLINA_EVENTO primary key (idDisciplinaEvento)
 );
 
 /*==============================================================*/
 /* Table: EFECTO_LOGRAR                                         */
 /*==============================================================*/
 create table EFECTO_LOGRAR (
-   EFECTO_LOGRAR_ID     SERIAL               not null,
-   FUNDAMENTO_PROYECTIVO_ID INT4             not  null,
-   EFECTO               VARCHAR(250)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_EFECTO_LOGRAR primary key (EFECTO_LOGRAR_ID)
+   idEfectoLograr     SERIAL               not null,
+   idFundamentoProyectivo INT4             not  null,
+   efecto              VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_EFECTO_LOGRAR primary key (idEfectoLograr)
 );
 
 /*==============================================================*/
 /* Table: ESTADIO                                               */
 /*==============================================================*/
 create table ESTADIO (
-   ESTADIO_ID           SERIAL               not null,
-   ESTADIO              VARCHAR(30)          not null,
-   ACTIVE    boolean not null,
-   constraint PK_ESTADIO primary key (ESTADIO_ID)
+   idEstadio           SERIAL               not null,
+   estadio              VARCHAR(30)          not null,
+   active    boolean not null default true,
+   constraint PK_ESTADIO primary key (idEstadio)
 );
 
 /*==============================================================*/
 /* Table: ESTRUCTURACION_PREVIA                                 */
 /*==============================================================*/
 create table ESTRUCTURACION_PREVIA (
-   ESTRUCTURACION_PREVIA_ID SERIAL               not null,
-   ESTRUCTURACION_PREVIA VARCHAR(30)          not null,
-   ACTIVE    boolean not null,
-   constraint PK_ESTRUCTURACION_PREVIA primary key (ESTRUCTURACION_PREVIA_ID)
+   idEstructuracionPrevia SERIAL               not null,
+   estructuracionPrevia VARCHAR(30)          not null,
+   active    boolean not null default true,
+   constraint PK_ESTRUCTURACION_PREVIA primary key (idEstructuracionPrevia)
 );
 
 /*==============================================================*/
 /* Table: EVENTO                                                */
 /*==============================================================*/
 create table EVENTO (
-   EVENTO_ID            SERIAL               not null,
-   CLASE_EVENTO_ID      INT4                 not null,
-   EVENTO               VARCHAR(50)          not null,
-   ACTIVE    boolean not null,
-   constraint PK_EVENTO primary key (EVENTO_ID)
+   idEvento            SERIAL               not null,
+   idClaseEvento      INT4                 not null,
+   evento               VARCHAR(50)          not null,
+   active    boolean not null default true,
+   constraint PK_EVENTO primary key (idEvento)
 );
 
 /*==============================================================*/
 /* Table: EVENTO_PROYECTIVA                                     */
 /*==============================================================*/
 create table EVENTO_PROYECTIVA (
-   EVENTO_PROYECTIVA_ID SERIAL               not null,
-   EVENTO_ID            INT4                 not null,
-   PROYECTIVA_ID        INT4                 not null,
-   ACTIVE    boolean not null,
-   constraint PK_EVENTO_PROYECTIVA primary key (EVENTO_PROYECTIVA_ID)
+   idEventoProyectiva SERIAL               not null,
+   idEvento            INT4                 not null,
+   idProyectiva        INT4                 not null,
+   active    boolean not null default true,
+   constraint PK_EVENTO_PROYECTIVA primary key (idEventoProyectiva)
 );
 
 /*==============================================================*/
 /* Table: EXPLICACION                                           */
 /*==============================================================*/
 create table EXPLICACION (
-   EXPLICACION_ID       SERIAL               not null,
-   FUNDAMENTO_PROYECTIVO_ID INT4             not null,
-   EXPLICACION          VARCHAR(250)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_EXPLICACION primary key (EXPLICACION_ID)
+   idExplicacion       SERIAL               not null,
+   idFundamentoProyectivo INT4             not null,
+   explicacion          VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_EXPLICACION primary key (idExplicacion)
 );
 
 /*==============================================================*/
 /* Table: FUNDAMENTO_PROYECTIVO                                 */
 /*==============================================================*/
 create table FUNDAMENTO_PROYECTIVO (
-   FUNDAMENTO_PROYECTIVO_ID SERIAL           not null,
-   PROYECTIVA_ID        INT4                 not null,
-   TEORIA               VARCHAR(250)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_FUNDAMENTO_PROYECTIVO primary key (FUNDAMENTO_PROYECTIVO_ID)
+   idFundamentoProyectivo SERIAL           not null,
+   idProyectiva        INT4                 not null,
+   teoria               VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_FUNDAMENTO_PROYECTIVO primary key (idFundamentoProyectivo)
 );
 
 /*==============================================================*/
 /* Table: FUNDAMENTO_PROYECTIVO_ASPECTO_L                       */
 /*==============================================================*/
 create table FUNDAMENTO_PROYECTIVO_ASPECTO_L (
-   FUNDAMENTO_PROYECTIVO_ASPECTO_L SERIAL               not null,
-   ASPECTO_LEGAL_ID     INT4                 not null,
-   FUNDAMENTO_PROYECTIVO_ID INT4             not null,
-   ACTIVE    boolean not null,
-   constraint PK_FUNDAMENTO_PROYECTIVO_ASPEC primary key (FUNDAMENTO_PROYECTIVO_ASPECTO_L)
+   idFundamentoProyectivoAspecto SERIAL               not null,
+   idAspectoLegal     INT4                 not null,
+   idFundamentoProyectivo INT4             not null,
+   active    boolean not null default true,
+   constraint PK_FUNDAMENTO_PROYECTIVO_ASPEC primary key (idFundamentoProyectivoAspecto)
 );
 
 /*==============================================================*/
 /* Table: FUNDAMENTO_PROYECTIVO_INVESTIGA                       */
 /*==============================================================*/
-create table FUNDAMENTO_PROYECTIVO_INVESTIGA (
-   FUNDAMENTO_PROYECTIVO_INVESTIGA INT4                 not null,
-   FUNDAMENTO_PROYECTIVO_ID INT4                 not null,
-   TEMA_INVESTIGACION_ID INT4                 not null,
-   ACTIVE    boolean not null,
-   constraint PK_FUNDAMENTO_PROYECTIVO_INVES primary key (FUNDAMENTO_PROYECTIVO_INVESTIGA)
+create table FUNDAMENTO_PROYECTIVO_INVESTIGACION (
+   idFundamentoProyectivoInvestigacion INT4                 not null,
+   idFundamentoProyectivo INT4                 not null,
+   idTemaInvestigacion INT4                 not null,
+   active    boolean not null default true,
+   constraint PK_FUNDAMENTO_PROYECTIVO_INVES primary key (idFundamentoProyectivoInvestigacion)
 );
 
 /*==============================================================*/
 /* Table: GRADO_PARTICIPACION                                   */
 /*==============================================================*/
 create table GRADO_PARTICIPACION (
-   GRADO_PARTICIPACION_ID SERIAL               not null,
-   GRADO_PARTICIPACION  VARCHAR(30)          not null,
-   ACTIVE    boolean not null,
-   constraint PK_GRADO_PARTICIPACION primary key (GRADO_PARTICIPACION_ID)
+   idGradoParticipacion SERIAL               not null,
+   gradoParticipacion  VARCHAR(30)          not null,
+   active    boolean not null default true,
+   constraint PK_GRADO_PARTICIPACION primary key (idGradoParticipacion)
 );
 
 /*==============================================================*/
 /* Table: INVOLUCRADO                                           */
 /*==============================================================*/
 create table INVOLUCRADO (
-   INVOLCURADO_ID       SERIAL               not null,
-   INVOLCURADO          VARCHAR(250)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_INVOLUCRADO primary key (INVOLCURADO_ID)
+   idInvolucrado       SERIAL               not null,
+   involucrado          VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_INVOLUCRADO primary key (idInvolucrado)
 );
 
 /*==============================================================*/
 /* Table: INVOLUCRADO_TEMA_INVESTIGACION                        */
 /*==============================================================*/
 create table INVOLUCRADO_TEMA_INVESTIGACION (
-   INVOLUCRADO_TEMA_ID  SERIAL               not null,
-   INVOLCURADO_ID       INT4                 not null,
-   TEMA_INVESTIGACION_ID INT4                 not null,
-   ACTIVE    boolean not null,
-   constraint PK_INVOLUCRADO_TEMA_INVESTIGAC primary key (INVOLUCRADO_TEMA_ID)
+   idInvolucradoTema  SERIAL               not null,
+   idInvolucrado       INT4                 not null,
+   idTemaInvestigacion INT4                 not null,
+   active    boolean not null default true,
+   constraint PK_INVOLUCRADO_TEMA_INVESTIGAC primary key (idInvolucradoTema)
 );
 
 /*==============================================================*/
 /* Table: MUESTRA                                               */
 /*==============================================================*/
 create table MUESTRA (
-   MUESTRA_ID           SERIAL               not null,
-   MUESTRA              VARCHAR(100)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_MUESTRA primary key (MUESTRA_ID)
+   idMuestra           SERIAL               not null,
+   muestra             VARCHAR(100)         not null,
+   active    boolean not null default true,
+   constraint PK_MUESTRA primary key (idMuestra)
 );
 
 /*==============================================================*/
 /* Table: OBJETIVO_ESPECIFICO                                   */
 /*==============================================================*/
 create table OBJETIVO_ESPECIFICO (
-   OBJETIVO_ESPECIFICO_ID SERIAL               not null,
-   PROYECTIVA_ID        INT4                 not null,
-   ESTADIO_ID           INT4                 not null,
-   OBJETIVO             VARCHAR(250)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_OBJETIVO_ESPECIFICO primary key (OBJETIVO_ESPECIFICO_ID)
+   idObjetivoEspecifico SERIAL               not null,
+   idProyectiva        INT4                 not null,
+   idEstadio           INT4                 not null,
+   objetivo             VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_OBJETIVO_ESPECIFICO primary key (idObjetivoEspecifico)
 );
 
 /*==============================================================*/
 /* Table: OBJETIVO_GENERAL                                      */
 /*==============================================================*/
 create table OBJETIVO_GENERAL (
-   OBJETIVO_GENERAL_ID  SERIAL               not null,
-   PROYECTIVA_ID        INT4                 not null,
-   OBJETIVO             VARCHAR(250)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_OBJETIVO_GENERAL primary key (OBJETIVO_GENERAL_ID)
+   idObjetivoGeneral  SERIAL               not null,
+   idProyectiva        INT4                 not null,
+   objetivo             VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_OBJETIVO_GENERAL primary key (idObjetivoGeneral)
 );
 
 /*==============================================================*/
 /* Table: PERSPECTIVA_INTERPRETACION                            */
 /*==============================================================*/
 create table PERSPECTIVA_INTERPRETACION (
-   PERSPECTIVA_INTERPRETACION_ID SERIAL               not null,
-   PERSPECTIVA_INTERPRETACION VARCHAR(30)          not null,
-   ACTIVE    boolean not null,
-   constraint PK_PERSPECTIVA_INTERPRETACION primary key (PERSPECTIVA_INTERPRETACION_ID)
+   idPerspectivaInterpretacion SERIAL               not null,
+   perspectivaInterpretacion VARCHAR(30)          not null,
+   active    boolean not null default true,
+   constraint PK_PERSPECTIVA_INTERPRETACION primary key (idPerspectivaInterpretacion)
 );
 
 /*==============================================================*/
 /* Table: POBLACION                                             */
 /*==============================================================*/
 create table POBLACION (
-   POBLACION_ID         SERIAL               not null,
-   POBLACION            VARCHAR(100)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_POBLACION primary key (POBLACION_ID)
+   idPoblacion         SERIAL               not null,
+   poblacion            VARCHAR(100)         not null,
+   active    boolean not null default true,
+   constraint PK_POBLACION primary key (idPoblacion)
 );
 
 /*==============================================================*/
 /* Table: PREDICCION                                            */
 /*==============================================================*/
 create table PREDICCION (
-   PREDICCION_ID        SERIAL               not null,
-   FUNDAMENTO_PROYECTIVO_ID INT4              not   null,
-   PREDICCION           VARCHAR(250)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_PREDICCION primary key (PREDICCION_ID)
+   idPrediccion        SERIAL               not null,
+   idFundamentoProyectivo INT4              not   null,
+   prediccion           VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_PREDICCION primary key (idPrediccion)
 );
 
 /*==============================================================*/
 /* Table: PROCESO_EXPLICATIVO                                   */
 /*==============================================================*/
 create table PROCESO_EXPLICATIVO (
-   PROCESO_EXPLICATIVO_ID SERIAL               not null,
-   FUNDAMENTO_PROYECTIVO_ID INT4                 not null,
-   PROCESO              VARCHAR(250)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_PROCESO_EXPLICATIVO primary key (PROCESO_EXPLICATIVO_ID)
+   idProcesoExplicativo SERIAL               not null,
+   idFundamentoProyectivo INT4                 not null,
+   proceso              VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_PROCESO_EXPLICATIVO primary key (idProcesoExplicativo)
 );
 
 /*==============================================================*/
 /* Table: PROGRAMA_ALTERNATIVO                                  */
 /*==============================================================*/
 create table PROGRAMA_ALTERNATIVO (
-   PROGRAMA_ALTERNATIVO_ID SERIAL               not null,
-   FUNDAMENTO_PROYECTIVO_ID INT4                not null,
-   PROGRAMA             VARCHAR(250)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_PROGRAMA_ALTERNATIVO primary key (PROGRAMA_ALTERNATIVO_ID)
+   idProgramaAlternativo SERIAL               not null,
+   idFundamentoProyectivo INT4                not null,
+   programa             VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_PROGRAMA_ALTERNATIVO primary key (idProgramaAlternativo)
 );
 
 /*==============================================================*/
 /* Table: PROYECTIVA                                            */
 /*==============================================================*/
 create table PROYECTIVA (
-   PROYECTIVA_ID        SERIAL               not null,
-   UNIDAD_ESTUDIO_ID    INT4                 not null,
-   ACTIVE    boolean not null,
-   constraint PK_PROYECTIVA primary key (PROYECTIVA_ID)
+   idProyectiva        SERIAL               not null,
+   idUnidadEstudio    INT4                 not null,
+   active    boolean not null default true,
+   constraint PK_PROYECTIVA primary key (idProyectiva)
 );
 
 /*==============================================================*/
 /* Table: ROL                                                   */
 /*==============================================================*/
 create table ROL (
-   ROL_ID               SERIAL               not null,
-   NOMBRE_ROL           VARCHAR(50)          not null,
-   ACTIVE    boolean not null,
-   constraint PK_ROL primary key (ROL_ID)
+   idRol               SERIAL               not null,
+   nombreRol          VARCHAR(50)          not null,
+   active    boolean not null default true,
+   constraint PK_ROL primary key (idRol)
 );
 
 /*==============================================================*/
 /* Table: ROL_USUARIO                                           */
 /*==============================================================*/
 create table ROL_USUARIO (
-   ROL                  SERIAL               not null,
-   USUARIO_ID           INT4                 not null,
-   ROL_ID               INT4                 not null,
-   ACTIVE    boolean not null,
-   constraint PK_ROL_USUARIO primary key (ROL)
+   idRolUsuario                  SERIAL               not null,
+   idUsuario           INT4                 not null,
+   idRol               INT4                 not null,
+   active    boolean not null default true,
+   constraint PK_ROL_USUARIO primary key (idRolUsuario)
 );
 
 /*==============================================================*/
 /* Table: SEMEJANZA                                             */
 /*==============================================================*/
 create table SEMEJANZA (
-   SEMEJANZA_ID         SERIAL               not null,
-   SEMEJANZA            VARCHAR(250)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_SEMEJANZA primary key (SEMEJANZA_ID)
+   idSemejanza         SERIAL               not null,
+   semejanza            VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_SEMEJANZA primary key (idSemejanza)
 );
 
 /*==============================================================*/
 /* Table: SEMEJANZA_CATEGORIA                                   */
 /*==============================================================*/
 create table SEMEJANZA_CATEGORIA (
-   SEMEJANZA_CATEGORIA_ID SERIAL               not null,
-   SEMEJANZA_ID         INT4                 not null,
-   CATEGORIA_ID         INT4                 not null,
-   ACTIVE    boolean not null,
-   constraint PK_SEMEJANZA_CATEGORIA primary key (SEMEJANZA_CATEGORIA_ID)
+   idSemejanzaCategoria SERIAL               not null,
+   idSemejanza         INT4                 not null,
+   idCategoria         INT4                 not null,
+   active    boolean not null default true,
+   constraint PK_SEMEJANZA_CATEGORIA primary key (idSemejanzaCategoria)
 );
 
 /*==============================================================*/
 /* Table: TECNICA_OBTENCION_INFORMACION                         */
 /*==============================================================*/
 create table TECNICA_OBTENCION_INFORMACION (
-   TECNICA_OBTENCION_ID SERIAL               not null,
-   TECNICA              VARCHAR(100)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_TECNICA_OBTENCION_INFORMACI primary key (TECNICA_OBTENCION_ID)
+   idTecnicaObtencionInformacion SERIAL               not null,
+   tecnica              VARCHAR(100)         not null,
+   active    boolean not null default true,
+   constraint PK_TECNICA_OBTENCION_INFORMACI primary key (idTecnicaObtencionInformacion)
 );
 
 /*==============================================================*/
 /* Table: TECNICA_OBTENCION_INFORMACION_C                       */
 /*==============================================================*/
 create table TECNICA_OBTENCION_INFORMACION_C (
-   TECNICA_CONDICION_ID SERIAL               not null,
-   TECNICA_OBTENCION_ID INT4                 not null,
-   CONDICION_METODOLOGICA_ID INT4                 not null,
-   ACTIVE    boolean not null,
-   constraint PK_TECNICA_OBTENCION_INFORMACI primary key (TECNICA_CONDICION_ID)
+   idTecnicaCondicion SERIAL               not null,
+   idTecnicaObtencionInformacion INT4                 not null,
+   idCondicionMetodologica INT4                 not null,
+   active    boolean not null default true,
+   constraint PK_TECNICA_OBTENCION_INFORMACI primary key (idTecnicaCondicion)
 );
 
 /*==============================================================*/
 /* Table: TEMA_INVESTIGACION                                    */
 /*==============================================================*/
 create table TEMA_INVESTIGACION (
-   TEMA_INVESTIGACION_ID SERIAL               not null,
-   USUARIO_ID           INT4                 not null,
-   TEMPORALIDAD_ID      INT4                 not null,
-   TEMPA_INCOMPLETO     VARCHAR(250)         not null,
-   TEMA                 VARCHAR(250)         not null,
-   SITUACION_PREOCUPANTE VARCHAR(250)         not null,
-   CONEXION_OTROS_TEMAS VARCHAR(250)         not null,
-   ACTIVE    boolean not null,
-   constraint PK_TEMA_INVESTIGACION primary key (TEMA_INVESTIGACION_ID)
+   idTemaInvestigacion SERIAL               not null,
+   idUsuario           INT4                 not null,
+   idTemporalidad      INT4                 not null,
+   temaIncompleto     VARCHAR(250)         not null,
+   tema                 VARCHAR(250)         not null,
+   situacionPreocupante VARCHAR(250)         not null,
+   conexionOtrosT VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_TEMA_INVESTIGACION primary key (idTemaInvestigacion)
 );
 
 /*==============================================================*/
 /* Table: TEMPORALIDAD_MEDICION                                 */
 /*==============================================================*/
 create table TEMPORALIDAD_MEDICION (
-   TEMPORALIDAD_ID      SERIAL               not null,
-   TEMPORALIDAD         VARCHAR(50)          not null,
-   ACTIVE    boolean not null,
-   constraint PK_TEMPORALIDAD_MEDICION primary key (TEMPORALIDAD_ID)
+   idTemporalidad      SERIAL               not null,
+   temporalidad         VARCHAR(50)          not null,
+   active    boolean not null default true,
+   constraint PK_TEMPORALIDAD_MEDICION primary key (idTemporalidad)
 );
 
 /*==============================================================*/
 /* Table: TEMPORALIDAD_MEDICION_CONTEXTO                        */
 /*==============================================================*/
 create table TEMPORALIDAD_MEDICION_CONTEXTO (
-   TEMPORALIDAD_CONTEXTO_ID SERIAL               not null,
-   TEMPORALIDAD_ID      INT4                 not null,
-   CONTEXTO_ID          INT4                 not null,
-   ARGUMENTO            VARCHAR(15)          not null,
-   ACTIVE    boolean not null,
-   constraint PK_TEMPORALIDAD_MEDICION_CONTE primary key (TEMPORALIDAD_CONTEXTO_ID)
+   idTemporalidadContexto SERIAL               not null,
+   idTemporalidad      INT4                 not null,
+   idContexto          INT4                 not null,
+   argumento            VARCHAR(15)          not null,
+   active    boolean not null default true,
+   constraint PK_TEMPORALIDAD_MEDICION_CONTE primary key (idTemporalidadContexto)
 );
 
 /*==============================================================*/
 /* Table: UNIDAD_ESTUDIO                                        */
 /*==============================================================*/
 create table UNIDAD_ESTUDIO (
-   UNIDAD_ESTUDIO_ID    SERIAL               not null,
-   POBLACION_ID         INT4                 not null,
-   MUESTRA_ID           INT4                 not null,
-   ACTIVE    boolean not null,
-   constraint PK_UNIDAD_ESTUDIO primary key (UNIDAD_ESTUDIO_ID)
+   idUnidadEstudio    SERIAL               not null,
+   idPoblacion         INT4                 not null,
+   idMuestra           INT4                 not null,
+   active    boolean not null default true,
+   constraint PK_UNIDAD_ESTUDIO primary key (idUnidadEstudio)
 );
 
 /*==============================================================*/
 /* Table: UNIDAD_INFORMATIVA                                    */
 /*==============================================================*/
 create table UNIDAD_INFORMATIVA (
-   UNIDAD_INFORMATIVA_ID SERIAL               not null,
-   PROYECTIVA_ID        INT4                 not null,
-   IDEA                 VARCHAR(250)         not null,
-   CITA                 VARCHAR(250)         not null,
-   REFERENCIA           VARCHAR(250)         not null,
-   EVENTO_ID            INT4                 not null,
-   ACTIVE    boolean not null,
-   constraint PK_UNIDAD_INFORMATIVA primary key (UNIDAD_INFORMATIVA_ID)
+   idUnidadInformativa SERIAL               not null,
+   idProyectiva        INT4                 not null,
+   idea                VARCHAR(250)         not null,
+   cita                 VARCHAR(250)         not null,
+   referencia           VARCHAR(250)         not null,
+   idEvento            INT4                 not null,
+   active    boolean not null default true,
+   constraint PK_UNIDAD_INFORMATIVA primary key (idUnidadInformativa)
 );
 
 /*==============================================================*/
 /* Table: USUARIO                                               */
 /*==============================================================*/
 create table USUARIO (
-   USUARIO_ID           SERIAL               not null,
-   CORREO               VARCHAR(50)          not null,
-   PASSWORD             VARCHAR(50)          not null,
-   NOMBRE               VARCHAR(50)          not null,
-   SEGUNDO_NOMBRE       VARCHAR(50)                  ,
-   APELLIDO             VARCHAR(50)          not null,
-   SEGUNDO_APELLIDO     VARCHAR(50)                  ,
-   ACTIVE    boolean not null,
-   constraint PK_USUARIO primary key (USUARIO_ID)
+   idUsuario           SERIAL               not null,
+   correo               VARCHAR(50)          not null,
+   contrasena             VARCHAR(50)          not null,
+   nombre               VARCHAR(50)          not null,
+   segundoNombre       VARCHAR(50)                  ,
+   apellido            VARCHAR(50)          not null,
+   segundoApellido     VARCHAR(50)                  ,
+   active    boolean not null default true,
+   constraint PK_USUARIO primary key (idUsuario)
 );
 
 /*==============================================================*/
 /* Table: VERSION                                               */
 /*==============================================================*/
 create table VERSION (
-   VERSION_ID           SERIAL               not null,
-   TEMA_INVESTIGACION_ID INT4                 not null,
-   FECHA                TIMESTAMP            not null,
-   ACTIVE    boolean not null,
-   constraint PK_VERSION primary key (VERSION_ID)
+   idVersion           SERIAL               not null,
+   idTemaInvestigacion INT4                 not null,
+   fecha                TIMESTAMP            not null,
+   active    boolean not null default true,
+   constraint PK_VERSION primary key (idVersion)
 );
 
 alter table ABORDAJE
-   add constraint FK_ABORDAJE_REFERENCE_ESTRUCTU foreign key (ESTRUCTURACION_PREVIA_ID)
-      references ESTRUCTURACION_PREVIA (ESTRUCTURACION_PREVIA_ID)
+   add constraint FK_ABORDAJE_REFERENCE_ESTRUCTU foreign key (idEstructuracionPrevia)
+      references ESTRUCTURACION_PREVIA (idEstructuracionPrevia)
       on delete restrict on update restrict;
 
 alter table ABORDAJE
-   add constraint FK_ABORDAJE_REFERENCE_GRADO_PA foreign key (GRADO_PARTICIPACION_ID)
-      references GRADO_PARTICIPACION (GRADO_PARTICIPACION_ID)
+   add constraint FK_ABORDAJE_REFERENCE_GRADO_PA foreign key (idGradoParticipacion)
+      references GRADO_PARTICIPACION (idGradoParticipacion)
       on delete restrict on update restrict;
 
 alter table ABORDAJE
-   add constraint FK_ABORDAJE_REFERENCE_PERSPECT foreign key (PERSPECTIVA_INTERPRETACION_ID)
-      references PERSPECTIVA_INTERPRETACION (PERSPECTIVA_INTERPRETACION_ID)
+   add constraint FK_ABORDAJE_REFERENCE_PERSPECT foreign key (idPerspectivaInterpretacion)
+      references PERSPECTIVA_INTERPRETACION (idPerspectivaInterpretacion)
       on delete restrict on update restrict;
 
 alter table ABORDAJE
-   add constraint FK_ABORDAJE_REFERENCE_PROYECTI foreign key (PROYECTIVA_ID)
-      references PROYECTIVA (PROYECTIVA_ID)
+   add constraint FK_ABORDAJE_REFERENCE_PROYECTI foreign key (idProyectiva)
+      references PROYECTIVA (idProyectiva)
       on delete restrict on update restrict;
 
 alter table ANALISIS_EVENTO
-   add constraint FK_ANALISIS_REFERENCE_FUNDAMEN foreign key (FUNDAMENTO_PROYECTIVO_ID)
-      references FUNDAMENTO_PROYECTIVO (FUNDAMENTO_PROYECTIVO_ID)
+   add constraint FK_ANALISIS_REFERENCE_FUNDAMEN foreign key (idFundamentoProyectivo)
+      references FUNDAMENTO_PROYECTIVO (idFundamentoProyectivo)
       on delete restrict on update restrict;
 
 alter table CATEGORIA_UNIDAD_INFORMATIVA
-   add constraint FK_CATEGORI_REFERENCE_UNIDAD_I foreign key (UNIDAD_INFORMATIVA_ID)
-      references UNIDAD_INFORMATIVA (UNIDAD_INFORMATIVA_ID)
+   add constraint FK_CATEGORI_REFERENCE_UNIDAD_I foreign key (idUnidadInformativa)
+      references UNIDAD_INFORMATIVA (idUnidadInformativa)
       on delete restrict on update restrict;
 
 alter table CATEGORIA_UNIDAD_INFORMATIVA
-   add constraint FK_CATEGORI_REFERENCE_CATEGORI foreign key (CATEGORIA_ID)
-      references CATEGORIA (CATEGORIA_ID)
+   add constraint FK_CATEGORI_REFERENCE_CATEGORI foreign key (idCategoria)
+      references CATEGORIA (idCategoria)
       on delete restrict on update restrict;
 
 alter table COMPARACION
-   add constraint FK_COMPARAC_REFERENCE_FUNDAMEN foreign key (FUNDAMENTO_PROYECTIVO_ID)
-      references FUNDAMENTO_PROYECTIVO (FUNDAMENTO_PROYECTIVO_ID)
+   add constraint FK_COMPARAC_REFERENCE_FUNDAMEN foreign key (idFundamentoProyectivo)
+      references FUNDAMENTO_PROYECTIVO (idFundamentoProyectivo)
       on delete restrict on update restrict;
 
 alter table CONDICION_METODOLOGICA
-   add constraint FK_CONDICIO_REFERENCE_TEMA_INV foreign key (TEMA_INVESTIGACION_ID)
-      references TEMA_INVESTIGACION (TEMA_INVESTIGACION_ID)
+   add constraint FK_CONDICIO_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
+      references TEMA_INVESTIGACION (idTemaInvestigacion)
       on delete restrict on update restrict;
 
 alter table CONDICION_PERSONAL
-   add constraint FK_CONDICIO_REFERENCE_TEMA_INV foreign key (TEMA_INVESTIGACION_ID)
-      references TEMA_INVESTIGACION (TEMA_INVESTIGACION_ID)
+   add constraint FK_CONDICIO_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
+      references TEMA_INVESTIGACION (idTemaInvestigacion)
       on delete restrict on update restrict;
 
 alter table CONDICION_SOCIAL
-   add constraint FK_CONDICIO_REFERENCE_TEMA_INV foreign key (TEMA_INVESTIGACION_ID)
-      references TEMA_INVESTIGACION (TEMA_INVESTIGACION_ID)
+   add constraint FK_CONDICIO_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
+      references TEMA_INVESTIGACION (idTemaInvestigacion)
       on delete restrict on update restrict;
 
 alter table CONSECUENCIA_TEMA_INVESTIGACION
-   add constraint FK_CONSECUE_REFERENCE_TEMA_INV foreign key (TEMA_INVESTIGACION_ID)
-      references TEMA_INVESTIGACION (TEMA_INVESTIGACION_ID)
+   add constraint FK_CONSECUE_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
+      references TEMA_INVESTIGACION (idTemaInvestigacion)
       on delete restrict on update restrict;
 
 alter table CONSECUENCIA_TEMA_INVESTIGACION
-   add constraint FK_CONSECUE_REFERENCE_CONSECUE foreign key (CONSECUENCIA_ID)
-      references CONSECUENCIA (CONSECUENCIA_ID)
+   add constraint FK_CONSECUE_REFERENCE_CONSECUE foreign key (idConsecuencia)
+      references CONSECUENCIA (idConsecuencia)
       on delete restrict on update restrict;
 
 alter table CONTEXTO_UNIDAD_ESTUDIO
-   add constraint FK_CONTEXTO_REFERENCE_UNIDAD_E foreign key (UNIDAD_ESTUDIO_ID)
-      references UNIDAD_ESTUDIO (UNIDAD_ESTUDIO_ID)
+   add constraint FK_CONTEXTO_REFERENCE_UNIDAD_E foreign key (idUnidadEstudio)
+      references UNIDAD_ESTUDIO (idUnidadEstudio)
       on delete restrict on update restrict;
 
 alter table CONTEXTO_UNIDAD_ESTUDIO
-   add constraint FK_CONTEXTO_REFERENCE_CONTEXTO foreign key (CONTEXTO_ID)
-      references CONTEXTO (CONTEXTO_ID)
+   add constraint FK_CONTEXTO_REFERENCE_CONTEXTO foreign key (idContexto)
+      references CONTEXTO (idContexto)
       on delete restrict on update restrict;
 
 alter table DESCRIPCION_EVENTO
-   add constraint FK_DESCRIPC_REFERENCE_FUNDAMEN foreign key (FUNDAMENTO_PROYECTIVO_ID)
-      references FUNDAMENTO_PROYECTIVO (FUNDAMENTO_PROYECTIVO_ID)
+   add constraint FK_DESCRIPC_REFERENCE_FUNDAMEN foreign key (idFundamentoProyectivo)
+      references FUNDAMENTO_PROYECTIVO (idFundamentoProyectivo)
       on delete restrict on update restrict;
 
 alter table DIFERENCIA_CATEGORIA
-   add constraint FK_DIFERENC_REFERENCE_CATEGORI foreign key (CATEGORIA_ID)
-      references CATEGORIA (CATEGORIA_ID)
+   add constraint FK_DIFERENC_REFERENCE_CATEGORI foreign key (idCategoria)
+      references CATEGORIA (idCategoria)
       on delete restrict on update restrict;
 
 alter table DIFERENCIA_CATEGORIA
-   add constraint FK_DIFERENC_REFERENCE_DIFERENC foreign key (DIFERENCIA_ID)
-      references DIFERENCIA (DIFERENCIA_ID)
+   add constraint FK_DIFERENC_REFERENCE_DIFERENC foreign key (idDiferencia)
+      references DIFERENCIA (idDiferencia)
       on delete restrict on update restrict;
 
 alter table DISCIPLINA_EVENTO
-   add constraint FK_DISCIPLI_REFERENCE_DISCIPLI foreign key (DISCIPLINA_ID)
-      references DISCIPLINA (DISCIPLINA_ID)
+   add constraint FK_DISCIPLI_REFERENCE_DISCIPLI foreign key (idDisciplina)
+      references DISCIPLINA (idDisciplina)
       on delete restrict on update restrict;
 
 alter table DISCIPLINA_EVENTO
-   add constraint FK_DISCIPLI_REFERENCE_EVENTO foreign key (EVENTO_ID)
-      references EVENTO (EVENTO_ID)
+   add constraint FK_DISCIPLI_REFERENCE_EVENTO foreign key (idEvento)
+      references EVENTO (idEvento)
       on delete restrict on update restrict;
 
 alter table EFECTO_LOGRAR
-   add constraint FK_EFECTO_L_REFERENCE_FUNDAMEN foreign key (FUNDAMENTO_PROYECTIVO_ID)
-      references FUNDAMENTO_PROYECTIVO (FUNDAMENTO_PROYECTIVO_ID)
+   add constraint FK_EFECTO_L_REFERENCE_FUNDAMEN foreign key (idFundamentoProyectivo)
+      references FUNDAMENTO_PROYECTIVO (idFundamentoProyectivo)
       on delete restrict on update restrict;
 
 alter table EVENTO
-   add constraint FK_EVENTO_REFERENCE_CLASE_EV foreign key (CLASE_EVENTO_ID)
-      references CLASE_EVENTO (CLASE_EVENTO_ID)
+   add constraint FK_EVENTO_REFERENCE_CLASE_EV foreign key (idClaseEvento)
+      references CLASE_EVENTO (idClaseEvento)
       on delete restrict on update restrict;
 
 alter table EVENTO_PROYECTIVA
-   add constraint FK_EVENTO_P_REFERENCE_PROYECTI foreign key (PROYECTIVA_ID)
-      references PROYECTIVA (PROYECTIVA_ID)
+   add constraint FK_EVENTO_P_REFERENCE_PROYECTI foreign key (idProyectiva)
+      references PROYECTIVA (idProyectiva)
       on delete restrict on update restrict;
 
 alter table EVENTO_PROYECTIVA
-   add constraint FK_EVENTO_P_REFERENCE_EVENTO foreign key (EVENTO_ID)
-      references EVENTO (EVENTO_ID)
+   add constraint FK_EVENTO_P_REFERENCE_EVENTO foreign key (idEvento)
+      references EVENTO (idEvento)
       on delete restrict on update restrict;
 
 alter table EXPLICACION
-   add constraint FK_EXPLICAC_REFERENCE_FUNDAMEN foreign key (FUNDAMENTO_PROYECTIVO_ID)
-      references FUNDAMENTO_PROYECTIVO (FUNDAMENTO_PROYECTIVO_ID)
+   add constraint FK_EXPLICAC_REFERENCE_FUNDAMEN foreign key (idFundamentoProyectivo)
+      references FUNDAMENTO_PROYECTIVO (idFundamentoProyectivo)
       on delete restrict on update restrict;
 
 alter table FUNDAMENTO_PROYECTIVO
-   add constraint FK_FUNDAMEN_REFERENCE_PROYECTI foreign key (PROYECTIVA_ID)
-      references PROYECTIVA (PROYECTIVA_ID)
+   add constraint FK_FUNDAMEN_REFERENCE_PROYECTI foreign key (idProyectiva)
+      references PROYECTIVA (idProyectiva)
       on delete restrict on update restrict;
 
 alter table FUNDAMENTO_PROYECTIVO_ASPECTO_L
-   add constraint FK_FUNDAMEN_REFERENCE_ASPECTO_ foreign key (ASPECTO_LEGAL_ID)
-      references ASPECTO_LEGAL (ASPECTO_LEGAL_ID)
+   add constraint FK_FUNDAMEN_REFERENCE_ASPECTO_ foreign key (idAspectoLegal)
+      references ASPECTO_LEGAL (idAspectoLegal)
       on delete restrict on update restrict;
 
 alter table FUNDAMENTO_PROYECTIVO_ASPECTO_L
-   add constraint FK_FUNDAMEN_REFERENCE_FUNDAMEN foreign key (FUNDAMENTO_PROYECTIVO_ID)
-      references FUNDAMENTO_PROYECTIVO (FUNDAMENTO_PROYECTIVO_ID)
+   add constraint FK_FUNDAMEN_REFERENCE_FUNDAMEN foreign key (idFundamentoProyectivo)
+      references FUNDAMENTO_PROYECTIVO (idFundamentoProyectivo)
       on delete restrict on update restrict;
 
-alter table FUNDAMENTO_PROYECTIVO_INVESTIGA
-   add constraint FK_FUNDAMEN_REFERENCE_FUNDAMEN foreign key (FUNDAMENTO_PROYECTIVO_ID)
-      references FUNDAMENTO_PROYECTIVO (FUNDAMENTO_PROYECTIVO_ID)
+alter table FUNDAMENTO_PROYECTIVO_INVESTIGACION
+   add constraint FK_FUNDAMEN_REFERENCE_FUNDAMEN foreign key (idFundamentoProyectivo)
+      references FUNDAMENTO_PROYECTIVO (idFundamentoProyectivo)
       on delete restrict on update restrict;
 
-alter table FUNDAMENTO_PROYECTIVO_INVESTIGA
-   add constraint FK_FUNDAMEN_REFERENCE_TEMA_INV foreign key (TEMA_INVESTIGACION_ID)
-      references TEMA_INVESTIGACION (TEMA_INVESTIGACION_ID)
-      on delete restrict on update restrict;
-
-alter table INVOLUCRADO_TEMA_INVESTIGACION
-   add constraint FK_INVOLUCR_REFERENCE_INVOLUCR foreign key (INVOLCURADO_ID)
-      references INVOLUCRADO (INVOLCURADO_ID)
+alter table FUNDAMENTO_PROYECTIVO_INVESTIGACION
+   add constraint FK_FUNDAMEN_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
+      references TEMA_INVESTIGACION (idTemaInvestigacion)
       on delete restrict on update restrict;
 
 alter table INVOLUCRADO_TEMA_INVESTIGACION
-   add constraint FK_INVOLUCR_REFERENCE_TEMA_INV foreign key (TEMA_INVESTIGACION_ID)
-      references TEMA_INVESTIGACION (TEMA_INVESTIGACION_ID)
+   add constraint FK_INVOLUCR_REFERENCE_INVOLUCR foreign key (idInvolucrado)
+      references INVOLUCRADO (idInvolucrado)
+      on delete restrict on update restrict;
+
+alter table INVOLUCRADO_TEMA_INVESTIGACION
+   add constraint FK_INVOLUCR_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
+      references TEMA_INVESTIGACION (idTemaInvestigacion)
       on delete restrict on update restrict;
 
 alter table OBJETIVO_ESPECIFICO
-   add constraint FK_OBJETIVO_REFERENCE_PROYECTI foreign key (PROYECTIVA_ID)
-      references PROYECTIVA (PROYECTIVA_ID)
+   add constraint FK_OBJETIVO_REFERENCE_PROYECTI foreign key (idProyectiva)
+      references PROYECTIVA (idProyectiva)
       on delete restrict on update restrict;
 
 alter table OBJETIVO_ESPECIFICO
-   add constraint FK_OBJETIVO_REFERENCE_ESTADIO foreign key (ESTADIO_ID)
-      references ESTADIO (ESTADIO_ID)
+   add constraint FK_OBJETIVO_REFERENCE_ESTADIO foreign key (idEstadio)
+      references ESTADIO (idEstadio)
       on delete restrict on update restrict;
 
 alter table OBJETIVO_GENERAL
-   add constraint FK_OBJETIVO_REFERENCE_PROYECTI foreign key (PROYECTIVA_ID)
-      references PROYECTIVA (PROYECTIVA_ID)
+   add constraint FK_OBJETIVO_REFERENCE_PROYECTI foreign key (idProyectiva)
+      references PROYECTIVA (idProyectiva)
       on delete restrict on update restrict;
 
 alter table PREDICCION
-   add constraint FK_PREDICCI_REFERENCE_FUNDAMEN foreign key (FUNDAMENTO_PROYECTIVO_ID)
-      references FUNDAMENTO_PROYECTIVO (FUNDAMENTO_PROYECTIVO_ID)
+   add constraint FK_PREDICCI_REFERENCE_FUNDAMEN foreign key (idFundamentoProyectivo)
+      references FUNDAMENTO_PROYECTIVO (idFundamentoProyectivo)
       on delete restrict on update restrict;
 
 alter table PROCESO_EXPLICATIVO
-   add constraint FK_PROCESO__REFERENCE_FUNDAMEN foreign key (FUNDAMENTO_PROYECTIVO_ID)
-      references FUNDAMENTO_PROYECTIVO (FUNDAMENTO_PROYECTIVO_ID)
+   add constraint FK_PROCESO__REFERENCE_FUNDAMEN foreign key (idFundamentoProyectivo)
+      references FUNDAMENTO_PROYECTIVO (idFundamentoProyectivo)
       on delete restrict on update restrict;
 
 alter table PROGRAMA_ALTERNATIVO
-   add constraint FK_PROGRAMA_REFERENCE_FUNDAMEN foreign key (FUNDAMENTO_PROYECTIVO_ID)
-      references FUNDAMENTO_PROYECTIVO (FUNDAMENTO_PROYECTIVO_ID)
+   add constraint FK_PROGRAMA_REFERENCE_FUNDAMEN foreign key (idFundamentoProyectivo)
+      references FUNDAMENTO_PROYECTIVO (idFundamentoProyectivo)
       on delete restrict on update restrict;
 
 alter table PROYECTIVA
-   add constraint FK_PROYECTI_REFERENCE_UNIDAD_E foreign key (UNIDAD_ESTUDIO_ID)
-      references UNIDAD_ESTUDIO (UNIDAD_ESTUDIO_ID)
+   add constraint FK_PROYECTI_REFERENCE_UNIDAD_E foreign key (idUnidadEstudio)
+      references UNIDAD_ESTUDIO (idUnidadEstudio)
       on delete restrict on update restrict;
 
 alter table ROL_USUARIO
-   add constraint FK_ROL_USUA_REFERENCE_ROL foreign key (ROL_ID)
-      references ROL (ROL_ID)
+   add constraint FK_ROL_USUA_REFERENCE_ROL foreign key (idRol)
+      references ROL (idRol)
       on delete restrict on update restrict;
 
 alter table ROL_USUARIO
-   add constraint FK_ROL_USUA_REFERENCE_USUARIO foreign key (USUARIO_ID)
-      references USUARIO (USUARIO_ID)
+   add constraint FK_ROL_USUA_REFERENCE_USUARIO foreign key (idUsuario)
+      references USUARIO (idUsuario)
       on delete restrict on update restrict;
 
 alter table SEMEJANZA_CATEGORIA
-   add constraint FK_SEMEJANZ_REFERENCE_CATEGORI foreign key (CATEGORIA_ID)
-      references CATEGORIA (CATEGORIA_ID)
+   add constraint FK_SEMEJANZ_REFERENCE_CATEGORI foreign key (idCategoria)
+      references CATEGORIA (idCategoria)
       on delete restrict on update restrict;
 
 alter table SEMEJANZA_CATEGORIA
-   add constraint FK_SEMEJANZ_REFERENCE_SEMEJANZ foreign key (SEMEJANZA_ID)
-      references SEMEJANZA (SEMEJANZA_ID)
+   add constraint FK_SEMEJANZ_REFERENCE_SEMEJANZ foreign key (idSemejanza)
+      references SEMEJANZA (idSemejanza)
       on delete restrict on update restrict;
 
 alter table TECNICA_OBTENCION_INFORMACION_C
-   add constraint FK_TECNICA__REFERENCE_TECNICA_ foreign key (TECNICA_OBTENCION_ID)
-      references TECNICA_OBTENCION_INFORMACION (TECNICA_OBTENCION_ID)
+   add constraint FK_TECNICA__REFERENCE_TECNICA_ foreign key (idTecnicaObtencionInformacion)
+      references TECNICA_OBTENCION_INFORMACION (idTecnicaObtencionInformacion)
       on delete restrict on update restrict;
 
 alter table TECNICA_OBTENCION_INFORMACION_C
-   add constraint FK_TECNICA__REFERENCE_CONDICIO foreign key (CONDICION_METODOLOGICA_ID)
-      references CONDICION_METODOLOGICA (CONDICION_METODOLOGICA_ID)
+   add constraint FK_TECNICA__REFERENCE_CONDICIO foreign key (idCondicionMetodologica)
+      references CONDICION_METODOLOGICA (idCondicionMetodologica)
       on delete restrict on update restrict;
 
 alter table TEMA_INVESTIGACION
-   add constraint FK_TEMA_INV_REFERENCE_USUARIO foreign key (USUARIO_ID)
-      references USUARIO (USUARIO_ID)
+   add constraint FK_TEMA_INV_REFERENCE_USUARIO foreign key (idUsuario)
+      references USUARIO (idUsuario)
       on delete restrict on update restrict;
 
 alter table TEMA_INVESTIGACION
-   add constraint FK_TEMA_INV_REFERENCE_TEMPORAL foreign key (TEMPORALIDAD_ID)
-      references TEMPORALIDAD_MEDICION (TEMPORALIDAD_ID)
+   add constraint FK_TEMA_INV_REFERENCE_TEMPORAL foreign key (idTemporalidad)
+      references TEMPORALIDAD_MEDICION (idTemporalidad)
       on delete restrict on update restrict;
 
 alter table TEMPORALIDAD_MEDICION_CONTEXTO
-   add constraint FK_TEMPORAL_REFERENCE_TEMPORAL foreign key (TEMPORALIDAD_ID)
-      references TEMPORALIDAD_MEDICION (TEMPORALIDAD_ID)
+   add constraint FK_TEMPORAL_REFERENCE_TEMPORAL foreign key (idTemporalidad)
+      references TEMPORALIDAD_MEDICION (idTemporalidad)
       on delete restrict on update restrict;
 
 alter table TEMPORALIDAD_MEDICION_CONTEXTO
-   add constraint FK_TEMPORAL_REFERENCE_CONTEXTO foreign key (CONTEXTO_ID)
-      references CONTEXTO (CONTEXTO_ID)
+   add constraint FK_TEMPORAL_REFERENCE_CONTEXTO foreign key (idContexto)
+      references CONTEXTO (idContexto)
       on delete restrict on update restrict;
 
 alter table UNIDAD_ESTUDIO
-   add constraint FK_UNIDAD_E_REFERENCE_POBLACIO foreign key (POBLACION_ID)
-      references POBLACION (POBLACION_ID)
+   add constraint FK_UNIDAD_E_REFERENCE_POBLACIO foreign key (idPoblacion)
+      references POBLACION (idPoblacion)
       on delete restrict on update restrict;
 
 alter table UNIDAD_ESTUDIO
-   add constraint FK_UNIDAD_E_REFERENCE_MUESTRA foreign key (MUESTRA_ID)
-      references MUESTRA (MUESTRA_ID)
+   add constraint FK_UNIDAD_E_REFERENCE_MUESTRA foreign key (idMuestra)
+      references MUESTRA (idMuestra)
       on delete restrict on update restrict;
 
 alter table UNIDAD_INFORMATIVA
-   add constraint FK_UNIDAD_I_REFERENCE_PROYECTI foreign key (PROYECTIVA_ID)
-      references PROYECTIVA (PROYECTIVA_ID)
+   add constraint FK_UNIDAD_I_REFERENCE_PROYECTI foreign key (idProyectiva)
+      references PROYECTIVA (idProyectiva)
       on delete restrict on update restrict;
 
 alter table UNIDAD_INFORMATIVA
-   add constraint FK_UNIDAD_I_REFERENCE_EVENTO foreign key (EVENTO_ID)
-      references EVENTO (EVENTO_ID)
+   add constraint FK_UNIDAD_I_REFERENCE_EVENTO foreign key (idEvento)
+      references EVENTO (idEvento)
       on delete restrict on update restrict;
 
 alter table VERSION
-   add constraint FK_VERSION_REFERENCE_TEMA_INV foreign key (TEMA_INVESTIGACION_ID)
-      references TEMA_INVESTIGACION (TEMA_INVESTIGACION_ID)
+   add constraint FK_VERSION_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
+      references TEMA_INVESTIGACION (idTemaInvestigacion)
       on delete restrict on update restrict;
 
