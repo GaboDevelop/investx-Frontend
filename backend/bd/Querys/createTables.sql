@@ -1,9 +1,3 @@
-/*==============================================================*/
-/* DBMS name:      PostgreSQL 9.x                               */
-/* Created on:     15/6/2019 11:26:16 a. m.                     */
-/*==============================================================*/
-
-
 drop table ABORDAJE;
 
 drop table ANALISIS_EVENTO;
@@ -115,10 +109,10 @@ drop table VERSION;
 /*==============================================================*/
 create table ABORDAJE (
    idAbordaje          SERIAL               not null,
-   idEstructuracionPrevia INT4                 null,
-   idGradoParticipacion INT4                 null,
-   idPerspectivaInterpretacion INT4                 null,
-   idProyectiva        INT4                 null,
+   idProyectiva        INT4                 not null,
+   idEstructuracionPrevia INT4              not null,
+   idPerspectivaInterpretacion INT4         not null,
+   idGradoParticipacion INT4                not null,
    active    boolean not null default true,
    constraint PK_ABORDAJE primary key (idAbordaje)
 );
@@ -128,7 +122,7 @@ create table ABORDAJE (
 /*==============================================================*/
 create table ANALISIS_EVENTO (
    idAnalisisEvento   SERIAL               not null,
-   idFundamentoProyectivo INT4                 null,
+   idFundamentoProyectivo INT4             not null,
    analisis             VARCHAR(250)         not null,
    active    boolean not null default true,
    constraint PK_ANALISIS_EVENTO primary key (idAnalisisEvento)
@@ -180,7 +174,7 @@ create table CLASE_EVENTO (
 /*==============================================================*/
 create table COMPARACION (
    idComparacion       SERIAL               not null,
-   idFundamentoProyectivo INT4                 null,
+   idFundamentoProyectivo INT4              not null,
    comparacion          VARCHAR(250)         not null,
    active    boolean not null default true,
    constraint PK_COMPARACION primary key (idComparacion)
@@ -209,7 +203,7 @@ create table CONDICION_PERSONAL (
    recursos             BOOL                 not null,
    expectativa          BOOL                 not null,
    conocimiento         BOOL                 not null,
-   AsesoriaInformacion BOOL                 not null,
+   asesoriaInformacion BOOL                 not null,
    accesoInformacion   BOOL                 not null,
    active    boolean not null default true,
    constraint PK_CONDICION_PERSONAL primary key (idCondicionPersonal)
@@ -245,7 +239,7 @@ create table CONSECUENCIA (
 create table CONSECUENCIA_TEMA_INVESTIGACION (
    idConsecuenciaTema SERIAL               not null,
    idTemaInvestigacion INT4                 not null,
-   idConsecuencia      INT4                 null,
+   idConsecuencia      INT4                 not null,
    active    boolean not null default true,
    constraint PK_CONSECUENCIA_TEMA_INVESTIGA primary key (idConsecuenciaTema)
 );
@@ -278,7 +272,8 @@ create table CONTEXTO_UNIDAD_ESTUDIO (
 create table DESCRIPCION_EVENTO (
    idDescripcionEvento SERIAL               not null,
    idFundamentoProyectivo INT4                not  null,
-   descripcion          VARCHAR(250)         not null,
+   definicion          VARCHAR(250)         not null,
+   explicacion		VARCHAR(250)         not null,
    active    boolean not null default true,
    constraint PK_DESCRIPCION_EVENTO primary key (idDescripcionEvento)
 );
@@ -309,7 +304,7 @@ create table DIFERENCIA_CATEGORIA (
 /*==============================================================*/
 create table DISCIPLINA (
    idDisciplina        SERIAL               not null,
-   DISCIPLINA           VARCHAR(50)          not null,
+   disciplina           VARCHAR(50)          not null,
    active    boolean not null default true,
    constraint PK_DISCIPLINA primary key (idDisciplina)
 );
@@ -598,7 +593,7 @@ create table TECNICA_OBTENCION_INFORMACION (
    idTecnicaObtencionInformacion SERIAL               not null,
    tecnica              VARCHAR(100)         not null,
    active    boolean not null default true,
-   constraint PK_TECNICA_OBTENCION_INFORMACI primary key (idTecnicaObtencionInformacion)
+   constraint PK_TECNICA_OBTENCION_INFORMACIO primary key (idTecnicaObtencionInformacion)
 );
 
 /*==============================================================*/
@@ -625,6 +620,83 @@ create table TEMA_INVESTIGACION (
    conexionOtrosT VARCHAR(250)         not null,
    active    boolean not null default true,
    constraint PK_TEMA_INVESTIGACION primary key (idTemaInvestigacion)
+);
+
+/*==============================================================*/
+/* Table: POTENCIALIDAD                                         */
+/*==============================================================*/
+create table POTENCIALIDAD (
+   idPotencialidad SERIAL               not null,
+   idTemaInvestigacion INT4                 not null,
+   argumento VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_POTENCIALIDAD primary key (idPotencialidad)
+);
+
+/*==============================================================*/
+/* Table: OPORTUNIDAD                                           */
+/*==============================================================*/
+create table OPORTUNIDAD (
+   idOportunidad SERIAL               not null,
+   idTemaInvestigacion INT4                 not null,
+   argumento VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_OPORTUNIDAD primary key (idOportunidad) 
+);
+
+/*==============================================================*/
+/* Table: NECESIDAD                                             */
+/*==============================================================*/
+create table NECESIDAD (
+   idNecesidad SERIAL               not null,
+   idTemaInvestigacion INT4                 not null,
+   argumento VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_NECESIDAD primary key (idNecesidad)
+);
+
+/*==============================================================*/
+/* Table: TENDENCIA                                             */
+/*==============================================================*/
+create table TENDENCIA (
+   idTendencia SERIAL               not null,
+   idTemaInvestigacion INT4                 not null,
+   argumento VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_TENDENCIA primary key (idTendencia)
+);
+
+/*==============================================================*/
+/* Table: CURIOSIDAD_PREOCUPACION                               */
+/*==============================================================*/
+create table CURIOSIDAD_PREOCUPACION (
+   idCuriosidad SERIAL               not null,
+   idTemaInvestigacion INT4                 not null,
+   argumento VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_CURIOSIDAD_PREOCUPACION primary key (idCuriosidad)
+);
+
+/*==============================================================*/
+/* Table: CONTRADICCION                                         */
+/*==============================================================*/
+create table CONTRADICCION (
+   idContradiccion SERIAL               not null,
+   idTemaInvestigacion INT4                 not null,
+   argumento VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_CONTRADICCION primary key (idContradiccion)
+);
+
+/*==============================================================*/
+/* Table: MOTIVACION_INTERES                                    */
+/*==============================================================*/
+create table MOTIVACION_INTERES (
+   idMotivacion SERIAL               not null,
+   idTemaInvestigacion INT4                 not null,
+   argumento VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_MOTIVACION_INTERES primary key (idMotivacion)
 );
 
 /*==============================================================*/
@@ -666,10 +738,10 @@ create table UNIDAD_ESTUDIO (
 create table UNIDAD_INFORMATIVA (
    idUnidadInformativa SERIAL               not null,
    idProyectiva        INT4                 not null,
+   idEvento            INT4                 not null,
    idea                VARCHAR(250)         not null,
    cita                 VARCHAR(250)         not null,
    referencia           VARCHAR(250)         not null,
-   idEvento            INT4                 not null,
    active    boolean not null default true,
    constraint PK_UNIDAD_INFORMATIVA primary key (idUnidadInformativa)
 );
@@ -970,3 +1042,37 @@ alter table VERSION
       references TEMA_INVESTIGACION (idTemaInvestigacion)
       on delete restrict on update restrict;
 
+alter table OPORTUNIDAD
+   add constraint FK_OPORTUNI_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
+      references TEMA_INVESTIGACION (idTemaInvestigacion)
+      on delete restrict on update restrict;
+
+alter table POTENCIALIDAD
+   add constraint FK_POTENCIA_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
+      references TEMA_INVESTIGACION (idTemaInvestigacion)
+      on delete restrict on update restrict;
+
+alter table MOTIVACION_INTERES
+   add constraint FK_MOTIVACI_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
+      references TEMA_INVESTIGACION (idTemaInvestigacion)
+      on delete restrict on update restrict;
+
+alter table NECESIDAD
+   add constraint FK_NECESIDA_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
+      references TEMA_INVESTIGACION (idTemaInvestigacion)
+      on delete restrict on update restrict;
+
+alter table CONTRADICCION
+   add constraint FK_CONTRADI_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
+      references TEMA_INVESTIGACION (idTemaInvestigacion)
+      on delete restrict on update restrict;
+
+alter table CURIOSIDAD_PREOCUPACION
+   add constraint FK_CURIOSID_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
+      references TEMA_INVESTIGACION (idTemaInvestigacion)
+      on delete restrict on update restrict;
+
+alter table TENDENCIA
+   add constraint FK_TENDENCI_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
+      references TEMA_INVESTIGACION (idTemaInvestigacion)
+      on delete restrict on update restrict;
