@@ -123,7 +123,7 @@ create table ABORDAJE (
 create table ANALISIS_EVENTO (
    idAnalisisEvento   SERIAL               not null,
    idFundamentoProyectivo INT4             not null,
-   analisis             VARCHAR(250)         not null,
+   analisis             TEXT         not null,
    active    boolean not null default true,
    constraint PK_ANALISIS_EVENTO primary key (idAnalisisEvento)
 );
@@ -143,7 +143,7 @@ create table ASPECTO_LEGAL (
 /*==============================================================*/
 create table CATEGORIA (
    idCategoria         SERIAL               not null,
-   relacionTemaUnidad VARCHAR(250)         not null,
+   relacionTemaUnidad TEXT         not null,
    active    boolean not null default true,
    constraint PK_CATEGORIA primary key (idCategoria)
 );
@@ -164,7 +164,7 @@ create table CATEGORIA_UNIDAD_INFORMATIVA (
 /*==============================================================*/
 create table CLASE_EVENTO (
    idClaseEvento      SERIAL               not null,
-   clase                VARCHAR(50)          not null,
+   clase                VARCHAR(50)          not null check (clase in ('evento a modificar','proceso generador')),
    active    boolean not null default true,
    constraint PK_CLASE_EVENTO primary key (idClaseEvento)
 );
@@ -175,7 +175,7 @@ create table CLASE_EVENTO (
 create table COMPARACION (
    idComparacion       SERIAL               not null,
    idFundamentoProyectivo INT4              not null,
-   comparacion          VARCHAR(250)         not null,
+   comparacion          TEXT         not null,
    active    boolean not null default true,
    constraint PK_COMPARACION primary key (idComparacion)
 );
@@ -272,8 +272,8 @@ create table CONTEXTO_UNIDAD_ESTUDIO (
 create table DESCRIPCION_EVENTO (
    idDescripcionEvento SERIAL               not null,
    idFundamentoProyectivo INT4                not  null,
-   definicion          VARCHAR(250)         not null,
-   explicacion		VARCHAR(250)         not null,
+   definicion          TEXT         not null,
+   explicacion		TEXT         not null,
    active    boolean not null default true,
    constraint PK_DESCRIPCION_EVENTO primary key (idDescripcionEvento)
 );
@@ -283,7 +283,7 @@ create table DESCRIPCION_EVENTO (
 /*==============================================================*/
 create table DIFERENCIA (
    idDiferencia        SERIAL               not null,
-   diferencia           VARCHAR(250)         not null,
+   diferencia           TEXT         not null,
    active    boolean not null default true,
    constraint PK_DIFERENCIA primary key (idDiferencia)
 );
@@ -304,7 +304,7 @@ create table DIFERENCIA_CATEGORIA (
 /*==============================================================*/
 create table DISCIPLINA (
    idDisciplina        SERIAL               not null,
-   disciplina           VARCHAR(50)          not null,
+   disciplina           TEXT          not null check (disciplina in ('Gestión de proyectos de software','Gestión de transacciones electrónicas','Gestión de registros y transacciones electrónicas','Diseño de solución BI adecuada según las necesidades','Sistemas de Operación','Redes del Computador')),
    active    boolean not null default true,
    constraint PK_DISCIPLINA primary key (idDisciplina)
 );
@@ -336,7 +336,7 @@ create table EFECTO_LOGRAR (
 /*==============================================================*/
 create table ESTADIO (
    idEstadio           SERIAL               not null,
-   estadio              VARCHAR(30)          not null,
+   estadio              VARCHAR(30)          not null	check (estadio in ('exploratorio','descriptivo','proyectivo','evaluativo')) ,
    active    boolean not null default true,
    constraint PK_ESTADIO primary key (idEstadio)
 );
@@ -346,7 +346,7 @@ create table ESTADIO (
 /*==============================================================*/
 create table ESTRUCTURACION_PREVIA (
    idEstructuracionPrevia SERIAL               not null,
-   estructuracionPrevia VARCHAR(30)          not null,
+   estructuracionPrevia VARCHAR(30)          not null check (estructuracionPrevia in ('cosmologico','caologico')),
    active    boolean not null default true,
    constraint PK_ESTRUCTURACION_PREVIA primary key (idEstructuracionPrevia)
 );
@@ -357,7 +357,7 @@ create table ESTRUCTURACION_PREVIA (
 create table EVENTO (
    idEvento            SERIAL               not null,
    idClaseEvento      INT4                 not null,
-   evento               VARCHAR(50)          not null,
+   evento               VARCHAR(250)          not null,
    active    boolean not null default true,
    constraint PK_EVENTO primary key (idEvento)
 );
@@ -379,7 +379,7 @@ create table EVENTO_PROYECTIVA (
 create table EXPLICACION (
    idExplicacion       SERIAL               not null,
    idFundamentoProyectivo INT4             not null,
-   explicacion          VARCHAR(250)         not null,
+   explicacion          TEXT         not null,
    active    boolean not null default true,
    constraint PK_EXPLICACION primary key (idExplicacion)
 );
@@ -390,7 +390,7 @@ create table EXPLICACION (
 create table FUNDAMENTO_PROYECTIVO (
    idFundamentoProyectivo SERIAL           not null,
    idProyectiva        INT4                 not null,
-   teoria               VARCHAR(250)         not null,
+   teoria               TEXT         not null,
    active    boolean not null default true,
    constraint PK_FUNDAMENTO_PROYECTIVO primary key (idFundamentoProyectivo)
 );
@@ -422,7 +422,7 @@ create table FUNDAMENTO_PROYECTIVO_INVESTIGACION (
 /*==============================================================*/
 create table GRADO_PARTICIPACION (
    idGradoParticipacion SERIAL               not null,
-   gradoParticipacion  VARCHAR(30)          not null,
+   gradoParticipacion  VARCHAR(30)          not null check (gradoParticipacion in ('endogeno','exogeno')),
    active    boolean not null default true,
    constraint PK_GRADO_PARTICIPACION primary key (idGradoParticipacion)
 );
@@ -465,7 +465,7 @@ create table OBJETIVO_ESPECIFICO (
    idObjetivoEspecifico SERIAL               not null,
    idProyectiva        INT4                 not null,
    idEstadio           INT4                 not null,
-   objetivo             VARCHAR(250)         not null,
+   objetivo             TEXT         not null,
    active    boolean not null default true,
    constraint PK_OBJETIVO_ESPECIFICO primary key (idObjetivoEspecifico)
 );
@@ -476,7 +476,7 @@ create table OBJETIVO_ESPECIFICO (
 create table OBJETIVO_GENERAL (
    idObjetivoGeneral  SERIAL               not null,
    idProyectiva        INT4                 not null,
-   objetivo             VARCHAR(250)         not null,
+   objetivo             TEXT         not null,
    active    boolean not null default true,
    constraint PK_OBJETIVO_GENERAL primary key (idObjetivoGeneral)
 );
@@ -486,7 +486,7 @@ create table OBJETIVO_GENERAL (
 /*==============================================================*/
 create table PERSPECTIVA_INTERPRETACION (
    idPerspectivaInterpretacion SERIAL               not null,
-   perspectivaInterpretacion VARCHAR(30)          not null,
+   perspectivaInterpretacion VARCHAR(30)          not null check (perspectivaInterpretacion in ('etic','emic')) ,
    active    boolean not null default true,
    constraint PK_PERSPECTIVA_INTERPRETACION primary key (idPerspectivaInterpretacion)
 );
@@ -507,7 +507,7 @@ create table POBLACION (
 create table PREDICCION (
    idPrediccion        SERIAL               not null,
    idFundamentoProyectivo INT4              not   null,
-   prediccion           VARCHAR(250)         not null,
+   prediccion           TEXT         not null,
    active    boolean not null default true,
    constraint PK_PREDICCION primary key (idPrediccion)
 );
@@ -518,7 +518,7 @@ create table PREDICCION (
 create table PROCESO_EXPLICATIVO (
    idProcesoExplicativo SERIAL               not null,
    idFundamentoProyectivo INT4                 not null,
-   proceso              VARCHAR(250)         not null,
+   proceso              TEXT         not null,
    active    boolean not null default true,
    constraint PK_PROCESO_EXPLICATIVO primary key (idProcesoExplicativo)
 );
@@ -549,7 +549,7 @@ create table PROYECTIVA (
 /*==============================================================*/
 create table ROL (
    idRol               SERIAL               not null,
-   nombreRol          VARCHAR(50)          not null,
+   nombreRol          VARCHAR(50)          not null check (nombreRol in ('Investigador','Tutor','Institucion','Administrador')),
    active    boolean not null default true,
    constraint PK_ROL primary key (idRol)
 );
@@ -570,7 +570,7 @@ create table ROL_USUARIO (
 /*==============================================================*/
 create table SEMEJANZA (
    idSemejanza         SERIAL               not null,
-   semejanza            VARCHAR(250)         not null,
+   semejanza            TEXT                  not null,
    active    boolean not null default true,
    constraint PK_SEMEJANZA primary key (idSemejanza)
 );
@@ -615,9 +615,9 @@ create table TEMA_INVESTIGACION (
    idUsuario           INT4                 not null,
    idTemporalidad      INT4                 not null,
    temaIncompleto     VARCHAR(250)         not null,
-   tema                 VARCHAR(250)         not null,
-   situacionPreocupante VARCHAR(250)         not null,
-   conexionOtrosT VARCHAR(250)         not null,
+   tema                 TEXT         not null,
+   situacionPreocupante TEXT         not null,
+   conexionOtrosT 	TEXT         not null,
    active    boolean not null default true,
    constraint PK_TEMA_INVESTIGACION primary key (idTemaInvestigacion)
 );
@@ -628,7 +628,7 @@ create table TEMA_INVESTIGACION (
 create table POTENCIALIDAD (
    idPotencialidad SERIAL               not null,
    idTemaInvestigacion INT4                 not null,
-   argumento VARCHAR(250)         not null,
+   argumento TEXT         not null,
    active    boolean not null default true,
    constraint PK_POTENCIALIDAD primary key (idPotencialidad)
 );
@@ -639,7 +639,7 @@ create table POTENCIALIDAD (
 create table OPORTUNIDAD (
    idOportunidad SERIAL               not null,
    idTemaInvestigacion INT4                 not null,
-   argumento VARCHAR(250)         not null,
+   argumento TEXT         not null,
    active    boolean not null default true,
    constraint PK_OPORTUNIDAD primary key (idOportunidad) 
 );
@@ -650,7 +650,7 @@ create table OPORTUNIDAD (
 create table NECESIDAD (
    idNecesidad SERIAL               not null,
    idTemaInvestigacion INT4                 not null,
-   argumento VARCHAR(250)         not null,
+   argumento TEXT         not null,
    active    boolean not null default true,
    constraint PK_NECESIDAD primary key (idNecesidad)
 );
@@ -661,7 +661,7 @@ create table NECESIDAD (
 create table TENDENCIA (
    idTendencia SERIAL               not null,
    idTemaInvestigacion INT4                 not null,
-   argumento VARCHAR(250)         not null,
+   argumento TEXT         not null,
    active    boolean not null default true,
    constraint PK_TENDENCIA primary key (idTendencia)
 );
@@ -672,7 +672,7 @@ create table TENDENCIA (
 create table CURIOSIDAD_PREOCUPACION (
    idCuriosidad SERIAL               not null,
    idTemaInvestigacion INT4                 not null,
-   argumento VARCHAR(250)         not null,
+   argumento TEXT         not null,
    active    boolean not null default true,
    constraint PK_CURIOSIDAD_PREOCUPACION primary key (idCuriosidad)
 );
@@ -683,7 +683,7 @@ create table CURIOSIDAD_PREOCUPACION (
 create table CONTRADICCION (
    idContradiccion SERIAL               not null,
    idTemaInvestigacion INT4                 not null,
-   argumento VARCHAR(250)         not null,
+   argumento TEXT         not null,
    active    boolean not null default true,
    constraint PK_CONTRADICCION primary key (idContradiccion)
 );
@@ -694,7 +694,7 @@ create table CONTRADICCION (
 create table MOTIVACION_INTERES (
    idMotivacion SERIAL               not null,
    idTemaInvestigacion INT4                 not null,
-   argumento VARCHAR(250)         not null,
+   argumento TEXT         not null,
    active    boolean not null default true,
    constraint PK_MOTIVACION_INTERES primary key (idMotivacion)
 );
@@ -739,9 +739,9 @@ create table UNIDAD_INFORMATIVA (
    idUnidadInformativa SERIAL               not null,
    idProyectiva        INT4                 not null,
    idEvento            INT4                 not null,
-   idea                VARCHAR(250)         not null,
-   cita                 VARCHAR(250)         not null,
-   referencia           VARCHAR(250)         not null,
+   idea                TEXT         not null,
+   cita                 TEXT         not null,
+   referencia           TEXT         not null,
    active    boolean not null default true,
    constraint PK_UNIDAD_INFORMATIVA primary key (idUnidadInformativa)
 );
