@@ -1,4 +1,4 @@
-DROP TABLE PREDICCION;
+﻿DROP TABLE PREDICCION;
 DROP TABLE EXPLICACION;
 DROP TABLE COMPARACION;
 DROP TABLE FUNDAMENTO_PROYECTIVO_INVESTIGA;
@@ -59,444 +59,116 @@ DROP TABLE TEMPORALIDAD_MEDICION;
 DROP TABLE USUARIO;
 
 
+DROP TABLE IF EXISTS USUARIO CASCADE;
+DROP TABLE IF EXISTS TEMPORALIDAD_MEDICION CASCADE;
+DROP TABLE IF EXISTS VERSION CASCADE;
+DROP TABLE IF EXISTS ROL CASCADE;
+DROP TABLE IF EXISTS ROL_USUARIO CASCADE;
+DROP TABLE IF EXISTS POTENCIALIDAD CASCADE;
+DROP TABLE IF EXISTS OPORTUNIDAD CASCADE;
+DROP TABLE IF EXISTS NECESIDAD CASCADE;
+DROP TABLE IF EXISTS TENDENCIA CASCADE;
+DROP TABLE IF EXISTS CURIOSIDAD_PREOCUPACION CASCADE;
+DROP TABLE IF EXISTS CONTRADICCION CASCADE;
+DROP TABLE IF EXISTS MOTIVACION_INTERES CASCADE;
+DROP TABLE IF EXISTS CONSECUENCIA CASCADE;
+DROP TABLE IF EXISTS CONSECUENCIA_TEMA_INVESTIGACION CASCADE;
+DROP TABLE IF EXISTS INVOLUCRADO CASCADE;
+DROP TABLE IF EXISTS INVOLUCRADO_TEMA_INVESTIGACION CASCADE;
+DROP TABLE IF EXISTS TEMA_INVESTIGACION CASCADE;
+DROP TABLE IF EXISTS CONDICION_SOCIAL CASCADE;
+DROP TABLE IF EXISTS CONDICION_PERSONAL CASCADE;
+DROP TABLE IF EXISTS CONDICION_METODOLOGICA CASCADE;
+DROP TABLE IF EXISTS TECNICA_OBTENCION_INFORMACION CASCADE;
+DROP TABLE IF EXISTS TECNICA_OBTENCION_INFORMACION_C CASCADE;
+DROP TABLE IF EXISTS CONTEXTO CASCADE;
+DROP TABLE IF EXISTS TEMPORALIDAD_MEDICION_CONTEXTO CASCADE;
+DROP TABLE IF EXISTS POBLACION CASCADE;
+DROP TABLE IF EXISTS MUESTRA CASCADE;
+DROP TABLE IF EXISTS UNIDAD_ESTUDIO CASCADE;
+DROP TABLE IF EXISTS CONTEXTO_UNIDAD_ESTUDIO CASCADE;
+DROP TABLE IF EXISTS PROYECTIVA CASCADE;
+DROP TABLE IF EXISTS CLASE_EVENTO CASCADE;
+DROP TABLE IF EXISTS EVENTO CASCADE;
+DROP TABLE IF EXISTS UNIDAD_INFORMATIVA CASCADE;
+DROP TABLE IF EXISTS CATEGORIA CASCADE;
+DROP TABLE IF EXISTS CATEGORIA_UNIDAD_INFORMATIVA CASCADE;
+DROP TABLE IF EXISTS SEMEJANZA CASCADE;
+DROP TABLE IF EXISTS SEMEJANZA_CATEGORIA CASCADE;
+DROP TABLE IF EXISTS DIFERENCIA CASCADE;
+DROP TABLE IF EXISTS DIFERENCIA_CATEGORIA CASCADE;
+DROP TABLE IF EXISTS EVENTO_PROYECTIVA CASCADE;
+DROP TABLE IF EXISTS DISCIPLINA CASCADE;
+DROP TABLE IF EXISTS DISCIPLINA_EVENTO CASCADE;
+DROP TABLE IF EXISTS OBJETIVO_GENERAL CASCADE;
+DROP TABLE IF EXISTS ESTRUCTURACION_PREVIA CASCADE;
+DROP TABLE IF EXISTS PERSPECTIVA_INTERPRETACION CASCADE;
+DROP TABLE IF EXISTS GRADO_PARTICIPACION CASCADE;
+DROP TABLE IF EXISTS ABORDAJE CASCADE;
+DROP TABLE IF EXISTS ESTADIO CASCADE;
+DROP TABLE IF EXISTS FUNDAMENTO_PROYECTIVO CASCADE;
+DROP TABLE IF EXISTS OBJETIVO_ESPECIFICO CASCADE;
+DROP TABLE IF EXISTS EFECTO_LOGRAR CASCADE;
+DROP TABLE IF EXISTS ASPECTO_LEGAL CASCADE;
+DROP TABLE IF EXISTS FUNDAMENTO_PROYECTIVO_ASPECTO_L CASCADE;
+DROP TABLE IF EXISTS PROCESO_EXPLICATIVO CASCADE;
+DROP TABLE IF EXISTS ANALISIS_EVENTO CASCADE;
+DROP TABLE IF EXISTS DESCRIPCION_EVENTO CASCADE;
+DROP TABLE IF EXISTS FUNDAMENTO_PROYECTIVO_INVESTIGACION CASCADE;
+DROP TABLE IF EXISTS COMPARACION CASCADE;
+DROP TABLE IF EXISTS EXPLICACION CASCADE;
+DROP TABLE IF EXISTS PREDICCION CASCADE;
+
+
 /*==============================================================*/
-/* Table: ABORDAJE                                              */
+/* Table: USUARIO                                               */
 /*==============================================================*/
-create table ABORDAJE (
-   idAbordaje          SERIAL               not null,
-   idProyectiva        INT4                 not null,
-   idEstructuracionPrevia INT4              not null,
-   idPerspectivaInterpretacion INT4         not null,
-   idGradoParticipacion INT4                not null,
+create table USUARIO (
+   idUsuario           SERIAL               not null,
+   correo               VARCHAR(50)          not null,
+   contrasena             VARCHAR(50)          not null,
+   nombre               VARCHAR(50)          not null,
+   segundoNombre       VARCHAR(50)                  ,
+   apellido            VARCHAR(50)          not null,
+   segundoApellido     VARCHAR(50)                  ,
    active    boolean not null default true,
-   constraint PK_ABORDAJE primary key (idAbordaje)
+   constraint PK_USUARIO primary key (idUsuario)
 );
 
 /*==============================================================*/
-/* Table: ANALISIS_EVENTO                                       */
+/* Table: TEMPORALIDAD_MEDICION                                 */
 /*==============================================================*/
-create table ANALISIS_EVENTO (
-   idAnalisisEvento   SERIAL               not null,
-   idFundamentoProyectivo INT4             not null,
-   analisis             TEXT         not null,
+create table TEMPORALIDAD_MEDICION (
+   idTemporalidad      SERIAL               not null,
+   temporalidad         VARCHAR(50)          not null,
    active    boolean not null default true,
-   constraint PK_ANALISIS_EVENTO primary key (idAnalisisEvento)
+   constraint PK_TEMPORALIDAD_MEDICION primary key (idTemporalidad)
 );
 
 /*==============================================================*/
-/* Table: ASPECTO_LEGAL                                         */
+/* Table: TEMA_INVESTIGACION                                    */
 /*==============================================================*/
-create table ASPECTO_LEGAL (
-   idAspectoLegal     SERIAL               not null,
-   aspecto              VARCHAR(250)         not null,
+create table TEMA_INVESTIGACION (
+   idTemaInvestigacion SERIAL               not null,
+   idUsuario           INT4                 not null,
+   idTemporalidad      INT4                 not null,
+   temaIncompleto     VARCHAR(250)         not null,
+   tema                 TEXT         not null,
+   situacionPreocupante TEXT         not null,
+   conexionOtrosT 	TEXT         not null,
    active    boolean not null default true,
-   constraint PK_ASPECTO_LEGAL primary key (idAspectoLegal)
+   constraint PK_TEMA_INVESTIGACION primary key (idTemaInvestigacion)
 );
 
 /*==============================================================*/
-/* Table: CATEGORIA                                             */
+/* Table: VERSION                                               */
 /*==============================================================*/
-create table CATEGORIA (
-   idCategoria         SERIAL               not null,
-   relacionTemaUnidad TEXT         not null,
-   active    boolean not null default true,
-   constraint PK_CATEGORIA primary key (idCategoria)
-);
-
-/*==============================================================*/
-/* Table: CATEGORIA_UNIDAD_INFORMATIVA                          */
-/*==============================================================*/
-create table CATEGORIA_UNIDAD_INFORMATIVA (
-   idCategoriaUnidad  SERIAL               not null,
-   idUnidadInformativa INT4                 not null,
-   idCategoria         INT4                 not null,
-   active    boolean not null default true,
-   constraint PK_CATEGORIA_UNIDAD_INFORMATIV primary key (idCategoriaUnidad)
-);
-
-/*==============================================================*/
-/* Table: CLASE_EVENTO                                          */
-/*==============================================================*/
-create table CLASE_EVENTO (
-   idClaseEvento      SERIAL               not null,
-   clase                VARCHAR(50)          not null check (clase in ('evento a modificar','proceso generador')),
-   active    boolean not null default true,
-   constraint PK_CLASE_EVENTO primary key (idClaseEvento)
-);
-
-/*==============================================================*/
-/* Table: COMPARACION                                           */
-/*==============================================================*/
-create table COMPARACION (
-   idComparacion       SERIAL               not null,
-   idFundamentoProyectivo INT4              not null,
-   comparacion          TEXT         not null,
-   active    boolean not null default true,
-   constraint PK_COMPARACION primary key (idComparacion)
-);
-
-/*==============================================================*/
-/* Table: CONDICION_METODOLOGICA                                */
-/*==============================================================*/
-create table CONDICION_METODOLOGICA (
-   idCondicionMetodologica SERIAL               not null,
+create table VERSION (
+   idVersion           SERIAL               not null,
    idTemaInvestigacion INT4                 not null,
-   poblacionAccesible  BOOL                 not null,
-   abordajePosible     BOOL                 not null,
-   instrumentoMedicion BOOL                 not null,
-   estudiosPrevios     BOOL                 not null,
+   fecha                TIMESTAMP            not null,
    active    boolean not null default true,
-   constraint PK_CONDICION_METODOLOGICA primary key (idCondicionMetodologica)
-);
-
-/*==============================================================*/
-/* Table: CONDICION_PERSONAL                                    */
-/*==============================================================*/
-create table CONDICION_PERSONAL (
-   idCondicionPersonal SERIAL               not null,
-   idTemaInvestigacion INT4                 not null,
-   recursos             BOOL                 not null,
-   expectativa          BOOL                 not null,
-   conocimiento         BOOL                 not null,
-   asesoriaInformacion BOOL                 not null,
-   accesoInformacion   BOOL                 not null,
-   active    boolean not null default true,
-   constraint PK_CONDICION_PERSONAL primary key (idCondicionPersonal)
-);
-
-/*==============================================================*/
-/* Table: CONDICION_SOCIAL                                      */
-/*==============================================================*/
-create table CONDICION_SOCIAL (
-   idCondicionSocial  SERIAL               not null,
-   idTemaInvestigacion INT4                 not null,
-   contribucion         BOOL                 not null,
-   necesidad            BOOL                 not null,
-   aporte               BOOL                 not null,
-   aplicacion           BOOL                 not null,
-   active    boolean not null default true,
-   constraint PK_CONDICION_SOCIAL primary key (idCondicionSocial)
-);
-
-/*==============================================================*/
-/* Table: CONSECUENCIA                                          */
-/*==============================================================*/
-create table CONSECUENCIA (
-   idConsecuencia      SERIAL               not null,
-   consecuencia         VARCHAR(250)         not null,
-   active    boolean not null default true,
-   constraint PK_CONSECUENCIA primary key (idConsecuencia)
-);
-
-/*==============================================================*/
-/* Table: CONSECUENCIA_TEMA_INVESTIGACION                       */
-/*==============================================================*/
-create table CONSECUENCIA_TEMA_INVESTIGACION (
-   idConsecuenciaTema SERIAL               not null,
-   idTemaInvestigacion INT4                 not null,
-   idConsecuencia      INT4                 not null,
-   active    boolean not null default true,
-   constraint PK_CONSECUENCIA_TEMA_INVESTIGA primary key (idConsecuenciaTema)
-);
-
-/*==============================================================*/
-/* Table: CONTEXTO                                              */
-/*==============================================================*/
-create table CONTEXTO (
-   idContexto          SERIAL               not null,
-   contexto             VARCHAR(250)         not null,
-   active    boolean not null default true,
-   constraint PK_CONTEXTO primary key (idContexto)
-);
-
-/*==============================================================*/
-/* Table: CONTEXTO_UNIDAD_ESTUDIO                               */
-/*==============================================================*/
-create table CONTEXTO_UNIDAD_ESTUDIO (
-   idContextoUnidadEstudio   SERIAL               not null,
-   idContexto          INT4                 not null,
-   idUnidadEstudio    INT4                 not null,
-   argumento            VARCHAR(250)         not null,
-   active    boolean not null default true,
-   constraint PK_CONTEXTO_UNIDAD_ESTUDIO primary key (idContextoUnidadEstudio)
-);
-
-/*==============================================================*/
-/* Table: DESCRIPCION_EVENTO                                    */
-/*==============================================================*/
-create table DESCRIPCION_EVENTO (
-   idDescripcionEvento SERIAL               not null,
-   idFundamentoProyectivo INT4                not  null,
-   definicion          TEXT         not null,
-   explicacion		TEXT         not null,
-   active    boolean not null default true,
-   constraint PK_DESCRIPCION_EVENTO primary key (idDescripcionEvento)
-);
-
-/*==============================================================*/
-/* Table: DIFERENCIA                                            */
-/*==============================================================*/
-create table DIFERENCIA (
-   idDiferencia        SERIAL               not null,
-   diferencia           TEXT         not null,
-   active    boolean not null default true,
-   constraint PK_DIFERENCIA primary key (idDiferencia)
-);
-
-/*==============================================================*/
-/* Table: DIFERENCIA_CATEGORIA                                  */
-/*==============================================================*/
-create table DIFERENCIA_CATEGORIA (
-   idDiferenciaCategoria SERIAL               not null,
-   idDiferencia        INT4                 not null,
-   idCategoria         INT4                 not null,
-   active    boolean not null default true,
-   constraint PK_DIFERENCIA_CATEGORIA primary key (idDiferenciaCategoria)
-);
-
-/*==============================================================*/
-/* Table: DISCIPLINA                                            */
-/*==============================================================*/
-create table DISCIPLINA (
-   idDisciplina        SERIAL               not null,
-   disciplina           TEXT          not null check (disciplina in ('Gesti�n de proyectos de software','Gesti�n de transacciones electr�nicas','Gesti�n de registros y transacciones electr�nicas','Dise�o de soluci�n BI adecuada seg�n las necesidades','Sistemas de Operaci�n','Redes del Computador')),
-   active    boolean not null default true,
-   constraint PK_DISCIPLINA primary key (idDisciplina)
-);
-
-/*==============================================================*/
-/* Table: DISCIPLINA_EVENTO                                     */
-/*==============================================================*/
-create table DISCIPLINA_EVENTO (
-   idDisciplinaEvento SERIAL               not null,
-   idDisciplina        INT4                 not null,
-   idEvento            INT4                 not null,
-   active    boolean not null default true,
-   constraint PK_DISCIPLINA_EVENTO primary key (idDisciplinaEvento)
-);
-
-/*==============================================================*/
-/* Table: EFECTO_LOGRAR                                         */
-/*==============================================================*/
-create table EFECTO_LOGRAR (
-   idEfectoLograr     SERIAL               not null,
-   idFundamentoProyectivo INT4             not  null,
-   efecto              VARCHAR(250)         not null,
-   active    boolean not null default true,
-   constraint PK_EFECTO_LOGRAR primary key (idEfectoLograr)
-);
-
-/*==============================================================*/
-/* Table: ESTADIO                                               */
-/*==============================================================*/
-create table ESTADIO (
-   idEstadio           SERIAL               not null,
-   estadio              VARCHAR(30)          not null	check (estadio in ('exploratorio','descriptivo','proyectivo','evaluativo')) ,
-   active    boolean not null default true,
-   constraint PK_ESTADIO primary key (idEstadio)
-);
-
-/*==============================================================*/
-/* Table: ESTRUCTURACION_PREVIA                                 */
-/*==============================================================*/
-create table ESTRUCTURACION_PREVIA (
-   idEstructuracionPrevia SERIAL               not null,
-   estructuracionPrevia VARCHAR(30)          not null check (estructuracionPrevia in ('cosmologico','caologico')),
-   active    boolean not null default true,
-   constraint PK_ESTRUCTURACION_PREVIA primary key (idEstructuracionPrevia)
-);
-
-/*==============================================================*/
-/* Table: EVENTO                                                */
-/*==============================================================*/
-create table EVENTO (
-   idEvento            SERIAL               not null,
-   idClaseEvento      INT4                 not null,
-   evento               VARCHAR(250)          not null,
-   active    boolean not null default true,
-   constraint PK_EVENTO primary key (idEvento)
-);
-
-/*==============================================================*/
-/* Table: EVENTO_PROYECTIVA                                     */
-/*==============================================================*/
-create table EVENTO_PROYECTIVA (
-   idEventoProyectiva SERIAL               not null,
-   idEvento            INT4                 not null,
-   idProyectiva        INT4                 not null,
-   active    boolean not null default true,
-   constraint PK_EVENTO_PROYECTIVA primary key (idEventoProyectiva)
-);
-
-/*==============================================================*/
-/* Table: EXPLICACION                                           */
-/*==============================================================*/
-create table EXPLICACION (
-   idExplicacion       SERIAL               not null,
-   idFundamentoProyectivo INT4             not null,
-   explicacion          TEXT         not null,
-   active    boolean not null default true,
-   constraint PK_EXPLICACION primary key (idExplicacion)
-);
-
-/*==============================================================*/
-/* Table: FUNDAMENTO_PROYECTIVO                                 */
-/*==============================================================*/
-create table FUNDAMENTO_PROYECTIVO (
-   idFundamentoProyectivo SERIAL           not null,
-   idProyectiva        INT4                 not null,
-   teoria               TEXT         not null,
-   active    boolean not null default true,
-   constraint PK_FUNDAMENTO_PROYECTIVO primary key (idFundamentoProyectivo)
-);
-
-/*==============================================================*/
-/* Table: FUNDAMENTO_PROYECTIVO_ASPECTO_L                       */
-/*==============================================================*/
-create table FUNDAMENTO_PROYECTIVO_ASPECTO_L (
-   idFundamentoProyectivoAspecto SERIAL               not null,
-   idAspectoLegal     INT4                 not null,
-   idFundamentoProyectivo INT4             not null,
-   active    boolean not null default true,
-   constraint PK_FUNDAMENTO_PROYECTIVO_ASPEC primary key (idFundamentoProyectivoAspecto)
-);
-
-/*==============================================================*/
-/* Table: FUNDAMENTO_PROYECTIVO_INVESTIGA                       */
-/*==============================================================*/
-create table FUNDAMENTO_PROYECTIVO_INVESTIGACION (
-   idFundamentoProyectivoInvestigacion INT4                 not null,
-   idFundamentoProyectivo INT4                 not null,
-   idTemaInvestigacion INT4                 not null,
-   active    boolean not null default true,
-   constraint PK_FUNDAMENTO_PROYECTIVO_INVES primary key (idFundamentoProyectivoInvestigacion)
-);
-
-/*==============================================================*/
-/* Table: GRADO_PARTICIPACION                                   */
-/*==============================================================*/
-create table GRADO_PARTICIPACION (
-   idGradoParticipacion SERIAL               not null,
-   gradoParticipacion  VARCHAR(30)          not null check (gradoParticipacion in ('endogeno','exogeno')),
-   active    boolean not null default true,
-   constraint PK_GRADO_PARTICIPACION primary key (idGradoParticipacion)
-);
-
-/*==============================================================*/
-/* Table: INVOLUCRADO                                           */
-/*==============================================================*/
-create table INVOLUCRADO (
-   idInvolucrado       SERIAL               not null,
-   involucrado          VARCHAR(250)         not null,
-   active    boolean not null default true,
-   constraint PK_INVOLUCRADO primary key (idInvolucrado)
-);
-
-/*==============================================================*/
-/* Table: INVOLUCRADO_TEMA_INVESTIGACION                        */
-/*==============================================================*/
-create table INVOLUCRADO_TEMA_INVESTIGACION (
-   idInvolucradoTema  SERIAL               not null,
-   idInvolucrado       INT4                 not null,
-   idTemaInvestigacion INT4                 not null,
-   active    boolean not null default true,
-   constraint PK_INVOLUCRADO_TEMA_INVESTIGAC primary key (idInvolucradoTema)
-);
-
-/*==============================================================*/
-/* Table: MUESTRA                                               */
-/*==============================================================*/
-create table MUESTRA (
-   idMuestra           SERIAL               not null,
-   muestra             VARCHAR(100)         not null,
-   active    boolean not null default true,
-   constraint PK_MUESTRA primary key (idMuestra)
-);
-
-/*==============================================================*/
-/* Table: OBJETIVO_ESPECIFICO                                   */
-/*==============================================================*/
-create table OBJETIVO_ESPECIFICO (
-   idObjetivoEspecifico SERIAL               not null,
-   idProyectiva        INT4                 not null,
-   idEstadio           INT4                 not null,
-   objetivo             TEXT         not null,
-   active    boolean not null default true,
-   constraint PK_OBJETIVO_ESPECIFICO primary key (idObjetivoEspecifico)
-);
-
-/*==============================================================*/
-/* Table: OBJETIVO_GENERAL                                      */
-/*==============================================================*/
-create table OBJETIVO_GENERAL (
-   idObjetivoGeneral  SERIAL               not null,
-   idProyectiva        INT4                 not null,
-   objetivo             TEXT         not null,
-   active    boolean not null default true,
-   constraint PK_OBJETIVO_GENERAL primary key (idObjetivoGeneral)
-);
-
-/*==============================================================*/
-/* Table: PERSPECTIVA_INTERPRETACION                            */
-/*==============================================================*/
-create table PERSPECTIVA_INTERPRETACION (
-   idPerspectivaInterpretacion SERIAL               not null,
-   perspectivaInterpretacion VARCHAR(30)          not null check (perspectivaInterpretacion in ('etic','emic')) ,
-   active    boolean not null default true,
-   constraint PK_PERSPECTIVA_INTERPRETACION primary key (idPerspectivaInterpretacion)
-);
-
-/*==============================================================*/
-/* Table: POBLACION                                             */
-/*==============================================================*/
-create table POBLACION (
-   idPoblacion         SERIAL               not null,
-   poblacion            VARCHAR(100)         not null,
-   active    boolean not null default true,
-   constraint PK_POBLACION primary key (idPoblacion)
-);
-
-/*==============================================================*/
-/* Table: PREDICCION                                            */
-/*==============================================================*/
-create table PREDICCION (
-   idPrediccion        SERIAL               not null,
-   idFundamentoProyectivo INT4              not   null,
-   prediccion           TEXT         not null,
-   active    boolean not null default true,
-   constraint PK_PREDICCION primary key (idPrediccion)
-);
-
-/*==============================================================*/
-/* Table: PROCESO_EXPLICATIVO                                   */
-/*==============================================================*/
-create table PROCESO_EXPLICATIVO (
-   idProcesoExplicativo SERIAL               not null,
-   idFundamentoProyectivo INT4                 not null,
-   proceso              TEXT         not null,
-   active    boolean not null default true,
-   constraint PK_PROCESO_EXPLICATIVO primary key (idProcesoExplicativo)
-);
-
-/*==============================================================*/
-/* Table: PROGRAMA_ALTERNATIVO                                  */
-/*==============================================================*/
-create table PROGRAMA_ALTERNATIVO (
-   idProgramaAlternativo SERIAL               not null,
-   idFundamentoProyectivo INT4                not null,
-   programa             VARCHAR(250)         not null,
-   active    boolean not null default true,
-   constraint PK_PROGRAMA_ALTERNATIVO primary key (idProgramaAlternativo)
-);
-
-/*==============================================================*/
-/* Table: PROYECTIVA                                            */
-/*==============================================================*/
-create table PROYECTIVA (
-   idProyectiva        SERIAL               not null,
-   idUnidadEstudio    INT4                 not null,
-   active    boolean not null default true,
-   constraint PK_PROYECTIVA primary key (idProyectiva)
+   constraint PK_VERSION primary key (idVersion)
 );
 
 /*==============================================================*/
@@ -518,63 +190,6 @@ create table ROL_USUARIO (
    idRol               INT4                 not null,
    active    boolean not null default true,
    constraint PK_ROL_USUARIO primary key (idRolUsuario)
-);
-
-/*==============================================================*/
-/* Table: SEMEJANZA                                             */
-/*==============================================================*/
-create table SEMEJANZA (
-   idSemejanza         SERIAL               not null,
-   semejanza            TEXT                  not null,
-   active    boolean not null default true,
-   constraint PK_SEMEJANZA primary key (idSemejanza)
-);
-
-/*==============================================================*/
-/* Table: SEMEJANZA_CATEGORIA                                   */
-/*==============================================================*/
-create table SEMEJANZA_CATEGORIA (
-   idSemejanzaCategoria SERIAL               not null,
-   idSemejanza         INT4                 not null,
-   idCategoria         INT4                 not null,
-   active    boolean not null default true,
-   constraint PK_SEMEJANZA_CATEGORIA primary key (idSemejanzaCategoria)
-);
-
-/*==============================================================*/
-/* Table: TECNICA_OBTENCION_INFORMACION                         */
-/*==============================================================*/
-create table TECNICA_OBTENCION_INFORMACION (
-   idTecnicaObtencionInformacion SERIAL               not null,
-   tecnica              VARCHAR(100)         not null,
-   active    boolean not null default true,
-   constraint PK_TECNICA_OBTENCION_INFORMACIO primary key (idTecnicaObtencionInformacion)
-);
-
-/*==============================================================*/
-/* Table: TECNICA_OBTENCION_INFORMACION_C                       */
-/*==============================================================*/
-create table TECNICA_OBTENCION_INFORMACION_C (
-   idTecnicaCondicion SERIAL               not null,
-   idTecnicaObtencionInformacion INT4                 not null,
-   idCondicionMetodologica INT4                 not null,
-   active    boolean not null default true,
-   constraint PK_TECNICA_OBTENCION_INFORMACI primary key (idTecnicaCondicion)
-);
-
-/*==============================================================*/
-/* Table: TEMA_INVESTIGACION                                    */
-/*==============================================================*/
-create table TEMA_INVESTIGACION (
-   idTemaInvestigacion SERIAL               not null,
-   idUsuario           INT4                 not null,
-   idTemporalidad      INT4                 not null,
-   temaIncompleto     VARCHAR(250)         not null,
-   tema                 TEXT         not null,
-   situacionPreocupante TEXT         not null,
-   conexionOtrosT 	TEXT         not null,
-   active    boolean not null default true,
-   constraint PK_TEMA_INVESTIGACION primary key (idTemaInvestigacion)
 );
 
 /*==============================================================*/
@@ -655,13 +270,119 @@ create table MOTIVACION_INTERES (
 );
 
 /*==============================================================*/
-/* Table: TEMPORALIDAD_MEDICION                                 */
+/* Table: INVOLUCRADO                                           */
 /*==============================================================*/
-create table TEMPORALIDAD_MEDICION (
-   idTemporalidad      SERIAL               not null,
-   temporalidad         VARCHAR(50)          not null,
+create table INVOLUCRADO (
+   idInvolucrado       SERIAL               not null,
+   involucrado          VARCHAR(250)         not null,
    active    boolean not null default true,
-   constraint PK_TEMPORALIDAD_MEDICION primary key (idTemporalidad)
+   constraint PK_INVOLUCRADO primary key (idInvolucrado)
+);
+
+/*==============================================================*/
+/* Table: INVOLUCRADO_TEMA_INVESTIGACION                        */
+/*==============================================================*/
+create table INVOLUCRADO_TEMA_INVESTIGACION (
+   idInvolucradoTema  SERIAL               not null,
+   idInvolucrado       INT4                 not null,
+   idTemaInvestigacion INT4                 not null,
+   active    boolean not null default true,
+   constraint PK_INVOLUCRADO_TEMA_INVESTIGAC primary key (idInvolucradoTema)
+);
+
+/*==============================================================*/
+/* Table: CONSECUENCIA                                          */
+/*==============================================================*/
+create table CONSECUENCIA (
+   idConsecuencia      SERIAL               not null,
+   consecuencia         VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_CONSECUENCIA primary key (idConsecuencia)
+);
+
+/*==============================================================*/
+/* Table: CONSECUENCIA_TEMA_INVESTIGACION                       */
+/*==============================================================*/
+create table CONSECUENCIA_TEMA_INVESTIGACION (
+   idConsecuenciaTema SERIAL               not null,
+   idTemaInvestigacion INT4                 not null,
+   idConsecuencia      INT4                 not null,
+   active    boolean not null default true,
+   constraint PK_CONSECUENCIA_TEMA_INVESTIGA primary key (idConsecuenciaTema)
+);
+
+/*==============================================================*/
+/* Table: CONDICION_METODOLOGICA                                */
+/*==============================================================*/
+create table CONDICION_METODOLOGICA (
+   idCondicionMetodologica SERIAL               not null,
+   idTemaInvestigacion INT4                 not null,
+   poblacionAccesible  BOOL                 not null,
+   abordajePosible     BOOL                 not null,
+   instrumentoMedicion BOOL                 not null,
+   estudiosPrevios     BOOL                 not null,
+   active    boolean not null default true,
+   constraint PK_CONDICION_METODOLOGICA primary key (idCondicionMetodologica)
+);
+
+/*==============================================================*/
+/* Table: TECNICA_OBTENCION_INFORMACION                         */
+/*==============================================================*/
+create table TECNICA_OBTENCION_INFORMACION (
+   idTecnicaObtencionInformacion SERIAL               not null,
+   tecnica              VARCHAR(100)         not null,
+   active    boolean not null default true,
+   constraint PK_TECNICA_OBTENCION_INFORMACIO primary key (idTecnicaObtencionInformacion)
+);
+
+/*==============================================================*/
+/* Table: TECNICA_OBTENCION_INFORMACION_C                       */
+/*==============================================================*/
+create table TECNICA_OBTENCION_INFORMACION_C (
+   idTecnicaCondicion SERIAL               not null,
+   idTecnicaObtencionInformacion INT4                 not null,
+   idCondicionMetodologica INT4                 not null,
+   active    boolean not null default true,
+   constraint PK_TECNICA_OBTENCION_INFORMACI primary key (idTecnicaCondicion)
+);
+
+/*==============================================================*/
+/* Table: CONDICION_SOCIAL                                      */
+/*==============================================================*/
+create table CONDICION_SOCIAL (
+   idCondicionSocial  SERIAL               not null,
+   idTemaInvestigacion INT4                 not null,
+   contribucion         BOOL                 not null,
+   necesidad            BOOL                 not null,
+   aporte               BOOL                 not null,
+   aplicacion           BOOL                 not null,
+   active    boolean not null default true,
+   constraint PK_CONDICION_SOCIAL primary key (idCondicionSocial)
+);
+
+/*==============================================================*/
+/* Table: CONDICION_PERSONAL                                    */
+/*==============================================================*/
+create table CONDICION_PERSONAL (
+   idCondicionPersonal SERIAL               not null,
+   idTemaInvestigacion INT4                 not null,
+   recursos             BOOL                 not null,
+   expectativa          BOOL                 not null,
+   conocimiento         BOOL                 not null,
+   asesoriaInformacion BOOL                 not null,
+   accesoInformacion   BOOL                 not null,
+   active    boolean not null default true,
+   constraint PK_CONDICION_PERSONAL primary key (idCondicionPersonal)
+);
+
+/*==============================================================*/
+/* Table: CONTEXTO                                              */
+/*==============================================================*/
+create table CONTEXTO (
+   idContexto          SERIAL               not null,
+   contexto             VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_CONTEXTO primary key (idContexto)
 );
 
 /*==============================================================*/
@@ -677,6 +398,26 @@ create table TEMPORALIDAD_MEDICION_CONTEXTO (
 );
 
 /*==============================================================*/
+/* Table: POBLACION                                             */
+/*==============================================================*/
+create table POBLACION (
+   idPoblacion         SERIAL               not null,
+   poblacion            VARCHAR(100)         not null,
+   active    boolean not null default true,
+   constraint PK_POBLACION primary key (idPoblacion)
+);
+
+/*==============================================================*/
+/* Table: MUESTRA                                               */
+/*==============================================================*/
+create table MUESTRA (
+   idMuestra           SERIAL               not null,
+   muestra             VARCHAR(100)         not null,
+   active    boolean not null default true,
+   constraint PK_MUESTRA primary key (idMuestra)
+);
+
+/*==============================================================*/
 /* Table: UNIDAD_ESTUDIO                                        */
 /*==============================================================*/
 create table UNIDAD_ESTUDIO (
@@ -685,6 +426,49 @@ create table UNIDAD_ESTUDIO (
    idMuestra           INT4                 not null,
    active    boolean not null default true,
    constraint PK_UNIDAD_ESTUDIO primary key (idUnidadEstudio)
+);
+
+/*==============================================================*/
+/* Table: CONTEXTO_UNIDAD_ESTUDIO                               */
+/*==============================================================*/
+create table CONTEXTO_UNIDAD_ESTUDIO (
+   idContextoUnidadEstudio   SERIAL               not null,
+   idContexto          INT4                 not null,
+   idUnidadEstudio    INT4                 not null,
+   argumento            VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_CONTEXTO_UNIDAD_ESTUDIO primary key (idContextoUnidadEstudio)
+);
+
+/*==============================================================*/
+/* Table: PROYECTIVA                                            */
+/*==============================================================*/
+create table PROYECTIVA (
+   idProyectiva        SERIAL               not null,
+   idUnidadEstudio    INT4                 not null,
+   active    boolean not null default true,
+   constraint PK_PROYECTIVA primary key (idProyectiva)
+);
+
+/*==============================================================*/
+/* Table: CLASE_EVENTO                                          */
+/*==============================================================*/
+create table CLASE_EVENTO (
+   idClaseEvento      SERIAL               not null,
+   clase                VARCHAR(50)          not null check (clase in ('evento a modificar','proceso generador')),
+   active    boolean not null default true,
+   constraint PK_CLASE_EVENTO primary key (idClaseEvento)
+);
+
+/*==============================================================*/
+/* Table: EVENTO                                                */
+/*==============================================================*/
+create table EVENTO (
+   idEvento            SERIAL               not null,
+   idClaseEvento      INT4                 not null,
+   evento               VARCHAR(250)          not null,
+   active    boolean not null default true,
+   constraint PK_EVENTO primary key (idEvento)
 );
 
 /*==============================================================*/
@@ -702,29 +486,295 @@ create table UNIDAD_INFORMATIVA (
 );
 
 /*==============================================================*/
-/* Table: USUARIO                                               */
+/* Table: CATEGORIA                                             */
 /*==============================================================*/
-create table USUARIO (
-   idUsuario           SERIAL               not null,
-   correo               VARCHAR(50)          not null,
-   contrasena             VARCHAR(50)          not null,
-   nombre               VARCHAR(50)          not null,
-   segundoNombre       VARCHAR(50)                  ,
-   apellido            VARCHAR(50)          not null,
-   segundoApellido     VARCHAR(50)                  ,
+create table CATEGORIA (
+   idCategoria         SERIAL               not null,
+   relacionTemaUnidad TEXT         not null,
    active    boolean not null default true,
-   constraint PK_USUARIO primary key (idUsuario)
+   constraint PK_CATEGORIA primary key (idCategoria)
 );
 
 /*==============================================================*/
-/* Table: VERSION                                               */
+/* Table: CATEGORIA_UNIDAD_INFORMATIVA                          */
 /*==============================================================*/
-create table VERSION (
-   idVersion           SERIAL               not null,
-   idTemaInvestigacion INT4                 not null,
-   fecha                TIMESTAMP            not null,
+create table CATEGORIA_UNIDAD_INFORMATIVA (
+   idCategoriaUnidad  SERIAL               not null,
+   idUnidadInformativa INT4                 not null,
+   idCategoria         INT4                 not null,
    active    boolean not null default true,
-   constraint PK_VERSION primary key (idVersion)
+   constraint PK_CATEGORIA_UNIDAD_INFORMATIV primary key (idCategoriaUnidad)
+);
+
+/*==============================================================*/
+/* Table: SEMEJANZA                                             */
+/*==============================================================*/
+create table SEMEJANZA (
+   idSemejanza         SERIAL               not null,
+   semejanza            TEXT                  not null,
+   active    boolean not null default true,
+   constraint PK_SEMEJANZA primary key (idSemejanza)
+);
+
+/*==============================================================*/
+/* Table: SEMEJANZA_CATEGORIA                                   */
+/*==============================================================*/
+create table SEMEJANZA_CATEGORIA (
+   idSemejanzaCategoria SERIAL               not null,
+   idSemejanza         INT4                 not null,
+   idCategoria         INT4                 not null,
+   active    boolean not null default true,
+   constraint PK_SEMEJANZA_CATEGORIA primary key (idSemejanzaCategoria)
+);
+
+/*==============================================================*/
+/* Table: DIFERENCIA                                            */
+/*==============================================================*/
+create table DIFERENCIA (
+   idDiferencia        SERIAL               not null,
+   diferencia           TEXT         not null,
+   active    boolean not null default true,
+   constraint PK_DIFERENCIA primary key (idDiferencia)
+);
+
+/*==============================================================*/
+/* Table: DIFERENCIA_CATEGORIA                                  */
+/*==============================================================*/
+create table DIFERENCIA_CATEGORIA (
+   idDiferenciaCategoria SERIAL               not null,
+   idDiferencia        INT4                 not null,
+   idCategoria         INT4                 not null,
+   active    boolean not null default true,
+   constraint PK_DIFERENCIA_CATEGORIA primary key (idDiferenciaCategoria)
+);
+
+/*==============================================================*/
+/* Table: EVENTO_PROYECTIVA                                     */
+/*==============================================================*/
+create table EVENTO_PROYECTIVA (
+   idEventoProyectiva SERIAL               not null,
+   idEvento            INT4                 not null,
+   idProyectiva        INT4                 not null,
+   active    boolean not null default true,
+   constraint PK_EVENTO_PROYECTIVA primary key (idEventoProyectiva)
+);
+
+/*==============================================================*/
+/* Table: DISCIPLINA                                            */
+/*==============================================================*/
+create table DISCIPLINA (
+   idDisciplina        SERIAL               not null,
+   disciplina           TEXT          not null check (disciplina in ('Gestión de proyectos de software','Gestión de transacciones electrónicas','Gestión de registros y transacciones electrónicas','Diseño de solución BI adecuada según las necesidades','Sistemas de Operación','Redes del Computador')),
+   active    boolean not null default true,
+   constraint PK_DISCIPLINA primary key (idDisciplina)
+);
+
+/*==============================================================*/
+/* Table: DISCIPLINA_EVENTO                                     */
+/*==============================================================*/
+create table DISCIPLINA_EVENTO (
+   idDisciplinaEvento SERIAL               not null,
+   idDisciplina        INT4                 not null,
+   idEvento            INT4                 not null,
+   active    boolean not null default true,
+   constraint PK_DISCIPLINA_EVENTO primary key (idDisciplinaEvento)
+);
+
+/*==============================================================*/
+/* Table: OBJETIVO_GENERAL                                      */
+/*==============================================================*/
+create table OBJETIVO_GENERAL (
+   idObjetivoGeneral  SERIAL               not null,
+   idProyectiva        INT4                 not null,
+   objetivo             TEXT         not null,
+   active    boolean not null default true,
+   constraint PK_OBJETIVO_GENERAL primary key (idObjetivoGeneral)
+);
+
+/*==============================================================*/
+/* Table: ESTRUCTURACION_PREVIA                                 */
+/*==============================================================*/
+create table ESTRUCTURACION_PREVIA (
+   idEstructuracionPrevia SERIAL               not null,
+   estructuracionPrevia VARCHAR(30)          not null check (estructuracionPrevia in ('cosmologico','caologico')),
+   active    boolean not null default true,
+   constraint PK_ESTRUCTURACION_PREVIA primary key (idEstructuracionPrevia)
+);
+
+/*==============================================================*/
+/* Table: PERSPECTIVA_INTERPRETACION                            */
+/*==============================================================*/
+create table PERSPECTIVA_INTERPRETACION (
+   idPerspectivaInterpretacion SERIAL               not null,
+   perspectivaInterpretacion VARCHAR(30)          not null check (perspectivaInterpretacion in ('etic','emic')) ,
+   active    boolean not null default true,
+   constraint PK_PERSPECTIVA_INTERPRETACION primary key (idPerspectivaInterpretacion)
+);
+
+/*==============================================================*/
+/* Table: GRADO_PARTICIPACION                                   */
+/*==============================================================*/
+create table GRADO_PARTICIPACION (
+   idGradoParticipacion SERIAL               not null,
+   gradoParticipacion  VARCHAR(30)          not null check (gradoParticipacion in ('endogeno','exogeno')),
+   active    boolean not null default true,
+   constraint PK_GRADO_PARTICIPACION primary key (idGradoParticipacion)
+);
+
+/*==============================================================*/
+/* Table: ABORDAJE                                              */
+/*==============================================================*/
+create table ABORDAJE (
+   idAbordaje          SERIAL               not null,
+   idProyectiva        INT4                 not null,
+   idEstructuracionPrevia INT4              not null,
+   idPerspectivaInterpretacion INT4         not null,
+   idGradoParticipacion INT4                not null,
+   active    boolean not null default true,
+  constraint PK_ABORDAJE primary key (idAbordaje)
+);
+
+/*==============================================================*/
+/* Table: ESTADIO                                               */
+/*==============================================================*/
+create table ESTADIO (
+   idEstadio           SERIAL               not null,
+   estadio              VARCHAR(30)          not null	check (estadio in ('exploratorio','descriptivo','proyectivo','evaluativo')) ,
+   active    boolean not null default true,
+   constraint PK_ESTADIO primary key (idEstadio)
+);
+
+/*==============================================================*/
+/* Table: OBJETIVO_ESPECIFICO                                   */
+/*==============================================================*/
+create table OBJETIVO_ESPECIFICO (
+   idObjetivoEspecifico SERIAL               not null,
+   idProyectiva        INT4                 not null,
+   idEstadio           INT4                 not null,
+   objetivo             TEXT         not null,
+   active    boolean not null default true,
+   constraint PK_OBJETIVO_ESPECIFICO primary key (idObjetivoEspecifico)
+);
+
+/*==============================================================*/
+/* Table: FUNDAMENTO_PROYECTIVO                                 */
+/*==============================================================*/
+create table FUNDAMENTO_PROYECTIVO (
+   idFundamentoProyectivo SERIAL           not null,
+   idProyectiva        INT4                 not null,
+   teoria               TEXT         not null,
+   active    boolean not null default true,
+   constraint PK_FUNDAMENTO_PROYECTIVO primary key (idFundamentoProyectivo)
+);
+
+/*==============================================================*/
+/* Table: EFECTO_LOGRAR                                         */
+/*==============================================================*/
+create table EFECTO_LOGRAR (
+   idEfectoLograr     SERIAL               not null,
+     idFundamentoProyectivo INT4             not  null,
+   efecto              VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_EFECTO_LOGRAR primary key (idEfectoLograr)
+);
+
+/*==============================================================*/
+/* Table: ASPECTO_LEGAL                                         */
+/*==============================================================*/
+create table ASPECTO_LEGAL (
+   idAspectoLegal     SERIAL               not null,
+   aspecto              VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_ASPECTO_LEGAL primary key (idAspectoLegal)
+);
+
+/*==============================================================*/
+/* Table: FUNDAMENTO_PROYECTIVO_ASPECTO_L                       */
+/*==============================================================*/
+create table FUNDAMENTO_PROYECTIVO_ASPECTO_L (
+   idFundamentoProyectivoAspecto SERIAL               not null,
+   idAspectoLegal     INT4                 not null,
+   idFundamentoProyectivo INT4             not null,
+   active    boolean not null default true,
+   constraint PK_FUNDAMENTO_PROYECTIVO_ASPEC primary key (idFundamentoProyectivoAspecto)
+);
+
+/*==============================================================*/
+/* Table: PROCESO_EXPLICATIVO                                   */
+/*==============================================================*/
+create table PROCESO_EXPLICATIVO (
+   idProcesoExplicativo SERIAL               not null,
+   idFundamentoProyectivo INT4                 not null,
+   proceso              TEXT         not null,
+   active    boolean not null default true,
+   constraint PK_PROCESO_EXPLICATIVO primary key (idProcesoExplicativo)
+);
+
+/*==============================================================*/
+/* Table: ANALISIS_EVENTO                                       */
+/*==============================================================*/
+create table ANALISIS_EVENTO (
+   idAnalisisEvento   SERIAL               not null,
+   idFundamentoProyectivo INT4             not null,
+   analisis             TEXT         not null,
+   active    boolean not null default true,
+   constraint PK_ANALISIS_EVENTO primary key (idAnalisisEvento)
+);
+
+/*==============================================================*/
+/* Table: DESCRIPCION_EVENTO                                    */
+/*==============================================================*/
+create table DESCRIPCION_EVENTO (
+   idDescripcionEvento SERIAL               not null,
+   idFundamentoProyectivo INT4                not  null,
+   definicion          TEXT         not null,
+   explicacion		TEXT         not null,
+   active    boolean not null default true, 
+   constraint PK_DESCRIPCION_EVENTO primary key (idDescripcionEvento)
+);
+
+/*==============================================================*/
+/* Table: FUNDAMENTO_PROYECTIVO_INVESTIGA                       */
+/*==============================================================*/
+create table FUNDAMENTO_PROYECTIVO_INVESTIGACION (
+   idFundamentoProyectivoInvestigacion INT4                 not null,
+   idFundamentoProyectivo INT4                 not null,
+   idTemaInvestigacion INT4                 not null,
+   active    boolean not null default true,
+   constraint PK_FUNDAMENTO_PROYECTIVO_INVES primary key (idFundamentoProyectivoInvestigacion)
+);
+
+/*==============================================================*/
+/* Table: COMPARACION                                           */
+/*==============================================================*/
+create table COMPARACION (
+   idComparacion       SERIAL               not null,
+   idFundamentoProyectivo INT4              not null,
+   comparacion          TEXT         not null,
+   active    boolean not null default true,
+   constraint PK_COMPARACION primary key (idComparacion)
+);
+
+/*==============================================================*/
+/* Table: EXPLICACION                                           */
+/*==============================================================*/
+create table EXPLICACION (
+   idExplicacion       SERIAL               not null,
+   idFundamentoProyectivo INT4             not null,
+   explicacion          TEXT         not null,
+   active    boolean not null default true,
+   constraint PK_EXPLICACION primary key (idExplicacion)
+);
+
+/*==============================================================*/
+/* Table: PREDICCION                                            */
+/*==============================================================*/
+create table PREDICCION (
+   idPrediccion        SERIAL               not null,
+   idFundamentoProyectivo INT4              not   null,
+   prediccion           TEXT         not null,
+   active    boolean not null default true,
+   constraint PK_PREDICCION primary key (idPrediccion)
 );
 
 alter table ABORDAJE
@@ -911,12 +961,7 @@ alter table PROCESO_EXPLICATIVO
    add constraint FK_PROCESO__REFERENCE_FUNDAMEN foreign key (idFundamentoProyectivo)
       references FUNDAMENTO_PROYECTIVO (idFundamentoProyectivo)
       on delete restrict on update restrict;
-
-alter table PROGRAMA_ALTERNATIVO
-   add constraint FK_PROGRAMA_REFERENCE_FUNDAMEN foreign key (idFundamentoProyectivo)
-      references FUNDAMENTO_PROYECTIVO (idFundamentoProyectivo)
-      on delete restrict on update restrict;
-
+      
 alter table PROYECTIVA
    add constraint FK_PROYECTI_REFERENCE_UNIDAD_E foreign key (idUnidadEstudio)
       references UNIDAD_ESTUDIO (idUnidadEstudio)

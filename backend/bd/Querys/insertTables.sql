@@ -642,3 +642,4 @@ INSERT INTO PREDICCION (idPrediccion,idFundamentoProyectivo,prediccion) VALUES (
 INSERT INTO PREDICCION (idPrediccion,idFundamentoProyectivo,prediccion) VALUES ('576','1254','Utilizar un sistema de gestión de riesgos disminuirá significativamente los errores en los procesos de ejecución');
 INSERT INTO PREDICCION (idPrediccion,idFundamentoProyectivo,prediccion) VALUES ('5','64','El centralizar el manejo de SMS y MMS de las instituciones bancaria mejorará el rendimiento del envío de mensajes sobre acciones de la parte electrónica');
 INSERT INTO PREDICCION (idPrediccion,idFundamentoProyectivo,prediccion) VALUES ('482','419','Al fijarse en estandares de compresion de paquetes se puede predecir que el sistema de la red no colapsara y menos se saturara de información por el envío de archivos que gestione el software de las máquinas');
+
