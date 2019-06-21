@@ -25,7 +25,6 @@ INSERT INTO TEMPORALIDAD_MEDICION (idTemporalidad,temporalidad) VALUES ('4726','
 INSERT INTO TEMPORALIDAD_MEDICION (idTemporalidad,temporalidad) VALUES ('471','2007 al 2008');
 INSERT INTO TEMPORALIDAD_MEDICION (idTemporalidad,temporalidad) VALUES ('8963','mes');
 
-
 /*==============================================================*/
 /* Table: TEMA_INVESTIGACION                                    */
 /*==============================================================*/
@@ -70,84 +69,63 @@ INSERT INTO ROL_USUARIO (idRolUsuario,idUsuario,idRol) VALUES ('1165','8645','22
 INSERT INTO ROL_USUARIO (idRolUsuario,idUsuario,idRol) VALUES ('1166','33','96');
 INSERT INTO ROL_USUARIO (idRolUsuario,idUsuario,idRol) VALUES ('1167','36','2222');
 
-
-
-
-
-
 /*==============================================================*/
 /* Table: POTENCIALIDAD                                         */
 /*==============================================================*/
-
 INSERT INTO POTENCIALIDAD (idPotencialidad,idTemaInvestigacion,argumento) VALUES ('1','77','Centralizar el uso de una inteligencia que permita socavar el hecho de tener que realizar todo un trabajo de forma manual');
 INSERT INTO POTENCIALIDAD (idPotencialidad,idTemaInvestigacion,argumento) VALUES ('2','20','Poder añadir cualquier tipo de riesgos a un proyecto con el fin de poder medir en su totalidad los riesgos que pueden surgir a lo largo de la ejecución del proyecto');
 INSERT INTO POTENCIALIDAD (idPotencialidad,idTemaInvestigacion,argumento) VALUES ('3','63','Automatizar el envío de mensajes de todas las empresas financieras con soporte de Angelina');
 INSERT INTO POTENCIALIDAD (idPotencialidad,idTemaInvestigacion,argumento) VALUES ('4','1234','Poder organizar en su totalidad todas aquella empresas adscritas a la domiciliación');
 INSERT INTO POTENCIALIDAD (idPotencialidad,idTemaInvestigacion,argumento) VALUES ('5','45','Fácil gestión del software en una red de computadores');
 
-
-
 /*==============================================================*/
 /* Table: OPORTUNIDAD                                           */
 /*==============================================================*/
-
-
 INSERT INTO OPORTUNIDAD (idOportunidad,idTemaInvestigacion,argumento) VALUES ('1','77','El hecho de poder tener gente que conozca sobre aspectos fundamentales para el desarrollo de la inteligencia a formalizar');
 INSERT INTO OPORTUNIDAD (idOportunidad,idTemaInvestigacion,argumento) VALUES ('2','20','Personal capacitado con conocimientos en el área de gestión de riesgos dentro de la propia empresa facilita la obtención de datos para mejorar el rendimiento de la aplicación');
 INSERT INTO OPORTUNIDAD (idOportunidad,idTemaInvestigacion,argumento) VALUES ('3','63','Fundamentación sobre el sistema Angelina que permite la introducción de nuevas tecnologias para el ampliamiento de la misma');
 INSERT INTO OPORTUNIDAD (idOportunidad,idTemaInvestigacion,argumento) VALUES ('4','1234','Centralización a modo de sistema para el registro de todas las empresas adscritas');
 INSERT INTO OPORTUNIDAD (idOportunidad,idTemaInvestigacion,argumento) VALUES ('5','45','Poner al límite los cargos de servicio técnico dentro de las empresas para poder gestionar el conjunto de programas que se utiliza en las distintas redes de computadoras');
 
-
-
 /*==============================================================*/
 /* Table: NECESIDAD                                             */
 /*==============================================================*/
-
 INSERT INTO NECESIDAD (idNecesidad,idTemaInvestigacion,argumento) VALUES ('1','77','Pocas opciones a la hora de analizar datos para el Modulo de Facturacion ');
 INSERT INTO NECESIDAD (idNecesidad,idTemaInvestigacion,argumento) VALUES ('2','20','Aparición de riesgos en la realización de proyectos que impiden la culminación de los mismos');
 INSERT INTO NECESIDAD (idNecesidad,idTemaInvestigacion,argumento) VALUES ('3','63','Pocas herramientas que ayuden con la extracción de datos o presencia de estas muy limitadas');
 INSERT INTO NECESIDAD (idNecesidad,idTemaInvestigacion,argumento) VALUES ('4','1234','Problemas con el Pago de las domiciliaciones que impiden proceder a los usuarios');
 INSERT INTO NECESIDAD (idNecesidad,idTemaInvestigacion,argumento) VALUES ('5','45','Falta de manejo de un software para el sistema operativo de linux ');
 
-
 /*==============================================================*/
 /* Table: TENDENCIA                                             */
 /*==============================================================*/
-
 INSERT INTO TENDENCIA (idTendencia,idTemaInvestigacion,argumento) VALUES ('1','77','Insuficiencia en el análisis de la información a escalas grandes');
 INSERT INTO TENDENCIA (idTendencia,idTemaInvestigacion,argumento) VALUES ('2','20','Errores humanos en la consignación de riesgos en un proyecto');
 INSERT INTO TENDENCIA (idTendencia,idTemaInvestigacion,argumento) VALUES ('3','63','Fraudes electrónicos que sean capaces de robar información de usuarios');
 INSERT INTO TENDENCIA (idTendencia,idTemaInvestigacion,argumento) VALUES ('4','1234','Carencia de interfaces usables a la hora de realizar operación delicadas como el registro de empresas');
 INSERT INTO TENDENCIA (idTendencia,idTemaInvestigacion,argumento) VALUES ('5','45','Carencia de interfaces para el gestionamiento de aplicaciones a nivel de software bajo ambiente Linux');
 
-
 /*==============================================================*/
 /* Table: CURIOSIDAD_PREOCUPACION                               */
 /*==============================================================*/
-
 INSERT INTO CURIOSIDAD_PREOCUPACION (idCuriosidad,idTemaInvestigacion,argumento) VALUES ('8219','77','Se busca atacar el análisis de datos con business intelligence ya que el ABB desconoce este tipo de herramientas en esta aplicación');
 INSERT INTO CURIOSIDAD_PREOCUPACION (idCuriosidad,idTemaInvestigacion,argumento) VALUES ('8147','20','Es preocupante el poco manejo de riesgos que existen que ayuden a atacar a los mismos');
 INSERT INTO CURIOSIDAD_PREOCUPACION (idCuriosidad,idTemaInvestigacion,argumento) VALUES ('2','63','Se busca descubrir la gran aparición de fraudes en las transacciones electrónicas ');
 INSERT INTO CURIOSIDAD_PREOCUPACION (idCuriosidad,idTemaInvestigacion,argumento) VALUES ('3','1234','Se estudia nuevas maneras de cancelación de las domiciliaciones ya que se desconoce otros medios para completar esta transacción ');
 INSERT INTO CURIOSIDAD_PREOCUPACION (idCuriosidad,idTemaInvestigacion,argumento) VALUES ('6','45','Se desconoce la utilización de software para manejo de softwares en Linux');
 
-
 /*==============================================================*/
 /* Table: CONTRADICCION                                         */
 /*==============================================================*/
-
 INSERT INTO CONTRADICCION (idContradiccion,idTemaInvestigacion,argumento) VALUES ('1','77','Se investiga sobre esta solución BI por la falta de análisis de datos a través de un sistema business intelligence');
 INSERT INTO CONTRADICCION (idContradiccion,idTemaInvestigacion,argumento) VALUES ('2','20','Se han propuestos diferentes soluciones de software que pueden satisfacer algunas necesidades en cuanto a la gestión de riesgos pero aun así dichas soluciones dentro de la propia gestión podrían causar errores ');
 INSERT INTO CONTRADICCION (idContradiccion,idTemaInvestigacion,argumento) VALUES ('3','63','Los mismos grupos que realizan los fraudes electrónicos se apoyan de cierta forma con las plataformas desarrolladas para la eliminación de forma parcial de fraudes posibles');
 INSERT INTO CONTRADICCION (idContradiccion,idTemaInvestigacion,argumento) VALUES ('4','1234','Al no haber una sistema que organice dichas domiciliaciones se opta por un sistema físico de llevar en cuenta a mano todas las transacciones aportando un gran material de tiempo, esfuerzo y dinero el cual eliminar conlleva a una reorganización del modelo de negocios');
 INSERT INTO CONTRADICCION (idContradiccion,idTemaInvestigacion,argumento) VALUES ('5','45','Existencia de software para poder administrar los programas pero basado en software de pago aun así para distribuciones de linux el cual conlleva a no poder solucionar el problema desde un ambiente de software libre');
 
-
 /*==============================================================*/
 /* Table: MOTIVACION_INTERES                                    */
 /*==============================================================*/
-
 INSERT INTO MOTIVACION_INTERES (idMotivacion,idTemaInvestigacion,argumento) VALUES ('1','77','Generar una solución BI factible para facilitar el trabajo del Modulo de Facturacion');
 INSERT INTO MOTIVACION_INTERES (idMotivacion,idTemaInvestigacion,argumento) VALUES ('3','20','Apoyar con el descubrimiento de riesgos en la realización de proyectos ');
 INSERT INTO MOTIVACION_INTERES (idMotivacion,idTemaInvestigacion,argumento) VALUES ('9959','63','Generar un sistema que ayude en la extracción de datos sobre cualquier fuente ');
@@ -170,7 +148,6 @@ INSERT INTO INVOLUCRADO (idInvolucrado,involucrado) VALUES ('7458','Empresa Asea
 /*==============================================================*/
 /* Table: INVOLUCRADO_TEMA_INVESTIGACION                        */
 /*==============================================================*/
-
 INSERT INTO INVOLUCRADO_TEMA_INVESTIGACION (idInvolucradoTema,idInvolucrado,idTemaInvestigacion) VALUES ('2201','302','20');
 INSERT INTO INVOLUCRADO_TEMA_INVESTIGACION (idInvolucradoTema,idInvolucrado,idTemaInvestigacion) VALUES ('2202','302','20');
 INSERT INTO INVOLUCRADO_TEMA_INVESTIGACION (idInvolucradoTema,idInvolucrado,idTemaInvestigacion) VALUES ('2203','3023','20');
@@ -195,8 +172,6 @@ INSERT INTO CONSECUENCIA (idConsecuencia,consecuencia) VALUES ('3658','Gastos op
 INSERT INTO CONSECUENCIA (idConsecuencia,consecuencia) VALUES ('8751','Gestión inadecuada de software');
 INSERT INTO CONSECUENCIA (idConsecuencia,consecuencia) VALUES ('5556','Análisis erróneo de datos ');
 
-
-
 /*==============================================================*/
 /* Table: CONSECUENCIA_TEMA_INVESTIGACION                       */
 /*==============================================================*/
@@ -210,9 +185,6 @@ INSERT INTO CONSECUENCIA_TEMA_INVESTIGACION (idConsecuenciaTema,idTemaInvestigac
 INSERT INTO CONSECUENCIA_TEMA_INVESTIGACION (idConsecuenciaTema,idTemaInvestigacion,idConsecuencia) VALUES ('3308','45','3658');
 INSERT INTO CONSECUENCIA_TEMA_INVESTIGACION (idConsecuenciaTema,idTemaInvestigacion,idConsecuencia) VALUES ('3309','77','5556');
 INSERT INTO CONSECUENCIA_TEMA_INVESTIGACION (idConsecuenciaTema,idTemaInvestigacion,idConsecuencia) VALUES ('3310','45','8751');
-
-
-
 
 /*==============================================================*/
 /* Table: CONDICION_METODOLOGICA                                */
@@ -265,7 +237,6 @@ INSERT INTO CONDICION_SOCIAL (idCondicionSocial,idTemaInvestigacion,contribucion
 INSERT INTO CONDICION_SOCIAL (idCondicionSocial,idTemaInvestigacion,contribucion,necesidad,aporte,aplicacion) VALUES ('4553','45','TRUE','TRUE','TRUE','TRUE');
 INSERT INTO CONDICION_SOCIAL (idCondicionSocial,idTemaInvestigacion,contribucion,necesidad,aporte,aplicacion) VALUES ('6333','77','TRUE','TRUE','TRUE','TRUE');
 
-
 /*==============================================================*/
 /* Table: CONDICION_PERSONAL                                    */
 /*==============================================================*/
@@ -283,7 +254,6 @@ INSERT INTO CONTEXTO (idContexto,contexto) VALUES ('74','Empresas que están pre
 INSERT INTO CONTEXTO (idContexto,contexto) VALUES ('9080','Personas y empresas que desean cancelar en la CCE');
 INSERT INTO CONTEXTO (idContexto,contexto) VALUES ('4569','Empresas con usuarios de S.O Linux');
 INSERT INTO CONTEXTO (idContexto,contexto) VALUES ('8566','Modulo de Facturacion');
-
 
 /*==============================================================*/
 /* Table: TEMPORALIDAD_MEDICION_CONTEXTO                        */
@@ -398,7 +368,6 @@ INSERT INTO CATEGORIA (idCategoria,relacionTemaUnidad) VALUES ('970','Factores p
 INSERT INTO CATEGORIA (idCategoria,relacionTemaUnidad) VALUES ('4444','Componentes esenciales en el desarrollo de una aplicación');
 INSERT INTO CATEGORIA (idCategoria,relacionTemaUnidad) VALUES ('741','Definiciones a tomar en cuenta durante el desarrollo de una aplicación con software libre');
 
-
 /*==============================================================*/
 /* Table: CATEGORIA_UNIDAD_INFORMATIVA                          */
 /*==============================================================*/
@@ -482,7 +451,6 @@ INSERT INTO DIFERENCIA_CATEGORIA (idDiferenciaCategoria,idDiferencia,idCategoria
 INSERT INTO DIFERENCIA_CATEGORIA (idDiferenciaCategoria,idDiferencia,idCategoria) VALUES ('9910','462','741');
 INSERT INTO DIFERENCIA_CATEGORIA (idDiferenciaCategoria,idDiferencia,idCategoria) VALUES ('9911','462','741');
 
-
 /*==============================================================*/
 /* Table: EVENTO_PROYECTIVA                                     */
 /*==============================================================*/
@@ -523,13 +491,11 @@ INSERT INTO OBJETIVO_GENERAL (idObjetivoGeneral,idProyectiva,objetivo) VALUES ('
 INSERT INTO OBJETIVO_GENERAL (idObjetivoGeneral,idProyectiva,objetivo) VALUES ('4','7412','Desarrollar un portal Web que sea interfaz y procese el registro de empresas ordenantes de pagos domiciliados, así como el procesamiento de operaciones de créditos directos ordenados por organismos oficiales en el Sistema de Cámara de Compensación Electrónica del Banco Central de Venezuela');
 INSERT INTO OBJETIVO_GENERAL (idObjetivoGeneral,idProyectiva,objetivo) VALUES ('4363','760','Diseñar y desarrollar un sistema que permita controlar, remover e inventariar el software instalado en estaciones de trabajo Linux utilizando herramientas basadas en Software Libre (GNU)');
 
-
 /*==============================================================*/
 /* Table: ESTRUCTURACION_PREVIA                                 */
 /*==============================================================*/
 INSERT INTO ESTRUCTURACION_PREVIA (idEstructuracionPrevia,estructuracionPrevia) VALUES ('1201','caologico');
 INSERT INTO ESTRUCTURACION_PREVIA (idEstructuracionPrevia,estructuracionPrevia) VALUES ('1202','cosmologico');
-
 
 /*==============================================================*/
 /* Table: PERSPECTIVA_INTERPRETACION                            */
@@ -537,13 +503,11 @@ INSERT INTO ESTRUCTURACION_PREVIA (idEstructuracionPrevia,estructuracionPrevia) 
 INSERT INTO PERSPECTIVA_INTERPRETACION (idPerspectivaInterpretacion,perspectivaInterpretacion) VALUES ('1301','emic');
 INSERT INTO PERSPECTIVA_INTERPRETACION (idPerspectivaInterpretacion,perspectivaInterpretacion) VALUES ('1302','etic');
 
-
 /*==============================================================*/
 /* Table: GRADO_PARTICIPACION                                   */
 /*==============================================================*/
 INSERT INTO GRADO_PARTICIPACION (idGradoParticipacion,gradoParticipacion) VALUES ('1401','endogeno');
 INSERT INTO GRADO_PARTICIPACION (idGradoParticipacion,gradoParticipacion) VALUES ('1402','exogeno');
-
 
 /*==============================================================*/
 /* Table: ABORDAJE                                              */
@@ -588,7 +552,6 @@ INSERT INTO OBJETIVO_ESPECIFICO (idObjetivoEspecifico,idProyectiva,idEstadio,obj
 INSERT INTO OBJETIVO_ESPECIFICO (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo) VALUES ('442','760','6691','Diseñar una herramienta web para el control de programas instalados en las estaciones de trabajo que utilizan el S.O Linux');
 INSERT INTO OBJETIVO_ESPECIFICO (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo) VALUES ('99','760','6689','Definir e implementar la base de datos a utilizar en la aplicación usando tecnologías de software libre');
 
-
 /*==============================================================*/
 /* Table: FUNDAMENTO_PROYECTIVO                                 */
 /*==============================================================*/
@@ -597,8 +560,6 @@ INSERT INTO FUNDAMENTO_PROYECTIVO (idFundamentoProyectivo,idProyectiva,teoria) V
 INSERT INTO FUNDAMENTO_PROYECTIVO (idFundamentoProyectivo,idProyectiva,teoria) VALUES ('64','436','Se pretende diseñar y desarrollar todos los componentes necesarios para poder agregar flexibilidad y adaptabilidad de Angelina a los diferentes modelos de negocios de las entidades financieras');
 INSERT INTO FUNDAMENTO_PROYECTIVO (idFundamentoProyectivo,idProyectiva,teoria) VALUES ('3651','7412','Se busca desarrollar un portal web para el registro de empresas ofreciendo atención oportuna del BCV como ente compensador en unos de sus medios de pago como es la domiciliación. Los módulos se desarrollarán considerando el diseño de interfaces, funciones y procedimientos bajo los requerimientos del Banco Central de Venezuela');
 INSERT INTO FUNDAMENTO_PROYECTIVO (idFundamentoProyectivo,idProyectiva,teoria) VALUES ('419','760','El realizar un software que administre todo aquel contenido referente a programas aumentaran los beneficios del área productiva ya que el eliminado, instalado y actualizado es remoto y automático.');
-
-
 
 /*==============================================================*/
 /* Table: EFECTO_LOGRAR                                         */
@@ -658,11 +619,9 @@ INSERT INTO DESCRIPCION_EVENTO (idDescripcionEvento,idFundamentoProyectivo,defin
 INSERT INTO DESCRIPCION_EVENTO (idDescripcionEvento,idFundamentoProyectivo,definicion,explicacion) VALUES ('8598','419','Protocolo de transmisión de datos','Componentes fisicos y electronicos tales como voltajes o puertos de entrada y salida que permiten las transmisión de datos en una red');
 INSERT INTO DESCRIPCION_EVENTO (idDescripcionEvento,idFundamentoProyectivo,definicion,explicacion) VALUES ('468','419','Empaquetamiento de archivos','Significa que un archivo ocupe menos espacio sin corromperlo');
 
-
 /*==============================================================*/
 /* Table: FUNDAMENTO_PROYECTIVO_INVESTIGA                       */
 /*==============================================================*/
-
 
 
 /*==============================================================*/
@@ -675,7 +634,6 @@ INSERT INTO COMPARACION (idComparacion,idFundamentoProyectivo,comparacion) VALUE
 /*==============================================================*/
 INSERT INTO EXPLICACION (idExplicacion,idFundamentoProyectivo,explicacion) VALUES ('1','1254','Respecto a la utilización de los métodos publicados por la PMI correspondiente al 2004 facilita la manera de análisis y aplicación de diferentes aspectos de gestión de riesgos');
 INSERT INTO EXPLICACION (idExplicacion,idFundamentoProyectivo,explicacion) VALUES ('3','64','Es importante la automatización en la planificación de tareas debido a que dedicar recursos bien pagados a tareas serviles es un desperdicio de dinero y tiempo ya que a medida que aumenta la complejidad del procesos incrementa el beneficio de automatizar los procesos ');
-
 
 /*==============================================================*/
 /* Table: PREDICCION                                            */
