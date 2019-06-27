@@ -26,13 +26,21 @@ INSERT INTO TEMPORALIDAD_MEDICION (idTemporalidad,temporalidad) VALUES ('471','2
 INSERT INTO TEMPORALIDAD_MEDICION (idTemporalidad,temporalidad) VALUES ('8963','mes');
 
 /*==============================================================*/
+/* Table: NIVEL_INVESTIGACION                                   */
+/*==============================================================*/
+INSERT INTO NIVEL_INVESTIGACION (idNivelInvestigacion,nivel) VALUES ('1','Comprensivo');
+INSERT INTO NIVEL_INVESTIGACION (idNivelInvestigacion,nivel) VALUES ('2','Aprehensivo');
+INSERT INTO NIVEL_INVESTIGACION (idNivelInvestigacion,nivel) VALUES ('3','Perceptual');
+INSERT INTO NIVEL_INVESTIGACION (idNivelInvestigacion,nivel) VALUES ('4','Integrativo');
+
+/*==============================================================*/
 /* Table: TEMA_INVESTIGACION                                    */
 /*==============================================================*/
-INSERT INTO TEMA_INVESTIGACION (idTemaInvestigacion,idUsuario,idTemporalidad,temaIncompleto,tema,situacionPreocupante,conexionOtrosT) VALUES ('77','33','8963','Desarrollar un DataMart','Desarrollar un DataMart aplicable a una solución de Inteligencia de Negocios, Business Intelligence, para la empresa ABB Venezuela ','Uso poco eficaz y no eficiente del análisis de la información en un gran volumen de datos','Desarrollo de sistemas para análisis de datos ');
-INSERT INTO TEMA_INVESTIGACION (idTemaInvestigacion,idUsuario,idTemporalidad,temaIncompleto,tema,situacionPreocupante,conexionOtrosT) VALUES ('20','333','9696','Desarrollar un sistema de gestión de riesgos','Desarrollar un sistema de gestión de riesgos, que permita apoyar los procesos de gestión de riesgos en proyectos de tecnologia de informacion a nivel de planificación y seguimiento','Errores y riesgos que interfieren en los proyectos que afectan el desenvolvimiento de las actividades ','Interferencia de errores a nivel planificativo y de seguimiento');
-INSERT INTO TEMA_INVESTIGACION (idTemaInvestigacion,idUsuario,idTemporalidad,temaIncompleto,tema,situacionPreocupante,conexionOtrosT) VALUES ('63','4','456','Diseñar e implementar un componente de extracción de datos','Diseñar e implementar un componente de extracción de datos el cual sea capaz de extraer la información requerida sobre cualquier fuente de datos','Fraude en las transacciones electrónicas de Venezuela','Utilización del canal de SMS para verificación de transacciones electrónicas de cualquier tipo');
-INSERT INTO TEMA_INVESTIGACION (idTemaInvestigacion,idUsuario,idTemporalidad,temaIncompleto,tema,situacionPreocupante,conexionOtrosT) VALUES ('1234','1111','4726','Diseñar e implementar un portal Web de empresas para Domiciliaciones','Diseñar e implementar un portal Web de Registro de Empresas Ordenantes para Domiciliaciones y Procesamiento de operaciones de Créditos Directos ordenadas por organismos oficiales a través de la cámara de compensación electrónica  ','La Camara de Compensacion Electronica carece de interfaces que permitan a los usuarios realizar el registro de empresas ','Desarrollo de aplicaciones para la banca electrónica');
-INSERT INTO TEMA_INVESTIGACION (idTemaInvestigacion,idUsuario,idTemporalidad,temaIncompleto,tema,situacionPreocupante,conexionOtrosT) VALUES ('45','23','471','Software para Linux','Diseño y desarrollo de una herramienta que administre software en máquinas con sistema operativo Linux','Obsoletismo en herramientas de gestión de software bajo ambiente Linux','Desarrollo de aplicaciones para S.O Linux');
+INSERT INTO TEMA_INVESTIGACION (idTemaInvestigacion,idUsuario,idTemporalidad,idNivelInvestigacion,temaIncompleto,tema,situacionPreocupante,conexionOtrosT) VALUES ('77','33','8963','1','Desarrollar un DataMart','Desarrollar un DataMart aplicable a una solución de Inteligencia de Negocios, Business Intelligence, para la empresa ABB Venezuela ','Uso poco eficaz y no eficiente del análisis de la información en un gran volumen de datos','Desarrollo de sistemas para análisis de datos ');
+INSERT INTO TEMA_INVESTIGACION (idTemaInvestigacion,idUsuario,idTemporalidad,idNivelInvestigacion,temaIncompleto,tema,situacionPreocupante,conexionOtrosT) VALUES ('20','333','9696','1','Desarrollar un sistema de gestión de riesgos','Desarrollar un sistema de gestión de riesgos, que permita apoyar los procesos de gestión de riesgos en proyectos de tecnologia de informacion a nivel de planificación y seguimiento','Errores y riesgos que interfieren en los proyectos que afectan el desenvolvimiento de las actividades ','Interferencia de errores a nivel planificativo y de seguimiento');
+INSERT INTO TEMA_INVESTIGACION (idTemaInvestigacion,idUsuario,idTemporalidad,idNivelInvestigacion,temaIncompleto,tema,situacionPreocupante,conexionOtrosT) VALUES ('63','4','456','1','Diseñar e implementar un componente de extracción de datos','Diseñar e implementar un componente de extracción de datos el cual sea capaz de extraer la información requerida sobre cualquier fuente de datos','Fraude en las transacciones electrónicas de Venezuela','Utilización del canal de SMS para verificación de transacciones electrónicas de cualquier tipo');
+INSERT INTO TEMA_INVESTIGACION (idTemaInvestigacion,idUsuario,idTemporalidad,idNivelInvestigacion,temaIncompleto,tema,situacionPreocupante,conexionOtrosT) VALUES ('1234','1111','4726','1','Diseñar e implementar un portal Web de empresas para Domiciliaciones','Diseñar e implementar un portal Web de Registro de Empresas Ordenantes para Domiciliaciones y Procesamiento de operaciones de Créditos Directos ordenadas por organismos oficiales a través de la cámara de compensación electrónica  ','La Camara de Compensacion Electronica carece de interfaces que permitan a los usuarios realizar el registro de empresas ','Desarrollo de aplicaciones para la banca electrónica');
+INSERT INTO TEMA_INVESTIGACION (idTemaInvestigacion,idUsuario,idTemporalidad,idNivelInvestigacion,temaIncompleto,tema,situacionPreocupante,conexionOtrosT) VALUES ('45','23','471','1','Software para Linux','Diseño y desarrollo de una herramienta que administre software en máquinas con sistema operativo Linux','Obsoletismo en herramientas de gestión de software bajo ambiente Linux','Desarrollo de aplicaciones para S.O Linux');
 
 /*==============================================================*/
 /* Table: VERSION                                               */
@@ -598,13 +606,30 @@ INSERT INTO PROCESO_EXPLICATIVO (idProcesoExplicativo,idFundamentoProyectivo,pro
 INSERT INTO PROCESO_EXPLICATIVO (idProcesoExplicativo,idFundamentoProyectivo,proceso) VALUES ('917','419','Inexistencia de software capaz de gestionar de manera total el software de las computadoras conectadas en una red lo cual disminuye el rendimiento de los usuarios');
 
 /*==============================================================*/
+/* Table: TECNICA_ANALISIS                                      */
+/*==============================================================*/
+INSERT INTO TECNICA_ANALISIS (idTecnicaAnalisis,tecnica) VALUES ('1','Análisis de Correlaciones');
+INSERT INTO TECNICA_ANALISIS (idTecnicaAnalisis,tecnica) VALUES ('2','Análisis de Regresion');
+INSERT INTO TECNICA_ANALISIS (idTecnicaAnalisis,tecnica) VALUES ('3','Visualizacion de datos');
+INSERT INTO TECNICA_ANALISIS (idTecnicaAnalisis,tecnica) VALUES ('4','Análisis de escenarios');
+INSERT INTO TECNICA_ANALISIS (idTecnicaAnalisis,tecnica) VALUES ('5','Data mining');
+INSERT INTO TECNICA_ANALISIS (idTecnicaAnalisis,tecnica) VALUES ('6','Análisis de sentimiento');
+INSERT INTO TECNICA_ANALISIS (idTecnicaAnalisis,tecnica) VALUES ('7','Análisis semánticos de textos');
+INSERT INTO TECNICA_ANALISIS (idTecnicaAnalisis,tecnica) VALUES ('8','Análisis o de patentes y literatura científica');
+INSERT INTO TECNICA_ANALISIS (idTecnicaAnalisis,tecnica) VALUES ('9','Simulación de Monte Carlo');
+INSERT INTO TECNICA_ANALISIS (idTecnicaAnalisis,tecnica) VALUES ('10','Programación y optimización matemática');
+INSERT INTO TECNICA_ANALISIS (idTecnicaAnalisis,tecnica) VALUES ('11','Predicción matemática');
+INSERT INTO TECNICA_ANALISIS (idTecnicaAnalisis,tecnica) VALUES ('12','Redes neuronales');
+INSERT INTO TECNICA_ANALISIS (idTecnicaAnalisis,tecnica) VALUES ('13','Experimientos AB');
+
+/*==============================================================*/
 /* Table: ANALISIS_EVENTO                                       */
 /*==============================================================*/
-INSERT INTO ANALISIS_EVENTO (idAnalisisEvento,idFundamentoProyectivo,analisis) VALUES ('6632','1254','Actualizar las tablas de categorías permite modificarlas para añadir o eliminar los riesgos que pueden ocurrir');
-INSERT INTO ANALISIS_EVENTO (idAnalisisEvento,idFundamentoProyectivo,analisis) VALUES ('43','3651','Actualizar las tablas de transacciones y el Sistema Financiero Venezolano');
-INSERT INTO ANALISIS_EVENTO (idAnalisisEvento,idFundamentoProyectivo,analisis) VALUES ('6','633','Actualizar las tablas en donde están contenido los datos para un buen análisis de los mismos ');
-INSERT INTO ANALISIS_EVENTO (idAnalisisEvento,idFundamentoProyectivo,analisis) VALUES ('892','1254','Actualizar las tablas de factores de riesgo permite modificar los valores principales de ocurrencia');
-INSERT INTO ANALISIS_EVENTO (idAnalisisEvento,idFundamentoProyectivo,analisis) VALUES ('77','3651','Actualizar las tablas de los pagos de las domiciliaciones ');
+INSERT INTO ANALISIS_EVENTO (idAnalisisEvento,idFundamentoProyectivo,idTecnicaAnalisis,analisis) VALUES ('6632','1254','2','Actualizar las tablas de categorías permite modificarlas para añadir o eliminar los riesgos que pueden ocurrir');
+INSERT INTO ANALISIS_EVENTO (idAnalisisEvento,idFundamentoProyectivo,idTecnicaAnalisis,analisis) VALUES ('43','3651','5','Actualizar las tablas de transacciones y el Sistema Financiero Venezolano');
+INSERT INTO ANALISIS_EVENTO (idAnalisisEvento,idFundamentoProyectivo,idTecnicaAnalisis,analisis) VALUES ('6','633','8','Actualizar las tablas en donde están contenido los datos para un buen análisis de los mismos ');
+INSERT INTO ANALISIS_EVENTO (idAnalisisEvento,idFundamentoProyectivo,idTecnicaAnalisis,analisis) VALUES ('892','1254','13','Actualizar las tablas de factores de riesgo permite modificar los valores principales de ocurrencia');
+INSERT INTO ANALISIS_EVENTO (idAnalisisEvento,idFundamentoProyectivo,idTecnicaAnalisis,analisis) VALUES ('77','3651','1','Actualizar las tablas de los pagos de las domiciliaciones ');
 
 /*==============================================================*/
 /* Table: DESCRIPCION_EVENTO                                    */

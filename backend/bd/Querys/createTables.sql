@@ -15,9 +15,11 @@ DROP TABLE IF EXISTS CONSECUENCIA_TEMA_INVESTIGACION CASCADE;
 DROP TABLE IF EXISTS INVOLUCRADO CASCADE;
 DROP TABLE IF EXISTS INVOLUCRADO_TEMA_INVESTIGACION CASCADE;
 DROP TABLE IF EXISTS TEMA_INVESTIGACION CASCADE;
+DROP TABLE IF EXISTS NIVEL_INVESTIGACION CASCADE;
 DROP TABLE IF EXISTS CONDICION_SOCIAL CASCADE;
 DROP TABLE IF EXISTS CONDICION_PERSONAL CASCADE;
 DROP TABLE IF EXISTS CONDICION_METODOLOGICA CASCADE;
+DROP TABLE IF EXISTS TECNICA_ANALISIS CASCADE;
 DROP TABLE IF EXISTS TECNICA_OBTENCION_INFORMACION CASCADE;
 DROP TABLE IF EXISTS TECNICA_OBTENCION_INFORMACION_C CASCADE;
 DROP TABLE IF EXISTS CONTEXTO CASCADE;
@@ -91,6 +93,7 @@ create table TEMA_INVESTIGACION (
    idTemaInvestigacion SERIAL               not null,
    idUsuario           INT4                 not null,
    idTemporalidad      INT4                 not null,
+   idNivelInvestigacion INT4                not null,
    temaIncompleto     VARCHAR(250)         not null,
    tema                 TEXT         not null,
    situacionPreocupante TEXT         not null,
@@ -655,9 +658,20 @@ create table PROCESO_EXPLICATIVO (
 create table ANALISIS_EVENTO (
    idAnalisisEvento   SERIAL               not null,
    idFundamentoProyectivo INT4             not null,
+   idTecnicaAnalisis    INT4                not null,
    analisis             TEXT         not null,
    active    boolean not null default true,
    constraint PK_ANALISIS_EVENTO primary key (idAnalisisEvento)
+);
+
+/*==============================================================*/
+/* Table: TECNICA_ANALISIS                                      */
+/*==============================================================*/
+create table TECNICA_ANALISIS (
+   idTecnicaAnalisis    SERIAL               not null,
+   tecnica              VARCHAR(250)         not null check (tecnica in ('Análisis de Correlaciones','Análisis de Regresion','Visualizacion de datos','Análisis de escenarios','Data mining','Análisis de sentimiento','Análisis semánticos de textos','Análisis o de patentes y literatura científica','Simulación de Monte Carlo','Programación y optimización matemática','Predicción matemática','Redes neuronales','Experimientos AB')),
+   active    boolean not null default true,
+   constraint PK_TECNICA_ANALISIS primary key (idTecnicaAnalisis)
 );
 
 /*==============================================================*/
@@ -716,6 +730,16 @@ create table PREDICCION (
    constraint PK_PREDICCION primary key (idPrediccion)
 );
 
+/*==============================================================*/
+/* Table: NIVEL_INVESTIGACION                                   */
+/*==============================================================*/
+create table NIVEL_INVESTIGACION (
+   idNivelInvestigacion SERIAL               not null,
+   nivel                VARCHAR(250)         not null check (nivel in ('Comprensivo','Integrativo','Aprehensivo','Perceptual')),
+   active    boolean not null default true,
+   constraint PK_NIVEL_INVESTIGACION primary key (idNivelInvestigacion)
+);
+
 alter table ABORDAJE
    add constraint FK_ABORDAJE_REFERENCE_ESTRUCTU foreign key (idEstructuracionPrevia)
       references ESTRUCTURACION_PREVIA (idEstructuracionPrevia)
@@ -739,6 +763,11 @@ alter table ABORDAJE
 alter table ANALISIS_EVENTO
    add constraint FK_ANALISIS_REFERENCE_FUNDAMEN foreign key (idFundamentoProyectivo)
       references FUNDAMENTO_PROYECTIVO (idFundamentoProyectivo)
+      on delete restrict on update restrict;
+
+alter table ANALISIS_EVENTO
+   add constraint FK_ANALISIS_REFERENCE_TECNICA_ foreign key (idTecnicaAnalisis)
+      references TECNICA_ANALISIS (idTecnicaAnalisis)
       on delete restrict on update restrict;
 
 alter table CATEGORIA_UNIDAD_INFORMATIVA
@@ -944,6 +973,11 @@ alter table TEMA_INVESTIGACION
 alter table TEMA_INVESTIGACION
    add constraint FK_TEMA_INV_REFERENCE_TEMPORAL foreign key (idTemporalidad)
       references TEMPORALIDAD_MEDICION (idTemporalidad)
+      on delete restrict on update restrict;
+
+alter table TEMA_INVESTIGACION
+   add constraint FK_TEMA_INV_REFERENCE_NIVEL_IN foreign key (idNivelInvestigacion)
+      references NIVEL_INVESTIGACION (idNivelInvestigacion)
       on delete restrict on update restrict;
 
 alter table TEMPORALIDAD_MEDICION_CONTEXTO
