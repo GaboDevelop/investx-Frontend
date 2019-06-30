@@ -21,7 +21,22 @@ FROM POBLACION P
     ON U.idMuestra = M.idMuestra
 
 /*6 - TABLA DE LOS ARGUMENTOS DE LA JUSTIFICACION*/
-
+SELECT P.argumento  AS "potencialidad", O.argumento AS "oportunidad", N.argumento AS "necesidad", T.argumento AS "tendencia", CP.argumento AS "curiosidad y preocupacion", C.argumento AS "contradiccion", MI.argumento AS "Motivacion o interes"
+FROM JUSTIFICACION J
+JOIN POTENCIALIDAD P
+ON J.idJustificacion = P.idJustificacion
+JOIN OPORTUNIDAD O
+ON J.idJustificacion = O.idJustificacion
+JOIN NECESIDAD N
+ON J.idJustificacion = N.idJustificacion
+JOIN TENDENCIA T
+ON J.idJustificacion = T.idJustificacion
+JOIN CURIOSIDAD_PREOCUPACION CP
+ON J.idJustificacion = CP.idJustificacion
+JOIN CONTRADICCION C
+ON J.idJustificacion = C.idJustificacion
+JOIN MOTIVACION_INTERES MI
+ON J.idJustificacion = MI.idJustificacion
 
 /*7 - LISTADO DE FICHAS POR LOS DIFERENTES TIPOS DE CATEGORIAS, TIPOLOGIAS E INFORMACION CONSTITUTIVA*/
 
@@ -30,22 +45,100 @@ FROM POBLACION P
 /*9 - LISTADO DE TIPOS DE INVESTIGACION Y SUS NIVELES*/
 
 /*10 - LISTADO DE ARGUMENTOS DE LA JUSTIFICACION FILTRADO POR LOS DIFERENTES ELEMENTOS CONSTITUTIVOS*/
-SELECT TI.tema, P.argumento  AS "potencialidad", O.argumento AS "oportunidad", N.argumento AS "necesidad", T.argumento AS "tendencia", CP.argumento AS "curiosidad y preocupacion", C.argumento AS "contradiccion", MI.argumento AS "Motivacion o interes"
-FROM TEMA_INVESTIGACION TI
-    JOIN POTENCIALIDAD P
-    ON TI.idTemaInvestigacion = P.idTemaInvestigacion
-    JOIN OPORTUNIDAD O
-    ON TI.idTemaInvestigacion = O.idTemaInvestigacion
-    JOIN NECESIDAD N
-    ON TI.idTemaInvestigacion = N.idTemaInvestigacion
-    JOIN TENDENCIA T
-    ON TI.idTemaInvestigacion = T.idTemaInvestigacion
-    JOIN CURIOSIDAD_PREOCUPACION CP
-    ON TI.idTemaInvestigacion = CP.idTemaInvestigacion
-    JOIN CONTRADICCION C
-    ON TI.idTemaInvestigacion = C.idTemaInvestigacion
-    JOIN MOTIVACION_INTERES MI
-    ON TI.idTemaInvestigacion = MI.idTemaInvestigacion;
+/*POR TEMPORALIDAD*/
+SELECT J.idJustificacion, P.argumento  AS "potencialidad", O.argumento AS "oportunidad", N.argumento AS "necesidad", T.argumento AS "tendencia", CP.argumento AS "curiosidad y preocupacion", C.argumento AS "contradiccion", MI.argumento AS "Motivacion o interes"
+FROM JUSTIFICACION J
+JOIN CURIOSIDAD_PREOCUPACION CP
+ON J.idJustificacion = CP.idJustificacion
+JOIN CONTRADICCION C
+ON J.idJustificacion = C.idJustificacion
+JOIN MOTIVACION_INTERES MI
+ON J.idJustificacion = MI.idJustificacion
+JOIN POTENCIALIDAD P
+ON J.idJustificacion = P.idJustificacion
+JOIN NECESIDAD N
+ON J.idJustificacion = N.idJustificacion
+JOIN OPORTUNIDAD O
+ON J.idJustificacion = O.idJustificacion
+JOIN TENDENCIA T
+ON J.idJustificacion = T.idJustificacion
+WHERE J.idTemporalidad = 8963
+
+/*POR CONTEXTO*/
+SELECT J.idJustificacion, P.argumento  AS "potencialidad", O.argumento AS "oportunidad", N.argumento AS "necesidad", T.argumento AS "tendencia", CP.argumento AS "curiosidad y preocupacion", C.argumento AS "contradiccion", MI.argumento AS "Motivacion o interes"
+FROM JUSTIFICACION J
+JOIN CURIOSIDAD_PREOCUPACION CP
+ON J.idJustificacion = CP.idJustificacion
+JOIN CONTRADICCION C
+ON J.idJustificacion = C.idJustificacion
+JOIN MOTIVACION_INTERES MI
+ON J.idJustificacion = MI.idJustificacion
+JOIN POTENCIALIDAD P
+ON J.idJustificacion = P.idJustificacion
+JOIN NECESIDAD N
+ON J.idJustificacion = N.idJustificacion
+JOIN OPORTUNIDAD O
+ON J.idJustificacion = O.idJustificacion
+JOIN TENDENCIA T
+ON J.idJustificacion = T.idJustificacion
+WHERE J.idContexto = 7546
+
+/*POR UNIDAD DE ESTUDIO*/
+SELECT J.idJustificacion, P.argumento  AS "potencialidad", O.argumento AS "oportunidad", N.argumento AS "necesidad", T.argumento AS "tendencia", CP.argumento AS "curiosidad y preocupacion", C.argumento AS "contradiccion", MI.argumento AS "Motivacion o interes"
+FROM JUSTIFICACION J
+JOIN CURIOSIDAD_PREOCUPACION CP
+ON J.idJustificacion = CP.idJustificacion
+JOIN CONTRADICCION C
+ON J.idJustificacion = C.idJustificacion
+JOIN MOTIVACION_INTERES MI
+ON J.idJustificacion = MI.idJustificacion
+JOIN POTENCIALIDAD P
+ON J.idJustificacion = P.idJustificacion
+JOIN NECESIDAD N
+ON J.idJustificacion = N.idJustificacion
+JOIN OPORTUNIDAD O
+ON J.idJustificacion = O.idJustificacion
+JOIN TENDENCIA T
+ON J.idJustificacion = T.idJustificacion
+WHERE J.idUnidadEstudio = 489
+
+/*POR EVENTO*/
+SELECT J.idJustificacion, P.argumento  AS "potencialidad", O.argumento AS "oportunidad", N.argumento AS "necesidad", T.argumento AS "tendencia", CP.argumento AS "curiosidad y preocupacion", C.argumento AS "contradiccion", MI.argumento AS "Motivacion o interes"
+FROM JUSTIFICACION J
+JOIN CURIOSIDAD_PREOCUPACION CP
+ON J.idJustificacion = CP.idJustificacion
+JOIN CONTRADICCION C
+ON J.idJustificacion = C.idJustificacion
+JOIN MOTIVACION_INTERES MI
+ON J.idJustificacion = MI.idJustificacion
+JOIN POTENCIALIDAD P
+ON J.idJustificacion = P.idJustificacion
+JOIN NECESIDAD N
+ON J.idJustificacion = N.idJustificacion
+JOIN OPORTUNIDAD O
+ON J.idJustificacion = O.idJustificacion
+JOIN TENDENCIA T
+ON J.idJustificacion = T.idJustificacion
+WHERE J.idEvento = 4256
+
+/*POR TIPO DE INVESTIGACION*/
+SELECT J.idJustificacion, P.argumento  AS "potencialidad", O.argumento AS "oportunidad", N.argumento AS "necesidad", T.argumento AS "tendencia", CP.argumento AS "curiosidad y preocupacion", C.argumento AS "contradiccion", MI.argumento AS "Motivacion o interes"
+FROM JUSTIFICACION J
+JOIN CURIOSIDAD_PREOCUPACION CP
+ON J.idJustificacion = CP.idJustificacion
+JOIN CONTRADICCION C
+ON J.idJustificacion = C.idJustificacion
+JOIN MOTIVACION_INTERES MI
+ON J.idJustificacion = MI.idJustificacion
+JOIN POTENCIALIDAD P
+ON J.idJustificacion = P.idJustificacion
+JOIN NECESIDAD N
+ON J.idJustificacion = N.idJustificacion
+JOIN OPORTUNIDAD O
+ON J.idJustificacion = O.idJustificacion
+JOIN TENDENCIA T
+ON J.idJustificacion = T.idJustificacion
+WHERE J.idTipoInvestigacion = 2
 
 /*11 - INSTRUMENTO POR EVENTO*/
 

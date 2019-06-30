@@ -61,6 +61,7 @@ DROP TABLE IF EXISTS FUNDAMENTO_PROYECTIVO_INVESTIGACION CASCADE;
 DROP TABLE IF EXISTS COMPARACION CASCADE;
 DROP TABLE IF EXISTS EXPLICACION CASCADE;
 DROP TABLE IF EXISTS PREDICCION CASCADE;
+DROP TABLE IF EXISTS JUSTIFICACION CASCADE;
 
 /*==============================================================*/
 /* Table: USUARIO                                               */
@@ -154,7 +155,7 @@ create table ROL_USUARIO (
 /*==============================================================*/
 create table POTENCIALIDAD (
    idPotencialidad SERIAL               not null,
-   idTemaInvestigacion INT4                 not null,
+   idJustificacion INT4                 not null,
    argumento TEXT         not null,
    active    boolean not null default true,
    constraint PK_POTENCIALIDAD primary key (idPotencialidad)
@@ -165,7 +166,7 @@ create table POTENCIALIDAD (
 /*==============================================================*/
 create table OPORTUNIDAD (
    idOportunidad SERIAL               not null,
-   idTemaInvestigacion INT4                 not null,
+   idJustificacion INT4                 not null,
    argumento TEXT         not null,
    active    boolean not null default true,
    constraint PK_OPORTUNIDAD primary key (idOportunidad) 
@@ -176,7 +177,7 @@ create table OPORTUNIDAD (
 /*==============================================================*/
 create table NECESIDAD (
    idNecesidad SERIAL               not null,
-   idTemaInvestigacion INT4                 not null,
+   idJustificacion INT4                 not null,
    argumento TEXT         not null,
    active    boolean not null default true,
    constraint PK_NECESIDAD primary key (idNecesidad)
@@ -187,7 +188,7 @@ create table NECESIDAD (
 /*==============================================================*/
 create table TENDENCIA (
    idTendencia SERIAL               not null,
-   idTemaInvestigacion INT4                 not null,
+   idJustificacion INT4                 not null,
    argumento TEXT         not null,
    active    boolean not null default true,
    constraint PK_TENDENCIA primary key (idTendencia)
@@ -198,7 +199,7 @@ create table TENDENCIA (
 /*==============================================================*/
 create table CURIOSIDAD_PREOCUPACION (
    idCuriosidad SERIAL               not null,
-   idTemaInvestigacion INT4                 not null,
+   idJustificacion INT4                 not null,
    argumento TEXT         not null,
    active    boolean not null default true,
    constraint PK_CURIOSIDAD_PREOCUPACION primary key (idCuriosidad)
@@ -209,7 +210,7 @@ create table CURIOSIDAD_PREOCUPACION (
 /*==============================================================*/
 create table CONTRADICCION (
    idContradiccion SERIAL               not null,
-   idTemaInvestigacion INT4                 not null,
+   idJustificacion INT4                 not null,
    argumento TEXT         not null,
    active    boolean not null default true,
    constraint PK_CONTRADICCION primary key (idContradiccion)
@@ -220,7 +221,7 @@ create table CONTRADICCION (
 /*==============================================================*/
 create table MOTIVACION_INTERES (
    idMotivacion SERIAL               not null,
-   idTemaInvestigacion INT4                 not null,
+   idJustificacion INT4                 not null,
    argumento TEXT         not null,
    active    boolean not null default true,
    constraint PK_MOTIVACION_INTERES primary key (idMotivacion)
@@ -765,6 +766,21 @@ create table TIPO_INVESTIGACION (
    constraint PK_TIPO_INVESTIGACION primary key (idTipoInvestigacion)
 );
 
+/*==============================================================*/
+/* Table: JUSTIFICACION                                         */
+/*==============================================================*/
+create table JUSTIFICACION (
+   idJustificacion      SERIAL               not null,
+   idTemporalidad      INT4                 null,
+   idContexto          INT4                 null,
+   idUnidadEstudio    INT4                 null,
+   idEvento INT4                 null,
+   idTipoInvestigacion  INT4                 null,
+   active    boolean not null default true,
+   constraint PK_JUSTIFICACION primary key (idJustificacion)
+);
+
+
 alter table ABORDAJE
    add constraint FK_ABORDAJE_REFERENCE_ESTRUCTU foreign key (idEstructuracionPrevia)
       references ESTRUCTURACION_PREVIA (idEstructuracionPrevia)
@@ -1040,39 +1056,65 @@ alter table VERSION
       references TEMA_INVESTIGACION (idTemaInvestigacion)
       on delete restrict on update restrict;
 
+alter table JUSTIFICACION
+   add constraint FK_JUSTIFIC_REFERENCE_TEMPORAL foreign key (idTemporalidad)
+      references TEMPORALIDAD_MEDICION (idTemporalidad)
+      on delete restrict on update restrict;
+
+alter table JUSTIFICACION
+   add constraint FK_JUSTIFIC_REFERENCE_CONTEXTO foreign key (idContexto)
+      references CONTEXTO (idContexto)
+      on delete restrict on update restrict;
+
+alter table JUSTIFICACION
+   add constraint FK_JUSTIFIC_REFERENCE_UNIDAD_E foreign key (idUnidadEstudio)
+      references UNIDAD_ESTUDIO (idUnidadEstudio)
+      on delete restrict on update restrict;
+
+alter table JUSTIFICACION
+   add constraint FK_JUSTIFIC_REFERENCE_TIPO foreign key (idTipoInvestigacion)
+      references TIPO_INVESTIGACION (idTipoInvestigacion)
+      on delete restrict on update restrict;
+
+alter table JUSTIFICACION
+   add constraint FK_JUSTIFIC_REFERENCE_EVENTO foreign key (idEvento)
+      references EVENTO (idEvento)
+      on delete restrict on update restrict;
+
+
 alter table OPORTUNIDAD
-   add constraint FK_OPORTUNI_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
-      references TEMA_INVESTIGACION (idTemaInvestigacion)
+   add constraint FK_OPORTUNI_REFERENCE_JUSTIFICACION foreign key (idJustificacion)
+      references JUSTIFICACION (idJustificacion)
       on delete restrict on update restrict;
 
 alter table POTENCIALIDAD
-   add constraint FK_POTENCIA_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
-      references TEMA_INVESTIGACION (idTemaInvestigacion)
+   add constraint FK_POTENCIA_REFERENCE_JUSTIFICACION foreign key (idJustificacion)
+      references JUSTIFICACION (idJustificacion)
       on delete restrict on update restrict;
 
 alter table MOTIVACION_INTERES
-   add constraint FK_MOTIVACI_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
-      references TEMA_INVESTIGACION (idTemaInvestigacion)
+   add constraint FK_MOTIVACI_REFERENCE_JUSTIFICACION foreign key (idJustificacion)
+      references JUSTIFICACION (idJustificacion)
       on delete restrict on update restrict;
 
 alter table NECESIDAD
-   add constraint FK_NECESIDA_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
-      references TEMA_INVESTIGACION (idTemaInvestigacion)
+   add constraint FK_NECESIDA_REFERENCE_JUSTIFICACION foreign key (idJustificacion)
+      references JUSTIFICACION (idJustificacion)
       on delete restrict on update restrict;
 
 alter table CONTRADICCION
-   add constraint FK_CONTRADI_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
-      references TEMA_INVESTIGACION (idTemaInvestigacion)
+   add constraint FK_CONTRADI_REFERENCE_JUSTIFICACION foreign key (idJustificacion)
+      references JUSTIFICACION (idJustificacion)
       on delete restrict on update restrict;
 
 alter table CURIOSIDAD_PREOCUPACION
-   add constraint FK_CURIOSID_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
-      references TEMA_INVESTIGACION (idTemaInvestigacion)
+   add constraint FK_CURIOSID_REFERENCE_JUSTIFICACION foreign key (idJustificacion)
+      references JUSTIFICACION (idJustificacion)
       on delete restrict on update restrict;
 
 alter table TENDENCIA
-   add constraint FK_TENDENCI_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
-      references TEMA_INVESTIGACION (idTemaInvestigacion)
+   add constraint FK_TENDENCI_REFERENCE_JUSTIFICACION foreign key (idJustificacion)
+      references JUSTIFICACION (idJustificacion)
       on delete restrict on update restrict;
 
 alter table PROYECTO
@@ -1099,3 +1141,4 @@ alter table PROYECTO
    add constraint FK_PROYECTO_REFERENCE_PROYECTI foreign key (idProyectiva)
       references PROYECTIVA (idProyectiva)
       on delete restrict on update restrict;
+

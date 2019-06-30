@@ -86,69 +86,6 @@ INSERT INTO ROL_USUARIO (idRolUsuario,idUsuario,idRol) VALUES ('1166','33','96')
 INSERT INTO ROL_USUARIO (idRolUsuario,idUsuario,idRol) VALUES ('1167','36','2222');
 
 /*==============================================================*/
-/* Table: POTENCIALIDAD                                         */
-/*==============================================================*/
-INSERT INTO POTENCIALIDAD (idPotencialidad,idTemaInvestigacion,argumento) VALUES ('1','77','Centralizar el uso de una inteligencia que permita socavar el hecho de tener que realizar todo un trabajo de forma manual');
-INSERT INTO POTENCIALIDAD (idPotencialidad,idTemaInvestigacion,argumento) VALUES ('2','20','Poder añadir cualquier tipo de riesgos a un proyecto con el fin de poder medir en su totalidad los riesgos que pueden surgir a lo largo de la ejecución del proyecto');
-INSERT INTO POTENCIALIDAD (idPotencialidad,idTemaInvestigacion,argumento) VALUES ('3','63','Automatizar el envío de mensajes de todas las empresas financieras con soporte de Angelina');
-INSERT INTO POTENCIALIDAD (idPotencialidad,idTemaInvestigacion,argumento) VALUES ('4','1234','Poder organizar en su totalidad todas aquella empresas adscritas a la domiciliación');
-INSERT INTO POTENCIALIDAD (idPotencialidad,idTemaInvestigacion,argumento) VALUES ('5','45','Fácil gestión del software en una red de computadores');
-
-/*==============================================================*/
-/* Table: OPORTUNIDAD                                           */
-/*==============================================================*/
-INSERT INTO OPORTUNIDAD (idOportunidad,idTemaInvestigacion,argumento) VALUES ('1','77','El hecho de poder tener gente que conozca sobre aspectos fundamentales para el desarrollo de la inteligencia a formalizar');
-INSERT INTO OPORTUNIDAD (idOportunidad,idTemaInvestigacion,argumento) VALUES ('2','20','Personal capacitado con conocimientos en el área de gestión de riesgos dentro de la propia empresa facilita la obtención de datos para mejorar el rendimiento de la aplicación');
-INSERT INTO OPORTUNIDAD (idOportunidad,idTemaInvestigacion,argumento) VALUES ('3','63','Fundamentación sobre el sistema Angelina que permite la introducción de nuevas tecnologias para el ampliamiento de la misma');
-INSERT INTO OPORTUNIDAD (idOportunidad,idTemaInvestigacion,argumento) VALUES ('4','1234','Centralización a modo de sistema para el registro de todas las empresas adscritas');
-INSERT INTO OPORTUNIDAD (idOportunidad,idTemaInvestigacion,argumento) VALUES ('5','45','Poner al límite los cargos de servicio técnico dentro de las empresas para poder gestionar el conjunto de programas que se utiliza en las distintas redes de computadoras');
-
-/*==============================================================*/
-/* Table: NECESIDAD                                             */
-/*==============================================================*/
-INSERT INTO NECESIDAD (idNecesidad,idTemaInvestigacion,argumento) VALUES ('1','77','Pocas opciones a la hora de analizar datos para el Modulo de Facturacion ');
-INSERT INTO NECESIDAD (idNecesidad,idTemaInvestigacion,argumento) VALUES ('2','20','Aparición de riesgos en la realización de proyectos que impiden la culminación de los mismos');
-INSERT INTO NECESIDAD (idNecesidad,idTemaInvestigacion,argumento) VALUES ('3','63','Pocas herramientas que ayuden con la extracción de datos o presencia de estas muy limitadas');
-INSERT INTO NECESIDAD (idNecesidad,idTemaInvestigacion,argumento) VALUES ('4','1234','Problemas con el Pago de las domiciliaciones que impiden proceder a los usuarios');
-INSERT INTO NECESIDAD (idNecesidad,idTemaInvestigacion,argumento) VALUES ('5','45','Falta de manejo de un software para el sistema operativo de linux ');
-
-/*==============================================================*/
-/* Table: TENDENCIA                                             */
-/*==============================================================*/
-INSERT INTO TENDENCIA (idTendencia,idTemaInvestigacion,argumento) VALUES ('1','77','Insuficiencia en el análisis de la información a escalas grandes');
-INSERT INTO TENDENCIA (idTendencia,idTemaInvestigacion,argumento) VALUES ('2','20','Errores humanos en la consignación de riesgos en un proyecto');
-INSERT INTO TENDENCIA (idTendencia,idTemaInvestigacion,argumento) VALUES ('3','63','Fraudes electrónicos que sean capaces de robar información de usuarios');
-INSERT INTO TENDENCIA (idTendencia,idTemaInvestigacion,argumento) VALUES ('4','1234','Carencia de interfaces usables a la hora de realizar operación delicadas como el registro de empresas');
-INSERT INTO TENDENCIA (idTendencia,idTemaInvestigacion,argumento) VALUES ('5','45','Carencia de interfaces para el gestionamiento de aplicaciones a nivel de software bajo ambiente Linux');
-
-/*==============================================================*/
-/* Table: CURIOSIDAD_PREOCUPACION                               */
-/*==============================================================*/
-INSERT INTO CURIOSIDAD_PREOCUPACION (idCuriosidad,idTemaInvestigacion,argumento) VALUES ('8219','77','Se busca atacar el análisis de datos con business intelligence ya que el ABB desconoce este tipo de herramientas en esta aplicación');
-INSERT INTO CURIOSIDAD_PREOCUPACION (idCuriosidad,idTemaInvestigacion,argumento) VALUES ('8147','20','Es preocupante el poco manejo de riesgos que existen que ayuden a atacar a los mismos');
-INSERT INTO CURIOSIDAD_PREOCUPACION (idCuriosidad,idTemaInvestigacion,argumento) VALUES ('2','63','Se busca descubrir la gran aparición de fraudes en las transacciones electrónicas ');
-INSERT INTO CURIOSIDAD_PREOCUPACION (idCuriosidad,idTemaInvestigacion,argumento) VALUES ('3','1234','Se estudia nuevas maneras de cancelación de las domiciliaciones ya que se desconoce otros medios para completar esta transacción ');
-INSERT INTO CURIOSIDAD_PREOCUPACION (idCuriosidad,idTemaInvestigacion,argumento) VALUES ('6','45','Se desconoce la utilización de software para manejo de softwares en Linux');
-
-/*==============================================================*/
-/* Table: CONTRADICCION                                         */
-/*==============================================================*/
-INSERT INTO CONTRADICCION (idContradiccion,idTemaInvestigacion,argumento) VALUES ('1','77','Se investiga sobre esta solución BI por la falta de análisis de datos a través de un sistema business intelligence');
-INSERT INTO CONTRADICCION (idContradiccion,idTemaInvestigacion,argumento) VALUES ('2','20','Se han propuestos diferentes soluciones de software que pueden satisfacer algunas necesidades en cuanto a la gestión de riesgos pero aun así dichas soluciones dentro de la propia gestión podrían causar errores ');
-INSERT INTO CONTRADICCION (idContradiccion,idTemaInvestigacion,argumento) VALUES ('3','63','Los mismos grupos que realizan los fraudes electrónicos se apoyan de cierta forma con las plataformas desarrolladas para la eliminación de forma parcial de fraudes posibles');
-INSERT INTO CONTRADICCION (idContradiccion,idTemaInvestigacion,argumento) VALUES ('4','1234','Al no haber una sistema que organice dichas domiciliaciones se opta por un sistema físico de llevar en cuenta a mano todas las transacciones aportando un gran material de tiempo, esfuerzo y dinero el cual eliminar conlleva a una reorganización del modelo de negocios');
-INSERT INTO CONTRADICCION (idContradiccion,idTemaInvestigacion,argumento) VALUES ('5','45','Existencia de software para poder administrar los programas pero basado en software de pago aun así para distribuciones de linux el cual conlleva a no poder solucionar el problema desde un ambiente de software libre');
-
-/*==============================================================*/
-/* Table: MOTIVACION_INTERES                                    */
-/*==============================================================*/
-INSERT INTO MOTIVACION_INTERES (idMotivacion,idTemaInvestigacion,argumento) VALUES ('1','77','Generar una solución BI factible para facilitar el trabajo del Modulo de Facturacion');
-INSERT INTO MOTIVACION_INTERES (idMotivacion,idTemaInvestigacion,argumento) VALUES ('3','20','Apoyar con el descubrimiento de riesgos en la realización de proyectos ');
-INSERT INTO MOTIVACION_INTERES (idMotivacion,idTemaInvestigacion,argumento) VALUES ('9959','63','Generar un sistema que ayude en la extracción de datos sobre cualquier fuente ');
-INSERT INTO MOTIVACION_INTERES (idMotivacion,idTemaInvestigacion,argumento) VALUES ('96','1234','Generar un sistema de pagos para las domiciliaciones en la CCE');
-INSERT INTO MOTIVACION_INTERES (idMotivacion,idTemaInvestigacion,argumento) VALUES ('457','45','Propiciar un software que ayude a administrar software para Linux');
-
-/*==============================================================*/
 /* Table: INVOLUCRADO                                           */
 /*==============================================================*/
 INSERT INTO INVOLUCRADO (idInvolucrado,involucrado) VALUES ('302','Responsables de los planes de contingencia');
@@ -679,9 +616,105 @@ INSERT INTO PREDICCION (idPrediccion,idFundamentoProyectivo,prediccion) VALUES (
 /*==============================================================*/
 /* Table: PROYECTO                                              */
 /*==============================================================*/
-
 INSERT INTO PROYECTO (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva) VALUES ('1','77','8963','8566','7502','760');
 INSERT INTO PROYECTO (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva) VALUES ('2','20','9696','7546','489','9233');
 INSERT INTO PROYECTO (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva) VALUES ('3','63','456','74','46','436');
 INSERT INTO PROYECTO (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva) VALUES ('4','1234','4726','9080','7586','7412');
 INSERT INTO PROYECTO (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva) VALUES ('5','45','471','4569','483','4363');
+
+/*==============================================================*/
+/* Table: JUSTIFICACION                                         */
+/*==============================================================*/
+INSERT INTO JUSTIFICACION (idJustificacion,idTemporalidad,idContexto,idUnidadEstudio,idEvento,idTipoInvestigacion) VALUES ('1','8963','8566','7502','4256','2');
+INSERT INTO JUSTIFICACION (idJustificacion,idTemporalidad,idContexto,idUnidadEstudio,idEvento,idTipoInvestigacion) VALUES ('2','9696','7546','489','5632','2');
+INSERT INTO JUSTIFICACION (idJustificacion,idTemporalidad,idContexto,idUnidadEstudio,idEvento,idTipoInvestigacion) VALUES ('3','456','74','46','74','2');
+INSERT INTO JUSTIFICACION (idJustificacion,idTemporalidad,idContexto,idUnidadEstudio,idEvento,idTipoInvestigacion) VALUES ('4','4726','9080','7586','123','2');
+INSERT INTO JUSTIFICACION (idJustificacion,idTemporalidad,idContexto,idUnidadEstudio,idEvento,idTipoInvestigacion) VALUES ('5','471','4569','483','963','2');
+INSERT INTO JUSTIFICACION (idJustificacion,idTemporalidad,idContexto,idUnidadEstudio,idEvento,idTipoInvestigacion) VALUES ('6',null,null,null,'5632','2');
+INSERT INTO JUSTIFICACION (idJustificacion,idTemporalidad,idContexto,idUnidadEstudio,idEvento,idTipoInvestigacion) VALUES ('7',null,null,null,'4288','2');
+INSERT INTO JUSTIFICACION (idJustificacion,idTemporalidad,idContexto,idUnidadEstudio,idEvento,idTipoInvestigacion) VALUES ('8',null,null,null,'752','2');
+
+
+/*==============================================================*/
+/* Table: POTENCIALIDAD                                         */
+/*==============================================================*/
+INSERT INTO POTENCIALIDAD (idPotencialidad,idJustificacion,argumento) VALUES ('1','1','Centralizar el uso de una inteligencia que permita socavar el hecho de tener que realizar todo un trabajo de forma manual');
+INSERT INTO POTENCIALIDAD (idPotencialidad,idJustificacion,argumento) VALUES ('2','2','Poder añadir cualquier tipo de riesgos a un proyecto con el fin de poder medir en su totalidad los riesgos que pueden surgir a lo largo de la ejecución del proyecto');
+INSERT INTO POTENCIALIDAD (idPotencialidad,idJustificacion,argumento) VALUES ('3','3','Automatizar el envío de mensajes de todas las empresas financieras con soporte de Angelina');
+INSERT INTO POTENCIALIDAD (idPotencialidad,idJustificacion,argumento) VALUES ('4','4','Poder organizar en su totalidad todas aquella empresas adscritas a la domiciliación');
+INSERT INTO POTENCIALIDAD (idPotencialidad,idJustificacion,argumento) VALUES ('5','5','Fácil gestión del software en una red de computadores');
+INSERT INTO POTENCIALIDAD (idPotencialidad,idJustificacion,argumento) VALUES ('6','6','Modificacion en la gestión del software en una red de computadores');
+INSERT INTO POTENCIALIDAD (idPotencialidad,idJustificacion,argumento) VALUES ('7','7','Forma de eliminar riesgos en los proyectos');
+INSERT INTO POTENCIALIDAD (idPotencialidad,idJustificacion,argumento) VALUES ('8','8','Establecimiento de tecnicas de analisis');
+
+/*==============================================================*/
+/* Table: OPORTUNIDAD                                           */
+/*==============================================================*/
+INSERT INTO OPORTUNIDAD (idOportunidad,idJustificacion,argumento) VALUES ('1','1','El hecho de poder tener gente que conozca sobre aspectos fundamentales para el desarrollo de la inteligencia a formalizar');
+INSERT INTO OPORTUNIDAD (idOportunidad,idJustificacion,argumento) VALUES ('2','2','Personal capacitado con conocimientos en el área de gestión de riesgos dentro de la propia empresa facilita la obtención de datos para mejorar el rendimiento de la aplicación');
+INSERT INTO OPORTUNIDAD (idOportunidad,idJustificacion,argumento) VALUES ('3','3','Fundamentación sobre el sistema Angelina que permite la introducción de nuevas tecnologias para el ampliamiento de la misma');
+INSERT INTO OPORTUNIDAD (idOportunidad,idJustificacion,argumento) VALUES ('4','4','Centralización a modo de sistema para el registro de todas las empresas adscritas');
+INSERT INTO OPORTUNIDAD (idOportunidad,idJustificacion,argumento) VALUES ('5','5','Poner al límite los cargos de servicio técnico dentro de las empresas para poder gestionar el conjunto de programas que se utiliza en las distintas redes de computadoras');
+INSERT INTO OPORTUNIDAD (idOportunidad,idJustificacion,argumento) VALUES ('6','6','Actualizar componente fisicos');
+INSERT INTO OPORTUNIDAD (idOportunidad,idJustificacion,argumento) VALUES ('7','7','Actualizar plataformas de riesgos');
+INSERT INTO OPORTUNIDAD (idOportunidad,idJustificacion,argumento) VALUES ('8','8','Actualizacion de tecnicas de analisis');
+
+/*==============================================================*/
+/* Table: NECESIDAD                                             */
+/*==============================================================*/
+INSERT INTO NECESIDAD (idNecesidad,idJustificacion,argumento) VALUES ('1','1','Pocas opciones a la hora de analizar datos para el Modulo de Facturacion ');
+INSERT INTO NECESIDAD (idNecesidad,idJustificacion,argumento) VALUES ('2','2','Aparición de riesgos en la realización de proyectos que impiden la culminación de los mismos');
+INSERT INTO NECESIDAD (idNecesidad,idJustificacion,argumento) VALUES ('3','3','Pocas herramientas que ayuden con la extracción de datos o presencia de estas muy limitadas');
+INSERT INTO NECESIDAD (idNecesidad,idJustificacion,argumento) VALUES ('4','4','Problemas con el Pago de las domiciliaciones que impiden proceder a los usuarios');
+INSERT INTO NECESIDAD (idNecesidad,idJustificacion,argumento) VALUES ('5','5','Falta de manejo de un software para el sistema operativo de linux ');
+INSERT INTO NECESIDAD (idNecesidad,idJustificacion,argumento) VALUES ('6','6','Falta de componente fisicos');
+INSERT INTO NECESIDAD (idNecesidad,idJustificacion,argumento) VALUES ('7','7','Falta plataformas de riesgos');
+INSERT INTO NECESIDAD (idNecesidad,idJustificacion,argumento) VALUES ('8','8','Falta de tecnicas de analisis');
+
+/*==============================================================*/
+/* Table: TENDENCIA                                             */
+/*==============================================================*/
+INSERT INTO TENDENCIA (idTendencia,idJustificacion,argumento) VALUES ('1','1','Insuficiencia en el análisis de la información a escalas grandes');
+INSERT INTO TENDENCIA (idTendencia,idJustificacion,argumento) VALUES ('2','2','Errores humanos en la consignación de riesgos en un proyecto');
+INSERT INTO TENDENCIA (idTendencia,idJustificacion,argumento) VALUES ('3','3','Fraudes electrónicos que sean capaces de robar información de usuarios');
+INSERT INTO TENDENCIA (idTendencia,idJustificacion,argumento) VALUES ('4','4','Carencia de interfaces usables a la hora de realizar operación delicadas como el registro de empresas');
+INSERT INTO TENDENCIA (idTendencia,idJustificacion,argumento) VALUES ('5','5','Carencia de interfaces para el gestionamiento de aplicaciones a nivel de software bajo ambiente Linux');
+INSERT INTO TENDENCIA (idTendencia,idJustificacion,argumento) VALUES ('6','6','Carencia de componentes fisicos');
+INSERT INTO TENDENCIA (idTendencia,idJustificacion,argumento) VALUES ('7','7','Errores en plataformas de riesgos');
+INSERT INTO TENDENCIA (idTendencia,idJustificacion,argumento) VALUES ('8','8','Mal uso de tecnicas de analisis');
+
+/*==============================================================*/
+/* Table: CURIOSIDAD_PREOCUPACION                               */
+/*==============================================================*/
+INSERT INTO CURIOSIDAD_PREOCUPACION (idCuriosidad,idJustificacion,argumento) VALUES ('8219','1','Se busca atacar el análisis de datos con business intelligence ya que el ABB desconoce este tipo de herramientas en esta aplicación');
+INSERT INTO CURIOSIDAD_PREOCUPACION (idCuriosidad,idJustificacion,argumento) VALUES ('8147','2','Es preocupante el poco manejo de riesgos que existen que ayuden a atacar a los mismos');
+INSERT INTO CURIOSIDAD_PREOCUPACION (idCuriosidad,idJustificacion,argumento) VALUES ('2','3','Se busca descubrir la gran aparición de fraudes en las transacciones electrónicas ');
+INSERT INTO CURIOSIDAD_PREOCUPACION (idCuriosidad,idJustificacion,argumento) VALUES ('3','4','Se estudia nuevas maneras de cancelación de las domiciliaciones ya que se desconoce otros medios para completar esta transacción ');
+INSERT INTO CURIOSIDAD_PREOCUPACION (idCuriosidad,idJustificacion,argumento) VALUES ('6','5','Se desconoce la utilización de software para manejo de softwares en Linux');
+INSERT INTO CURIOSIDAD_PREOCUPACION (idCuriosidad,idJustificacion,argumento) VALUES ('7','6','Fallos en componente fisico');
+INSERT INTO CURIOSIDAD_PREOCUPACION (idCuriosidad,idJustificacion,argumento) VALUES ('8','7','Inexistencia en plataformas de riesgos');
+INSERT INTO CURIOSIDAD_PREOCUPACION (idCuriosidad,idJustificacion,argumento) VALUES ('9','8','Mal uso de tecnicas de analisis');
+
+/*==============================================================*/
+/* Table: CONTRADICCION                                         */
+/*==============================================================*/
+INSERT INTO CONTRADICCION (idContradiccion,idJustificacion,argumento) VALUES ('1','1','Se investiga sobre esta solución BI por la falta de análisis de datos a través de un sistema business intelligence');
+INSERT INTO CONTRADICCION (idContradiccion,idJustificacion,argumento) VALUES ('2','2','Se han propuestos diferentes soluciones de software que pueden satisfacer algunas necesidades en cuanto a la gestión de riesgos pero aun así dichas soluciones dentro de la propia gestión podrían causar errores ');
+INSERT INTO CONTRADICCION (idContradiccion,idJustificacion,argumento) VALUES ('3','3','Los mismos grupos que realizan los fraudes electrónicos se apoyan de cierta forma con las plataformas desarrolladas para la eliminación de forma parcial de fraudes posibles');
+INSERT INTO CONTRADICCION (idContradiccion,idJustificacion,argumento) VALUES ('4','4','Al no haber una sistema que organice dichas domiciliaciones se opta por un sistema físico de llevar en cuenta a mano todas las transacciones aportando un gran material de tiempo, esfuerzo y dinero el cual eliminar conlleva a una reorganización del modelo de negocios');
+INSERT INTO CONTRADICCION (idContradiccion,idJustificacion,argumento) VALUES ('5','5','Existencia de software para poder administrar los programas pero basado en software de pago aun así para distribuciones de linux el cual conlleva a no poder solucionar el problema desde un ambiente de software libre');
+INSERT INTO CONTRADICCION (idContradiccion,idJustificacion,argumento) VALUES ('6','6','Falta de capital para la actualizacion');
+INSERT INTO CONTRADICCION (idContradiccion,idJustificacion,argumento) VALUES ('7','7','Riesgos al aplicar plataforma de riesgos');
+INSERT INTO CONTRADICCION (idContradiccion,idJustificacion,argumento) VALUES ('8','8','Mal empleo de tecnicas de analisis para la solucion del problema');
+
+/*==============================================================*/
+/* Table: MOTIVACION_INTERES                                    */
+/*==============================================================*/
+INSERT INTO MOTIVACION_INTERES (idMotivacion,idJustificacion,argumento) VALUES ('1','1','Generar una solución BI factible para facilitar el trabajo del Modulo de Facturacion');
+INSERT INTO MOTIVACION_INTERES (idMotivacion,idJustificacion,argumento) VALUES ('3','2','Apoyar con el descubrimiento de riesgos en la realización de proyectos ');
+INSERT INTO MOTIVACION_INTERES (idMotivacion,idJustificacion,argumento) VALUES ('9959','3','Generar un sistema que ayude en la extracción de datos sobre cualquier fuente ');
+INSERT INTO MOTIVACION_INTERES (idMotivacion,idJustificacion,argumento) VALUES ('96','4','Generar un sistema de pagos para las domiciliaciones en la CCE');
+INSERT INTO MOTIVACION_INTERES (idMotivacion,idJustificacion,argumento) VALUES ('457','5','Propiciar un software que ayude a administrar software para Linux');
+INSERT INTO MOTIVACION_INTERES (idMotivacion,idJustificacion,argumento) VALUES ('6','6','Innovacion en la red');
+INSERT INTO MOTIVACION_INTERES (idMotivacion,idJustificacion,argumento) VALUES ('7','7','Actualizacion de normas');
+INSERT INTO MOTIVACION_INTERES (idMotivacion,idJustificacion,argumento) VALUES ('8','8','Validacion del uso de tecnicas de analisis');
