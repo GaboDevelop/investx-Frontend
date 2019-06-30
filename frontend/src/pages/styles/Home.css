@@ -1,0 +1,23 @@
+.contenedor-titulos {
+  position: relative;
+  top: 50px;
+}
+
+.contenedor-empresa {
+  background: #ffffff;
+  border-radius: 10px;
+}
+.titulo-empresa {
+  color: #9b2911;
+  font-size: 40px;
+}
+
+.subtitulo-autores {
+  color: #9b2911;
+}
+
+.eslogan-empresa {
+  color: #111111;
+  font-size: 20px;
+  font-style: italic;
+}

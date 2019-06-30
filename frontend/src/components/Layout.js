@@ -2,12 +2,16 @@ import React from "react";
 
 import Navbar from "./Navbar";
 
+import "./styles/Layout.css";
+
 function Layout(props) {
   //const children = props.children;
   return (
     <React.Fragment>
-      <Navbar />
-      {props.children}
+      <div className="bg-home">
+        <Navbar />
+        {props.children}
+      </div>
     </React.Fragment>
   );
 }

@@ -8,7 +8,7 @@ class Navbar extends React.Component {
   render() {
     return (
       <div className="Navbar">
-        <div className="container-fluid bg-home">
+        <div className="container-fluid">
           <div className="container headerNav">
             <nav className="navbar navbar-expand-lg navbar-light row">
               <Link className="navbar-brand col-3" to="/">
@@ -51,7 +51,7 @@ class Navbar extends React.Component {
                 </div>
 
                 <div className="col-3 dBoton">
-                  <Link className="nav-link align-self-end" to="">
+                  <Link className="nav-link align-self-end" to="/login">
                     <i className="fas fa-sign-in-alt" />
                     Login/Registro
                   </Link>
