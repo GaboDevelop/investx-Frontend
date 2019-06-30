@@ -36,11 +36,11 @@ INSERT INTO NIVEL_INVESTIGACION (idNivelInvestigacion,nivel) VALUES ('4','Integr
 /*==============================================================*/
 /* Table: TEMA_INVESTIGACION                                    */
 /*==============================================================*/
-INSERT INTO TEMA_INVESTIGACION (idTemaInvestigacion,idUsuario,idTemporalidad,idNivelInvestigacion,temaIncompleto,tema,situacionPreocupante,conexionOtrosT) VALUES ('77','33','8963','1','Desarrollar un DataMart','Desarrollar un DataMart aplicable a una solución de Inteligencia de Negocios, Business Intelligence, para la empresa ABB Venezuela ','Uso poco eficaz y no eficiente del análisis de la información en un gran volumen de datos','Desarrollo de sistemas para análisis de datos ');
-INSERT INTO TEMA_INVESTIGACION (idTemaInvestigacion,idUsuario,idTemporalidad,idNivelInvestigacion,temaIncompleto,tema,situacionPreocupante,conexionOtrosT) VALUES ('20','333','9696','1','Desarrollar un sistema de gestión de riesgos','Desarrollar un sistema de gestión de riesgos, que permita apoyar los procesos de gestión de riesgos en proyectos de tecnologia de informacion a nivel de planificación y seguimiento','Errores y riesgos que interfieren en los proyectos que afectan el desenvolvimiento de las actividades ','Interferencia de errores a nivel planificativo y de seguimiento');
-INSERT INTO TEMA_INVESTIGACION (idTemaInvestigacion,idUsuario,idTemporalidad,idNivelInvestigacion,temaIncompleto,tema,situacionPreocupante,conexionOtrosT) VALUES ('63','4','456','1','Diseñar e implementar un componente de extracción de datos','Diseñar e implementar un componente de extracción de datos el cual sea capaz de extraer la información requerida sobre cualquier fuente de datos','Fraude en las transacciones electrónicas de Venezuela','Utilización del canal de SMS para verificación de transacciones electrónicas de cualquier tipo');
-INSERT INTO TEMA_INVESTIGACION (idTemaInvestigacion,idUsuario,idTemporalidad,idNivelInvestigacion,temaIncompleto,tema,situacionPreocupante,conexionOtrosT) VALUES ('1234','1111','4726','1','Diseñar e implementar un portal Web de empresas para Domiciliaciones','Diseñar e implementar un portal Web de Registro de Empresas Ordenantes para Domiciliaciones y Procesamiento de operaciones de Créditos Directos ordenadas por organismos oficiales a través de la cámara de compensación electrónica  ','La Camara de Compensacion Electronica carece de interfaces que permitan a los usuarios realizar el registro de empresas ','Desarrollo de aplicaciones para la banca electrónica');
-INSERT INTO TEMA_INVESTIGACION (idTemaInvestigacion,idUsuario,idTemporalidad,idNivelInvestigacion,temaIncompleto,tema,situacionPreocupante,conexionOtrosT) VALUES ('45','23','471','1','Software para Linux','Diseño y desarrollo de una herramienta que administre software en máquinas con sistema operativo Linux','Obsoletismo en herramientas de gestión de software bajo ambiente Linux','Desarrollo de aplicaciones para S.O Linux');
+INSERT INTO TEMA_INVESTIGACION (idTemaInvestigacion,idUsuario,idNivelInvestigacion,temaIncompleto,tema,situacionPreocupante,conexionOtrosT) VALUES ('77','33','1','Desarrollar un DataMart','Desarrollar un DataMart aplicable a una solución de Inteligencia de Negocios, Business Intelligence, para la empresa ABB Venezuela ','Uso poco eficaz y no eficiente del análisis de la información en un gran volumen de datos','Desarrollo de sistemas para análisis de datos ');
+INSERT INTO TEMA_INVESTIGACION (idTemaInvestigacion,idUsuario,idNivelInvestigacion,temaIncompleto,tema,situacionPreocupante,conexionOtrosT) VALUES ('20','333','1','Desarrollar un sistema de gestión de riesgos','Desarrollar un sistema de gestión de riesgos, que permita apoyar los procesos de gestión de riesgos en proyectos de tecnologia de informacion a nivel de planificación y seguimiento','Errores y riesgos que interfieren en los proyectos que afectan el desenvolvimiento de las actividades ','Interferencia de errores a nivel planificativo y de seguimiento');
+INSERT INTO TEMA_INVESTIGACION (idTemaInvestigacion,idUsuario,idNivelInvestigacion,temaIncompleto,tema,situacionPreocupante,conexionOtrosT) VALUES ('63','4','1','Diseñar e implementar un componente de extracción de datos','Diseñar e implementar un componente de extracción de datos el cual sea capaz de extraer la información requerida sobre cualquier fuente de datos','Fraude en las transacciones electrónicas de Venezuela','Utilización del canal de SMS para verificación de transacciones electrónicas de cualquier tipo');
+INSERT INTO TEMA_INVESTIGACION (idTemaInvestigacion,idUsuario,idNivelInvestigacion,temaIncompleto,tema,situacionPreocupante,conexionOtrosT) VALUES ('1234','1111','1','Diseñar e implementar un portal Web de empresas para Domiciliaciones','Diseñar e implementar un portal Web de Registro de Empresas Ordenantes para Domiciliaciones y Procesamiento de operaciones de Créditos Directos ordenadas por organismos oficiales a través de la cámara de compensación electrónica  ','La Camara de Compensacion Electronica carece de interfaces que permitan a los usuarios realizar el registro de empresas ','Desarrollo de aplicaciones para la banca electrónica');
+INSERT INTO TEMA_INVESTIGACION (idTemaInvestigacion,idUsuario,idNivelInvestigacion,temaIncompleto,tema,situacionPreocupante,conexionOtrosT) VALUES ('45','23','1','Software para Linux','Diseño y desarrollo de una herramienta que administre software en máquinas con sistema operativo Linux','Obsoletismo en herramientas de gestión de software bajo ambiente Linux','Desarrollo de aplicaciones para S.O Linux');
 
 /*==============================================================*/
 /* Table: VERSION                                               */
@@ -219,24 +219,6 @@ INSERT INTO TECNICA_OBTENCION_INFORMACION  (idTecnicaObtencionInformacion,tecnic
 INSERT INTO TECNICA_OBTENCION_INFORMACION  (idTecnicaObtencionInformacion,tecnica) VALUES ('7458','Analizar y evaluar una solución BI para las necesidades del Módulo de Facturación de Ventas ');
 
 /*==============================================================*/
-/* Table: TECNICA_OBTENCION_INFORMACION_C                       */
-/*==============================================================*/
-INSERT INTO TECNICA_OBTENCION_INFORMACION_C (idTecnicaCondicion,idTecnicaObtencionInformacion,idCondicionMetodologica) VALUES ('4401','789','1456');
-INSERT INTO TECNICA_OBTENCION_INFORMACION_C (idTecnicaCondicion,idTecnicaObtencionInformacion,idCondicionMetodologica) VALUES ('4402','3214','74');
-INSERT INTO TECNICA_OBTENCION_INFORMACION_C (idTecnicaCondicion,idTecnicaObtencionInformacion,idCondicionMetodologica) VALUES ('4403','7458','74');
-INSERT INTO TECNICA_OBTENCION_INFORMACION_C (idTecnicaCondicion,idTecnicaObtencionInformacion,idCondicionMetodologica) VALUES ('4404','10023','1456');
-INSERT INTO TECNICA_OBTENCION_INFORMACION_C (idTecnicaCondicion,idTecnicaObtencionInformacion,idCondicionMetodologica) VALUES ('4405','7536','1456');
-INSERT INTO TECNICA_OBTENCION_INFORMACION_C (idTecnicaCondicion,idTecnicaObtencionInformacion,idCondicionMetodologica) VALUES ('4406','9390','1456');
-INSERT INTO TECNICA_OBTENCION_INFORMACION_C (idTecnicaCondicion,idTecnicaObtencionInformacion,idCondicionMetodologica) VALUES ('4407','7964','1456');
-INSERT INTO TECNICA_OBTENCION_INFORMACION_C (idTecnicaCondicion,idTecnicaObtencionInformacion,idCondicionMetodologica) VALUES ('4408','125','1456');
-INSERT INTO TECNICA_OBTENCION_INFORMACION_C (idTecnicaCondicion,idTecnicaObtencionInformacion,idCondicionMetodologica) VALUES ('4409','7145','1456');
-INSERT INTO TECNICA_OBTENCION_INFORMACION_C (idTecnicaCondicion,idTecnicaObtencionInformacion,idCondicionMetodologica) VALUES ('4410','789','9637');
-INSERT INTO TECNICA_OBTENCION_INFORMACION_C (idTecnicaCondicion,idTecnicaObtencionInformacion,idCondicionMetodologica) VALUES ('4411','7592','9637');
-INSERT INTO TECNICA_OBTENCION_INFORMACION_C (idTecnicaCondicion,idTecnicaObtencionInformacion,idCondicionMetodologica) VALUES ('4412','5252','6363');
-INSERT INTO TECNICA_OBTENCION_INFORMACION_C (idTecnicaCondicion,idTecnicaObtencionInformacion,idCondicionMetodologica) VALUES ('4413','789','1580');
-INSERT INTO TECNICA_OBTENCION_INFORMACION_C (idTecnicaCondicion,idTecnicaObtencionInformacion,idCondicionMetodologica) VALUES ('4414','7536','1580');
-
-/*==============================================================*/
 /* Table: CONDICION_SOCIAL                                      */
 /*==============================================================*/
 INSERT INTO CONDICION_SOCIAL (idCondicionSocial,idTemaInvestigacion,contribucion,necesidad,aporte,aplicacion) VALUES ('1','20','TRUE','TRUE','TRUE','TRUE');
@@ -295,6 +277,24 @@ INSERT INTO UNIDAD_ESTUDIO (idUnidadEstudio,idPoblacion,idMuestra) VALUES ('46',
 INSERT INTO UNIDAD_ESTUDIO (idUnidadEstudio,idPoblacion,idMuestra) VALUES ('7586','7589','5555');
 INSERT INTO UNIDAD_ESTUDIO (idUnidadEstudio,idPoblacion,idMuestra) VALUES ('483','957','7496');
 INSERT INTO UNIDAD_ESTUDIO (idUnidadEstudio,idPoblacion,idMuestra) VALUES ('7502','957','7969');
+
+/*==============================================================*/
+/* Table: TECNICA_OBTENCION_INFORMACION_U                       */
+/*==============================================================*/
+INSERT INTO TECNICA_OBTENCION_INFORMACION_U (idTecnicaCondicion,idTecnicaObtencionInformacion,idUnidadEstudio) VALUES ('4401','789','489');
+INSERT INTO TECNICA_OBTENCION_INFORMACION_U (idTecnicaCondicion,idTecnicaObtencionInformacion,idUnidadEstudio) VALUES ('4402','3214','46');
+INSERT INTO TECNICA_OBTENCION_INFORMACION_U (idTecnicaCondicion,idTecnicaObtencionInformacion,idUnidadEstudio) VALUES ('4403','7458','7586');
+INSERT INTO TECNICA_OBTENCION_INFORMACION_U (idTecnicaCondicion,idTecnicaObtencionInformacion,idUnidadEstudio) VALUES ('4404','10023','483');
+INSERT INTO TECNICA_OBTENCION_INFORMACION_U (idTecnicaCondicion,idTecnicaObtencionInformacion,idUnidadEstudio) VALUES ('4405','7536','7502');
+INSERT INTO TECNICA_OBTENCION_INFORMACION_U (idTecnicaCondicion,idTecnicaObtencionInformacion,idUnidadEstudio) VALUES ('4406','9390','489');
+INSERT INTO TECNICA_OBTENCION_INFORMACION_U (idTecnicaCondicion,idTecnicaObtencionInformacion,idUnidadEstudio) VALUES ('4407','7964','46');
+INSERT INTO TECNICA_OBTENCION_INFORMACION_U (idTecnicaCondicion,idTecnicaObtencionInformacion,idUnidadEstudio) VALUES ('4408','125','7586');
+INSERT INTO TECNICA_OBTENCION_INFORMACION_U (idTecnicaCondicion,idTecnicaObtencionInformacion,idUnidadEstudio) VALUES ('4409','7145','483');
+INSERT INTO TECNICA_OBTENCION_INFORMACION_U (idTecnicaCondicion,idTecnicaObtencionInformacion,idUnidadEstudio) VALUES ('4410','789','7502');
+INSERT INTO TECNICA_OBTENCION_INFORMACION_U (idTecnicaCondicion,idTecnicaObtencionInformacion,idUnidadEstudio) VALUES ('4411','7592','489');
+INSERT INTO TECNICA_OBTENCION_INFORMACION_U (idTecnicaCondicion,idTecnicaObtencionInformacion,idUnidadEstudio) VALUES ('4412','5252','46');
+INSERT INTO TECNICA_OBTENCION_INFORMACION_U (idTecnicaCondicion,idTecnicaObtencionInformacion,idUnidadEstudio) VALUES ('4413','789','7586');
+INSERT INTO TECNICA_OBTENCION_INFORMACION_U (idTecnicaCondicion,idTecnicaObtencionInformacion,idUnidadEstudio) VALUES ('4414','7536','483');
 
 /*==============================================================*/
 /* Table: CONTEXTO_UNIDAD_ESTUDIO                               */
@@ -668,3 +668,12 @@ INSERT INTO PREDICCION (idPrediccion,idFundamentoProyectivo,prediccion) VALUES (
 INSERT INTO PREDICCION (idPrediccion,idFundamentoProyectivo,prediccion) VALUES ('5','64','El centralizar el manejo de SMS y MMS de las instituciones bancaria mejorará el rendimiento del envío de mensajes sobre acciones de la parte electrónica');
 INSERT INTO PREDICCION (idPrediccion,idFundamentoProyectivo,prediccion) VALUES ('482','419','Al fijarse en estandares de compresion de paquetes se puede predecir que el sistema de la red no colapsara y menos se saturara de información por el envío de archivos que gestione el software de las máquinas');
 
+/*==============================================================*/
+/* Table: PROYECTO                                              */
+/*==============================================================*/
+
+INSERT INTO PROYECTO (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva) VALUES ('1','77','8963','8566','7502','760');
+INSERT INTO PROYECTO (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva) VALUES ('2','20','9696','7546','489','9233');
+INSERT INTO PROYECTO (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva) VALUES ('3','63','456','74','46','436');
+INSERT INTO PROYECTO (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva) VALUES ('4','1234','4726','9080','7586','7412');
+INSERT INTO PROYECTO (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva) VALUES ('5','45','471','4569','483','4363');

@@ -1,4 +1,5 @@
-﻿DROP TABLE IF EXISTS USUARIO CASCADE;
+DROP TABLE IF EXISTS USUARIO CASCADE;
+DROP TABLE IF EXISTS PROYECTO CASCADE;
 DROP TABLE IF EXISTS TEMPORALIDAD_MEDICION CASCADE;
 DROP TABLE IF EXISTS VERSION CASCADE;
 DROP TABLE IF EXISTS ROL CASCADE;
@@ -21,7 +22,7 @@ DROP TABLE IF EXISTS CONDICION_PERSONAL CASCADE;
 DROP TABLE IF EXISTS CONDICION_METODOLOGICA CASCADE;
 DROP TABLE IF EXISTS TECNICA_ANALISIS CASCADE;
 DROP TABLE IF EXISTS TECNICA_OBTENCION_INFORMACION CASCADE;
-DROP TABLE IF EXISTS TECNICA_OBTENCION_INFORMACION_C CASCADE;
+DROP TABLE IF EXISTS TECNICA_OBTENCION_INFORMACION_U CASCADE;
 DROP TABLE IF EXISTS CONTEXTO CASCADE;
 DROP TABLE IF EXISTS TEMPORALIDAD_MEDICION_CONTEXTO CASCADE;
 DROP TABLE IF EXISTS POBLACION CASCADE;
@@ -60,7 +61,6 @@ DROP TABLE IF EXISTS COMPARACION CASCADE;
 DROP TABLE IF EXISTS EXPLICACION CASCADE;
 DROP TABLE IF EXISTS PREDICCION CASCADE;
 
-
 /*==============================================================*/
 /* Table: USUARIO                                               */
 /*==============================================================*/
@@ -92,7 +92,6 @@ create table TEMPORALIDAD_MEDICION (
 create table TEMA_INVESTIGACION (
    idTemaInvestigacion SERIAL               not null,
    idUsuario           INT4                 not null,
-   idTemporalidad      INT4                 not null,
    idNivelInvestigacion INT4                not null,
    temaIncompleto     VARCHAR(250)         not null,
    tema                 TEXT         not null,
@@ -100,6 +99,20 @@ create table TEMA_INVESTIGACION (
    conexionOtrosT 	TEXT         not null,
    active    boolean not null default true,
    constraint PK_TEMA_INVESTIGACION primary key (idTemaInvestigacion)
+);
+
+/*==============================================================*/
+/* Table: PROYECTO                                              */
+/*==============================================================*/
+create table PROYECTO (
+   idProyecto           SERIAL               not null,
+   idTemaInvestigacion  INT4                 null,
+   idTemporalidad      INT4                 null,
+   idContexto          INT4                 null,
+   idUnidadEstudio    INT4                 null,
+   idProyectiva        INT4                 null,
+   status           boolean not null default true,
+   constraint PK_PROYECTO primary key (idProyecto)
 );
 
 /*==============================================================*/
@@ -278,14 +291,14 @@ create table TECNICA_OBTENCION_INFORMACION (
 );
 
 /*==============================================================*/
-/* Table: TECNICA_OBTENCION_INFORMACION_C                       */
+/* Table: TECNICA_OBTENCION_INFORMACION_U                       */
 /*==============================================================*/
-create table TECNICA_OBTENCION_INFORMACION_C (
+create table TECNICA_OBTENCION_INFORMACION_U (
    idTecnicaCondicion SERIAL               not null,
    idTecnicaObtencionInformacion INT4                 not null,
-   idCondicionMetodologica INT4                 not null,
+   idUnidadEstudio INT4                 not null,
    active    boolean not null default true,
-   constraint PK_TECNICA_OBTENCION_INFORMACI primary key (idTecnicaCondicion)
+   constraint PK_TECNICA_OBTENCION_INFORMACION_U primary key (idTecnicaCondicion)
 );
 
 /*==============================================================*/
@@ -955,24 +968,19 @@ alter table SEMEJANZA_CATEGORIA
       references SEMEJANZA (idSemejanza)
       on delete restrict on update restrict;
 
-alter table TECNICA_OBTENCION_INFORMACION_C
+alter table TECNICA_OBTENCION_INFORMACION_U
    add constraint FK_TECNICA__REFERENCE_TECNICA_ foreign key (idTecnicaObtencionInformacion)
       references TECNICA_OBTENCION_INFORMACION (idTecnicaObtencionInformacion)
       on delete restrict on update restrict;
 
-alter table TECNICA_OBTENCION_INFORMACION_C
-   add constraint FK_TECNICA__REFERENCE_CONDICIO foreign key (idCondicionMetodologica)
-      references CONDICION_METODOLOGICA (idCondicionMetodologica)
+alter table TECNICA_OBTENCION_INFORMACION_U
+   add constraint FK_TECNICA__REFERENCE_UNIDAD_E foreign key (idUnidadEstudio)
+      references UNIDAD_ESTUDIO (idUnidadEstudio)
       on delete restrict on update restrict;
 
 alter table TEMA_INVESTIGACION
    add constraint FK_TEMA_INV_REFERENCE_USUARIO foreign key (idUsuario)
       references USUARIO (idUsuario)
-      on delete restrict on update restrict;
-
-alter table TEMA_INVESTIGACION
-   add constraint FK_TEMA_INV_REFERENCE_TEMPORAL foreign key (idTemporalidad)
-      references TEMPORALIDAD_MEDICION (idTemporalidad)
       on delete restrict on update restrict;
 
 alter table TEMA_INVESTIGACION
@@ -1048,4 +1056,29 @@ alter table CURIOSIDAD_PREOCUPACION
 alter table TENDENCIA
    add constraint FK_TENDENCI_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
       references TEMA_INVESTIGACION (idTemaInvestigacion)
+      on delete restrict on update restrict;
+
+alter table PROYECTO
+   add constraint FK_PROYECTO_REFERENCE_TEMPORAL foreign key (idTemporalidad)
+      references TEMPORALIDAD_MEDICION (idTemporalidad)
+      on delete restrict on update restrict;
+
+alter table PROYECTO
+   add constraint FK_PROYECTO_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
+      references TEMA_INVESTIGACION (idTemaInvestigacion)
+      on delete restrict on update restrict;
+
+alter table PROYECTO
+   add constraint FK_PROYECTO_REFERENCE_CONTEXTO foreign key (idContexto)
+      references CONTEXTO (idContexto)
+      on delete restrict on update restrict;
+
+alter table PROYECTO
+   add constraint FK_PROYECTO_REFERENCE_UNIDAD_E foreign key (idUnidadEstudio)
+      references UNIDAD_ESTUDIO (idUnidadEstudio)
+      on delete restrict on update restrict;
+
+alter table PROYECTO
+   add constraint FK_PROYECTO_REFERENCE_PROYECTI foreign key (idProyectiva)
+      references PROYECTIVA (idProyectiva)
       on delete restrict on update restrict;
