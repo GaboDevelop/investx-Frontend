@@ -21,6 +21,7 @@ DROP TABLE IF EXISTS CONDICION_SOCIAL CASCADE;
 DROP TABLE IF EXISTS CONDICION_PERSONAL CASCADE;
 DROP TABLE IF EXISTS CONDICION_METODOLOGICA CASCADE;
 DROP TABLE IF EXISTS TECNICA_ANALISIS CASCADE;
+DROP TABLE IF EXISTS TIPO_INVESTIGACION CASCADE;
 DROP TABLE IF EXISTS TECNICA_OBTENCION_INFORMACION CASCADE;
 DROP TABLE IF EXISTS TECNICA_OBTENCION_INFORMACION_U CASCADE;
 DROP TABLE IF EXISTS CONTEXTO CASCADE;
@@ -93,6 +94,7 @@ create table TEMA_INVESTIGACION (
    idTemaInvestigacion SERIAL               not null,
    idUsuario           INT4                 not null,
    idNivelInvestigacion INT4                not null,
+   idTipoInvestigacion INT4                   not null,
    temaIncompleto     VARCHAR(250)         not null,
    tema                 TEXT         not null,
    situacionPreocupante TEXT         not null,
@@ -753,6 +755,16 @@ create table NIVEL_INVESTIGACION (
    constraint PK_NIVEL_INVESTIGACION primary key (idNivelInvestigacion)
 );
 
+/*==============================================================*/
+/* Table: TIPO_INVESTIGACION                                    */
+/*==============================================================*/
+create table TIPO_INVESTIGACION (
+   idTipoInvestigacion SERIAL               not null,
+   tipo                VARCHAR(250)         not null check (tipo in ('Proyectiva','Exploratoria','Analitica','Predictiva')),
+   active    boolean not null default true,
+   constraint PK_TIPO_INVESTIGACION primary key (idTipoInvestigacion)
+);
+
 alter table ABORDAJE
    add constraint FK_ABORDAJE_REFERENCE_ESTRUCTU foreign key (idEstructuracionPrevia)
       references ESTRUCTURACION_PREVIA (idEstructuracionPrevia)
@@ -986,6 +998,11 @@ alter table TEMA_INVESTIGACION
 alter table TEMA_INVESTIGACION
    add constraint FK_TEMA_INV_REFERENCE_NIVEL_IN foreign key (idNivelInvestigacion)
       references NIVEL_INVESTIGACION (idNivelInvestigacion)
+      on delete restrict on update restrict;
+
+alter table TEMA_INVESTIGACION
+   add constraint FK_TEMA_INV_REFERENCE_TIPO_IN foreign key (idTipoInvestigacion)
+      references TIPO_INVESTIGACION (idTipoInvestigacion)
       on delete restrict on update restrict;
 
 alter table TEMPORALIDAD_MEDICION_CONTEXTO
