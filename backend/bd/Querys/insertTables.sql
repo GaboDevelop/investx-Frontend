@@ -274,7 +274,18 @@ INSERT INTO EVENTO (idEvento,idClaseEvento,evento) VALUES ('74','1011','Fraudes 
 INSERT INTO EVENTO (idEvento,idClaseEvento,evento) VALUES ('123','1012','Fraudes en el registro y pagos en línea');
 INSERT INTO EVENTO (idEvento,idClaseEvento,evento) VALUES ('963','1012','Empaquetamiento de archivos');
 INSERT INTO EVENTO (idEvento,idClaseEvento,evento) VALUES ('5632','1012','Protocolos utilizados para la transmisión de datos');
-INSERT INTO EVENTO (idEvento,idClaseEvento,evento) VALUES ('752','1012','Fallo en las técnicas utilizadas para el análisis de datos ');
+INSERT INTO EVENTO (idEvento,idClaseEvento,evento) VALUES ('752','1012','Fallo en las técnicas utilizadas para el análisis de datos');
+
+/*==============================================================*/
+/* Table: INSTRUMENTO                                                */
+/*==============================================================*/
+INSERT INTO INSTRUMENTO (idInstrumento,idEvento,instrumento) VALUES ('1','4256','Escala de Estimacion');
+INSERT INTO INSTRUMENTO (idInstrumento,idEvento,instrumento) VALUES ('2','4288','Test');
+INSERT INTO INSTRUMENTO (idInstrumento,idEvento,instrumento) VALUES ('3','74','Matriz de analisis');
+INSERT INTO INSTRUMENTO (idInstrumento,idEvento,instrumento) VALUES ('4','123','Matriz de registro');
+INSERT INTO INSTRUMENTO (idInstrumento,idEvento,instrumento) VALUES ('5','963','Matriz de categorias');
+INSERT INTO INSTRUMENTO (idInstrumento,idEvento,instrumento) VALUES ('6','5632','Registro global');
+INSERT INTO INSTRUMENTO (idInstrumento,idEvento,instrumento) VALUES ('7','752','Lista de chequeo o de cotejo');
 
 /*==============================================================*/
 /* Table: UNIDAD_INFORMATIVA                                    */
@@ -616,11 +627,11 @@ INSERT INTO PREDICCION (idPrediccion,idFundamentoProyectivo,prediccion) VALUES (
 /*==============================================================*/
 /* Table: PROYECTO                                              */
 /*==============================================================*/
-INSERT INTO PROYECTO (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva) VALUES ('1','77','8963','8566','7502','760');
-INSERT INTO PROYECTO (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva) VALUES ('2','20','9696','7546','489','9233');
-INSERT INTO PROYECTO (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva) VALUES ('3','63','456','74','46','436');
-INSERT INTO PROYECTO (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva) VALUES ('4','1234','4726','9080','7586','7412');
-INSERT INTO PROYECTO (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva) VALUES ('5','45','471','4569','483','4363');
+INSERT INTO PROYECTO (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva,modalidad) VALUES ('1','77','8963','8566','7502','760','1');
+INSERT INTO PROYECTO (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva,modalidad) VALUES ('2','20','9696','7546','489','9233','3');
+INSERT INTO PROYECTO (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva,modalidad) VALUES ('3','63','456','74','46','436','4');
+INSERT INTO PROYECTO (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva,modalidad) VALUES ('4','1234','4726','9080','7586','7412','2');
+INSERT INTO PROYECTO (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva,modalidad) VALUES ('5','45','471','4569','483','4363','2');
 
 /*==============================================================*/
 /* Table: JUSTIFICACION                                         */

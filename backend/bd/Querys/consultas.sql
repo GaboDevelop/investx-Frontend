@@ -147,6 +147,10 @@ ON J.idJustificacion = T.idJustificacion
 WHERE J.idTipoInvestigacion = 2
 
 /*11 - INSTRUMENTO POR EVENTO*/
+SELECT E.evento,I.instrumento
+FROM EVENTO E
+JOIN INSTRUMENTO I
+ON E.idEvento = I.idEvento
 
 /*12 - ESQUELETO DEL INFORME DEL PROYECTO*/
 
@@ -295,6 +299,14 @@ FROM DESCRIPCION_EVENTO D
     ON FP.idFundamentoProyectivo = P.idFundamentoProyectivo
 
 /*21 - LISTADO DE MODALIDADES POR TIPO*/
+/*PROYECTIVA*/
+SELECT P.modalidad
+FROM PROYECTO P
+JOIN TEMA_INVESTIGACION TI
+ON P.idTemaInvestigacion = TI.idTemaInvestigacion
+JOIN TIPO_INVESTIGACION T
+ON TI.idTipoInvestigacion = T.idTipoInvestigacion
+WHERE T.idTipoInvestigacion = 2
 
 /*22 - LISTADO DE TIPOS DE TECNICAS POSIBLES DE RECOLECCION DE INFORMACION*/
 SELECT idTecnicaObtencionInformacion,tecnica
