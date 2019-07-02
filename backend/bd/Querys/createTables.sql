@@ -13,6 +13,7 @@ DROP TABLE IF EXISTS CONTRADICCION CASCADE;
 DROP TABLE IF EXISTS MOTIVACION_INTERES CASCADE;
 DROP TABLE IF EXISTS CONSECUENCIA CASCADE;
 DROP TABLE IF EXISTS CONSECUENCIA_TEMA_INVESTIGACION CASCADE;
+DROP TABLE IF EXISTS INSTRUMENTO CASCADE;
 DROP TABLE IF EXISTS INVOLUCRADO CASCADE;
 DROP TABLE IF EXISTS INVOLUCRADO_TEMA_INVESTIGACION CASCADE;
 DROP TABLE IF EXISTS TEMA_INVESTIGACION CASCADE;
@@ -114,6 +115,7 @@ create table PROYECTO (
    idContexto          INT4                 null,
    idUnidadEstudio    INT4                 null,
    idProyectiva        INT4                 null,
+   modalidad   VARCHAR(250) not null check (modalidad in ('1','2','3','4','5')),
    status           boolean not null default true,
    constraint PK_PROYECTO primary key (idProyecto)
 );
@@ -427,6 +429,17 @@ create table EVENTO (
    evento               VARCHAR(250)          not null,
    active    boolean not null default true,
    constraint PK_EVENTO primary key (idEvento)
+);
+
+/*==============================================================*/
+/* Table: INSTRUMENTO                                           */
+/*==============================================================*/
+create table INSTRUMENTO (
+   idInstrumento        SERIAL               not null,
+   idEvento            INT4                 not null,
+   instrumento          VARCHAR(250)         not null,
+   active    boolean not null default true,
+   constraint PK_INSTRUMENTO primary key (idInstrumento)
 );
 
 /*==============================================================*/
@@ -1142,3 +1155,7 @@ alter table PROYECTO
       references PROYECTIVA (idProyectiva)
       on delete restrict on update restrict;
 
+alter table INSTRUMENTO
+   add constraint FK_INSTRUME_REFERENCE_EVENTO foreign key (idEvento)
+      references EVENTO (idEvento)
+      on delete restrict on update restrict;
