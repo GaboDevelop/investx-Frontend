@@ -1,16 +1,13 @@
-const mysql = require("mysql");
-const { DB_USER, DB_PASSWORD, DB_NAME, DB_HOST, DB_PORT } = require("./config");
+const pg = require("pg");
+/* const { DB_USER, DB_PASSWORD, DB_NAME, DB_HOST, DB_PORT } = require("./config");
 
-const mysqlConnection = mysql.createConnection({
-  host: DB_HOST,
-  user: DB_USER,
-  port: DB_PORT,
-  password: DB_PASSWORD,
-  database: DB_NAME,
-  multipleStatements: true
-});
+const connectionString = "postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}"; */
+const pass = "";
+const connectionString = "postgres://root:"+pass+"@localhost:3360/practica${DB_NAME}";
 
-mysqlConnection.connect(function(err) {
+const client = new pg.Client(connectionString);
+
+client.connect(function(err) {
   if (err) {
     console.error(err);
     //return false;
@@ -20,4 +17,4 @@ mysqlConnection.connect(function(err) {
   }
 });
 
-module.exports = mysqlConnection;
+module.exports = client;
