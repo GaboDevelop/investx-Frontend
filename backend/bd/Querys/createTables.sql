@@ -63,18 +63,19 @@ DROP TABLE IF EXISTS COMPARACION CASCADE;
 DROP TABLE IF EXISTS EXPLICACION CASCADE;
 DROP TABLE IF EXISTS PREDICCION CASCADE;
 DROP TABLE IF EXISTS JUSTIFICACION CASCADE;
+DROP TABLE IF EXISTS DISENO_INVESTIGACION CASCADE;
 
 /*==============================================================*/
 /* Table: USUARIO                                               */
 /*==============================================================*/
 create table USUARIO (
    idUsuario           SERIAL               not null,
-   correo               VARCHAR(50)          not null,
-   contrasena             VARCHAR(50)          not null,
-   nombre               VARCHAR(50)          not null,
-   segundoNombre       VARCHAR(50)                  ,
-   apellido            VARCHAR(50)          not null,
-   segundoApellido     VARCHAR(50)                  ,
+   correo               VARCHAR(250)          not null,
+   contrasena             VARCHAR(250)          not null,
+   nombre               VARCHAR(250)          not null,
+   segundoNombre       VARCHAR(250)                  ,
+   apellido            VARCHAR(250)          not null,
+   segundoApellido     VARCHAR(250)                  ,
    active    boolean not null default true,
    constraint PK_USUARIO primary key (idUsuario)
 );
@@ -84,7 +85,7 @@ create table USUARIO (
 /*==============================================================*/
 create table TEMPORALIDAD_MEDICION (
    idTemporalidad      SERIAL               not null,
-   temporalidad         VARCHAR(50)          not null,
+   temporalidad         VARCHAR(250)          not null,
    active    boolean not null default true,
    constraint PK_TEMPORALIDAD_MEDICION primary key (idTemporalidad)
 );
@@ -136,7 +137,7 @@ create table VERSION (
 /*==============================================================*/
 create table ROL (
    idRol               SERIAL               not null,
-   nombreRol          VARCHAR(50)          not null check (nombreRol in ('Investigador','Tutor','Institucion','Administrador')),
+   nombreRol          VARCHAR(250)          not null check (nombreRol in ('Investigador','Tutor','Institucion','Administrador')),
    active    boolean not null default true,
    constraint PK_ROL primary key (idRol)
 );
@@ -381,9 +382,10 @@ create table MUESTRA (
 /* Table: UNIDAD_ESTUDIO                                        */
 /*==============================================================*/
 create table UNIDAD_ESTUDIO (
-   idUnidadEstudio    SERIAL               not null,
+   idUnidadEstudio    SERIAL                not null,
    idPoblacion         INT4                 not null,
    idMuestra           INT4                 not null,
+   descripcion        VARCHAR(250)           not null,
    active    boolean not null default true,
    constraint PK_UNIDAD_ESTUDIO primary key (idUnidadEstudio)
 );
@@ -406,6 +408,7 @@ create table CONTEXTO_UNIDAD_ESTUDIO (
 create table PROYECTIVA (
    idProyectiva        SERIAL               not null,
    idUnidadEstudio    INT4                 not null,
+   idDisenoInvestigacion INT4 not null,
    active    boolean not null default true,
    constraint PK_PROYECTIVA primary key (idProyectiva)
 );
@@ -415,7 +418,7 @@ create table PROYECTIVA (
 /*==============================================================*/
 create table CLASE_EVENTO (
    idClaseEvento      SERIAL               not null,
-   clase                VARCHAR(50)          not null check (clase in ('evento a modificar','proceso generador')),
+   clase                VARCHAR(250)          not null check (clase in ('evento a modificar','proceso generador')),
    active    boolean not null default true,
    constraint PK_CLASE_EVENTO primary key (idClaseEvento)
 );
@@ -450,8 +453,8 @@ create table UNIDAD_INFORMATIVA (
    idProyectiva        INT4                 not null,
    idEvento            INT4                 not null,
    idea                TEXT         not null,
-   cita                 TEXT         not null,
-   referencia           TEXT         not null,
+   cita                 TEXT          null,
+   referencia           TEXT          null,
    active    boolean not null default true,
    constraint PK_UNIDAD_INFORMATIVA primary key (idUnidadInformativa)
 );
@@ -794,6 +797,13 @@ create table JUSTIFICACION (
 );
 
 
+CREATE TABLE DISENO_INVESTIGACION(
+   idDisenoInvestigacion SERIAL not null,
+   tipo  VARCHAR(250) not null,
+   CONSTRAINT PK_DISENO_INVESTIGACION PRIMARY KEY (idDisenoInvestigacion)
+);
+
+
 alter table ABORDAJE
    add constraint FK_ABORDAJE_REFERENCE_ESTRUCTU foreign key (idEstructuracionPrevia)
       references ESTRUCTURACION_PREVIA (idEstructuracionPrevia)
@@ -987,6 +997,11 @@ alter table PROCESO_EXPLICATIVO
 alter table PROYECTIVA
    add constraint FK_PROYECTI_REFERENCE_UNIDAD_E foreign key (idUnidadEstudio)
       references UNIDAD_ESTUDIO (idUnidadEstudio)
+      on delete restrict on update restrict;
+
+alter table PROYECTIVA
+   add constraint FK_PROYECTI_REFERENCE_DISENO_I foreign key (idDisenoInvestigacion)
+      references DISENO_INVESTIGACION (idDisenoInvestigacion)
       on delete restrict on update restrict;
 
 alter table ROL_USUARIO

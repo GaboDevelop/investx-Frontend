@@ -383,7 +383,7 @@ WHERE D.idDisciplina = 420
 
 
 /*26 TABLA HOLOPRAXICA */
-SELECT OE.objetivo AS "Objetivo especifico", E.estadio AS "Estadio", EV.evento AS "Evento", UE.active AS "Unidad de Estudio", PO.active AS "POBLACION", M.active AS "MUESTRA", TOI.tecnica AS "Tecnica", I.instrumento AS "Instrumento", AE.analisis AS "Analisis del evento"
+SELECT OE.objetivo AS "Objetivo especifico", E.estadio AS "Estadio", EV.evento AS "Evento", UE.descripcion AS "Unidad de Estudio", PO.poblacion AS "POBLACION", M.muestra AS "MUESTRA", TOI.tecnica AS "Tecnica", I.instrumento AS "Instrumento", AE.analisis AS "Analisis del evento"
 FROM PROYECTO P
     JOIN OBJETIVO_ESPECIFICO OE
     ON OE.idProyectiva = P.idProyectiva
