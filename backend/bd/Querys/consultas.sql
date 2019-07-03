@@ -153,6 +153,50 @@ JOIN INSTRUMENTO I
 ON E.idEvento = I.idEvento
 
 /*12 - ESQUELETO DEL INFORME DEL PROYECTO*/
+SELECT TI.situacionPreocupante AS "SITUACION PREOCUPANTE",TI.conexionOtrosT AS "CONEXION CON OTROS TEMAS",NI.nivel AS "NIVEL DE LA INVESTIGACION",TI.tema AS "TEMA DE LA INVESTIGACION",T.temporalidad AS "TEMPORALIDAD DE MEDICION",C.contexto AS "CONTEXTO",PB.poblacion AS "POBLACION",M.muestra AS "MUESTRA",N.argumento AS "NECESIDAD",CP.argumento AS "CURIOSIDAD O PREOCUPACION",CT.argumento AS "CONTRADICCION",MI.argumento AS "MOTIVACION O INTERES",PD.argumento AS "POTENCIALIDAD",O.argumento AS "OPORTUNIDAD",TA.argumento AS "TENDENCIA",OG.objetivo AS "OBJETIVO GENERAL"
+FROM TEMA_INVESTIGACION TI
+JOIN PROYECTO P
+ON P.idTemaInvestigacion = TI.idTemaInvestigacion
+JOIN TIPO_INVESTIGACION TP
+ON TI.idTipoInvestigacion = TP.idTipoInvestigacion 
+JOIN PROYECTIVA PA
+ON P.idProyectiva = PA.idProyectiva
+/*GENERA REPETIDO EL ID 45 POR SER MULTIEVENTUAL*/
+JOIN EVENTO_PROYECTIVA EP
+ON PA.idProyectiva = EP.idProyectiva
+JOIN EVENTO E
+ON EP.idEvento = E.idEvento
+JOIN NIVEL_INVESTIGACION NI
+ON TI.idNivelInvestigacion = NI.idNivelInvestigacion
+JOIN TEMPORALIDAD_MEDICION T
+ON P.idTemporalidad = T.idTemporalidad
+JOIN CONTEXTO C
+ON P.idContexto = C.idContexto
+JOIN UNIDAD_ESTUDIO UE
+ON P.idUnidadEstudio = UE.idUnidadEstudio
+JOIN POBLACION PB
+ON UE.idPoblacion = PB.idPoblacion
+JOIN MUESTRA M
+ON UE.idMuestra = M.idMuestra
+JOIN JUSTIFICACION J
+ON T.idTemporalidad = J.idTemporalidad 
+JOIN NECESIDAD N
+ON J.idJustificacion = N.idJustificacion
+JOIN CURIOSIDAD_PREOCUPACION CP
+ON J.idJustificacion = CP.idJustificacion
+JOIN CONTRADICCION CT
+ON J.idJustificacion = CT.idJustificacion
+JOIN MOTIVACION_INTERES MI
+ON J.idJustificacion = MI.idJustificacion
+JOIN POTENCIALIDAD PD
+ON J.idJustificacion = PD.idJustificacion
+JOIN OPORTUNIDAD O
+ON J.idJustificacion = O.idJustificacion
+JOIN TENDENCIA TA
+ON J.idJustificacion = TA.idJustificacion
+JOIN OBJETIVO_GENERAL OG
+ON PA.idProyectiva = OG.idProyectiva
+WHERE TI.idTemaInvestigacion = 45
 
 /*13 - REPORTE DE CALIDAD DEL PROYECTO DE ACUERDO A LAS MATRICES PROPUESTAS POR HERNANDEZ Y BAPTISTA*/
 
