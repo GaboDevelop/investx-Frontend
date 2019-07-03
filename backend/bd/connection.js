@@ -7,7 +7,11 @@ const connectionString = "postgres://root:"+pass+"@localhost:3360/practica";
 
 const client = new pg.Client(connectionString);
 
-client.connect().catch((err) => {
+client.connect()
+  .then(()=>{
+    console.log('Conectado a PostgreSQL');
+  })
+  .catch((err) => {
     console.log('err',err);
 });
 
