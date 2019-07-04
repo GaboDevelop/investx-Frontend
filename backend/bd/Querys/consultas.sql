@@ -410,3 +410,34 @@ FROM PROYECTO P
     JOIN ANALISIS_EVENTO AE
     ON AE.idFundamentoProyectivo = FP.idFundamentoProyectivo
 
+/*yukeri*/
+UPDATE NECESIDAD N
+SET INICIAL
+=
+(SELECT SUBSTR((SELECT ARGUMENTO
+    FROM NECESIDAD a
+    WHERE a.idNecesidad = N.idNecesidad),1,1))
+
+
+
+/*CALIDAD*/
+
+SELECT *, UI.idUnidadInformativa
+from JUSTIFICACION J
+    JOIN PROYECTO P
+    ON P.idContexto = J.idContexto
+    JOIN PROYECTIVA PR
+    ON PR.idProyectiva = P.idProyectiva
+    JOIN UNIDAD_INFORMATIVA UI
+    ON UI.idProyectiva = PR.idProyectiva
+WHERE P.idProyecto = 1
+
+
+
+SELECT N.argumento
+FROM NECESIDAD N
+    JOIN JUSTIFICACION J
+    ON J.idJustificacion = N.idJustificacion
+WHERE J.idContexto = 74
+
+/**/
