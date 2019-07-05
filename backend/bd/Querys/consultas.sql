@@ -440,4 +440,15 @@ FROM NECESIDAD N
     ON J.idJustificacion = N.idJustificacion
 WHERE J.idContexto = 74
 
-/**/
+/*Consulta de calidad*/
+SELECT ((SELECT count(*) FROM CONTEXTO WHERE idContexto = P.idContexto LIMIT 1)+
+		(SELECT count(*) FROM UNIDAD_ESTUDIO WHERE idUnidadEstudio = P.idUnidadEstudio LIMIT 1)+
+		(SELECT count(*) FROM EVENTO WHERE idEvento = J.idEvento LIMIT 1)+
+		(SELECT count(*) FROM TIPO_INVESTIGACION WHERE idTipoInvestigacion = J.idTipoInvestigacion LIMIT 1)+
+	   	(SELECT count(*) FROM UNIDAD_INFORMATIVA UI WHERE UI.idProyectiva = PR.idProyectiva LIMIT 1))/5*100 as "Porcentaje de calidad"
+FROM JUSTIFICACION J 
+JOIN PROYECTO P 
+ON J.idContexto = P.idContexto
+JOIN PROYECTIVA PR 
+ON PR.idProyectiva = P.idProyectiva
+limit 1
