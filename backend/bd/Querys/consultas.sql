@@ -198,7 +198,20 @@ FROM TEMA_INVESTIGACION TI
     ON PA.idProyectiva = OG.idProyectiva
 WHERE TI.idTemaInvestigacion = 45
 
-/*13 - REPORTE DE CALIDAD DEL PROYECTO DE ACUERDO A LAS MATRICES PROPUESTAS POR HERNANDEZ Y BAPTISTA*/
+/*13 - REPORTE DE CALIDAD DEL PROYECTO DE HURTADO*/
+/*JUSTIFICACION*/
+SELECT ((SELECT count(*) FROM NECESIDAD WHERE idJustificacion = J.idJustificacion LIMIT 1)+
+		(SELECT count(*) FROM CONTEXTO WHERE idContexto = P.idContexto LIMIT 1)+
+		(SELECT count(*) FROM UNIDAD_ESTUDIO WHERE idUnidadEstudio = P.idUnidadEstudio LIMIT 1)+
+		(SELECT count(*) FROM EVENTO WHERE idEvento = J.idEvento LIMIT 1)+
+		(SELECT count(*) FROM TIPO_INVESTIGACION WHERE idTipoInvestigacion = J.idTipoInvestigacion LIMIT 1)+
+	   	(SELECT count(*) FROM UNIDAD_INFORMATIVA UI WHERE UI.idProyectiva = PR.idProyectiva LIMIT 1))/6*100 as "Porcentaje de calidad"
+FROM JUSTIFICACION J 
+JOIN PROYECTO P 
+ON J.idContexto = P.idContexto
+JOIN PROYECTIVA PR 
+ON PR.idProyectiva = P.idProyectiva
+WHERE P.idProyecto = 1
 
 /*14 - HISTORIAL DE MODIFICACIOES DEL PROYECTO*/
 SELECT V.idVersion, TI.idTemaInvestigacion, V.fecha
@@ -410,7 +423,7 @@ FROM PROYECTO P
     JOIN ANALISIS_EVENTO AE
     ON AE.idFundamentoProyectivo = FP.idFundamentoProyectivo
 
-/*yukeri*/
+/*MODIFICAR EL CAMPO INICIAL CON LA PRIMERA LETRA DEL CAMPO ARGUMENTO*/
 UPDATE NECESIDAD N
 SET INICIAL
 =
@@ -418,37 +431,3 @@ SET INICIAL
     FROM NECESIDAD a
     WHERE a.idNecesidad = N.idNecesidad),1,1))
 
-
-
-/*CALIDAD*/
-
-SELECT *, UI.idUnidadInformativa
-from JUSTIFICACION J
-    JOIN PROYECTO P
-    ON P.idContexto = J.idContexto
-    JOIN PROYECTIVA PR
-    ON PR.idProyectiva = P.idProyectiva
-    JOIN UNIDAD_INFORMATIVA UI
-    ON UI.idProyectiva = PR.idProyectiva
-WHERE P.idProyecto = 1
-
-
-
-SELECT N.argumento
-FROM NECESIDAD N
-    JOIN JUSTIFICACION J
-    ON J.idJustificacion = N.idJustificacion
-WHERE J.idContexto = 74
-
-/*Consulta de calidad*/
-SELECT ((SELECT count(*) FROM CONTEXTO WHERE idContexto = P.idContexto LIMIT 1)+
-		(SELECT count(*) FROM UNIDAD_ESTUDIO WHERE idUnidadEstudio = P.idUnidadEstudio LIMIT 1)+
-		(SELECT count(*) FROM EVENTO WHERE idEvento = J.idEvento LIMIT 1)+
-		(SELECT count(*) FROM TIPO_INVESTIGACION WHERE idTipoInvestigacion = J.idTipoInvestigacion LIMIT 1)+
-	   	(SELECT count(*) FROM UNIDAD_INFORMATIVA UI WHERE UI.idProyectiva = PR.idProyectiva LIMIT 1))/5*100 as "Porcentaje de calidad"
-FROM JUSTIFICACION J 
-JOIN PROYECTO P 
-ON J.idContexto = P.idContexto
-JOIN PROYECTIVA PR 
-ON PR.idProyectiva = P.idProyectiva
-limit 1
