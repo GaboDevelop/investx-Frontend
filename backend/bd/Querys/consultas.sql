@@ -153,7 +153,7 @@ FROM EVENTO E
     ON E.idEvento = I.idEvento
 
 /*12 - ESQUELETO DEL INFORME DEL PROYECTO*/
-SELECT TI.situacionPreocupante AS "SITUACION PREOCUPANTE", TI.conexionOtrosT AS "CONEXION CON OTROS TEMAS", NI.nivel AS "NIVEL DE LA INVESTIGACION", TI.tema AS "TEMA DE LA INVESTIGACION", T.temporalidad AS "TEMPORALIDAD DE MEDICION", C.contexto AS "CONTEXTO", PB.poblacion AS "POBLACION", M.muestra AS "MUESTRA", N.argumento AS "NECESIDAD", CP.argumento AS "CURIOSIDAD O PREOCUPACION", CT.argumento AS "CONTRADICCION", MI.argumento AS "MOTIVACION O INTERES", PD.argumento AS "POTENCIALIDAD", O.argumento AS "OPORTUNIDAD", TA.argumento AS "TENDENCIA", OG.objetivo AS "OBJETIVO GENERAL"
+SELECT TI.situacionPreocupante AS "SITUACION PREOCUPANTE", TI.conexionOtrosT AS "CONEXION CON OTROS TEMAS", NI.nivel AS "NIVEL DE LA INVESTIGACION", T.temporalidad AS "TEMPORALIDAD DE MEDICION", C.contexto AS "CONTEXTO", PB.poblacion AS "POBLACION", M.muestra AS "MUESTRA", N.argumento AS "NECESIDAD", CP.argumento AS "CURIOSIDAD O PREOCUPACION", CT.argumento AS "CONTRADICCION", MI.argumento AS "MOTIVACION O INTERES", PD.argumento AS "POTENCIALIDAD", O.argumento AS "OPORTUNIDAD", TA.argumento AS "TENDENCIA", OG.objetivo AS "OBJETIVO GENERAL",OE.objetivo AS "OBJETIVO ESPECIFICO",ET.estadio AS "ESTADIO",FP.teoria AS "TEORIA",E.evento AS "EVENTO",CE.clase AS "CLASE DE EVENTO",DE.definicion AS "DEFINICION EVENTO",DE.explicacion AS "EXPLICACION DE LA DEFINICION",AL.aspecto AS "ASPECTO LEGAL", TI.tema AS "TEMA DE LA INVESTIGACION",EPR.estructuracionPrevia AS "ESTRUCTURACION PREVIA",PI.perspectivaInterpretacion AS "PERSPECTIVA DE INTERPRETACION",GP.gradoParticipacion AS "GRADO DE PARTICIPACION",DI.tipo AS "DISEÑO DE LA INVESTIGACION",TOI.tecnica AS "TECNICA DE OBTENCION DE INFORMACION",I.instrumento AS "INSTRUMENTO DE RECOLECCION DE DATOS",TS.tecnica AS "TECNICA ANALISIS"
 FROM TEMA_INVESTIGACION TI
     JOIN PROYECTO P
     ON P.idTemaInvestigacion = TI.idTemaInvestigacion
@@ -161,11 +161,14 @@ FROM TEMA_INVESTIGACION TI
     ON TI.idTipoInvestigacion = TP.idTipoInvestigacion
     JOIN PROYECTIVA PA
     ON P.idProyectiva = PA.idProyectiva
-    /*GENERA REPETIDO EL ID 45 POR SER MULTIEVENTUAL*/
     JOIN EVENTO_PROYECTIVA EP
     ON PA.idProyectiva = EP.idProyectiva
     JOIN EVENTO E
     ON EP.idEvento = E.idEvento
+	JOIN CLASE_EVENTO CE
+	ON E.idClaseEvento = CE.idClaseEvento
+	JOIN INSTRUMENTO I
+	ON E.idEvento = I.idEvento
     JOIN NIVEL_INVESTIGACION NI
     ON TI.idNivelInvestigacion = NI.idNivelInvestigacion
     JOIN TEMPORALIDAD_MEDICION T
@@ -174,6 +177,10 @@ FROM TEMA_INVESTIGACION TI
     ON P.idContexto = C.idContexto
     JOIN UNIDAD_ESTUDIO UE
     ON P.idUnidadEstudio = UE.idUnidadEstudio
+	JOIN TECNICA_OBTENCION_INFORMACION_U TOIU
+	ON UE.idUnidadEstudio = TOIU.idUnidadEstudio
+	JOIN TECNICA_OBTENCION_INFORMACION TOI
+	ON TOIU.idTecnicaObtencionInformacion = TOI.idTecnicaObtencionInformacion
     JOIN POBLACION PB
     ON UE.idPoblacion = PB.idPoblacion
     JOIN MUESTRA M
@@ -196,6 +203,32 @@ FROM TEMA_INVESTIGACION TI
     ON J.idJustificacion = TA.idJustificacion
     JOIN OBJETIVO_GENERAL OG
     ON PA.idProyectiva = OG.idProyectiva
+	JOIN OBJETIVO_ESPECIFICO OE
+	ON PA.idProyectiva = OE.idProyectiva
+	JOIN ESTADIO ET
+	ON OE.idEstadio = ET.idEstadio
+	JOIN FUNDAMENTO_PROYECTIVO FP
+	ON PA.idProyectiva = FP.idProyectiva
+	JOIN DESCRIPCION_EVENTO DE
+	ON FP.idFundamentoProyectivo = DE.idFundamentoProyectivo
+	JOIN FUNDAMENTO_PROYECTIVO_ASPECTO_L FPAL
+	ON FP.idFundamentoProyectivo = FPAL.idFundamentoProyectivo
+	JOIN ASPECTO_LEGAL AL
+	ON AL.idAspectoLegal = FPAL.idAspectoLegal
+	JOIN ABORDAJE A
+	ON A.idProyectiva = PA.idProyectiva
+	JOIN ESTRUCTURACION_PREVIA EPR
+	ON A.idEstructuracionPrevia = EPR.idEstructuracionPrevia
+	JOIN PERSPECTIVA_INTERPRETACION PI
+	ON A.idPerspectivaInterpretacion = PI.idPerspectivaInterpretacion
+	JOIN GRADO_PARTICIPACION GP
+	ON A.idGradoParticipacion = GP.idGradoParticipacion	
+	JOIN DISENO_INVESTIGACION DI
+	ON PA.idDisenoInvestigacion = DI.idDisenoInvestigacion
+	FULL OUTER JOIN ANALISIS_EVENTO AE
+	ON FP.idFundamentoProyectivo = AE.idFundamentoProyectivo
+	FULL OUTER JOIN TECNICA_ANALISIS TS
+	ON AE.idTecnicaAnalisis = TS.idTecnicaAnalisis
 WHERE TI.idTemaInvestigacion = 45
 
 /*13 - REPORTE DE CALIDAD DEL PROYECTO DE HURTADO*/

@@ -1515,7 +1515,7 @@ VALUES
 INSERT INTO ABORDAJE
     (idAbordaje,idProyectiva,idEstructuracionPrevia,idPerspectivaInterpretacion,idGradoParticipacion)
 VALUES
-    ('8888', '760', '1202', '1302', '1402');
+    ('8888', '4363', '1202', '1302', '1402');
 
 /*==============================================================*/
 /* Table: ESTADIO                                               */
@@ -1615,19 +1615,19 @@ VALUES
 INSERT INTO OBJETIVO_ESPECIFICO
     (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
 VALUES
-    ('8805', '760', '6688', 'Investigar sobre los diversos tipos de empaquetamiento de archivos utilizados en la mayoría de las distribuciones Linux');
+    ('8805', '4363', '6688', 'Investigar sobre los diversos tipos de empaquetamiento de archivos utilizados en la mayoría de las distribuciones Linux');
 INSERT INTO OBJETIVO_ESPECIFICO
     (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
 VALUES
-    ('915', '760', '6688', 'Investigar sobre los protocolos utilizados para la transmisión de datos');
+    ('915', '4363', '6688', 'Investigar sobre los protocolos utilizados para la transmisión de datos');
 INSERT INTO OBJETIVO_ESPECIFICO
     (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
 VALUES
-    ('442', '760', '6691', 'Diseñar una herramienta web para el control de programas instalados en las estaciones de trabajo que utilizan el S.O Linux');
+    ('442', '4363', '6691', 'Diseñar una herramienta web para el control de programas instalados en las estaciones de trabajo que utilizan el S.O Linux');
 INSERT INTO OBJETIVO_ESPECIFICO
     (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
 VALUES
-    ('99', '760', '6689', 'Definir e implementar la base de datos a utilizar en la aplicación usando tecnologías de software libre');
+    ('99', '4363', '6689', 'Definir e implementar la base de datos a utilizar en la aplicación usando tecnologías de software libre');
 
 /*==============================================================*/
 /* Table: FUNDAMENTO_PROYECTIVO                                 */
@@ -1651,7 +1651,7 @@ VALUES
 INSERT INTO FUNDAMENTO_PROYECTIVO
     (idFundamentoProyectivo,idProyectiva,teoria)
 VALUES
-    ('419', '760', 'El realizar un software que administre todo aquel contenido referente a programas aumentaran los beneficios del área productiva ya que el eliminado, instalado y actualizado es remoto y automático.');
+    ('419', '4363', 'El realizar un software que administre todo aquel contenido referente a programas aumentaran los beneficios del área productiva ya que el eliminado, instalado y actualizado es remoto y automático.');
 
 /*==============================================================*/
 /* Table: EFECTO_LOGRAR                                         */
