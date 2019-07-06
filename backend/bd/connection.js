@@ -1,23 +1,24 @@
-const mysql = require("mysql");
-const { DB_USER, DB_PASSWORD, DB_NAME, DB_HOST, DB_PORT } = require("./config");
+const pg = require("pg");
+/* const { DB_USER, DB_PASSWORD, DB_NAME, DB_HOST, DB_PORT } = require("./config");
 
-const mysqlConnection = mysql.createConnection({
-  host: DB_HOST,
-  user: DB_USER,
-  port: DB_PORT,
-  password: DB_PASSWORD,
-  database: DB_NAME,
-  multipleStatements: true
-});
+const connectionString = "postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}"; */
+const pass = "";
+const connectionString = "postgres://postgres:"+pass+"@localhost:3360/prueba";
 
-mysqlConnection.connect(function(err) {
-  if (err) {
-    console.error(err);
-    //return false;
-  } else {
-    console.log("base de datos conectada");
-    //return true;
-  }
-});
+const client = new pg.Client(connectionString);
 
-module.exports = mysqlConnection;
+client.connect()
+  .then(()=>{
+    console.log('Conectado al servidor');
+    const query = "SELECT * FROM usuario"
+    return client.query(query);
+  }).then((result)=>{
+    console.log('result?',result);
+  })
+  .catch((err) => {
+    console.log('err',err);
+  });
+
+
+
+module.exports = client;
