@@ -33,17 +33,17 @@ class Navbar extends React.Component {
                 <div className="col-6 offset-1">
                   <ul className="navbar-nav d-flex">
                     <li className="nav-item active mr-auto">
-                      <Link className="nav-link" to="">
+                      <Link className="nav-link" to="/">
                         <i className="fas fa-home" /> Home
                       </Link>
                     </li>
                     <li className="nav-item mr-auto">
-                      <Link className="nav-link" to="/">
+                      <Link className="nav-link" to="/proyectos">
                         <i className="fas fa-book" /> Proyectos
                       </Link>
                     </li>
                     <li className="nav-item mr-auto">
-                      <Link className="nav-link " to="">
+                      <Link className="nav-link " to="/">
                         <i className="fas fa-code" /> Developers
                       </Link>
                     </li>

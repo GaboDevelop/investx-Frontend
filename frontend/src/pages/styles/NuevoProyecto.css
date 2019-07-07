@@ -1,0 +1,11 @@
+.contenedor-formulario {
+  margin-top: 60px;
+  background: #ffffff;
+  border-radius: 10px;
+}
+
+.separador {
+  height: 1px;
+  background: #111111;
+  margin-bottom: 10px;
+}
