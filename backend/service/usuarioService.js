@@ -1,13 +1,13 @@
 // USUARIO
-const client = require('/../bd/connection.js');
+const client = require('../bd/connection.js');
 
 
-module.exports = async function getUses(req, res) {
+async function getUsers(req, res) {
 
     try {
-        const sql = 'SELECT * FROM USUARIOS';
-        const params = ['idUsuario','correo','contrasena','nombre','segundoNombre','apellido', 'segundoApellido','active'];
-        const users = await client.query(sql,params);
+        const sql = 'SELECT * FROM USUARIO';
+        
+        const users = await client.query(sql);
         res.json({
             data: users
         })
@@ -20,3 +20,8 @@ module.exports = async function getUses(req, res) {
     }
 
 };
+
+
+module.exports = {
+    getUsers: getUsers
+}

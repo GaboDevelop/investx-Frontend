@@ -10,12 +10,7 @@ const client = new pg.Client(connectionString);
 client.connect()
   .then(()=>{
     console.log('Conectado al servidor');
-    const query = "SELECT * FROM usuario"
-    return client.query(query);
-  }).then((result)=>{
-    console.log('result?',result);
-  })
-  .catch((err) => {
+  }).catch((err) => {
     console.log('err',err);
   });
 

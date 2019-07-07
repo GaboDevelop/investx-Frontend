@@ -17,9 +17,9 @@ module.exports = app => {
 const { Router } = require('express');
 const router = Router();
 
-const { getUsers } = require('../service/usuarioService.js');
+const  { getUsers } = require('../service/usuarioService.js');
 
-router.get('/',getUsers);
+router.get('/', getUsers);
 
 
 
