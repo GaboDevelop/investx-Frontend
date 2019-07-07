@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Rutas
 //require("./routes")(app);
-app.use('/api/usuarios', usuarioRoutes);
+app.use('/api', usuarioRoutes);
 
 
 // Iniciando servidor

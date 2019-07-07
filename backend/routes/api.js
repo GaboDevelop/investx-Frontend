@@ -1,26 +1,12 @@
-/* const API_PATH = "/api";
-const client = require("../bd/connection");
-
-module.exports = app => {
-  app.get(`${API_PATH}/usuarios`, (req, res) => {
-    client.query("SELECT * FROM usuario", (err, rows, fields) => {
-      if (!err) {
-        res.json(rows);
-      } else {
-        console.log(err);
-      }
-    });
-  });
-}; */
-
 
 const { Router } = require('express');
 const router = Router();
 
-const  { getUsers } = require('../service/usuarioService.js');
+const  { getUsers, getUserById, createUser, updateUser, deleteUser } = require('../service/usuarioService.js');
 
-router.get('/', getUsers);
-
-
-
+router.get('/usuarios', getUsers);
+router.get('/usuarios/:id', getUserById);
+router.post('/usuario', createUser);
+router.put('/usuario/:id', updateUser);
+router.put('/usuario/delete/:id', deleteUser);
 module.exports = router;
