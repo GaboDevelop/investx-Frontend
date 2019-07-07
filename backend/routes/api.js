@@ -4,10 +4,10 @@ const router = Router();
 
 
 //----------------- CONTROLLERS  -------------------- 
-const  { getUsers, getUserById, createUser, updateUser, deleteUser } = require('../service/usuarioService.js');
+const  { getUsers, getUserById, createUser, updateUser, deleteUser, getUserByCorreo } = require('../service/usuarioService.js');
 const { getProyectivas, getProyectivaById, createProyectiva, updateProyectiva, deleteProyectiva } = require('../service/proyectivaService.js');
 const {getUnidadById, getUnidadEstudio, createUnidadEstudio, updateUnidaEstudio, deleteUnidadEstudio} = require('../service/unidadEstudioService.js');
-
+const { getAbordaje, getAbordajeById, createAbordaje, updateAbordaje, deleteAbordaje } =  require('../service/abordajeService.js');
 
 
 
@@ -19,6 +19,7 @@ router.get('/usuarios/:id', getUserById);
 router.post('/usuario', createUser);
 router.put('/usuario/:id', updateUser);
 router.put('/usuario/delete/:id', deleteUser);
+router.get('/usuario/correo/:correo', getUserByCorreo);
 
 // Proyectiva 
 router.get('/proyectiva', getProyectivas);
@@ -36,7 +37,11 @@ router.put('/unidadEstudio/:id', updateUnidaEstudio);
 router.put('/unidadEstudio/delete/:id', deleteUnidadEstudio);
 
 // Abordaje 
-
+router.get('/abordaje',getAbordaje);
+router.get('/abordaje/:id', getAbordajeById);
+router.post('/abordaje', createAbordaje);
+router.put('/abordaje/:id', updateAbordaje);
+router.put('/abordaje/delete/:id', deleteAbordaje);
 
 // Contexto 
 

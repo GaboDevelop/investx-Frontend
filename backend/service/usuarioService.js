@@ -41,6 +41,26 @@ async function getUserById(req, res) {
     }
 
 };
+async function getUserByCorreo(req, res) {
+
+    try {
+        const { correo } = req.params;
+
+        const sql = 'SELECT * FROM USUARIO WHERE correo = $1';
+        const params = [correo];
+        const users = await client.query(sql, params);
+        res.json({
+            data: users
+        })
+    } catch (error) {
+        console.log(error);
+        res.json({
+            data: {},
+            message: 'Something goes wrong'
+        });
+    }
+
+};
 
 async function createUser(req, res) {
 
@@ -139,6 +159,7 @@ module.exports = {
     getUserById: getUserById, 
     createUser: createUser, 
     updateUser: updateUser,
-    deleteUser: deleteUser
+    deleteUser: deleteUser,
+    getUserByCorreo:getUserByCorreo
 
 }
