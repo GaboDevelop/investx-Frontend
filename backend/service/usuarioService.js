@@ -1,4 +1,4 @@
-// USUARIO
+
 const client = require('../bd/connection.js');
 
 
@@ -76,7 +76,7 @@ async function updateUser(req, res) {
         
         if (users.length = 0) { 
             return res.json({
-            message: 'User no exist',
+            message: 'User no existe',
             data: {}
             });
         }
@@ -111,7 +111,7 @@ async function deleteUser(req, res) {
         
         if (users.length = 0) { 
             return res.json({
-            message: 'User no exist',
+            message: 'User no existe',
             data: {}
             });
         }
