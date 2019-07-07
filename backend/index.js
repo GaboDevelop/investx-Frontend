@@ -3,6 +3,11 @@ const logger = require("morgan");
 const bodyParser = require("body-parser");
 const app = express();
 
+
+const usuarioRoutes = require('./routes/api.js'); 
+
+
+
 // configuracion
 app.set("port", process.env.PORT || 4000);
 
@@ -12,7 +17,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Rutas
-require("./routes")(app);
+//require("./routes")(app);
+app.use('/api/usuarios', usuarioRoutes);
+
 
 // Iniciando servidor
 app.listen(app.get("port"), () => {
