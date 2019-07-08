@@ -4,22 +4,48 @@ const client = require('../bd/connection.js');
 
 
 
-/* ----------------- HOLOGRAMA DE LA INVESTIGACION ----------------*/
-
-
-
-
-
 /* ---------------- TABLA DE OPERACIONALIZACION -----------------------*/
 
+async function getTablaOperacionalizacion(req, res) {
 
+    try {
+        const sql = '';
+        const table = await client.query(sql);
+        res.json({
+            data: table
+        })
+    } catch (error) {
+        console.log(error);
+        res.json({
+            data: {},
+            message: 'Something goes wrong'
+        });
+    }
+
+};
 
 
 
 
 /* ---------------- TABLA DE ESPECIFIACIONES -------------------*/
 
+async function getTablaEspecificaciones(req, res) {
 
+    try {
+        const sql = '';
+        const table = await client.query(sql);
+        res.json({
+            data: table
+        })
+    } catch (error) {
+        console.log(error);
+        res.json({
+            data: {},
+            message: 'Something goes wrong'
+        });
+    }
+
+};
 
 
 /* ---------------- TABLA DE POBLACION Y MUESTRA -----------------------*/
@@ -92,7 +118,9 @@ async function getTablaHolopraxica(req, res) {
 module.exports = {
     getTablaHolopraxica: getTablaHolopraxica,
     getTablaArgumentosJustificacion: getTablaArgumentosJustificacion,
-    getTablaPoblacionMuestra: getTablaPoblacionMuestra 
+    getTablaPoblacionMuestra: getTablaPoblacionMuestra,
+    getTablaEspecificaciones: getTablaEspecificaciones,
+    getTablaOperacionalizacion: getTablaOperacionalizacion
 
 }
 

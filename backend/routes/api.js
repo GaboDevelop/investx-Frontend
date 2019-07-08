@@ -15,13 +15,20 @@ const { getJustificacion, getJustificacionById, createJustificacion, updateJusti
 
 //----------------- CONTROLLERS CONSULTAS -------------------- 
 
-const { getTablaHolopraxica, getTablaArgumentosJustificacion, getTablaPoblacionMuestra } = require('../service/tablasService');
-const { getListadoArgumentosByContexto, getListadoArgumentosByEvento, getListadoArgumentosByTemporalidad, getListadoArgumentosByTipoInvestigacion, getListadoArgumentosByUnidadEstudio, getListadoContextosAtendidos, getListadoInvestigacionesDisciplina, getListadoModalidadesProyectiva, getListadoNivelesFundamentacionAllLevels, getListadoNivelesFundamentacionAnalitico, getListadoNivelesFundamentacionComparativo, getListadoNivelesFundamentacionDescriptivo, getListadoNivelesFundamentacionExplicativo, getListadoNivelesFundamentacionPredictivo, getListadoProyectosByContexto, getListadoProyectosByEvento, getListadoProyectosByMuestra, getListadoProyectosByNivelInvestigacion, getListadoProyectosByPoblacion, getListadoProyectosByTemporalidad, getListadoProyectosByTipoInvestigacion, getListadoTiposEventos, getListadoTiposInvestigacionNiveles, getListadoTiposTecnicasAnalisis, getListadoTiposTecnicasRecoleccion } = require('../service/listadosService');
+const { getTablaEspecificaciones, getTablaOperacionalizacion, getTablaHolopraxica, getTablaArgumentosJustificacion, getTablaPoblacionMuestra } = require('../service/tablasService');
+const { getListadoFichasCategoria, getListadoFichasCondicion, getListadoTiposUnidadesInformacion, getListadoArgumentosByContexto, getListadoArgumentosByEvento, getListadoArgumentosByTemporalidad, getListadoArgumentosByTipoInvestigacion, getListadoArgumentosByUnidadEstudio, getListadoContextosAtendidos, getListadoInvestigacionesDisciplina, getListadoModalidadesProyectiva, getListadoNivelesFundamentacionAllLevels, getListadoNivelesFundamentacionAnalitico, getListadoNivelesFundamentacionComparativo, getListadoNivelesFundamentacionDescriptivo, getListadoNivelesFundamentacionExplicativo, getListadoNivelesFundamentacionPredictivo, getListadoProyectosByContexto, getListadoProyectosByEvento, getListadoProyectosByMuestra, getListadoProyectosByNivelInvestigacion, getListadoProyectosByPoblacion, getListadoProyectosByTemporalidad, getListadoProyectosByTipoInvestigacion, getListadoTiposEventos, getListadoTiposInvestigacionNiveles, getListadoTiposTecnicasAnalisis, getListadoTiposTecnicasRecoleccion } = require('../service/listadosService');
+const { getInstrumentoEvento } = require('../service/InstrumentoEventoService');
+const { getEsqueletoProyectoByTemaInvestigacion } = require('../service/esqueletoProyectoService');
+const { getFormulariosCarga } = require('../service/formulariosElementosConstitutivosService');
+const { getHistorialModificacionesByTemaInvestigacion} = require('../service/historialModificacionesService');
+const { getHologramaInvestigacion } = require('../service/hologramaInvestigacionService');
+const { getListaInstitucionesInvestigacionByRol} = require('../service/listaInstitucionesInvestigacionService');
+const {} = require('../service/reportesCalidadService');
 
 
-//--------------- ROUTES -------------------------
+// ****************************** ROUTES ***************************************
 
-// Usuario
+// ------------------------- Usuario ---------------------------
 router.get('/usuarios', getUsers);
 router.get('/usuarios/:id', getUserById);
 router.get('/usuarios/listado', getUsersAndRoles);
@@ -30,7 +37,7 @@ router.put('/usuarios/:id', updateUser);
 router.put('/usuarios/:id/disable', deleteUser);
 router.get('/usuarios/:correo/correo', getUserByCorreo);
 
-// Proyectiva 
+// -------------------------- Proyectiva ----------------------------- 
 router.get('/proyectivas', getProyectivas);
 router.get('/proyectivas/:id', getProyectivaById);
 router.post('/proyectivas', createProyectiva);
@@ -38,21 +45,21 @@ router.put('/proyectivas/:id', updateProyectiva);
 router.put('/proyectivas/:id/disable', deleteProyectiva);
 
 
-// Unidad de Estudio 
+// -------------------------- Unidad de Estudio -------------------- 
 router.get('/unidadEstudios', getUnidadEstudio);
 router.get('/unidadEstudios/:id', getUnidadById);
 router.post('/unidadEstudios', createUnidadEstudio);
 router.put('/unidadEstudios/:id', updateUnidaEstudio);
 router.put('/unidadEstudios/:id/disable', deleteUnidadEstudio);
 
-// Abordaje 
+// -------------------------- Abordaje ----------------------------- 
 router.get('/abordajes',getAbordaje);
 router.get('/abordajes/:id', getAbordajeById);
 router.post('/abordajes', createAbordaje);
 router.put('/abordajes/:id', updateAbordaje);
 router.put('/abordajes/:id/disable', deleteAbordaje);
 
-// Contexto  PROBARRRR
+// --------------------------- Contexto  -------------------------------
 router.get('/contextos', getContextos);
 router.get('/contextos/:id', getContextoById);
 router.post('/contextos', createContexto);
@@ -61,32 +68,34 @@ router.put('/contextos/:id/disable', deleteContexto);
 
 
 
-// Evento 
+// ----------------------- Evento ------------------------------------------- 
 router.get('/eventos', getEventos);
 router.get('/eventos/:id', getEventoById);
 router.post('/eventos', createEvento);
 router.put('/eventos/:id', updateEvento);
 router.put('/eventos/:id/disable', deleteEvento);
 
-// Fundamento Proyectivo 
+// ----------------------- Fundamento Proyectivo ------------------------- 
 router.get('/fundamentos',getFundamentos );
 router.get('/fundamentos/:id', getFundamentoById);
 router.post('/fundamentos', createFundamento);
 router.put('/fundamentos/:id', updateFundamento);
 router.put('/fundamentos/:id/disable', deleteFundamento);
 
-//  Justificacion 
+// ----------------------- Justificacion --------------------------------- 
 router.get('/justificaciones',getJustificacion );
 router.get('/justificaciones/:id', getJustificacionById);
 router.post('/justificaciones', createJustificacion);
 router.put('/justificaciones/:id', updateJustificacion);
 router.put('/justificaciones/:id/disable', deleteJustificacion);
 
-//     Tablas 
+// ------------------------------- Tablas ---------------------------------------------
 
 router.get('/tablas/holopraxica', getTablaHolopraxica);
 router.get('/tablas/poblacionMuestra', getTablaPoblacionMuestra);
 router.get('/tablas/argumentosJustificacion', getTablaArgumentosJustificacion);
+router.get('/tablas/especificaciones', getTablaEspecificaciones); // FALTA QUERY
+router.get('/tablas/operacionalizacion', getTablaOperacionalizacion); // FALTA QUERY
 
 
 // ------------------------------- Listados ---------------------------------------------------- 
@@ -121,7 +130,7 @@ router.get('/listados/nivelesFundamentacion/comparativo', getListadoNivelesFunda
 router.get('/listados/nivelesFundamentacion/explicativo', getListadoNivelesFundamentacionExplicativo);
 router.get('/listados/nivelesFundamentacion/predictivo', getListadoNivelesFundamentacionPredictivo);
 
-// -------------- Modalidades 
+// -------------- Modalidades  (revisar no trae nada el query)
 router.get('/listados/modalidades/proyectiva', getListadoModalidadesProyectiva);
 
 // -------------- Tipos de Tecnicas de Recoleccion de Informacion
@@ -137,13 +146,34 @@ router.get('/listados/investigacionesDisciplina/:idDisciplina', getListadoInvest
 router.get('/listados/contextosAtendidos', getListadoContextosAtendidos);
 
 // -------------- Fichas por los diferentes tipos de Categoria
-//router.get('/listados/',);
-
+router.get('/listados/fichasCategoria', getListadoFichasCategoria); // FALTA QUERY
 // -------------- Fichas por Condicion 
-//router.get('/listados/',);
+router.get('/listados/fichasCondicion', getListadoFichasCondicion); // FALTA QUERY
 
 // -------------- Tipos de Unidades Informacion
-//router.get('/listados/',);
+router.get('/listados/TiposUnidadesInformacion', getListadoTiposUnidadesInformacion); // FALTA QUERY 
+
+// -------------------------- Instrumentos por Evento 
+router.get('/instrumentoEvento', getInstrumentoEvento);
+
+// -------------------------- Esqueleto del Informe del Proyecto
+router.get('/esqueletoProyecto/:idTemaInvestigacion', getEsqueletoProyectoByTemaInvestigacion);
+
+// -------------------------- Formularios de Carga
+router.get('/formulariosCarga', getFormulariosCarga); // FALTA QUERY 
+
+// -------------------------- Historial Modificaciones 
+router.get('/historialModificaciones/:idTemaInvestigacion', getHistorialModificacionesByTemaInvestigacion);
+
+// -------------------------- Holograma Investigacion
+router.get('/hologramaInvestigacion', getHologramaInvestigacion); // FALTA QUERY
+
+// -------------------------- Lista Instituciones Investigacion
+router.get('/listaInstitucionesInvestigacion/:idRol', getListaInstitucionesInvestigacionByRol);
+
+// -------------------------- Reportes de Calidad 
+
+
 
 
 module.exports = router;

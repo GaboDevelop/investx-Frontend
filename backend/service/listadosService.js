@@ -53,7 +53,7 @@ async function getListadoArgumentosByUnidadEstudio(req, res) {
 
     try {
         const { idUnidadEstudio } = req.params; 
-        const sql = 'SELECT J.idJustificacion, P.argumento  AS "potencialidad", O.argumento AS "oportunidad", N.argumento AS "necesidad", T.argumento AS "tendencia", CP.argumento AS "curiosidad y preocupacion", C.argumento AS "contradiccion", MI.argumento AS "Motivacion o interes FROM JUSTIFICACION J JOIN CURIOSIDAD_PREOCUPACION CP ON J.idJustificacion = CP.idJustificacion JOIN CONTRADICCION C ON J.idJustificacion = C.idJustificacion JOIN MOTIVACION_INTERES MI ON J.idJustificacion = MI.idJustificacion JOIN POTENCIALIDAD P ON J.idJustificacion = P.idJustificacion JOIN NECESIDAD N ON J.idJustificacion = N.idJustificacion JOIN OPORTUNIDAD O ON J.idJustificacion = O.idJustificacion JOIN TENDENCIA T ON J.idJustificacion = T.idJustificacion WHERE J.idUnidadEstudio = $1';
+        const sql = 'SELECT J.idJustificacion, P.argumento  AS "potencialidad", O.argumento AS "oportunidad", N.argumento AS "necesidad", T.argumento AS "tendencia", CP.argumento AS "curiosidad y preocupacion", C.argumento AS "contradiccion", MI.argumento AS "Motivacion o interes" FROM JUSTIFICACION J JOIN CURIOSIDAD_PREOCUPACION CP ON J.idJustificacion = CP.idJustificacion JOIN CONTRADICCION C ON J.idJustificacion = C.idJustificacion JOIN MOTIVACION_INTERES MI ON J.idJustificacion = MI.idJustificacion JOIN POTENCIALIDAD P ON J.idJustificacion = P.idJustificacion JOIN NECESIDAD N ON J.idJustificacion = N.idJustificacion JOIN OPORTUNIDAD O ON J.idJustificacion = O.idJustificacion JOIN TENDENCIA T ON J.idJustificacion = T.idJustificacion WHERE J.idUnidadEstudio = $1';
         const params = [idUnidadEstudio];
         const table = await client.query(sql, params);
         res.json({
@@ -163,7 +163,7 @@ async function getListadoProyectosByContexto(req, res) {
 async function getListadoProyectosByTemporalidad(req, res) {
 
     try {
-        const sql = 'SELECT P.idProyecto, TI.idTemaInvestigacion, T.idTemporalidad, TI.tema, T.temporalidad FROM PROYECTO P JOIN TEMA_INVESTIGACION TI ON P.idTemaInvestigacion = TI.idTemaInvestigacion JOIN TEMPORALIDAD T ON P.idTemporalidad = T.idTemporalidad';
+        const sql = 'SELECT P.idProyecto, TI.idTemaInvestigacion, T.idTemporalidad, TI.tema, T.temporalidad FROM PROYECTO P JOIN TEMA_INVESTIGACION TI ON P.idTemaInvestigacion = TI.idTemaInvestigacion JOIN TEMPORALIDAD_MEDICION T ON P.idTemporalidad = T.idTemporalidad';
         
         const table = await client.query(sql);
         res.json({
@@ -546,13 +546,64 @@ async function getListadoContextosAtendidos(req, res) {
 /* ----------------------- LISTADO DE FICHAS POR LOS DIFERENTES TIPOS DE CATEGORIAS, TIPOLOGIAS E INFORMACION CONSTITUTIVA ------------------------*/
 
 
+async function getListadoFichasCategoria(req, res) {
 
+    try {
+        const sql = '';
+        const table = await client.query(sql);
+        res.json({
+            data: table
+        })
+    } catch (error) {
+        console.log(error);
+        res.json({
+            data: {},
+            message: 'Something goes wrong'
+        });
+    }
+
+};
 /* --------------------- LISTADO DE FICHAS POR CONDICION DE USO EN EL PROYECTO --------------*/
 
+async function getListadoFichasCondicion(req, res) {
+
+    try {
+        const sql = '';
+        const table = await client.query(sql);
+        res.json({
+            data: table
+        })
+    } catch (error) {
+        console.log(error);
+        res.json({
+            data: {},
+            message: 'Something goes wrong'
+        });
+    }
+
+};
 
 
 /* ------------------ LISTADO DE TIPOS DE UNIDADES INFORMACION -----------------*/
 
+
+async function getListadoTiposUnidadesInformacion(req, res) {
+
+    try {
+        const sql = '';
+        const table = await client.query(sql);
+        res.json({
+            data: table
+        })
+    } catch (error) {
+        console.log(error);
+        res.json({
+            data: {},
+            message: 'Something goes wrong'
+        });
+    }
+
+};
 
 
 
@@ -582,5 +633,10 @@ module.exports ={
     getListadoProyectosByTipoInvestigacion:     getListadoProyectosByTipoInvestigacion,
     getListadoTiposEventos:                     getListadoTiposEventos,
     getListadoTiposTecnicasAnalisis:            getListadoTiposTecnicasAnalisis,
-    getListadoTiposTecnicasRecoleccion:         getListadoTiposTecnicasRecoleccion
+    getListadoTiposTecnicasRecoleccion:         getListadoTiposTecnicasRecoleccion, 
+    getListadoFichasCategoria: getListadoFichasCategoria,
+    getListadoFichasCondicion: getListadoFichasCondicion,
+    getListadoTiposUnidadesInformacion: getListadoTiposUnidadesInformacion
+
+
 }
