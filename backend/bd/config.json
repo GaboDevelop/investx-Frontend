@@ -3,5 +3,5 @@
   "DB_PASSWORD": "",
   "DB_NAME": "investx",
   "DB_HOST": "localhost",
-  "DB_PORT": 3306
+  "DB_PORT": 3360
 }
