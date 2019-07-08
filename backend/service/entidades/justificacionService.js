@@ -1,4 +1,4 @@
-const client = require('../bd/connection.js');
+const client = require('../../bd/connection.js');
 
 async function getJustificacion(req, res) {
 
@@ -115,10 +115,10 @@ async function deleteJustificacion(req, res) {
         }
             const sql2 = 'UPDATE JUSTIFICACION SET active = $1  WHERE idJustificacion = $2';
             const params2 = [false, id];
-            const justificaciones = await client.query(sql2, params2);
+            const justificacioness = await client.query(sql2, params2);
             return res.json({
                 message: 'justificaciones Updated',
-                data: justificaciones
+                data: justificacioness
             })
         
 

@@ -1,4 +1,4 @@
-const client = require('../bd/connection.js');
+const client = require('../../bd/connection.js');
 
 async function getProyectivas(req, res) {
 

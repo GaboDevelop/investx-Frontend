@@ -1,5 +1,5 @@
 
-const client = require('../bd/connection.js');
+const client = require('../../bd/connection.js');
 
 
 async function getUsers(req, res) {
@@ -154,12 +154,34 @@ async function deleteUser(req, res) {
 
 };
 
+
+async function getUsersAndRoles(req, res) { // ERROR NI IDEA
+
+    try {
+
+        const sql = 'SELECT U.idUsuario, U.correo, U.contrasena, U.nombre, U.segundoNombre, U.apellido, U.segundoApellido, R.nombreRol, U.active FROM USUARIO U INNER JOIN ROL_USUARIO RU ON U.idUsuario = RU.idUsuario INNER JOIN ROL R ON R.idRol = RU.idRol' ;
+        const users = await client.query(sql);
+        res.json({
+            data: users
+        })
+    } catch (error) {
+        console.log(error);
+        res.json({
+            data: {},
+            message: 'Something goes wrong'
+        });
+    }
+
+};
+
+
 module.exports = {
     getUsers: getUsers,
     getUserById: getUserById, 
     createUser: createUser, 
     updateUser: updateUser,
     deleteUser: deleteUser,
-    getUserByCorreo:getUserByCorreo
+    getUserByCorreo:getUserByCorreo,
+    getUsersAndRoles: getUsersAndRoles
 
 }
