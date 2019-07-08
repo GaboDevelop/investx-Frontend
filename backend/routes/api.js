@@ -4,7 +4,7 @@ const router = Router();
 
 
 //----------------- CONTROLLERS  -------------------- 
-const { getUsers, getUserById, createUser, updateUser, deleteUser, getUserByCorreo } = require('../service/usuarioService.js');
+const { getUsers, getUserById, createUser, updateUser, deleteUser, getUserByCorreo, getUsersAndRoles } = require('../service/usuarioService.js');
 const { getProyectivas, getProyectivaById, createProyectiva, updateProyectiva, deleteProyectiva } = require('../service/proyectivaService.js');
 const { getUnidadById, getUnidadEstudio, createUnidadEstudio, updateUnidaEstudio, deleteUnidadEstudio} = require('../service/unidadEstudioService.js');
 const { getAbordaje, getAbordajeById, createAbordaje, updateAbordaje, deleteAbordaje } =  require('../service/abordajeService.js');
@@ -18,6 +18,7 @@ const { getJustificacion, getJustificacionById, createJustificacion, updateJusti
 // Usuario
 router.get('/usuarios', getUsers);
 router.get('/usuarios/:id', getUserById);
+router.get('/usuarios/listado', getUsersAndRoles);
 router.post('/usuarios', createUser);
 router.put('/usuarios/:id', updateUser);
 router.put('/usuarios/:id/disable', deleteUser);
