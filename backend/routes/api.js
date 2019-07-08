@@ -20,15 +20,15 @@ router.get('/usuarios', getUsers);
 router.get('/usuarios/:id', getUserById);
 router.post('/usuarios', createUser);
 router.put('/usuarios/:id', updateUser);
-router.put('/usuarios/disable/:id', deleteUser);
-router.get('/usuarios/correo/:correo', getUserByCorreo);
+router.put('/usuarios/:id/disable', deleteUser);
+router.get('/usuarios/:correo/correo', getUserByCorreo);
 
 // Proyectiva 
 router.get('/proyectivas', getProyectivas);
 router.get('/proyectivas/:id', getProyectivaById);
 router.post('/proyectivas', createProyectiva);
 router.put('/proyectivas/:id', updateProyectiva);
-router.put('/proyectivas/disable/:id', deleteProyectiva);
+router.put('/proyectivas/:id/disable', deleteProyectiva);
 
 
 // Unidad de Estudio 
@@ -36,21 +36,21 @@ router.get('/unidadEstudios', getUnidadEstudio);
 router.get('/unidadEstudios/:id', getUnidadById);
 router.post('/unidadEstudios', createUnidadEstudio);
 router.put('/unidadEstudios/:id', updateUnidaEstudio);
-router.put('/unidadEstudios/disable/:id', deleteUnidadEstudio);
+router.put('/unidadEstudios/:id/disable', deleteUnidadEstudio);
 
 // Abordaje 
 router.get('/abordajes',getAbordaje);
 router.get('/abordajes/:id', getAbordajeById);
 router.post('/abordajes', createAbordaje);
 router.put('/abordajes/:id', updateAbordaje);
-router.put('/abordajes/disable/:id', deleteAbordaje);
+router.put('/abordajes/:id/disable', deleteAbordaje);
 
 // Contexto  PROBARRRR
 router.get('/contextos', getContextos);
 router.get('/contextos/:id', getContextoById);
 router.post('/contextos', createContexto);
 router.put('/contextos/:id', updateContexto);
-router.put('/contextos/disable/:id', deleteContexto);
+router.put('/contextos/:id/disable', deleteContexto);
 
 
 
@@ -59,21 +59,21 @@ router.get('/eventos', getEventos);
 router.get('/eventos/:id', getEventoById);
 router.post('/eventos', createEvento);
 router.put('/eventos/:id', updateEvento);
-router.put('/eventos/disable/:id', deleteEvento);
+router.put('/eventos/:id/disable', deleteEvento);
 
 // Fundamento Proyectivo 
 router.get('/fundamentos',getFundamentos );
 router.get('/fundamentos/:id', getFundamentoById);
 router.post('/fundamentos', createFundamento);
 router.put('/fundamentos/:id', updateFundamento);
-router.put('/fundamentos/disable/:id', deleteFundamento);
+router.put('/fundamentos/:id/disable', deleteFundamento);
 
 //  Justificacion 
 router.get('/justificaciones',getJustificacion );
 router.get('/justificaciones/:id', getJustificacionById);
 router.post('/justificaciones', createJustificacion);
 router.put('/justificaciones/:id', updateJustificacion);
-router.put('/justificaciones/disable/:id', deleteJustificacion);
+router.put('/justificaciones/:id/disable', deleteJustificacion);
 
 
 module.exports = router;
