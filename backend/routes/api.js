@@ -3,28 +3,27 @@ const { Router } = require('express');
 const router = Router();
 
 
-//----------------- CONTROLLERS  -------------------- 
-const { getUsers, getUserById, createUser, updateUser, deleteUser, getUserByCorreo, getUsersAndRoles } = require('../service/usuarioService.js');
-const { getProyectivas, getProyectivaById, createProyectiva, updateProyectiva, deleteProyectiva } = require('../service/proyectivaService.js');
-const { getUnidadById, getUnidadEstudio, createUnidadEstudio, updateUnidaEstudio, deleteUnidadEstudio} = require('../service/unidadEstudioService.js');
-const { getAbordaje, getAbordajeById, createAbordaje, updateAbordaje, deleteAbordaje } =  require('../service/abordajeService.js');
-const { getContextos, getContextoById, createContexto, updateContexto, deleteContexto } =  require('../service/contextoService.js');
-const { getEventos, getEventoById, createEvento, updateEvento, deleteEvento } = require('../service/eventoService.js');
-const { getFundamentos, getFundamentoById, createFundamento, updateFundamento, deleteFundamento} = require('../service/fundamentoProyectivoService.js');
-const { getJustificacion, getJustificacionById, createJustificacion, updateJustificacion, deleteJustificacion } = require('../service/justificacionService.js');
+// ----------------- CONTROLLERS ENTIDADES  -------------------- 
+const { getUsers, getUserById, createUser, updateUser, deleteUser, getUserByCorreo, getUsersAndRoles } = require('../service/entidades/usuarioService.js');
+const { getProyectivas, getProyectivaById, createProyectiva, updateProyectiva, deleteProyectiva } = require('../service/entidades/proyectivaService.js');
+const { getUnidadById, getUnidadEstudio, createUnidadEstudio, updateUnidaEstudio, deleteUnidadEstudio} = require('../service/entidades/unidadEstudioService.js');
+const { getAbordaje, getAbordajeById, createAbordaje, updateAbordaje, deleteAbordaje } =  require('../service/entidades/abordajeService.js');
+const { getContextos, getContextoById, createContexto, updateContexto, deleteContexto } =  require('../service/entidades/contextoService.js');
+const { getEventos, getEventoById, createEvento, updateEvento, deleteEvento } = require('../service/entidades/eventoService.js');
+const { getFundamentos, getFundamentoById, createFundamento, updateFundamento, deleteFundamento} = require('../service/entidades/fundamentoProyectivoService.js');
+const { getJustificacion, getJustificacionById, createJustificacion, updateJustificacion, deleteJustificacion } = require('../service/entidades/justificacionService.js');
 
-//----------------- CONTROLLERS CONSULTAS -------------------- 
+// ----------------- CONTROLLERS CONSULTAS -------------------- 
 
-const { getTablaEspecificaciones, getTablaOperacionalizacion, getTablaHolopraxica, getTablaArgumentosJustificacion, getTablaPoblacionMuestra } = require('../service/tablasService');
-const { getListadoFichasCategoria, getListadoFichasCondicion, getListadoTiposUnidadesInformacion, getListadoArgumentosByContexto, getListadoArgumentosByEvento, getListadoArgumentosByTemporalidad, getListadoArgumentosByTipoInvestigacion, getListadoArgumentosByUnidadEstudio, getListadoContextosAtendidos, getListadoInvestigacionesDisciplina, getListadoModalidadesProyectiva, getListadoNivelesFundamentacionAllLevels, getListadoNivelesFundamentacionAnalitico, getListadoNivelesFundamentacionComparativo, getListadoNivelesFundamentacionDescriptivo, getListadoNivelesFundamentacionExplicativo, getListadoNivelesFundamentacionPredictivo, getListadoProyectosByContexto, getListadoProyectosByEvento, getListadoProyectosByMuestra, getListadoProyectosByNivelInvestigacion, getListadoProyectosByPoblacion, getListadoProyectosByTemporalidad, getListadoProyectosByTipoInvestigacion, getListadoTiposEventos, getListadoTiposInvestigacionNiveles, getListadoTiposTecnicasAnalisis, getListadoTiposTecnicasRecoleccion } = require('../service/listadosService');
-const { getInstrumentoEvento } = require('../service/InstrumentoEventoService');
-const { getEsqueletoProyectoByTemaInvestigacion } = require('../service/esqueletoProyectoService');
-const { getFormulariosCarga } = require('../service/formulariosElementosConstitutivosService');
-const { getHistorialModificacionesByTemaInvestigacion} = require('../service/historialModificacionesService');
-const { getHologramaInvestigacion } = require('../service/hologramaInvestigacionService');
-const { getListaInstitucionesInvestigacionByRol} = require('../service/listaInstitucionesInvestigacionService');
-const {} = require('../service/reportesCalidadService');
-
+const { getTablaEspecificaciones, getTablaOperacionalizacion, getTablaHolopraxica, getTablaArgumentosJustificacion, getTablaPoblacionMuestra } = require('../service/consultas/tablasService');
+const { getListadoFichasCategoria, getListadoFichasCondicion, getListadoTiposUnidadesInformacion, getListadoArgumentosByContexto, getListadoArgumentosByEvento, getListadoArgumentosByTemporalidad, getListadoArgumentosByTipoInvestigacion, getListadoArgumentosByUnidadEstudio, getListadoContextosAtendidos, getListadoInvestigacionesDisciplina, getListadoModalidadesProyectiva, getListadoNivelesFundamentacionAllLevels, getListadoNivelesFundamentacionAnalitico, getListadoNivelesFundamentacionComparativo, getListadoNivelesFundamentacionDescriptivo, getListadoNivelesFundamentacionExplicativo, getListadoNivelesFundamentacionPredictivo, getListadoProyectosByContexto, getListadoProyectosByEvento, getListadoProyectosByMuestra, getListadoProyectosByNivelInvestigacion, getListadoProyectosByPoblacion, getListadoProyectosByTemporalidad, getListadoProyectosByTipoInvestigacion, getListadoTiposEventos, getListadoTiposInvestigacionNiveles, getListadoTiposTecnicasAnalisis, getListadoTiposTecnicasRecoleccion } = require('../service/consultas/listadosService');
+const { getInstrumentoEvento } = require('../service/consultas/InstrumentoEventoService');
+const { getEsqueletoProyectoByTemaInvestigacion } = require('../service/consultas/esqueletoProyectoService');
+const { getFormulariosCarga } = require('../service/consultas/formulariosElementosConstitutivosService');
+const { getHistorialModificacionesByTemaInvestigacion} = require('../service/consultas/historialModificacionesService');
+const { getHologramaInvestigacion } = require('../service/consultas/hologramaInvestigacionService');
+const { getListaInstitucionesInvestigacionByRol} = require('../service/consultas/listaInstitucionesInvestigacionService');
+const {} = require('../service/consultas/reportesCalidadService');
 
 // ****************************** ROUTES ***************************************
 
