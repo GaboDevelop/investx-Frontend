@@ -9,6 +9,7 @@ FROM USUARIO U
 /*2 - HOLOGRAMA DE LA INVESTIGACION*/
 
 /*3 - TABLA DE OPERACIONALIZACION*/
+SELECT E.evento, S.sinergia,I.indicio,IM.item,E.parametro,IO.instrumento,IO.nivel,F.fuente FROM PROYECTIVA PAJOIN EVENTO_PROYECTIVA EP ON PA.idProyectiva = EP.idProyectiva JOIN EVENTO E ON EP.idEvento = E.idEvento JOIN SINERGIA S ON E.idEvento = S.idEvento JOIN INSTRUMENTO IO ON E.idEvento = IO.idEvento JOIN INDICIO I ON S.idSinergia = I.idSinergia JOIN ITEM IM ON IO.idInstrumento = IM.idInstrumento JOIN FUENTE F ON IO.idInstrumento = F.idInstrumento JOIN PROYECTO P ON PA.idProyectiva = P.idProyectiva WHERE P.idProyecto = 1
 
 /*4 - TABLA DE ESPECIFIACIONES*/
 

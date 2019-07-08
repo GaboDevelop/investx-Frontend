@@ -856,65 +856,65 @@ VALUES
 /* Table: EVENTO                                                */
 /*==============================================================*/
 INSERT INTO EVENTO
-    (idEvento,idClaseEvento,evento)
+    (idEvento,idClaseEvento,evento,parametro)
 VALUES
-    ('4256', '1011', 'Proceso de gestión de riesgo');
+    ('4256', '1011', 'Proceso de gestión de riesgo','intensidad del 0 al 5');
 INSERT INTO EVENTO
-    (idEvento,idClaseEvento,evento)
+    (idEvento,idClaseEvento,evento,parametro)
 VALUES
-    ('4288', '1011', 'Probabilidad de que ocurran eventos de riesgo');
+    ('4288', '1011', 'Probabilidad de que ocurran eventos de riesgo','probabilidad estadistica');
 INSERT INTO EVENTO
-    (idEvento,idClaseEvento,evento)
+    (idEvento,idClaseEvento,evento,parametro)
 VALUES
-    ('74', '1011', 'Fraudes electrónicos a nivel financiero');
+    ('74', '1011', 'Fraudes electrónicos a nivel financiero','forma de fraude');
 INSERT INTO EVENTO
-    (idEvento,idClaseEvento,evento)
+    (idEvento,idClaseEvento,evento,parametro)
 VALUES
-    ('123', '1012', 'Fraudes en el registro y pagos en línea');
+    ('123', '1012', 'Fraudes en el registro y pagos en línea','forma de robo');
 INSERT INTO EVENTO
-    (idEvento,idClaseEvento,evento)
+    (idEvento,idClaseEvento,evento,parametro)
 VALUES
-    ('963', '1012', 'Empaquetamiento de archivos');
+    ('963', '1012', 'Empaquetamiento de archivos','como se empaqueta');
 INSERT INTO EVENTO
-    (idEvento,idClaseEvento,evento)
+    (idEvento,idClaseEvento,evento,parametro)
 VALUES
-    ('5632', '1012', 'Protocolos utilizados para la transmisión de datos');
+    ('5632', '1012', 'Protocolos utilizados para la transmisión de datos','estilo');
 INSERT INTO EVENTO
-    (idEvento,idClaseEvento,evento)
+    (idEvento,idClaseEvento,evento,parametro)
 VALUES
-    ('752', '1012', 'Fallo en las técnicas utilizadas para el análisis de datos');
+    ('752', '1012', 'Fallo en las técnicas utilizadas para el análisis de datos','nivel de fallo');
 
 /*==============================================================*/
 /* Table: INSTRUMENTO                                                */
 /*==============================================================*/
 INSERT INTO INSTRUMENTO
-    (idInstrumento,idEvento,instrumento)
+    (idInstrumento,idEvento,instrumento,nivel)
 VALUES
-    ('1', '4256', 'Escala de Estimacion');
+    ('1', '4256', 'Escala de Estimacion','1 al 10');
 INSERT INTO INSTRUMENTO
-    (idInstrumento,idEvento,instrumento)
+    (idInstrumento,idEvento,instrumento,nivel)
 VALUES
-    ('2', '4288', 'Test');
+    ('2', '4288', 'Test','1 al 20');
 INSERT INTO INSTRUMENTO
-    (idInstrumento,idEvento,instrumento)
+    (idInstrumento,idEvento,instrumento,nivel)
 VALUES
-    ('3', '74', 'Matriz de analisis');
+    ('3', '74', 'Matriz de analisis','1 al 350');
 INSERT INTO INSTRUMENTO
-    (idInstrumento,idEvento,instrumento)
+    (idInstrumento,idEvento,instrumento,nivel)
 VALUES
-    ('4', '123', 'Matriz de registro');
+    ('4', '123', 'Matriz de registro','1 al 60');
 INSERT INTO INSTRUMENTO
-    (idInstrumento,idEvento,instrumento)
+    (idInstrumento,idEvento,instrumento,nivel)
 VALUES
-    ('5', '963', 'Matriz de categorias');
+    ('5', '963', 'Matriz de categorias','1 al 250');
 INSERT INTO INSTRUMENTO
-    (idInstrumento,idEvento,instrumento)
+    (idInstrumento,idEvento,instrumento,nivel)
 VALUES
-    ('6', '5632', 'Registro global');
+    ('6', '5632', 'Registro global','1 al 100');
 INSERT INTO INSTRUMENTO
-    (idInstrumento,idEvento,instrumento)
+    (idInstrumento,idEvento,instrumento,nivel)
 VALUES
-    ('7', '752', 'Lista de chequeo o de cotejo');
+    ('7', '752', 'Lista de chequeo o de cotejo','1 al 50');
 
 /*==============================================================*/
 /* Table: FUENTE                                                */

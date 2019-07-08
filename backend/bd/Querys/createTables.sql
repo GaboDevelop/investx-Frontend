@@ -435,6 +435,7 @@ create table EVENTO (
    idEvento            SERIAL               not null,
    idClaseEvento      INT4                 not null,
    evento               VARCHAR(250)          not null,
+   parametro         VARCHAR(250)  not null,
    active    boolean not null default true,
    constraint PK_EVENTO primary key (idEvento)
 );
@@ -446,6 +447,7 @@ create table INSTRUMENTO (
    idInstrumento        SERIAL               not null,
    idEvento            INT4                 not null,
    instrumento          VARCHAR(250)         not null,
+   nivel                VARCHAR(250)      not null,
    active    boolean not null default true,
    constraint PK_INSTRUMENTO primary key (idInstrumento)
 );
