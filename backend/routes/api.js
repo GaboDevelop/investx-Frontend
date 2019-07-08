@@ -4,58 +4,76 @@ const router = Router();
 
 
 //----------------- CONTROLLERS  -------------------- 
-const  { getUsers, getUserById, createUser, updateUser, deleteUser, getUserByCorreo } = require('../service/usuarioService.js');
+const { getUsers, getUserById, createUser, updateUser, deleteUser, getUserByCorreo } = require('../service/usuarioService.js');
 const { getProyectivas, getProyectivaById, createProyectiva, updateProyectiva, deleteProyectiva } = require('../service/proyectivaService.js');
-const {getUnidadById, getUnidadEstudio, createUnidadEstudio, updateUnidaEstudio, deleteUnidadEstudio} = require('../service/unidadEstudioService.js');
+const { getUnidadById, getUnidadEstudio, createUnidadEstudio, updateUnidaEstudio, deleteUnidadEstudio} = require('../service/unidadEstudioService.js');
 const { getAbordaje, getAbordajeById, createAbordaje, updateAbordaje, deleteAbordaje } =  require('../service/abordajeService.js');
-
-
+const { getContextos, getContextoById, createContexto, updateContexto, deleteContexto } =  require('../service/contextoService.js');
+const { getEventos, getEventoById, createEvento, updateEvento, deleteEvento } = require('../service/eventoService.js');
+const { getFundamentos, getFundamentoById, createFundamento, updateFundamento, deleteFundamento} = require('../service/fundamentoProyectivoService.js');
+const { getJustificacion, getJustificacionById, createJustificacion, updateJustificacion, deleteJustificacion } = require('../service/justificacionService.js');
 
 //--------------- ROUTES -------------------------
 
 // Usuario
 router.get('/usuarios', getUsers);
 router.get('/usuarios/:id', getUserById);
-router.post('/usuario', createUser);
-router.put('/usuario/:id', updateUser);
-router.put('/usuario/delete/:id', deleteUser);
-router.get('/usuario/correo/:correo', getUserByCorreo);
+router.post('/usuarios', createUser);
+router.put('/usuarios/:id', updateUser);
+router.put('/usuarios/disable/:id', deleteUser);
+router.get('/usuarios/correo/:correo', getUserByCorreo);
 
 // Proyectiva 
-router.get('/proyectiva', getProyectivas);
-router.get('/proyectiva/:id', getProyectivaById);
-router.post('/proyectiva', createProyectiva);
-router.put('/proyectiva/:id', updateProyectiva);
-router.put('/proyectiva/delete/:id', deleteProyectiva);
+router.get('/proyectivas', getProyectivas);
+router.get('/proyectivas/:id', getProyectivaById);
+router.post('/proyectivas', createProyectiva);
+router.put('/proyectivas/:id', updateProyectiva);
+router.put('/proyectivas/disable/:id', deleteProyectiva);
 
 
 // Unidad de Estudio 
-router.get('/unidadEstudio', getUnidadEstudio);
-router.get('/unidadEstudio/:id', getUnidadById);
-router.post('/unidadEstudio', createUnidadEstudio);
-router.put('/unidadEstudio/:id', updateUnidaEstudio);
-router.put('/unidadEstudio/delete/:id', deleteUnidadEstudio);
+router.get('/unidadEstudios', getUnidadEstudio);
+router.get('/unidadEstudios/:id', getUnidadById);
+router.post('/unidadEstudios', createUnidadEstudio);
+router.put('/unidadEstudios/:id', updateUnidaEstudio);
+router.put('/unidadEstudios/disable/:id', deleteUnidadEstudio);
 
 // Abordaje 
-router.get('/abordaje',getAbordaje);
-router.get('/abordaje/:id', getAbordajeById);
-router.post('/abordaje', createAbordaje);
-router.put('/abordaje/:id', updateAbordaje);
-router.put('/abordaje/delete/:id', deleteAbordaje);
+router.get('/abordajes',getAbordaje);
+router.get('/abordajes/:id', getAbordajeById);
+router.post('/abordajes', createAbordaje);
+router.put('/abordajes/:id', updateAbordaje);
+router.put('/abordajes/disable/:id', deleteAbordaje);
 
-// Contexto 
+// Contexto  PROBARRRR
+router.get('/contextos', getContextos);
+router.get('/contextos/:id', getContextoById);
+router.post('/contextos', createContexto);
+router.put('/contextos/:id', updateContexto);
+router.put('/contextos/disable/:id', deleteContexto);
+
 
 
 // Evento 
-
-
+router.get('/eventos', getEventos);
+router.get('/eventos/:id', getEventoById);
+router.post('/eventos', createEvento);
+router.put('/eventos/:id', updateEvento);
+router.put('/eventos/disable/:id', deleteEvento);
 
 // Fundamento Proyectivo 
-
-
+router.get('/fundamentos',getFundamentos );
+router.get('/fundamentos/:id', getFundamentoById);
+router.post('/fundamentos', createFundamento);
+router.put('/fundamentos/:id', updateFundamento);
+router.put('/fundamentos/disable/:id', deleteFundamento);
 
 //  Justificacion 
-
+router.get('/justificaciones',getJustificacion );
+router.get('/justificaciones/:id', getJustificacionById);
+router.post('/justificaciones', createJustificacion);
+router.put('/justificaciones/:id', updateJustificacion);
+router.put('/justificaciones/disable/:id', deleteJustificacion);
 
 
 module.exports = router;
