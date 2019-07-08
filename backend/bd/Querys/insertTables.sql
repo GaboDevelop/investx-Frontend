@@ -948,7 +948,7 @@ INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('3', '74', 'Robo de 
 INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('4', '123', 'Robo de identidad virtual');
 INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('5', '963', 'Empaquetado de Windows en cadenas de 8 bits');
 INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('6', '5632', 'Protocolo HDLC');
-INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('7', '753', 'Mal manejo de la tecnica de instrumentacion');
+INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('7', '752', 'Mal manejo de la tecnica de instrumentacion');
 
 /*==============================================================*/
 /* Table: INDICIO                                               */
