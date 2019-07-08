@@ -928,6 +928,18 @@ INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('6', '6', 'Computador
 INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('7', '7', 'Trabajadores del area');
 
 /*==============================================================*/
+/* Table: ITEM                                                  */
+/*==============================================================*/
+INSERT INTO INDICIO (idIndicio,idInstrumento,indicio) VALUES ('1', '1', 'Dato');
+INSERT INTO INDICIO (idIndicio,idInstrumento,indicio) VALUES ('2', '2', 'Indicadores');
+INSERT INTO INDICIO (idIndicio,idInstrumento,indicio) VALUES ('3', '3', 'Filas y columnas con indentificadores independientes');
+INSERT INTO INDICIO (idIndicio,idInstrumento,indicio) VALUES ('4', '4', 'Registros en filas y columna a decision');
+INSERT INTO INDICIO (idIndicio,idInstrumento,indicio) VALUES ('5', '5', 'Categorias en filas y semejanzas y/o diferencias en columnas');
+INSERT INTO INDICIO (idIndicio,idInstrumento,indicio) VALUES ('6', '6', 'Artilugio global');
+INSERT INTO INDICIO (idIndicio,idInstrumento,indicio) VALUES ('7', '7', 'Identificadores a evaluar');
+
+
+/*==============================================================*/
 /* Table: SINERGIA                                              */
 /*==============================================================*/
 INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('1', '4256', 'Riesgo de desborde');
@@ -948,18 +960,6 @@ INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('4', '4', 'Fallo en i
 INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('5', '5', 'Clasificacion de cadenas');
 INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('6', '6', 'Envio de informacion');
 INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('7', '7', 'Aspecto caracteristico');
-
-/*==============================================================*/
-/* Table: ITEM                                                  */
-/*==============================================================*/
-INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('1', '1', 'Como un aspecto deforma el proyecto');
-INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('2', '2', 'Como un aspecto deforma el proyecto');
-INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('3', '3', 'Como un aspecto deforma el proyecto');
-INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('4', '4', 'Como un aspecto deforma el proyecto');
-INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('5', '5', 'Como un aspecto deforma el proyecto');
-INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('6', '6', 'Como un aspecto deforma el proyecto');
-INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('7', '7', 'Como un aspecto deforma el proyecto');
-
 
 /*==============================================================*/
 /* Table: UNIDAD_INFORMATIVA                                    */
