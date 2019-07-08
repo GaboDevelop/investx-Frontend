@@ -817,7 +817,7 @@ create table SINERGIA (
 /*==============================================================*/
 create table INDICIO (
    idIndicio            SERIAL               not null,
-   idInstrumento           INT4                 not null,
+   idSinergia           INT4                 not null,
    indicio              VARCHAR(250)         not null,
    constraint PK_INDICIO primary key (idIndicio)
 );
@@ -827,7 +827,7 @@ create table INDICIO (
 /*==============================================================*/
 create table ITEM (
    idItem               SERIAL               not null,
-   idIndicio            INT4                 not null,
+   idInstrumento            INT4                 not null,
    item                 VARCHAR(250)         not null,
    constraint PK_ITEM primary key (idItem)
 );
@@ -1010,11 +1010,6 @@ alter table FUNDAMENTO_PROYECTIVO_INVESTIGACION
 alter table FUNDAMENTO_PROYECTIVO_INVESTIGACION
    add constraint FK_FUNDAMEN_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
       references TEMA_INVESTIGACION (idTemaInvestigacion)
-      on delete restrict on update restrict;
-
-alter table INDICIO
-   add constraint FK_INDICIO_REFERENCE_INSTRUMENTO foreign key (idInstrumento)
-      references INSTRUMENTO (idInstrumento)
       on delete restrict on update restrict;
 
 alter table INVOLUCRADO_TEMA_INVESTIGACION
@@ -1236,4 +1231,14 @@ alter table PROYECTO
 alter table INSTRUMENTO
    add constraint FK_INSTRUME_REFERENCE_EVENTO foreign key (idEvento)
       references EVENTO (idEvento)
+      on delete restrict on update restrict;
+
+alter table INDICIO
+   add constraint FK_INDICIO_REFERENCE_SINERGIA foreign key (idSinergia)
+      references SINERGIA (idSinergia)
+      on delete restrict on update restrict;
+
+alter table ITEM
+   add constraint FK_ITEM_REFERENCE_INSTRUMENTO foreign key (idInstrumento)
+      references INSTRUMENTO (idInstrumento)
       on delete restrict on update restrict;

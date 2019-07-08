@@ -930,25 +930,25 @@ INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('7', '7', 'Trabajador
 /*==============================================================*/
 /* Table: ITEM                                                  */
 /*==============================================================*/
-INSERT INTO INDICIO (idIndicio,idInstrumento,indicio) VALUES ('1', '1', 'Dato');
-INSERT INTO INDICIO (idIndicio,idInstrumento,indicio) VALUES ('2', '2', 'Indicadores');
-INSERT INTO INDICIO (idIndicio,idInstrumento,indicio) VALUES ('3', '3', 'Filas y columnas con indentificadores independientes');
-INSERT INTO INDICIO (idIndicio,idInstrumento,indicio) VALUES ('4', '4', 'Registros en filas y columna a decision');
-INSERT INTO INDICIO (idIndicio,idInstrumento,indicio) VALUES ('5', '5', 'Categorias en filas y semejanzas y/o diferencias en columnas');
-INSERT INTO INDICIO (idIndicio,idInstrumento,indicio) VALUES ('6', '6', 'Artilugio global');
-INSERT INTO INDICIO (idIndicio,idInstrumento,indicio) VALUES ('7', '7', 'Identificadores a evaluar');
+INSERT INTO ITEM (idItem,idInstrumento,item) VALUES ('1', '1', 'Dato');
+INSERT INTO ITEM (idItem,idInstrumento,item) VALUES ('2', '2', 'Indicadores');
+INSERT INTO ITEM (idItem,idInstrumento,item) VALUES ('3', '3', 'Filas y columnas con indentificadores independientes');
+INSERT INTO ITEM (idItem,idInstrumento,item) VALUES ('4', '4', 'Registros en filas y columna a decision');
+INSERT INTO ITEM (idItem,idInstrumento,item) VALUES ('5', '5', 'Categorias en filas y semejanzas y/o diferencias en columnas');
+INSERT INTO ITEM (idItem,idInstrumento,item) VALUES ('6', '6', 'Artilugio global');
+INSERT INTO ITEM (idItem,idInstrumento,item) VALUES ('7', '7', 'Identificadores a evaluar');
 
 
 /*==============================================================*/
 /* Table: SINERGIA                                              */
 /*==============================================================*/
 INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('1', '4256', 'Riesgo de desborde');
-INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('1', '4288', 'Cantidad de veces que ocurre un problema');
-INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('1', '74', 'Robo de divisas extranjeras');
-INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('1', '123', 'Robo de identidad virtual');
-INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('1', '963', 'Empaquetado de Windows en cadenas de 8 bits');
-INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('1', '5632', 'Protocolo HDLC');
-INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('1', '753', 'Mal manejo de la tecnica de instrumentacion');
+INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('2', '4288', 'Cantidad de veces que ocurre un problema');
+INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('3', '74', 'Robo de divisas extranjeras');
+INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('4', '123', 'Robo de identidad virtual');
+INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('5', '963', 'Empaquetado de Windows en cadenas de 8 bits');
+INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('6', '5632', 'Protocolo HDLC');
+INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('7', '753', 'Mal manejo de la tecnica de instrumentacion');
 
 /*==============================================================*/
 /* Table: INDICIO                                               */
