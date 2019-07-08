@@ -64,6 +64,11 @@ DROP TABLE IF EXISTS EXPLICACION CASCADE;
 DROP TABLE IF EXISTS PREDICCION CASCADE;
 DROP TABLE IF EXISTS JUSTIFICACION CASCADE;
 DROP TABLE IF EXISTS DISENO_INVESTIGACION CASCADE;
+DROP TABLE IF EXISTS FUENTE CASCADE;
+DROP TABLE IF EXISTS SINERGIA CASCADE;
+DROP TABLE IF EXISTS INDICIO CASCADE;
+DROP TABLE IF EXISTS ITEM CASCADE;
+
 
 /*==============================================================*/
 /* Table: USUARIO                                               */
@@ -625,6 +630,7 @@ create table OBJETIVO_ESPECIFICO (
    idObjetivoEspecifico SERIAL               not null,
    idProyectiva        INT4                 not null,
    idEstadio           INT4                 not null,
+   preguntaEspecifica TEXT  not null,
    objetivo             TEXT         not null,
    active    boolean not null default true,
    constraint PK_OBJETIVO_ESPECIFICO primary key (idObjetivoEspecifico)
@@ -796,7 +802,49 @@ create table JUSTIFICACION (
    constraint PK_JUSTIFICACION primary key (idJustificacion)
 );
 
+/*==============================================================*/
+/* Table: SINERGIA                                              */
+/*==============================================================*/
+create table SINERGIA (
+   idSinergia           SERIAL               not null,
+   idEvento            INT4                 not null,
+   sinergia             VARCHAR(250)         not null,
+   constraint PK_SINERGIA primary key (idSinergia)
+);
 
+/*==============================================================*/
+/* Table: INDICIO                                               */
+/*==============================================================*/
+create table INDICIO (
+   idIndicio            SERIAL               not null,
+   idInstrumento           INT4                 not null,
+   indicio              VARCHAR(250)         not null,
+   constraint PK_INDICIO primary key (idIndicio)
+);
+
+/*==============================================================*/
+/* Table: ITEM                                                  */
+/*==============================================================*/
+create table ITEM (
+   idItem               SERIAL               not null,
+   idIndicio            INT4                 not null,
+   item                 VARCHAR(250)         not null,
+   constraint PK_ITEM primary key (idItem)
+);
+
+/*==============================================================*/
+/* Table: FUENTE                                                */
+/*==============================================================*/
+create table FUENTE (
+   idFuente             SERIAL               not null,
+   idInstrumento        INT4                 not null,
+   fuente               TEXT                 not null,
+   constraint PK_FUENTE primary key (idFuente)
+);
+
+/*==============================================================*/
+/* Table: DISENO_INVESTIGACION                                  */
+/*==============================================================*/
 CREATE TABLE DISENO_INVESTIGACION(
    idDisenoInvestigacion SERIAL not null,
    tipo  VARCHAR(250) not null,
@@ -934,6 +982,11 @@ alter table EXPLICACION
       references FUNDAMENTO_PROYECTIVO (idFundamentoProyectivo)
       on delete restrict on update restrict;
 
+alter table FUENTE
+   add constraint FK_FUENTE_REFERENCE_INSTRUME foreign key (idInstrumento)
+      references INSTRUMENTO (idInstrumento)
+      on delete restrict on update restrict;
+
 alter table FUNDAMENTO_PROYECTIVO
    add constraint FK_FUNDAMEN_REFERENCE_PROYECTI foreign key (idProyectiva)
       references PROYECTIVA (idProyectiva)
@@ -957,6 +1010,11 @@ alter table FUNDAMENTO_PROYECTIVO_INVESTIGACION
 alter table FUNDAMENTO_PROYECTIVO_INVESTIGACION
    add constraint FK_FUNDAMEN_REFERENCE_TEMA_INV foreign key (idTemaInvestigacion)
       references TEMA_INVESTIGACION (idTemaInvestigacion)
+      on delete restrict on update restrict;
+
+alter table INDICIO
+   add constraint FK_INDICIO_REFERENCE_INSTRUMENTO foreign key (idInstrumento)
+      references INSTRUMENTO (idInstrumento)
       on delete restrict on update restrict;
 
 alter table INVOLUCRADO_TEMA_INVESTIGACION
@@ -1022,6 +1080,11 @@ alter table SEMEJANZA_CATEGORIA
 alter table SEMEJANZA_CATEGORIA
    add constraint FK_SEMEJANZ_REFERENCE_SEMEJANZ foreign key (idSemejanza)
       references SEMEJANZA (idSemejanza)
+      on delete restrict on update restrict;
+
+alter table SINERGIA
+   add constraint FK_SINERGIA_REFERENCE_EVENTO foreign key (idEvento)
+      references EVENTO (idEvento)
       on delete restrict on update restrict;
 
 alter table TECNICA_OBTENCION_INFORMACION_U

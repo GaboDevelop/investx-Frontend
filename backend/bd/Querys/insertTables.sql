@@ -917,6 +917,51 @@ VALUES
     ('7', '752', 'Lista de chequeo o de cotejo');
 
 /*==============================================================*/
+/* Table: FUENTE                                                */
+/*==============================================================*/
+INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('1', '1', 'Trabajadores del area de proyectos');
+INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('2', '2', 'Riesgos generales por los que pasa un evento');
+INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('3', '3', 'Sistema electronico de las finanzas');
+INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('4', '4', 'Seccion de registro y pagos en linea');
+INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('5', '5', 'Misma muestra');
+INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('6', '6', 'Computadores que trabajen con el mismo protocolo');
+INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('7', '7', 'Trabajadores del area');
+
+/*==============================================================*/
+/* Table: SINERGIA                                              */
+/*==============================================================*/
+INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('1', '4256', 'Riesgo de desborde');
+INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('1', '4288', 'Cantidad de veces que ocurre un problema');
+INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('1', '74', 'Robo de divisas extranjeras');
+INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('1', '123', 'Robo de identidad virtual');
+INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('1', '963', 'Empaquetado de Windows en cadenas de 8 bits');
+INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('1', '5632', 'Protocolo HDLC');
+INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('1', '753', 'Mal manejo de la tecnica de instrumentacion');
+
+/*==============================================================*/
+/* Table: INDICIO                                               */
+/*==============================================================*/
+INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('1', '1', 'Como un aspecto deforma el proyecto');
+INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('2', '2', 'Ciclaje de en proyectos');
+INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('3', '3', 'Fallo del protocolo HTTPS');
+INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('4', '4', 'Fallo en identificacion por IPv4');
+INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('5', '5', 'Clasificacion de cadenas');
+INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('6', '6', 'Envio de informacion');
+INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('7', '7', 'Aspecto caracteristico');
+
+/*==============================================================*/
+/* Table: ITEM                                                  */
+/*==============================================================*/
+INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('1', '1', 'Como un aspecto deforma el proyecto');
+INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('2', '2', 'Como un aspecto deforma el proyecto');
+INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('3', '3', 'Como un aspecto deforma el proyecto');
+INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('4', '4', 'Como un aspecto deforma el proyecto');
+INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('5', '5', 'Como un aspecto deforma el proyecto');
+INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('6', '6', 'Como un aspecto deforma el proyecto');
+INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('7', '7', 'Como un aspecto deforma el proyecto');
+
+
+/*==============================================================*/
 /* Table: UNIDAD_INFORMATIVA                                    */
 /*==============================================================*/
 INSERT INTO UNIDAD_INFORMATIVA
@@ -1541,93 +1586,94 @@ VALUES
 /* Table: OBJETIVO_ESPECIFICO                                   */
 /*==============================================================*/
 INSERT INTO OBJETIVO_ESPECIFICO
-    (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
+    (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('9233', '9233', '6690', 'Evaluar las mejores practicas de gestion y valoracion de riesgos de proyectos de tecnologia de informacion');
+    ('9233', '9233', '6690','¿Que se deberia realizar?', 'Evaluar las mejores practicas de gestion y valoracion de riesgos de proyectos de tecnologia de informacion');
 INSERT INTO OBJETIVO_ESPECIFICO
-    (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
+    (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('741', '760', '6690', 'Estudiar y evaluar las necesidades del Módulo de Distribución en el área de Ventas, específicamente en Facturación: Material Stock, Proyectos y Pedidos');
+    ('741', '760', '6690', '¿Que necesidad se deben abarcar?','Estudiar y evaluar las necesidades del Módulo de Distribución en el área de Ventas, específicamente en Facturación: Material Stock, Proyectos y Pedidos');
 INSERT INTO OBJETIVO_ESPECIFICO
-    (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
+    (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('521', '760', '6688', 'Investigar, analizar y evaluar una solución BI que se adapte a las necesidades del Modulo de Facturacion Ventas ');
+    ('521', '760', '6688', '¿Como se debe proceder?','Investigar, analizar y evaluar una solución BI que se adapte a las necesidades del Modulo de Facturacion Ventas ');
 INSERT INTO OBJETIVO_ESPECIFICO
-    (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
+    (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('742', '760', '6691', 'Desarrollar e implementar un DataMart adaptable a la solución BI');
+    ('742', '760', '6691', '¿Hay algun requisito que se debe cumplir?','Desarrollar e implementar un DataMart adaptable a la solución BI');
 INSERT INTO OBJETIVO_ESPECIFICO
-    (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
+    (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('57547', '760', '6688', 'Investigar, analizar y evaluar las herramientas de usuario final para este tipo de soluciones de tal manera que se proponga la más adecuada según el diseño elaborado del DataMart');
+    ('57547', '760', '6688', '¿Se debe saber las herramientas que utiiliza el usuario?','Investigar, analizar y evaluar las herramientas de usuario final para este tipo de soluciones de tal manera que se proponga la más adecuada según el diseño elaborado del DataMart');
 INSERT INTO OBJETIVO_ESPECIFICO
-    (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
+    (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('7', '9233', '6691', 'Diseñar e implementar los algoritmos necesarios para la valoración de riesgos y la probabilidad que ocurran, basados en la evaluación previa de las mejores prácticas y/o los elaborados como aporte personal');
+    ('7', '9233', '6691', '¿Que proyeccion se debe realizar para disminuir los riesgos?','Diseñar e implementar los algoritmos necesarios para la valoración de riesgos y la probabilidad que ocurran, basados en la evaluación previa de las mejores prácticas y/o los elaborados como aporte personal');
 INSERT INTO OBJETIVO_ESPECIFICO
-    (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
+    (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('4914', '9233', '6691', 'Desarrollar el modelo de datos que soporte el sistema a desarrollar, para la gestión de riesgos en proyectos de tecnologia de informacion');
+    ('4914', '9233', '6691', '¿Como se tiene que llevar a cabo la proyeccion de riesgos?','Desarrollar el modelo de datos que soporte el sistema a desarrollar, para la gestión de riesgos en proyectos de tecnologia de informacion');
 INSERT INTO OBJETIVO_ESPECIFICO
-    (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
+    (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('927', '9233', '6691', 'Diseñar e implementar los algoritmos necesarios para la realizacion de analisis de sensibilidad de riesgos de los proyectos, que permitan al usuario del sistema evaluar cómo la evolución de un factor de riesgo afecta la viabilidad del proyecto');
+    ('927', '9233', '6691', '¿En cuanto afecta el riesgo en un proyecto?','Diseñar e implementar los algoritmos necesarios para la realizacion de analisis de sensibilidad de riesgos de los proyectos, que permitan al usuario del sistema evaluar cómo la evolución de un factor de riesgo afecta la viabilidad del proyecto');
 INSERT INTO OBJETIVO_ESPECIFICO
-    (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
+    (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('95', '436', '6691', 'Desarrollar el componente de administración de Taxonomías corporativas');
+    ('95', '436', '6691', '¿Que se busca?','Desarrollar el componente de administración de Taxonomías corporativas');
 INSERT INTO OBJETIVO_ESPECIFICO
-    (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
+    (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('4194', '436', '6691', 'Diseñar e Implementar la relación entre el componente de la administración de Taxonomías y el componente denominado Vigilante');
+    ('4194', '436', '6691', '¿Como utilizar el Viigilante en la resolucion del problema?','Diseñar e Implementar la relación entre el componente de la administración de Taxonomías y el componente denominado Vigilante');
 INSERT INTO OBJETIVO_ESPECIFICO
-    (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
+    (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('38', '436', '6691', 'Desarrollar el componente de administración de planificación de ejecución de procesos');
+    ('38', '436', '6691', '¿Como gestiono los procesos?','Desarrollar el componente de administración de planificación de ejecución de procesos');
 INSERT INTO OBJETIVO_ESPECIFICO
-    (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
+    (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('914', '436', '6691', 'Desarrollar el componente de extracción de datos, flexible a cualquier fuente de datos');
+    ('914', '436', '6691','¿Como se que los datos sirven en todos los contextos?', 'Desarrollar el componente de extracción de datos, flexible a cualquier fuente de datos');
 INSERT INTO OBJETIVO_ESPECIFICO
-    (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
+    (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('459', '436', '6691', 'Modificar el componente Vigilante para aceptar el manejo de la configuración de las Taxonomías');
+    ('459', '436', '6691', '¿El vigilante esta bien desarrollado para el fin buscado?','Modificar el componente Vigilante para aceptar el manejo de la configuración de las Taxonomías');
 INSERT INTO OBJETIVO_ESPECIFICO
-    (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
+    (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('56', '436', '6691', 'Realizar la integración de los componentes al sistema Angelina');
+    ('56', '436', '6691', '¿Que me falta?','Realizar la integración de los componentes al sistema Angelina');
 INSERT INTO OBJETIVO_ESPECIFICO
-    (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
+    (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('8596', '7412', '6689', 'Definir los requerimientos del usuario de la funcionalidad de atención de las solicitudes de registro de empresas ordenantes;así como del usuario de la funcionalidad para la atención de clientes externos BCV-IFP y generar el documento de requerimientos');
+    ('8596', '7412', '6689','¿Que se busca?', 'Definir los requerimientos del usuario de la funcionalidad de atención de las solicitudes de registro de empresas ordenantes;así como del usuario de la funcionalidad para la atención de clientes externos BCV-IFP y generar el documento de requerimientos');
 INSERT INTO OBJETIVO_ESPECIFICO
-    (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
+    (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('8597', '7412', '6691', 'Diseñar e implementar el modelo de la estructura de datos para que soporte la persistencia de información');
+    ('8597', '7412', '6691','¿Que se tiene que realizar?', 'Diseñar e implementar el modelo de la estructura de datos para que soporte la persistencia de información');
 INSERT INTO OBJETIVO_ESPECIFICO
-    (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
+    (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('8598', '7412', '6691', 'Diseñar y desarrollar el Front End según el estándar del BCV');
+    ('8598', '7412', '6691','¿Es necesaria una interfaz?', 'Diseñar y desarrollar el Front End según el estándar del BCV');
 INSERT INTO OBJETIVO_ESPECIFICO
-    (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
+    (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('8599', '7412', '6691', 'Diseñar y desarrollar la funcionalidad de carga de archivos para el módulo de créditos directos');
+    ('8599', '7412', '6691','¿Cual es el problema con la carga de datos?', 'Diseñar y desarrollar la funcionalidad de carga de archivos para el módulo de créditos directos');
 INSERT INTO OBJETIVO_ESPECIFICO
-    (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
+    (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('8805', '4363', '6688', 'Investigar sobre los diversos tipos de empaquetamiento de archivos utilizados en la mayoría de las distribuciones Linux');
+    ('8805', '4363', '6688','¿Como manipulo los archivos?', 'Investigar sobre los diversos tipos de empaquetamiento de archivos utilizados en la mayoría de las distribuciones Linux');
 INSERT INTO OBJETIVO_ESPECIFICO
-    (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
+    (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('915', '4363', '6688', 'Investigar sobre los protocolos utilizados para la transmisión de datos');
+    ('915', '4363', '6688', '¿Como envio paquetes en una red?','Investigar sobre los protocolos utilizados para la transmisión de datos');
 INSERT INTO OBJETIVO_ESPECIFICO
-    (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
+    (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('442', '4363', '6691', 'Diseñar una herramienta web para el control de programas instalados en las estaciones de trabajo que utilizan el S.O Linux');
+    ('442', '4363', '6691', '¿Como manejo el envio de programas y su actualizacion?','Diseñar una herramienta web para el control de programas instalados en las estaciones de trabajo que utilizan el S.O Linux');
 INSERT INTO OBJETIVO_ESPECIFICO
-    (idObjetivoEspecifico,idProyectiva,idEstadio,objetivo)
+    (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('99', '4363', '6689', 'Definir e implementar la base de datos a utilizar en la aplicación usando tecnologías de software libre');
+    ('99', '4363', '6689', '¿Como almaceno los datos?','Definir e implementar la base de datos a utilizar en la aplicación usando tecnologías de software libre');
+
 
 /*==============================================================*/
 /* Table: FUNDAMENTO_PROYECTIVO                                 */
