@@ -72,8 +72,9 @@ const { getTendenciaById, createTendencia, updateTendencia, deleteTendencia } = 
 const { getTipoInvestigacionById, createTipoInvestigacion, deleteTipoInvestigacion, updateTipoInvestigacion } = require('../service/entidades/tipoInvestigacionService');
 const { getUnidadInformativaById, createUnidadInformativa, updateUnidadInformativa, deleteUnidadInformativa } = require('../service/entidades/unidadInformativaService');
 const { getVersionById, createVersion, updateVersion, deleteVersion } = require('../service/entidades/versionService');
-// ----------------- CONTROLLERS CONSULTAS -------------------- 
 
+
+// ----------------- CONTROLLERS CONSULTAS -------------------- 
 const { getTablaEspecificaciones, getTablaOperacionalizacion, getTablaHolopraxica, getTablaArgumentosJustificacion, getTablaPoblacionMuestra } = require('../service/consultas/tablasService');
 const { getListadoFichasCategoria, getListadoFichasCondicion, getListadoTiposUnidadesInformacion, getListadoArgumentosByContexto, getListadoArgumentosByEvento, getListadoArgumentosByTemporalidad, getListadoArgumentosByTipoInvestigacion, getListadoArgumentosByUnidadEstudio, getListadoContextosAtendidos, getListadoInvestigacionesDisciplina, getListadoModalidadesProyectiva, getListadoNivelesFundamentacionAllLevels, getListadoNivelesFundamentacionAnalitico, getListadoNivelesFundamentacionComparativo, getListadoNivelesFundamentacionDescriptivo, getListadoNivelesFundamentacionExplicativo, getListadoNivelesFundamentacionPredictivo, getListadoProyectosByContexto, getListadoProyectosByEvento, getListadoProyectosByMuestra, getListadoProyectosByNivelInvestigacion, getListadoProyectosByPoblacion, getListadoProyectosByTemporalidad, getListadoProyectosByTipoInvestigacion, getListadoTiposEventos, getListadoTiposInvestigacionNiveles, getListadoTiposTecnicasAnalisis, getListadoTiposTecnicasRecoleccion } = require('../service/consultas/listadosService');
 const { getInstrumentoEvento } = require('../service/consultas/InstrumentoEventoService');
@@ -151,40 +152,40 @@ router.put('/justificaciones/:id/disable', deleteJustificacion);
 router.get('/analisis/:id', getAnalisisEventoById );
 router.post('/analisis', createAnalisisEvento);
 router.put('/analisis/:id', updateAnalisisEvento);
-router.put('/analisis/:id', deleteAnalisisEvento);
+router.put('/analisis/:id/disable', deleteAnalisisEvento);
 
 
 // ------------------------ Aspecto Legal ----------------------------------------
 router.get('/aspectos/:id', getAspectoLegalById );
 router.post('/aspectos', createAspectoLegal);
 router.put('/aspectos/:id', updateAspectoLegal );
-router.put('/aspectos/:id', deleteAspectoLegal);
+router.put('/aspectos/:id/disable', deleteAspectoLegal);
 
 // ------------------------ Categoria  ----------------------------------------
 router.get('/categorias/:id', getCategoriaById);
 router.post('/categorias', createCategoria );
 router.put('/categorias/:id', updateCategoria);
-router.put('/categorias/:id', deleteCategoria);
+router.put('/categorias/:id/disable', deleteCategoria);
 
 
 // ------------------------ Categoria Unidad Informativa  ----------------------------------------
 router.get('/categoriasUnidades/:id',getCategoriaUnidadInformativaById );
 router.post('/categoriasUnidades',createCategoriaUnidadInformativa );
 router.put('/categoriasUnidades/:id', updateCategoriaUnidadInformativa);
-router.put('/categoriasUnidades/:id', deleteCategoriaUnidadInformativa);
+router.put('/categoriasUnidades/:id/disable', deleteCategoriaUnidadInformativa);
 
 // ------------------------ Clase Evento ----------------------------------------
 router.get('/clases/:id',getClaseEventoById );
 router.post('/clases', createClaseEvento );
 router.put('/clases/:id', updateClaseEvento );
-router.put('/clases/:id', deleteClaseEvento);
+router.put('/clases/:id/disable', deleteClaseEvento);
 
 
 // ------------------------ Comparacion ----------------------------------------
 router.get('/comparaciones/:id', getComparacionById);
 router.post('/comparaciones', createComparacion );
 router.put('/comparaciones/:id', updateComparacion);
-router.put('/comparaciones/:id', deleteComparacion);
+router.put('/comparaciones/:id/disable', deleteComparacion);
 
 
 
@@ -192,27 +193,27 @@ router.put('/comparaciones/:id', deleteComparacion);
 router.get('/condicionesMetodologicas/:id',getCondicionMetodologicaById );
 router.post('/condicionesMetodologicas', createCondicionMetodologica );
 router.put('/condicionesMetodologicas/:id', updateCondicionMetodologica);
-router.put('/condicionesMetodologicas/:id', deleteCondicionMetodologica);
+router.put('/condicionesMetodologicas/:id/disable', deleteCondicionMetodologica);
 
 
 // ------------------------ Condicion Personal  ----------------------------------------
 router.get('/condicionesPersonales/:id', getCondicionPersonalById);
 router.post('/condicionesPersonales',createCondicionPersonal );
 router.put('/condicionesPersonales/:id', updateCondicionPersonal);
-router.put('/condicionesPersonales/:id', deleteCondicionPersonal);
+router.put('/condicionesPersonales/:id/disable', deleteCondicionPersonal);
 
 // ------------------------ Condicion Social  ----------------------------------------
 router.get('/condicionesSociales/:id',getCondicionSocialById );
 router.post('/condicionesSociales',createCondicionSocial );
 router.put('/condicionesSociales/:id',updateCondicionSocial );
-router.put('/condicionesSociales/:id', deleteCondicionSocial);
+router.put('/condicionesSociales/:id/disable', deleteCondicionSocial);
 
 
 // ------------------------ Consecuencia ----------------------------------------
 router.get('/consecuencias/:id', getConsecuenciaById );
 router.post('/consecuencias', createConsecuencia);
 router.put('/consecuencias/:id', updateConsecuencia);
-router.put('/consecuencias/:id', deleteConsecuencia );
+router.put('/consecuencias/:id/disable', deleteConsecuencia );
 
 
 
@@ -220,14 +221,14 @@ router.put('/consecuencias/:id', deleteConsecuencia );
 router.get('/consecuenciasTemas/:id',getConsecuenciaTemaById );
 router.post('/consecuenciasTemas',createConsecuenciaTema );
 router.put('/consecuenciasTemas/:id',updateConsecuenciaTema );
-router.put('/consecuenciasTemas/:id',deleteConsecuenciaTema );
+router.put('/consecuenciasTemas/:id/disable',deleteConsecuenciaTema );
 
 
 // ------------------------ Indicio ----------------------------------------
 router.get('/indicios/:id', getIndicioById);
 router.post('/indicios', createIndicio );
 router.put('/indicios/:id',updateIndicio);
-router.put('/indicios/:id', deleteIndicio);
+router.put('/indicios/:id/disable', deleteIndicio);
 
 
 
@@ -236,7 +237,7 @@ router.put('/indicios/:id', deleteIndicio);
 router.get('/contextosUnidades/:id', getContextoUnidadEstudioById);
 router.post('/contextosUnidades', createContextoUnidadEstudio);
 router.put('/contextosUnidades/:id', updateContextoUnidadEstudio);
-router.put('/contextosUnidades/:id', deleteContextoUnidadEstudio );
+router.put('/contextosUnidades/:id/disable', deleteContextoUnidadEstudio );
 
 
 
@@ -246,7 +247,7 @@ router.put('/contextosUnidades/:id', deleteContextoUnidadEstudio );
 router.get('/contradicciones/:id', getContradiccionById );
 router.post('/contradicciones',createContradiccion );
 router.put('/contradicciones/:id', updateContradiccion);
-router.put('/contradicciones/:id', deleteContradiccion);
+router.put('/contradicciones/:id/disable', deleteContradiccion);
 
 
 
@@ -254,336 +255,336 @@ router.put('/contradicciones/:id', deleteContradiccion);
 router.get('/curiosidades/:id', getCuriosidadById);
 router.post('/curiosidades', createCuriosidad);
 router.put('/curiosidades/:id',updateCuriosidad );
-router.put('/curiosidades/:id', deleteCuriosidad);
+router.put('/curiosidades/:id/disable', deleteCuriosidad);
 
 
 // ------------------------ Descripcion Evento ----------------------------------------
-router.get('', getDescripcionEventoById);
-router.post('', createDescripcionEvento );
-router.put('',updateDescripcionEvento );
-router.put('', deleteDescripcionEvento);
+router.get('/descripcionEventos/:id', getDescripcionEventoById);
+router.post('/descripcionEventos', createDescripcionEvento );
+router.put('/descripcionEventos/:id',updateDescripcionEvento );
+router.put('/descripcionEventos/:id/disable', deleteDescripcionEvento);
 
 
 
 // ------------------------ Diferencia ----------------------------------------
-router.get('', getDiferenciaById);
-router.post('',createDiferencia );
-router.put('', updateDiferencia);
-router.put('', deleteDiferencia );
+router.get('/diferencias/:id', getDiferenciaById);
+router.post('/diferencias',createDiferencia );
+router.put('/diferencias/:id', updateDiferencia);
+router.put('/diferencias/:id/disable', deleteDiferencia );
 
 
 // ------------------------ Disciplina Evento ----------------------------------------
-router.get('', getDisciplinaEventoById);
-router.post('', createDisciplinaEvento);
-router.put('', updateDisciplinaEvento);
-router.put('', deleteDisciplinaEvento);
+router.get('/disciplinasEvento/:id', getDisciplinaEventoById);
+router.post('/disciplinasEvento', createDisciplinaEvento);
+router.put('/disciplinasEvento/:id', updateDisciplinaEvento);
+router.put('/disciplinasEvento/:id/disable', deleteDisciplinaEvento);
 
 
 
 // ------------------------ Disciplina ----------------------------------------
-router.get('', getDisciplinaById );
-router.post('', createDisciplina );
-router.put('', updateDisciplina);
-router.put('', deleteDisciplina);
+router.get('/disciplinas/:id', getDisciplinaById );
+router.post('/disciplinas', createDisciplina );
+router.put('/disciplinas/:id', updateDisciplina);
+router.put('/disciplinas/:id/disable', deleteDisciplina);
 
 
 
 // ------------------------ Diseno Investigacion ----------------------------------------
-router.get('',getDisenoInvestigacionById );
-router.post('', createDisenoInvestigacion);
-router.put('', updateDisenoInvestigacion);
-router.put('',deleteDisenoInvestigacion);
+router.get('/disenosInvestigacion/:id',getDisenoInvestigacionById );
+router.post('/disenosInvestigacion', createDisenoInvestigacion);
+router.put('/disenosInvestigacion/:id', updateDisenoInvestigacion);
+router.put('/disenosInvestigacion/:id/disable',deleteDisenoInvestigacion);
 
 
 
 // ------------------------ Efecto a Lograr ----------------------------------------
-router.get('',getEfectoLograrById );
-router.post('', createEfectoLograr );
-router.put('', updateEfectoLograr);
-router.put('', deleteEfectoLograr );
+router.get('/efectosLograr/:id',getEfectoLograrById );
+router.post('/efectosLograr', createEfectoLograr );
+router.put('/efectosLograr/:id', updateEfectoLograr);
+router.put('/efectosLograr/:id/disable', deleteEfectoLograr );
 
 
 // ------------------------ Estadio  ----------------------------------------
-router.get('',getEstadioById );
-router.post('',createEstadio );
-router.put('', updateEstadio);
-router.put('', deleteEstadio);
+router.get('/estadios/:id',getEstadioById );
+router.post('/estadios',createEstadio );
+router.put('/estadios/:id', updateEstadio);
+router.put('/estadios/:id/disable', deleteEstadio);
 
 
 // ------------------------ Estructuracion Previa ----------------------------------------
-router.get('',getEstructuracionPreviaById );
-router.post('', createEstructuracionPrevia);
-router.put('',updateEstructuracionPrevia );
-router.put('', deleteEstructuracionPrevia);
+router.get('/estructuracionesPrevias/:id',getEstructuracionPreviaById );
+router.post('/estructuracionesPrevias', createEstructuracionPrevia);
+router.put('/estructuracionesPrevias/:id',updateEstructuracionPrevia );
+router.put('/estructuracionesPrevias/:id/disable', deleteEstructuracionPrevia);
 
 
 // ------------------------ Evento Proyectiva ----------------------------------------
-router.get('',getEventoProyectivaById );
-router.post('',createEventoProyectiva );
-router.put('', updateEventoProyectiva);
-router.put('',deleteEventoProyectiva );
+router.get('/eventosProyectiva/:id',getEventoProyectivaById );
+router.post('/eventosProyectiva',createEventoProyectiva );
+router.put('/eventosProyectiva/:id', updateEventoProyectiva);
+router.put('/eventosProyectiva/:id/disable',deleteEventoProyectiva );
 
 
 
 // ------------------------ Explicacion ----------------------------------------
-router.get('', getExplicacionById);
-router.post('', createExplicacion);
-router.put('',updateExplicacion );
-router.put('',deleteExplicacion );
+router.get('/explicaciones/:id', getExplicacionById);
+router.post('/explicaciones', createExplicacion);
+router.put('/explicaciones/:id',updateExplicacion );
+router.put('/explicaciones/:id/disable',deleteExplicacion );
 
 
 
 // ------------------------ Fuente ----------------------------------------
-router.get('',getFuenteById );
-router.post('', createFuente);
-router.put('', updateFuente);
-router.put('', deleteFuente);
+router.get('/fuentes/:id',getFuenteById );
+router.post('/fuentes', createFuente);
+router.put('/fuentes/:id', updateFuente);
+router.put('/fuentes/:id/disable', deleteFuente);
 
 
 // ------------------------ Fundamento Proyectivo Aspecto Legal ----------------------------------------
-router.get('',getFundamentoProyectivoAspectoById );
-router.post('',createFundamentoProyectivoAspecto );
-router.put('', updateFundamentoProyectivoAspecto);
-router.put('',deleteFundamentoProyectivoAspecto );
+router.get('/fundamentoProyectivoAspectoLegal/:id',getFundamentoProyectivoAspectoById );
+router.post('/fundamentoProyectivoAspectoLegal',createFundamentoProyectivoAspecto );
+router.put('/fundamentoProyectivoAspectoLegal/:id', updateFundamentoProyectivoAspecto);
+router.put('/fundamentoProyectivoAspectoLegal/:id/disable',deleteFundamentoProyectivoAspecto );
 
 
 
 // ------------------------ Fundamento Proyectivo Investigacion ----------------------------------------
-router.get('', getFundamentoProyectivoInvestigacionById);
-router.post('', createFundamentoProyectivoInvestigacion);
-router.put('', updateFundamentoProyectivoInvestigacion);
-router.put('', deleteFundamentoProyectivoInvestigacion);
+router.get('/fundamentoProyectivoInvestigacion/:id', getFundamentoProyectivoInvestigacionById);
+router.post('/fundamentoProyectivoInvestigacion', createFundamentoProyectivoInvestigacion);
+router.put('/fundamentoProyectivoInvestigacion/:id', updateFundamentoProyectivoInvestigacion);
+router.put('/fundamentoProyectivoInvestigacion/:id/disable', deleteFundamentoProyectivoInvestigacion);
 
 
 // ------------------------ Grado Participacion ----------------------------------------
-router.get('',getGradoParticipacionById );
-router.post('', createGradoParticipacion);
-router.put('',updateGradoParticipacion );
-router.put('',deleteGradoParticipacion );
+router.get('/gradoParticipaciones/:id',getGradoParticipacionById );
+router.post('/gradoParticipaciones', createGradoParticipacion);
+router.put('/gradoParticipaciones/:id',updateGradoParticipacion );
+router.put('/gradoParticipaciones/:id/disable',deleteGradoParticipacion );
 
 
 
 // ------------------------ Instrumento ----------------------------------------
-router.get('', getInstrumentoById);
-router.post('',createInstrumento );
-router.put('', updateInstrumento);
-router.put('', deleteInstrumento);
+router.get('/instrumentos/:id', getInstrumentoById);
+router.post('/instrumentos',createInstrumento );
+router.put('/instrumentos/:id', updateInstrumento);
+router.put('/instrumentos/:id/disable', deleteInstrumento);
 
 
 // ------------------------ Involucrado ----------------------------------------
-router.get('', getInvolucradoById);
-router.post('', createInvolucrado);
-router.put('',updateInvolucrado );
-router.put('',deleteInvolucrado );
+router.get('/involucrados/:id', getInvolucradoById);
+router.post('/involucrados', createInvolucrado);
+router.put('/involucrados/:id',updateInvolucrado );
+router.put('/involucrados/:id/disable',deleteInvolucrado );
 
 
 // ------------------------ Involucrado Tema Investigacion  ----------------------------------------
-router.get('', getInvolucradoTemaIById);
-router.post('',createInvolucradoTemaI );
-router.put('',updateInvolucradoTemaI );
-router.put('', deleteInvolucradoTemaI);
+router.get('/involucradosTemaInvestigacion/:id', getInvolucradoTemaIById);
+router.post('/involucradosTemaInvestigacion',createInvolucradoTemaI );
+router.put('/involucradosTemaInvestigacion/:id',updateInvolucradoTemaI );
+router.put('/involucradosTemaInvestigacion/:id/disable', deleteInvolucradoTemaI);
 
 
 
 // ------------------------ Item ----------------------------------------
-router.get('',getItemById );
-router.post('',createItem );
-router.post('', updateItem);
-router.put('', deleteItem);
+router.get('/items/:id',getItemById );
+router.post('/items',createItem );
+router.post('/items/:id', updateItem);
+router.put('/items/:id/disable', deleteItem);
 
 
 // ------------------------ Motivacion ----------------------------------------
 
-router.get('', getMotivacionById);
-router.put('', createMotivacion);
-router.put('',updateMotivacion );
-router.put('',deleteMotivacion );
+router.get('/motivaciones/:id', getMotivacionById);
+router.put('/motivaciones', createMotivacion);
+router.put('/motivaciones/:id',updateMotivacion );
+router.put('/motivaciones/:id/disable',deleteMotivacion );
 
 // ------------------------ Muestra ----------------------------------------
-router.get('',getMuestraById );
-router.post('',createMuestra );
-router.put('',updateMuestra );
-router.put('',deleteMuestra );
+router.get('/muestras/:id',getMuestraById );
+router.post('/muestras',createMuestra );
+router.put('/muestras/:id',updateMuestra );
+router.put('/muestras/:id/disable',deleteMuestra );
 
 
 // ------------------------ Necesidad  ----------------------------------------
-router.get('',getNecesidadById );
-router.post('',createNecesidad );
-router.put('',updateNecesidad );
-router.put('', deleteNecesidad);
+router.get('/necesidades/:id',getNecesidadById );
+router.post('/necesidades',createNecesidad );
+router.put('/necesidades/:id',updateNecesidad );
+router.put('/necesidades/:id/disable', deleteNecesidad);
 
 
 // ------------------------ Nivel Investigacion ----------------------------------------
-router.get('',getNivelInvestigacionById );
-router.post('',createNivelInvestigacion );
-router.put('', updateNivelInvestigacion);
-router.put('',deleteNivelInvestigacion );
+router.get('/nivelesInvestigacion/:id',getNivelInvestigacionById );
+router.post('/nivelesInvestigacion',createNivelInvestigacion );
+router.put('/nivelesInvestigacion/:id', updateNivelInvestigacion);
+router.put('/nivelesInvestigacion/:id/disable',deleteNivelInvestigacion );
 
 
 
 // ------------------------ Objetivo Especifico ----------------------------------------
-router.get('',getObjetivoEspecificoById );
-router.post('',createObjetivoEspecifico );
-router.put('', updateObjetivoEspecifico);
-router.put('',deleteObjetivoEspecifico );
+router.get('/objetivosEspecificos/:id',getObjetivoEspecificoById );
+router.post('/objetivosEspecificos',createObjetivoEspecifico );
+router.put('/objetivosEspecificos/:id', updateObjetivoEspecifico);
+router.put('/objetivosEspecificos/:id/disable',deleteObjetivoEspecifico );
 
 
 // ------------------------ Objetivo General ----------------------------------------
-router.get('', getObjetivoGeneralById);
-router.post('', createObjetivoGeneral);
-router.put('', updateObjetivoGeneral);
-router.put('', deleteObjetivoGeneral);
+router.get('/objetivosGenerales/:id', getObjetivoGeneralById);
+router.post('/objetivosGenerales', createObjetivoGeneral);
+router.put('/objetivosGenerales/:id', updateObjetivoGeneral);
+router.put('/objetivosGenerales/:id/disable', deleteObjetivoGeneral);
 
 
 // ------------------------ Oportunidad ----------------------------------------
-router.get('', getOportunidadById);
-router.post('',createOportunidad);
-router.put('', updateOportunidad);
-router.put('',deleteOportunidad );
+router.get('/oportunidades/:id', getOportunidadById);
+router.post('/oportunidades',createOportunidad);
+router.put('/oportunidades/:id', updateOportunidad);
+router.put('/oportunidades/:id/disable',deleteOportunidad );
 
 
 
 // ------------------------ Perspectiva Interpretacion ----------------------------------------
-router.get('',getPerspectivaInterpretacionById );
-router.post('',createPerspectivaInterpretacion );
-router.put('', updatePerspectivaInterpretacion);
-router.put('',deletePerspectivaInterpretacion );
+router.get('/perspectivasInterpretacion/:id',getPerspectivaInterpretacionById );
+router.post('/perspectivasInterpretacion',createPerspectivaInterpretacion );
+router.put('/perspectivasInterpretacion/:id', updatePerspectivaInterpretacion);
+router.put('/perspectivasInterpretacion/:id/disable',deletePerspectivaInterpretacion );
 
 
 
 // ------------------------ Poblacion ----------------------------------------
-router.get('',getPoblacionById );
-router.post('', createPoblacion);
-router.put('',updatePoblacion );
-router.put('', deletePoblacion);
+router.get('/poblaciones/:id',getPoblacionById );
+router.post('/poblaciones', createPoblacion);
+router.put('/poblaciones/:id',updatePoblacion );
+router.put('/poblaciones/:id/disable', deletePoblacion);
 
 
 // ------------------------ Potencialidad ----------------------------------------
-router.get('', getPotencialidadById);
-router.post('', createPotencialidad);
-router.put('',updatePotencialidad );
-router.put('', deletePotencialidad);
+router.get('/potencialidades/:id', getPotencialidadById);
+router.post('/potencialidades', createPotencialidad);
+router.put('/potencialidades/:id',updatePotencialidad );
+router.put('/potencialidades/:id/disable', deletePotencialidad);
 
 
 
 // ------------------------ Prediccion ----------------------------------------
-router.get('',getPrediccionById );
-router.post('', createPrediccion);
-router.put('',updatePrediccion );
-router.put('', deletePrediccion);
+router.get('/predicciones/:id',getPrediccionById );
+router.post('/predicciones', createPrediccion);
+router.put('/predicciones/:id',updatePrediccion );
+router.put('/predicciones/:id/disable', deletePrediccion);
 
 
 // ------------------------ Proceso Explicativo ----------------------------------------
-router.get('',getProcesoExplicativoById );
-router.post('', createProcesoExplicativo);
-router.put('',updateProcesoExplicativo );
-router.put('',deleteProcesoExplicativo );
+router.get('/procesosExplicativos/:id',getProcesoExplicativoById );
+router.post('/procesosExplicativos', createProcesoExplicativo);
+router.put('/procesosExplicativos/:id',updateProcesoExplicativo );
+router.put('/procesosExplicativos/:id/disable',deleteProcesoExplicativo );
 
 
 
 // ------------------------ Proyecto ----------------------------------------
-router.get('', getProyectoById);
-router.post('', createProyecto);
-router.put('',updateProyecto );
-router.put('', deleteProyecto);
+router.get('/proyectos/:id', getProyectoById);
+router.post('/proyectos', createProyecto);
+router.put('/proyectos/:id',updateProyecto );
+router.put('/proyectos/:id/disable', deleteProyecto);
 
 
 // ------------------------ Rol ----------------------------------------
-router.get('', getRolById);
-router.post('', createRol);
-router.put('',updateRol );
-router.put('', deleteRol);
+router.get('/roles/:id', getRolById);
+router.post('/roles', createRol);
+router.put('/roles/:id',updateRol );
+router.put('/roles/:id/disable', deleteRol);
 
 
 // ------------------------ Rol Usuario ----------------------------------------
-router.get('', getRolUsuarioById);
-router.post('',createRolUsuario );
-router.put('',updateRolUsuario );
-router.put('', deleteRolUsuario);
+router.get('/rolesUsuarios/:id', getRolUsuarioById);
+router.post('/rolesUsuarios',createRolUsuario );
+router.put('/rolesUsuarios/:id',updateRolUsuario );
+router.put('/rolesUsuarios/:id/disable', deleteRolUsuario);
 
 
 // ------------------------ Semejanza Categoria ----------------------------------------
-router.get('', getSemejanzaCategoriaById);
-router.post('',createSemejanzaCategoria );
-router.put('',updateSemejanzaCategoria );
-router.put('',deleteSemejanzaCategoria );
+router.get('/semejanzasCategoria/:id', getSemejanzaCategoriaById);
+router.post('/semejanzasCategoria',createSemejanzaCategoria );
+router.put('/semejanzasCategoria/:id',updateSemejanzaCategoria );
+router.put('/semejanzasCategoria/:id/disable',deleteSemejanzaCategoria );
 
 // ------------------------ Sinergia ----------------------------------------
-router.get('', getSinergiaById);
-router.post('', createSinergia);
-router.put('',updateSinergia );
-router.put('',deleteSinergia );
+router.get('/sinergias/:id', getSinergiaById);
+router.post('/sinergias', createSinergia);
+router.put('/sinergias/:id',updateSinergia );
+router.put('/sinergias/:id/disable',deleteSinergia );
 
 
 // ------------------------ Tecnica Analisis ----------------------------------------
-router.get('', getTecnicaAnalisisById);
-router.post('', createTecnicaAnalisis);
-router.put('',updateTecnicaAnalisis );
-router.put('',deleteTecnicaAnalisis);
+router.get('/tecnicasAnalisis/:id', getTecnicaAnalisisById);
+router.post('/tecnicasAnalisis', createTecnicaAnalisis);
+router.put('/tecnicasAnalisis/:id',updateTecnicaAnalisis );
+router.put('/tecnicasAnalisis/:id/disable',deleteTecnicaAnalisis);
 
 
 // ------------------------ Tecnica Obtencion Informacion ----------------------------------------
-router.get('', getTecnicaObtencionInformacionById);
-router.post('',createTecnicaObtencionInformacion );
-router.put('', updateTecnicaObtencionInformacion);
-router.put('',deleteTecnicaObtencionInformacion );
+router.get('/tecnicasObtencionInformacion/:id', getTecnicaObtencionInformacionById);
+router.post('/tecnicasObtencionInformacion',createTecnicaObtencionInformacion );
+router.put('/tecnicasObtencionInformacion/:id', updateTecnicaObtencionInformacion);
+router.put('/tecnicasObtencionInformacion/:id/disable',deleteTecnicaObtencionInformacion );
 
 
 
 // ------------------------ Tecnica Obtencion Informacion U ----------------------------------------
-router.get('', getTecnicaObtencionInformacionUById);
-router.post('',createTecnicaObtencionInformacionU);
-router.put('',updateTecnicaObtencionInformacionU);
-router.put('',deleteTecnicaObtencionInformacionU );
+router.get('/tecnicasObtencionInformacionU/:id', getTecnicaObtencionInformacionUById);
+router.post('/tecnicasObtencionInformacionU',createTecnicaObtencionInformacionU);
+router.put('/tecnicasObtencionInformacionU/:id',updateTecnicaObtencionInformacionU);
+router.put('/tecnicasObtencionInformacionU/:id/disable',deleteTecnicaObtencionInformacionU );
 
 
 // ------------------------ Tema Investigacion  ----------------------------------------
-router.get('',getTemaInvestigacionById );
-router.post('',createTemaInvestigacion );
-router.put('',updateTemaInvestigacion );
-router.put('',deleteTemaInvestigacion );
+router.get('/temasInvestigacion/:id',getTemaInvestigacionById );
+router.post('/temasInvestigacion',createTemaInvestigacion );
+router.put('/temasInvestigacion/:id',updateTemaInvestigacion );
+router.put('/temasInvestigacion/:id/disable',deleteTemaInvestigacion );
 
 
 
 // ------------------------ Temporalidad Medicion ----------------------------------------
-router.get('', getTemporalidadMedicionById);
-router.post('', createTemporalidadMedicion);
-router.put('', updateTemporalidadMedicion);
-router.put('',deleteTemporalidadMedicion );
+router.get('/temporalidadesMedicion/:id', getTemporalidadMedicionById);
+router.post('/temporalidadesMedicion', createTemporalidadMedicion);
+router.put('/temporalidadesMedicion/:id', updateTemporalidadMedicion);
+router.put('/temporalidadesMedicion/:id/disable',deleteTemporalidadMedicion );
 
 
 // ------------------------ Temporadlidad Medicion Contexto ----------------------------------------
-router.get('', getTemporalidadMedicionContextoById);
-router.post('',createTemporalidadMedicionContexto );
-router.put('',updateTemporalidadMedicionContexto );
-router.put('',deleteTemporalidadMedicionContexto );
+router.get('/temporalidadesMedicionContexto/:id', getTemporalidadMedicionContextoById);
+router.post('/temporalidadesMedicionContexto',createTemporalidadMedicionContexto );
+router.put('/temporalidadesMedicionContexto/:id',updateTemporalidadMedicionContexto );
+router.put('/temporalidadesMedicionContexto/:id/disable',deleteTemporalidadMedicionContexto );
 
 
 // ------------------------ Tendencia ----------------------------------------
-router.get('', getTendenciaById);
-router.post('', createTendencia);
-router.put('',updateTendencia );
-router.put('',deleteTendencia );
+router.get('/tendencias/:id', getTendenciaById);
+router.post('/tendencias', createTendencia);
+router.put('/tendencias/:id',updateTendencia );
+router.put('/tendencias/:id/disable',deleteTendencia );
 
 
 // ------------------------ Tipo Invesstigacion  ----------------------------------------
-router.get('', getTipoInvestigacionById);
-router.post('', createTipoInvestigacion);
-router.put('',updateTipoInvestigacion );
-router.put('', deleteTipoInvestigacion);
+router.get('/tiposInvestigacion/:id', getTipoInvestigacionById);
+router.post('/tiposInvestigacion', createTipoInvestigacion);
+router.put('/tiposInvestigacion/:id',updateTipoInvestigacion );
+router.put('/tiposInvestigacion/:id/disable', deleteTipoInvestigacion);
 
 // ------------------------ Unidad Informativa ----------------------------------------
-router.get('',getUnidadInformativaById );
-router.post('',createUnidadInformativa );
-router.put('',updateUnidadInformativa );
-router.put('',deleteUnidadInformativa );
+router.get('/unidadesInformativas/:id',getUnidadInformativaById );
+router.post('/unidadesInformativas',createUnidadInformativa );
+router.put('/unidadesInformativas/:id',updateUnidadInformativa );
+router.put('/unidadesInformativas/:id/disable',deleteUnidadInformativa );
 
 
 // ------------------------ Version ----------------------------------------
-router.get('', getVersionById);
-router.post('', createVersion);
-router.put('', updateVersion);
-router.put('',deleteVersion );
+router.get('/versiones/:id', getVersionById);
+router.post('/versiones', createVersion);
+router.put('/versiones/:id', updateVersion);
+router.put('/versiones/:id/disable',deleteVersion );
 
 
 // ------------------------------- Tablas ---------------------------------------------

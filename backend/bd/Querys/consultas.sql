@@ -238,6 +238,9 @@ FROM PROYECTO P
     ON P.idTemporalidad = T.idTemporalidad
 
 /*POR UNIDAD DE ESTUDIO*/
+
+
+
 /*POR POBLACION*/
 SELECT P.idProyecto, TI.idTemaInvestigacion, UE.idUnidadEstudio, TI.tema, PB.poblacion
 FROM PROYECTO P
