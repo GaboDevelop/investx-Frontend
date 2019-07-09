@@ -811,6 +811,7 @@ create table SINERGIA (
    idSinergia           SERIAL               not null,
    idEvento            INT4                 not null,
    sinergia             VARCHAR(250)         not null,
+   active    boolean not null default true,
    constraint PK_SINERGIA primary key (idSinergia)
 );
 
@@ -821,6 +822,7 @@ create table INDICIO (
    idIndicio            SERIAL               not null,
    idSinergia           INT4                 not null,
    indicio              VARCHAR(250)         not null,
+   active    boolean not null default true,
    constraint PK_INDICIO primary key (idIndicio)
 );
 
@@ -831,6 +833,7 @@ create table ITEM (
    idItem               SERIAL               not null,
    idInstrumento            INT4                 not null,
    item                 VARCHAR(250)         not null,
+   active    boolean not null default true,
    constraint PK_ITEM primary key (idItem)
 );
 
@@ -841,6 +844,7 @@ create table FUENTE (
    idFuente             SERIAL               not null,
    idInstrumento        INT4                 not null,
    fuente               TEXT                 not null,
+   active    boolean not null default true,
    constraint PK_FUENTE primary key (idFuente)
 );
 
@@ -850,6 +854,7 @@ create table FUENTE (
 CREATE TABLE DISENO_INVESTIGACION(
    idDisenoInvestigacion SERIAL not null,
    tipo  VARCHAR(250) not null,
+   active    boolean not null default true,
    CONSTRAINT PK_DISENO_INVESTIGACION PRIMARY KEY (idDisenoInvestigacion)
 );
 
