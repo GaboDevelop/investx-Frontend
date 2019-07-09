@@ -122,7 +122,7 @@ create table PROYECTO (
    idUnidadEstudio    INT4                 null,
    idProyectiva        INT4                 null,
    modalidad   VARCHAR(250) not null check (modalidad in ('1','2','3','4','5')),
-   status           boolean not null default true,
+   active           boolean not null default true,
    constraint PK_PROYECTO primary key (idProyecto)
 );
 
