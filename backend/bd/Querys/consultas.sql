@@ -9,8 +9,10 @@ FROM USUARIO U
 /*2 - HOLOGRAMA DE LA INVESTIGACION*/
 
 /*3 - TABLA DE OPERACIONALIZACION*/
+SELECT E.evento, S.sinergia,I.indicio,IM.item,E.parametro,IO.instrumento,IO.nivel,F.fuente FROM PROYECTIVA PAJOIN EVENTO_PROYECTIVA EP ON PA.idProyectiva = EP.idProyectiva JOIN EVENTO E ON EP.idEvento = E.idEvento JOIN SINERGIA S ON E.idEvento = S.idEvento JOIN INSTRUMENTO IO ON E.idEvento = IO.idEvento JOIN INDICIO I ON S.idSinergia = I.idSinergia JOIN ITEM IM ON IO.idInstrumento = IM.idInstrumento JOIN FUENTE F ON IO.idInstrumento = F.idInstrumento JOIN PROYECTO P ON PA.idProyectiva = P.idProyectiva WHERE P.idProyecto = 1
 
 /*4 - TABLA DE ESPECIFIACIONES*/
+SELECT S.sinergia,I.indicio,IM.item FROM PROYECTIVA PA JOIN EVENTO_PROYECTIVA EP ON PA.idProyectiva = EP.idProyectiva JOIN EVENTO E ON EP.idEvento = E.idEvento JOIN SINERGIA S ON E.idEvento = S.idEvento JOIN INSTRUMENTO IO ON E.idEvento = IO.idEvento JOIN INDICIO I ON S.idSinergia = I.idSinergia JOIN ITEM IM ON IO.idInstrumento = IM.idInstrumento JOIN PROYECTO P ON PA.idProyectiva = P.idProyectiva WHERE P.idProyecto = 1
 
 /*5 - TABLA DE POBLACION Y MUESTRA*/
 SELECT U.idUnidadEstudio, P.poblacion, M.muestra
@@ -21,7 +23,7 @@ FROM POBLACION P
     ON U.idMuestra = M.idMuestra
 
 /*6 - TABLA DE LOS ARGUMENTOS DE LA JUSTIFICACION*/
-SELECT P.argumento  AS "potencialidad", O.argumento AS "oportunidad", N.argumento AS "necesidad", T.argumento AS "tendencia", CP.argumento AS "curiosidad y preocupacion", C.argumento AS "contradiccion", MI.argumento AS "Motivacion o interes"
+SELECT P.argumento  AS "POTENCIALIDAD", O.argumento AS "OPORTUNIDAD", N.argumento AS "NECESIDAD", T.argumento AS "TENDENCIA", CP.argumento AS "CURIOSIDAD Y PREOCUPACION", C.argumento AS "CONTRADICCION", MI.argumento AS "MOTIVACION O INTERES"
 FROM JUSTIFICACION J
     JOIN POTENCIALIDAD P
     ON J.idJustificacion = P.idJustificacion
@@ -39,8 +41,46 @@ FROM JUSTIFICACION J
     ON J.idJustificacion = MI.idJustificacion
 
 /*7 - LISTADO DE FICHAS POR LOS DIFERENTES TIPOS DE CATEGORIAS, TIPOLOGIAS E INFORMACION CONSTITUTIVA*/
+/*POR CATEGORIA*/
+SELECT C.relacionTemaUnidad AS "CATEGORIA",UI.idea AS "FICHA" 
+FROM UNIDAD_INFORMATIVA UI
+	JOIN CATEGORIA_UNIDAD_INFORMATIVA CUI
+	ON UI.idUnidadInformativa = CUI.idUnidadInformativa
+	JOIN CATEGORIA C
+	ON CUI.idCategoria = C.idCategoria
+
+/*POR SEMEJANZA*/
+SELECT S.semejanza AS "SEMEJANZA",UI.idea AS "FICHA" 
+FROM UNIDAD_INFORMATIVA UI
+	JOIN CATEGORIA_UNIDAD_INFORMATIVA CUI
+	ON UI.idUnidadInformativa = CUI.idUnidadInformativa
+	JOIN CATEGORIA C
+	ON CUI.idCategoria = C.idCategoria
+	JOIN SEMEJANZA_CATEGORIA SC
+	ON C.idCategoria = SC.idCategoria
+	JOIN SEMEJANZA S
+	ON SC.idSemejanza = S.idSemejanza
+
+/*POR DIFERENCIA*/
+SELECT D.diferencia AS "DIFERENCIA",UI.idea AS "FICHA" 
+FROM UNIDAD_INFORMATIVA UI
+	JOIN CATEGORIA_UNIDAD_INFORMATIVA CUI
+	ON UI.idUnidadInformativa = CUI.idUnidadInformativa
+	JOIN CATEGORIA C
+	ON CUI.idCategoria = C.idCategoria
+	JOIN DIFERENCIA_CATEGORIA DC
+	ON C.idCategoria = DC.idCategoria
+	JOIN DIFERENCIA D
+	ON DC.idDiferencia = D.idDiferencia
 
 /*8 - LISTADO DE FICHAS POR CONDICION DE USO EN EL PROYECTO*/
+SELECT UI.idea AS "FICHA" 
+FROM UNIDAD_INFORMATIVA UI
+	JOIN PROYECTIVA PA
+	ON UI.idProyectiva = PA.idProyectiva
+	JOIN PROYECTO P
+	ON PA.idProyectiva = P.idProyectiva
+WHERE P.idProyecto = 1
 
 /*9 - LISTADO DE TIPOS DE INVESTIGACION Y SUS NIVELES*/
 SELECT TI.idTemaInvestigacion, NI.idNivelInvestigacion, T.idTipoInvestigacion, TI.tema, NI.nivel, T.tipo
@@ -52,7 +92,7 @@ FROM TEMA_INVESTIGACION TI
 
 /*10 - LISTADO DE ARGUMENTOS DE LA JUSTIFICACION FILTRADO POR LOS DIFERENTES ELEMENTOS CONSTITUTIVOS*/
 /*POR TEMPORALIDAD*/
-SELECT J.idJustificacion, P.argumento  AS "potencialidad", O.argumento AS "oportunidad", N.argumento AS "necesidad", T.argumento AS "tendencia", CP.argumento AS "curiosidad y preocupacion", C.argumento AS "contradiccion", MI.argumento AS "Motivacion o interes"
+SELECT J.idJustificacion, P.argumento  AS "POTENCIALIDAD", O.argumento AS "OPORTUNIDAD", N.argumento AS "NECESIDAD", T.argumento AS "TENDENCIA", CP.argumento AS "CURIOSIDAD Y PREOCUPACION", C.argumento AS "CONTRADICCION", MI.argumento AS "MOTIVACION O INTERES"
 FROM JUSTIFICACION J
     JOIN CURIOSIDAD_PREOCUPACION CP
     ON J.idJustificacion = CP.idJustificacion
@@ -71,7 +111,7 @@ FROM JUSTIFICACION J
 WHERE J.idTemporalidad = 8963
 
 /*POR CONTEXTO*/
-SELECT J.idJustificacion, P.argumento  AS "potencialidad", O.argumento AS "oportunidad", N.argumento AS "necesidad", T.argumento AS "tendencia", CP.argumento AS "curiosidad y preocupacion", C.argumento AS "contradiccion", MI.argumento AS "Motivacion o interes"
+SELECT J.idJustificacion, P.argumento  AS "POTENCIALIDAD", O.argumento AS "OPORTUNIDAD", N.argumento AS "NECESIDAD", T.argumento AS "TENDENCIA", CP.argumento AS "CURIOSIDAD Y PREOCUPACION", C.argumento AS "CONTRADICCION", MI.argumento AS "MOTIVACION O INTERES"
 FROM JUSTIFICACION J
     JOIN CURIOSIDAD_PREOCUPACION CP
     ON J.idJustificacion = CP.idJustificacion
@@ -90,7 +130,7 @@ FROM JUSTIFICACION J
 WHERE J.idContexto = 7546
 
 /*POR UNIDAD DE ESTUDIO*/
-SELECT J.idJustificacion, P.argumento  AS "potencialidad", O.argumento AS "oportunidad", N.argumento AS "necesidad", T.argumento AS "tendencia", CP.argumento AS "curiosidad y preocupacion", C.argumento AS "contradiccion", MI.argumento AS "Motivacion o interes"
+SELECT J.idJustificacion, P.argumento  AS "POTENCIALIDAD", O.argumento AS "OPORTUNIDAD", N.argumento AS "NECESIDAD", T.argumento AS "TENDENCIA", CP.argumento AS "CURIOSIDAD Y PREOCUPACION", C.argumento AS "CONTRADICCION", MI.argumento AS "MOTIVACION O INTERES"
 FROM JUSTIFICACION J
     JOIN CURIOSIDAD_PREOCUPACION CP
     ON J.idJustificacion = CP.idJustificacion
@@ -109,7 +149,7 @@ FROM JUSTIFICACION J
 WHERE J.idUnidadEstudio = 489
 
 /*POR EVENTO*/
-SELECT J.idJustificacion, P.argumento  AS "potencialidad", O.argumento AS "oportunidad", N.argumento AS "necesidad", T.argumento AS "tendencia", CP.argumento AS "curiosidad y preocupacion", C.argumento AS "contradiccion", MI.argumento AS "Motivacion o interes"
+SELECT J.idJustificacion, P.argumento  AS "POTENCIALIDAD", O.argumento AS "OPORTUNIDAD", N.argumento AS "NECESIDAD", T.argumento AS "TENDENCIA", CP.argumento AS "CURIOSIDAD Y PREOCUPACION", C.argumento AS "CONTRADICCION", MI.argumento AS "MOTIVACION O INTERES"
 FROM JUSTIFICACION J
     JOIN CURIOSIDAD_PREOCUPACION CP
     ON J.idJustificacion = CP.idJustificacion
@@ -128,7 +168,7 @@ FROM JUSTIFICACION J
 WHERE J.idEvento = 4256
 
 /*POR TIPO DE INVESTIGACION*/
-SELECT J.idJustificacion, P.argumento  AS "potencialidad", O.argumento AS "oportunidad", N.argumento AS "necesidad", T.argumento AS "tendencia", CP.argumento AS "curiosidad y preocupacion", C.argumento AS "contradiccion", MI.argumento AS "Motivacion o interes"
+SELECT J.idJustificacion, P.argumento  AS "POTENCIALIDAD", O.argumento AS "OPORTUNIDAD", N.argumento AS "NECESIDAD", T.argumento AS "TENDENCIA", CP.argumento AS "CURIOSIDAD Y PREOCUPACION", C.argumento AS "CONTRADICCION", MI.argumento AS "MOTIVACION O INTERES"
 FROM JUSTIFICACION J
     JOIN CURIOSIDAD_PREOCUPACION CP
     ON J.idJustificacion = CP.idJustificacion
@@ -153,7 +193,7 @@ FROM EVENTO E
     ON E.idEvento = I.idEvento
 
 /*12 - ESQUELETO DEL INFORME DEL PROYECTO*/
-SELECT TI.situacionPreocupante AS "SITUACION PREOCUPANTE", TI.conexionOtrosT AS "CONEXION CON OTROS TEMAS", NI.nivel AS "NIVEL DE LA INVESTIGACION", TI.tema AS "TEMA DE LA INVESTIGACION", T.temporalidad AS "TEMPORALIDAD DE MEDICION", C.contexto AS "CONTEXTO", PB.poblacion AS "POBLACION", M.muestra AS "MUESTRA", N.argumento AS "NECESIDAD", CP.argumento AS "CURIOSIDAD O PREOCUPACION", CT.argumento AS "CONTRADICCION", MI.argumento AS "MOTIVACION O INTERES", PD.argumento AS "POTENCIALIDAD", O.argumento AS "OPORTUNIDAD", TA.argumento AS "TENDENCIA", OG.objetivo AS "OBJETIVO GENERAL"
+SELECT TI.situacionPreocupante AS "SITUACION PREOCUPANTE", TI.conexionOtrosT AS "CONEXION CON OTROS TEMAS", NI.nivel AS "NIVEL DE LA INVESTIGACION", T.temporalidad AS "TEMPORALIDAD DE MEDICION", C.contexto AS "CONTEXTO", PB.poblacion AS "POBLACION", M.muestra AS "MUESTRA", N.argumento AS "NECESIDAD", CP.argumento AS "CURIOSIDAD O PREOCUPACION", CT.argumento AS "CONTRADICCION", MI.argumento AS "MOTIVACION O INTERES", PD.argumento AS "POTENCIALIDAD", O.argumento AS "OPORTUNIDAD", TA.argumento AS "TENDENCIA", OG.objetivo AS "OBJETIVO GENERAL",OE.objetivo AS "OBJETIVO ESPECIFICO",ET.estadio AS "ESTADIO",FP.teoria AS "TEORIA",E.evento AS "EVENTO",CE.clase AS "CLASE DE EVENTO",DE.definicion AS "DEFINICION EVENTO",DE.explicacion AS "EXPLICACION DE LA DEFINICION",AL.aspecto AS "ASPECTO LEGAL", TI.tema AS "TEMA DE LA INVESTIGACION",EPR.estructuracionPrevia AS "ESTRUCTURACION PREVIA",PI.perspectivaInterpretacion AS "PERSPECTIVA DE INTERPRETACION",GP.gradoParticipacion AS "GRADO DE PARTICIPACION",DI.tipo AS "DISEÑO DE LA INVESTIGACION",TOI.tecnica AS "TECNICA DE OBTENCION DE INFORMACION",I.instrumento AS "INSTRUMENTO DE RECOLECCION DE DATOS",TS.tecnica AS "TECNICA ANALISIS"
 FROM TEMA_INVESTIGACION TI
     JOIN PROYECTO P
     ON P.idTemaInvestigacion = TI.idTemaInvestigacion
@@ -161,11 +201,14 @@ FROM TEMA_INVESTIGACION TI
     ON TI.idTipoInvestigacion = TP.idTipoInvestigacion
     JOIN PROYECTIVA PA
     ON P.idProyectiva = PA.idProyectiva
-    /*GENERA REPETIDO EL ID 45 POR SER MULTIEVENTUAL*/
     JOIN EVENTO_PROYECTIVA EP
     ON PA.idProyectiva = EP.idProyectiva
     JOIN EVENTO E
     ON EP.idEvento = E.idEvento
+	JOIN CLASE_EVENTO CE
+	ON E.idClaseEvento = CE.idClaseEvento
+	JOIN INSTRUMENTO I
+	ON E.idEvento = I.idEvento
     JOIN NIVEL_INVESTIGACION NI
     ON TI.idNivelInvestigacion = NI.idNivelInvestigacion
     JOIN TEMPORALIDAD_MEDICION T
@@ -173,7 +216,11 @@ FROM TEMA_INVESTIGACION TI
     JOIN CONTEXTO C
     ON P.idContexto = C.idContexto
     JOIN UNIDAD_ESTUDIO UE
-    ON P.idUnidadEstudio = UE.idUnidadEstudio
+    ON P.idUnidadEstudio = UE.idUnidadEstudio   
+	JOIN TECNICA_OBTENCION_INFORMACION_U TOIU
+	ON UE.idUnidadEstudio = TOIU.idUnidadEstudio
+	JOIN TECNICA_OBTENCION_INFORMACION TOI
+	ON TOIU.idTecnicaObtencionInformacion = TOI.idTecnicaObtencionInformacion
     JOIN POBLACION PB
     ON UE.idPoblacion = PB.idPoblacion
     JOIN MUESTRA M
@@ -196,9 +243,48 @@ FROM TEMA_INVESTIGACION TI
     ON J.idJustificacion = TA.idJustificacion
     JOIN OBJETIVO_GENERAL OG
     ON PA.idProyectiva = OG.idProyectiva
+	JOIN OBJETIVO_ESPECIFICO OE
+	ON PA.idProyectiva = OE.idProyectiva
+	JOIN ESTADIO ET
+	ON OE.idEstadio = ET.idEstadio
+	JOIN FUNDAMENTO_PROYECTIVO FP
+	ON PA.idProyectiva = FP.idProyectiva
+	JOIN DESCRIPCION_EVENTO DE
+	ON FP.idFundamentoProyectivo = DE.idFundamentoProyectivo
+	JOIN FUNDAMENTO_PROYECTIVO_ASPECTO_L FPAL
+	ON FP.idFundamentoProyectivo = FPAL.idFundamentoProyectivo
+	JOIN ASPECTO_LEGAL AL
+	ON AL.idAspectoLegal = FPAL.idAspectoLegal
+	JOIN ABORDAJE A
+	ON A.idProyectiva = PA.idProyectiva
+	JOIN ESTRUCTURACION_PREVIA EPR
+	ON A.idEstructuracionPrevia = EPR.idEstructuracionPrevia
+	JOIN PERSPECTIVA_INTERPRETACION PI
+	ON A.idPerspectivaInterpretacion = PI.idPerspectivaInterpretacion
+	JOIN GRADO_PARTICIPACION GP
+	ON A.idGradoParticipacion = GP.idGradoParticipacion	
+	JOIN DISENO_INVESTIGACION DI
+	ON PA.idDisenoInvestigacion = DI.idDisenoInvestigacion
+	FULL OUTER JOIN ANALISIS_EVENTO AE
+	ON FP.idFundamentoProyectivo = AE.idFundamentoProyectivo
+	FULL OUTER JOIN TECNICA_ANALISIS TS
+	ON AE.idTecnicaAnalisis = TS.idTecnicaAnalisis
 WHERE TI.idTemaInvestigacion = 45
 
-/*13 - REPORTE DE CALIDAD DEL PROYECTO DE ACUERDO A LAS MATRICES PROPUESTAS POR HERNANDEZ Y BAPTISTA*/
+/*13 - REPORTE DE CALIDAD DEL PROYECTO DE HURTADO*/
+/*JUSTIFICACION*/
+SELECT ((SELECT count(*) FROM NECESIDAD WHERE idJustificacion = J.idJustificacion LIMIT 1)+
+		(SELECT count(*) FROM CONTEXTO WHERE idContexto = P.idContexto LIMIT 1)+
+		(SELECT count(*) FROM UNIDAD_ESTUDIO WHERE idUnidadEstudio = P.idUnidadEstudio LIMIT 1)+
+		(SELECT count(*) FROM EVENTO WHERE idEvento = J.idEvento LIMIT 1)+
+		(SELECT count(*) FROM TIPO_INVESTIGACION WHERE idTipoInvestigacion = J.idTipoInvestigacion LIMIT 1)+
+	   	(SELECT count(*) FROM UNIDAD_INFORMATIVA UI WHERE UI.idProyectiva = PR.idProyectiva LIMIT 1))/6*100 as "PORCENTAJE DE CALIDAD"
+FROM JUSTIFICACION J 
+JOIN PROYECTO P 
+ON J.idContexto = P.idContexto
+JOIN PROYECTIVA PR 
+ON PR.idProyectiva = P.idProyectiva
+WHERE P.idProyecto = 1
 
 /*14 - HISTORIAL DE MODIFICACIOES DEL PROYECTO*/
 SELECT V.idVersion, TI.idTemaInvestigacion, V.fecha
@@ -383,7 +469,7 @@ WHERE D.idDisciplina = 420
 
 
 /*26 TABLA HOLOPRAXICA */
-SELECT OE.objetivo AS "Objetivo especifico", E.estadio AS "Estadio", EV.evento AS "Evento", UE.descripcion AS "Unidad de Estudio", PO.poblacion AS "POBLACION", M.muestra AS "MUESTRA", TOI.tecnica AS "Tecnica", I.instrumento AS "Instrumento", AE.analisis AS "Analisis del evento"
+SELECT OE.preguntaEspecifica AS "PREGUNTA ESPECIFICA",OE.objetivo AS "OBJETIVO ESPECIFICO", E.estadio AS "ESTADIO", EV.evento AS "EVENTO", UE.descripcion AS "UNIDAD DE ESTUDIO", PO.poblacion AS "POBLACION", M.muestra AS "MUESTRA", TOI.tecnica AS "TECNICA", I.instrumento AS "INSTRUMENTO", TA.tecnica AS "TECNICA DE ANALISIS"
 FROM PROYECTO P
     JOIN OBJETIVO_ESPECIFICO OE
     ON OE.idProyectiva = P.idProyectiva
@@ -409,46 +495,14 @@ FROM PROYECTO P
     ON FP.idProyectiva = P.idProyectiva
     JOIN ANALISIS_EVENTO AE
     ON AE.idFundamentoProyectivo = FP.idFundamentoProyectivo
+	JOIN TECNICA_ANALISIS TA
+	ON AE.idTecnicaAnalisis = TA.idTecnicaAnalisis
+WHERE P.idProyecto = 1
 
-/*yukeri*/
+/*MODIFICAR EL CAMPO INICIAL CON LA PRIMERA LETRA DEL CAMPO ARGUMENTO*/
 UPDATE NECESIDAD N
 SET INICIAL
-=
-(SELECT SUBSTR((SELECT ARGUMENTO
+= (SELECT SUBSTR((SELECT ARGUMENTO
     FROM NECESIDAD a
     WHERE a.idNecesidad = N.idNecesidad),1,1))
 
-
-
-/*CALIDAD*/
-
-SELECT *, UI.idUnidadInformativa
-from JUSTIFICACION J
-    JOIN PROYECTO P
-    ON P.idContexto = J.idContexto
-    JOIN PROYECTIVA PR
-    ON PR.idProyectiva = P.idProyectiva
-    JOIN UNIDAD_INFORMATIVA UI
-    ON UI.idProyectiva = PR.idProyectiva
-WHERE P.idProyecto = 1
-
-
-
-SELECT N.argumento
-FROM NECESIDAD N
-    JOIN JUSTIFICACION J
-    ON J.idJustificacion = N.idJustificacion
-WHERE J.idContexto = 74
-
-/*Consulta de calidad*/
-SELECT ((SELECT count(*) FROM CONTEXTO WHERE idContexto = P.idContexto LIMIT 1)+
-		(SELECT count(*) FROM UNIDAD_ESTUDIO WHERE idUnidadEstudio = P.idUnidadEstudio LIMIT 1)+
-		(SELECT count(*) FROM EVENTO WHERE idEvento = J.idEvento LIMIT 1)+
-		(SELECT count(*) FROM TIPO_INVESTIGACION WHERE idTipoInvestigacion = J.idTipoInvestigacion LIMIT 1)+
-	   	(SELECT count(*) FROM UNIDAD_INFORMATIVA UI WHERE UI.idProyectiva = PR.idProyectiva LIMIT 1))/5*100 as "Porcentaje de calidad"
-FROM JUSTIFICACION J 
-JOIN PROYECTO P 
-ON J.idContexto = P.idContexto
-JOIN PROYECTIVA PR 
-ON PR.idProyectiva = P.idProyectiva
-limit 1
