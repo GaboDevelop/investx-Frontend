@@ -131,6 +131,7 @@ async function deleteUnidadEstudio(req, res) {
 
 };
 
+
 module.exports = {
     getUnidadEstudio: getUnidadEstudio,
     getUnidadById: getUnidadById, 

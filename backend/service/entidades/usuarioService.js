@@ -155,12 +155,13 @@ async function deleteUser(req, res) {
 };
 
 
-async function getUsersAndRoles(req, res) { // ERROR NI IDEA
+async function getUsersAndRoles(req, res) { // NO SE POR QUE DA ERROR
 
     try {
-
+        console.log('Estoy entrando en getUsersAndRoles'); 
         const sql = 'SELECT U.idUsuario, U.correo, U.contrasena, U.nombre, U.segundoNombre, U.apellido, U.segundoApellido, R.nombreRol, U.active FROM USUARIO U INNER JOIN ROL_USUARIO RU ON U.idUsuario = RU.idUsuario INNER JOIN ROL R ON R.idRol = RU.idRol' ;
         const users = await client.query(sql);
+        console.log(users);
         res.json({
             data: users
         })
@@ -173,6 +174,7 @@ async function getUsersAndRoles(req, res) { // ERROR NI IDEA
     }
 
 };
+
 
 
 module.exports = {
