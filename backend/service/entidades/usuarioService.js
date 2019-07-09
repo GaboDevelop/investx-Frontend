@@ -176,6 +176,7 @@ async function getUsersAndRoles(req, res) { // NO SE POR QUE DA ERROR
 };
 
 
+
 module.exports = {
     getUsers: getUsers,
     getUserById: getUserById, 

@@ -1,16 +1,16 @@
 const client = require('../../bd/connection.js');
 
 
-async function getMuestraById(req, res) {
+async function getItemById(req, res) {
 
     try {
         const { id } = req.params;
 
-        const sql = 'SELECT * FROM MUESTRA WHERE idMuestra = $1';
+        const sql = 'SELECT * FROM ITEM WHERE idItem = $1';
         const params = [id];
-        const Muestra = await client.query(sql, params);
+        const Item = await client.query(sql, params);
         res.json({
-            data: Muestra
+            data: Item
         })
     } catch (error) {
         console.log(error);
@@ -22,13 +22,13 @@ async function getMuestraById(req, res) {
 
 };
 
-async function createMuestra(req, res) {
+async function createItem(req, res) {
 
     try {
-        const { muestra } = req.body;
+        const { idInstrumento, item } = req.body;
 
-        const sql = 'INSERT INTO MUESTRA (muestra) VALUES ($1)';
-        const params = [muestra];
+        const sql = 'INSERT INTO ITEM (idInstrumento, item) VALUES ($1, $2)';
+        const params = [idInstrumento, item];
         const users = await client.query(sql, params);
         res.json({
             data: users
@@ -43,28 +43,28 @@ async function createMuestra(req, res) {
 
 };
 
-async function updateMuestra(req, res) {
+async function updateItem(req, res) {
 
     try {
         const { id } = req.params;
-        const { muestra } = req.body;
+        const { idInstrumento, item } = req.body;
 
-        const sql = 'SELECT * FROM MUESTRA WHERE idMuestra = $1';
+        const sql = 'SELECT * FROM ITEM WHERE idItem = $1';
         const params = [id];
         const users = await client.query(sql, params);
         
         
         if (users.length = 0) { 
             return res.json({
-            message: 'Muestra no existe',
+            message: 'Item no existe',
             data: {}
             });
         }
-            const sql2 = 'UPDATE MUESTRA SET muestra = $1 WHERE idMuestra = $2';
-            const params2 = [muestra, id];
+            const sql2 = 'UPDATE ITEM SET idInstrumento = $1, item = $2 WHERE idItem = $3';
+            const params2 = [idInstrumento, item, id];
             const user = await client.query(sql2, params2);
             return res.json({
-                message: 'Muestra Updated',
+                message: 'Item Updated',
                 data: user
             })
         
@@ -79,27 +79,27 @@ async function updateMuestra(req, res) {
 
 };
 
-async function deleteMuestra(req, res) {
+async function deleteItem(req, res) {
 
     try {
         const { id } = req.params;
 
-        const sql = 'SELECT * FROM MUESTRA WHERE idMuestra = $1';
+        const sql = 'SELECT * FROM ITEM WHERE idItem = $1';
         const params = [id];
         const users = await client.query(sql, params);
         
         
         if (users.length = 0) { 
             return res.json({
-            message: 'Muestra no existe',
+            message: 'Item no existe',
             data: {}
             });
         }
-            const sql2 = 'UPDATE MUESTRA SET active = $1 WHERE idMuestra = $2';
+            const sql2 = 'UPDATE ITEM SET active = $1 WHERE idItem = $2';
             const params2 = [false, id];
             const user = await client.query(sql2, params2);
             return res.json({
-                message: 'Muestra Updated',
+                message: 'Item Updated',
                 data: user
             })
         
@@ -115,8 +115,8 @@ async function deleteMuestra(req, res) {
 };
 
 module.exports = {
-    createMuestra,
-    updateMuestra,
-    deleteMuestra,
-    getMuestraById
+    createItem,
+    updateItem,
+    deleteItem,
+    getItemById
 }
