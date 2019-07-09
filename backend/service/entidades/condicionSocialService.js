@@ -25,10 +25,10 @@ async function getCondicionSocialById(req, res) {
 async function createCondicionSocial(req, res) {
 
     try {
-        const { idTemaInvstigacion, contribucion, necesidad, aporte, aplicacion } = req.body;
+        const { idTemaInvestigacion, contribucion, necesidad, aporte, aplicacion } = req.body;
 
-        const sql = 'INSERT INTO CONDICION_SOCIAL (idTemaInvstigacion, contribucion, necesidad, aporte, aplicacion) VALUES ($1, $2, $3, $4, $5)';
-        const params = [idTemaInvstigacion, contribucion, necesidad, aporte, aplicacion];
+        const sql = 'INSERT INTO CONDICION_SOCIAL (idTemaInvestigacion, contribucion, necesidad, aporte, aplicacion) VALUES ($1, $2, $3, $4, $5)';
+        const params = [idTemaInvestigacion, contribucion, necesidad, aporte, aplicacion];
         const users = await client.query(sql, params);
         res.json({
             data: users
@@ -47,7 +47,7 @@ async function updateCondicionSocial(req, res) {
 
     try {
         const { id } = req.params;
-        const { idTemaInvstigacion, contribucion, necesidad, aporte, aplicacion } = req.body;
+        const { idTemaInvestigacion, contribucion, necesidad, aporte, aplicacion } = req.body;
 
         const sql = 'SELECT * FROM CONDICION_SOCIAL WHERE idCondicionSocial = $1';
         const params = [id];
@@ -61,7 +61,7 @@ async function updateCondicionSocial(req, res) {
             });
         }
             const sql2 = 'UPDATE CONDICION_SOCIAL SET idTemaInvestigacion = $1, contribucion = $2, necesidad = $3, aporte = $4, aplicacion = $5 WHERE idCondicionSocial = $6';
-            const params2 = [idTemaInvstigacion, contribucion, necesidad, aporte, aplicacion, id];
+            const params2 = [idTemaInvestigacion, contribucion, necesidad, aporte, aplicacion, id];
             const user = await client.query(sql2, params2);
             return res.json({
                 message: 'Condicion Social Updated',

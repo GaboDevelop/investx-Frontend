@@ -30,7 +30,7 @@ const {} = require('../service/consultas/reportesCalidadService');
 // ------------------------- Usuario ---------------------------
 router.get('/usuarios', getUsers);
 router.get('/usuarios/:id', getUserById);
-router.get('/usuarios/listado', getUsersAndRoles);
+router.get('/usuarios/roles', getUsersAndRoles);
 router.post('/usuarios', createUser);
 router.put('/usuarios/:id', updateUser);
 router.put('/usuarios/:id/disable', deleteUser);
