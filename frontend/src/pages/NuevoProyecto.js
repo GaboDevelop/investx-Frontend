@@ -532,55 +532,67 @@ class NuevoProyecto extends React.Component {
                     placeholder="Password"
                   />
                 </div>
-                <div className="offset-1 col-10 separador" />
-                <div className="form-group col-md-4">
-                  <label for="inputPassword4">temporalidad(2)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
+                <div className="form-group col-md-12">
+                  <h3>
+                    Justificacion de la unidad de estudio de Investigacion
+                  </h3>
                 </div>
                 <div className="form-group col-md-4">
-                  <label for="inputPassword4">Contexto(2)</label>
+                  <label for="inputPassword4">
+                    ¿Cual es la curiosidad o preocupación?(1)
+                  </label>
                   <input
                     type="text"
                     class="form-control"
                     id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-4">
-                  <label for="inputPassword4">Unidad de estudio(2)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-4">
-                  <label for="inputPassword4">Poblacion(2)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-4">
-                  <label for="inputPassword4">Muestra(2)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
+                    placeholder=""
                   />
                 </div>
                 <div className="form-group col-md-4">
                   <label for="inputPassword4">
-                    Tecnica de obtención de información(2)
+                    ¿Hay contradicciones? Expliquelas(1)
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword4"
+                    placeholder=""
+                  />
+                </div>
+                <div className="form-group col-md-4">
+                  <label for="inputPassword4">
+                    ¿Cuales fueron sus motivaciones o intereses?(1)
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword4"
+                    placeholder=""
+                  />
+                </div>
+                <div className="form-group col-md-4">
+                  <label for="inputPassword4">
+                    Explique la potencialidad(1)
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword4"
+                    placeholder=""
+                  />
+                </div>
+                <div className="form-group col-md-4">
+                  <label for="inputPassword4">¿Que necesidad hubo?(1)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword4"
+                    placeholder="Password"
+                  />
+                </div>
+                <div className="form-group col-4">
+                  <label for="inputPassword4">
+                    Explique que tendencia tuvo su unidad de estudio(1)
                   </label>
                   <input
                     type="text"
@@ -589,96 +601,34 @@ class NuevoProyecto extends React.Component {
                     placeholder="Password"
                   />
                 </div>
-                <div className="form-group col-md-3">
-                  <label for="inputPassword4">Evento(2)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-3">
-                  <label for="inputPassword4">Tipo de envento(2)</label>
-                  <select
-                    multiple
-                    class="form-control "
-                    id="exampleFormControlSelect2"
-                  >
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-                <div className="form-group col-md-3">
-                  <label for="inputPassword4">Disciplina(2)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-3">
-                  <label for="inputPassword4">Instrumento(2)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="offset-1 col-10 separador" />
-                <div className="form-group col-md-4">
-                  <label for="inputPassword4">temporalidad(3)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-4">
-                  <label for="inputPassword4">Contexto(3)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-4">
-                  <label for="inputPassword4">Unidad de estudio(3)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-4">
-                  <label for="inputPassword4">Poblacion(3)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-4">
-                  <label for="inputPassword4">Muestra(3)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-4">
+                <div className="form-group col-md-12">
                   <label for="inputPassword4">
-                    Tecnica de obtención de información(3)
+                    ¿Cual fue la oportunidad?(1)
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword4"
+                    placeholder=""
+                  />
+                </div>
+                <div className="form-group col-md-12">
+                  <h3>Datos para su Unidad informativa</h3>
+                </div>
+                <div className="form-group col-4">
+                  <label for="inputPassword4">
+                    ¿Cual fue la idea principal del proyecto?
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword4"
+                    placeholder=""
+                  />
+                </div>
+                <div className="form-group col-4">
+                  <label for="inputPassword4">
+                    Por favor cite el contenido donde reflejo su idea(1)
                   </label>
                   <input
                     type="text"
@@ -687,96 +637,9 @@ class NuevoProyecto extends React.Component {
                     placeholder="Password"
                   />
                 </div>
-                <div className="form-group col-md-3">
-                  <label for="inputPassword4">Evento(3)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-3">
-                  <label for="inputPassword4">Tipo de envento(3)</label>
-                  <select
-                    multiple
-                    class="form-control "
-                    id="exampleFormControlSelect2"
-                  >
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-                <div className="form-group col-md-3">
-                  <label for="inputPassword4">Disciplina(3)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-3">
-                  <label for="inputPassword4">Instrumento(3)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="offset-1 col-10 separador" />
-                <div className="form-group col-md-4">
-                  <label for="inputPassword4">temporalidad(4)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-4">
-                  <label for="inputPassword4">Contexto(4)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-4">
-                  <label for="inputPassword4">Unidad de estudio(4)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-4">
-                  <label for="inputPassword4">Poblacion(4)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-4">
-                  <label for="inputPassword4">Muestra(4)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-4">
+                <div className="form-group col-4">
                   <label for="inputPassword4">
-                    Tecnica de obtención de información(4)
+                    Coloque los datos de referencia al autor dado(1)
                   </label>
                   <input
                     type="text"
@@ -785,147 +648,211 @@ class NuevoProyecto extends React.Component {
                     placeholder="Password"
                   />
                 </div>
-                <div className="form-group col-md-3">
-                  <label for="inputPassword4">Evento(4)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-3">
-                  <label for="inputPassword4">Tipo de envento(4)</label>
-                  <select
-                    multiple
-                    class="form-control "
-                    id="exampleFormControlSelect2"
-                  >
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-                <div className="form-group col-md-3">
-                  <label for="inputPassword4">Disciplina(4)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-3">
-                  <label for="inputPassword4">Instrumento(4)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="offset-1 col-10 separador" />
-                <div className="form-group col-md-4">
-                  <label for="inputPassword4">temporalidad(5)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-4">
-                  <label for="inputPassword4">Contexto(5)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-4">
-                  <label for="inputPassword4">Unidad de estudio(5)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-4">
-                  <label for="inputPassword4">Poblacion(5)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-4">
-                  <label for="inputPassword4">Muestra(5)</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="inputPassword4"
-                    placeholder="Password"
-                  />
-                </div>
-                <div className="form-group col-md-4">
+                <div className="form-group col-12">
                   <label for="inputPassword4">
-                    Tecnica de obtención de información(5)
+                    Diga en que categoria esta ubicada esta unidad
+                    informativa(1)
                   </label>
                   <input
                     type="text"
                     class="form-control"
                     id="inputPassword4"
-                    placeholder="Password"
+                    placeholder=""
                   />
                 </div>
-                <div className="form-group col-md-3">
-                  <label for="inputPassword4">Evento(5)</label>
+                <div className="form-group col-12">
+                  <div className="">
+                    <h3>Datos sobre el abordaje de la investigación</h3>
+                  </div>
+                </div>
+                <div className="form-group col-4">
+                  <label for="inputPassword4">
+                    ¿Como fue tu interpretacion o perspectiva?(1)
+                  </label>
                   <input
                     type="text"
                     class="form-control"
                     id="inputPassword4"
-                    placeholder="Password"
+                    placeholder=""
                   />
                 </div>
-                <div className="form-group col-md-3">
-                  <label for="inputPassword4">Tipo de envento(5)</label>
-                  <select
-                    multiple
-                    class="form-control "
-                    id="exampleFormControlSelect2"
-                  >
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
-                  </select>
-                </div>
-                <div className="form-group col-md-3">
-                  <label for="inputPassword4">Disciplina(5)</label>
+                <div className="form-group col-4">
+                  <label for="inputPassword4">
+                    Explique la estructura previa (1)
+                  </label>
                   <input
                     type="text"
                     class="form-control"
                     id="inputPassword4"
-                    placeholder="Password"
+                    placeholder=""
                   />
                 </div>
-                <div className="form-group col-md-3">
-                  <label for="inputPassword4">Instrumento(5)</label>
+                <div className="form-group col-4">
+                  <label for="inputPassword4">
+                    ¿Cual fue el grado de participacion? (1)
+                  </label>
                   <input
                     type="text"
                     class="form-control"
                     id="inputPassword4"
-                    placeholder="Password"
+                    placeholder=""
                   />
                 </div>
-                <div className="offset-1 col-10 separador" />
+                <div className="form-group col-12">
+                  <h3>Datos sobre el fundamento proyectivo</h3>
+                </div>
+                <div className="form-group col-4">
+                  <label for="inputPassword4">explique su fundamento(1)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword4"
+                    placeholder=""
+                  />
+                </div>
+                <div className="form-group col-4">
+                  <label for="inputPassword4">
+                    ¿Que tecnica de analisis se uso? (1)
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword4"
+                    placeholder=""
+                  />
+                </div>
+                <div className="form-group col-4">
+                  <label for="inputPassword4">Describa el analisis (1)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword4"
+                    placeholder=""
+                  />
+                </div>
+                <div className="form-group col-4">
+                  <label for="inputPassword4">Explique el proceso (1)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword4"
+                    placeholder=""
+                  />
+                </div>
+                <div className="form-group col-4">
+                  <label for="inputPassword4">Describa el evento (1)</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword4"
+                    placeholder=""
+                  />
+                </div>
+                <div className="form-group col-4">
+                  <label for="inputPassword4">
+                    ¿Cual fue el aspecto legal? (1)
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword4"
+                    placeholder=""
+                  />
+                </div>
+                <div className="form-group col-4">
+                  <label for="inputPassword4">
+                    ¿Cual fue el efecto a lograr? (1)
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword4"
+                    placeholder=""
+                  />
+                </div>
+                <div className="form-group col-4">
+                  <label for="inputPassword4">
+                    Describa el programa alternativo (1)
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword4"
+                    placeholder=""
+                  />
+                </div>
+                <div className="form-group col-4">
+                  <label for="inputPassword4">
+                    ¿Cual fue su prediccion? (1)
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword4"
+                    placeholder=""
+                  />
+                </div>
+                <div className="form-group col-12">
+                  <label for="inputPassword4">
+                    Explique las comparaciones (1)
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword4"
+                    placeholder=""
+                  />
+                </div>
+                <div className="form-group col-12">
+                  <h3>Infomación final del proyecto</h3>
+                </div>
+                <div className="form-group col-12">
+                  <label for="inputPassword4">
+                    ¿Cual es el objetivo general? (1)
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword4"
+                    pla
+                  />
+                </div>
+                <div className="form-group col-12">
+                  <label for="inputPassword4">
+                    ¿Cual es el objetivo general? (1)(1)
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword4"
+                    pla
+                  />
+                </div>
+                <div className="form-group col-12">
+                  <label for="inputPassword4">
+                    ¿Cual es el objetivo general? (1)(2)
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword4"
+                    pla
+                  />
+                </div>
+                <div className="form-group col-12">
+                  <label for="inputPassword4">
+                    ¿Cual es el objetivo especifico? (1)(3)
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="inputPassword4"
+                    pla
+                  />
+                </div>
               </div>
+
+              <div className="offset-1 col-10 separador" />
 
               <button type="submit" class="btn btn-primary">
                 Sign in
