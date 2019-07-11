@@ -8,8 +8,10 @@ const client = require('../../bd/connection.js');
 async function getTablaOperacionalizacion(req, res) {
 
     try {
-        const sql = '';
-        const table = await client.query(sql);
+        const {id}= req.params;
+        const sql = 'SELECT E.evento, S.sinergia,I.indicio,IM.item,E.parametro,IO.instrumento,IO.nivel,F.fuente FROM PROYECTIVA PAJOIN EVENTO_PROYECTIVA EP ON PA.idProyectiva = EP.idProyectiva JOIN EVENTO E ON EP.idEvento = E.idEvento JOIN SINERGIA S ON E.idEvento = S.idEvento JOIN INSTRUMENTO IO ON E.idEvento = IO.idEvento JOIN INDICIO I ON S.idSinergia = I.idSinergia JOIN ITEM IM ON IO.idInstrumento = IM.idInstrumento JOIN FUENTE F ON IO.idInstrumento = F.idInstrumento JOIN PROYECTO P ON PA.idProyectiva = P.idProyectiva WHERE P.idProyecto = $1';
+        const params = [id];
+        const table = await client.query(sql, params);
         res.json({
             data: table
         })
@@ -31,8 +33,10 @@ async function getTablaOperacionalizacion(req, res) {
 async function getTablaEspecificaciones(req, res) {
 
     try {
-        const sql = '';
-        const table = await client.query(sql);
+        const {id}= req.params;
+        const sql = 'SELECT S.sinergia,I.indicio,IM.item FROM PROYECTIVA PA JOIN EVENTO_PROYECTIVA EP ON PA.idProyectiva = EP.idProyectiva JOIN EVENTO E ON EP.idEvento = E.idEvento JOIN SINERGIA S ON E.idEvento = S.idEvento JOIN INSTRUMENTO IO ON E.idEvento = IO.idEvento JOIN INDICIO I ON S.idSinergia = I.idSinergia JOIN ITEM IM ON IO.idInstrumento = IM.idInstrumento JOIN PROYECTO P ON PA.idProyectiva = P.idProyectiva WHERE P.idProyecto = $1';
+        const params = [id];
+        const table = await client.query(sql,params);
         res.json({
             data: table
         })

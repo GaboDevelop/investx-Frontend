@@ -548,7 +548,7 @@ async function getListadoContextosAtendidos(req, res) {
 async function getListadoFichasCategoria(req, res) {
 
     try {
-        const sql = '';
+        const sql = 'SELECT C.relacionTemaUnidad AS "CATEGORIA",UI.idea AS "FICHA"  FROM UNIDAD_INFORMATIVA UI JOIN CATEGORIA_UNIDAD_INFORMATIVA CUI ON UI.idUnidadInformativa = CUI.idUnidadInformativa JOIN CATEGORIA C ON CUI.idCategoria = C.idCategoria';
         const table = await client.query(sql);
         res.json({
             data: table
@@ -567,8 +567,10 @@ async function getListadoFichasCategoria(req, res) {
 async function getListadoFichasCondicion(req, res) {
 
     try {
-        const sql = '';
-        const table = await client.query(sql);
+        const {id} = req.params;
+        const sql = 'SELECT UI.idea AS "FICHA"  FROM UNIDAD_INFORMATIVA UI JOIN PROYECTIVA PA ON UI.idProyectiva = PA.idProyectiva JOIN PROYECTO P ON PA.idProyectiva = P.idProyectiva WHERE P.idProyecto = $1';
+        const params = [id];
+        const table = await client.query(sql,params);
         res.json({
             data: table
         })

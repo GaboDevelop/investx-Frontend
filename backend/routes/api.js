@@ -592,8 +592,8 @@ router.put('/versiones/:id/disable',deleteVersion );
 router.get('/tablas/holopraxica', getTablaHolopraxica);
 router.get('/tablas/poblacionMuestra', getTablaPoblacionMuestra);
 router.get('/tablas/argumentosJustificacion', getTablaArgumentosJustificacion);
-router.get('/tablas/especificaciones', getTablaEspecificaciones); // FALTA QUERY
-router.get('/tablas/operacionalizacion', getTablaOperacionalizacion); // FALTA QUERY
+router.get('/tablas/especificaciones', getTablaEspecificaciones); 
+router.get('/tablas/operacionalizacion', getTablaOperacionalizacion);
 
 
 // ------------------------------- Listados ---------------------------------------------------- 
@@ -644,9 +644,9 @@ router.get('/listados/investigacionesDisciplina/:idDisciplina', getListadoInvest
 router.get('/listados/contextosAtendidos', getListadoContextosAtendidos);
 
 // -------------- Fichas por los diferentes tipos de Categoria
-router.get('/listados/fichasCategoria', getListadoFichasCategoria); // FALTA QUERY
+router.get('/listados/fichasCategoria', getListadoFichasCategoria); 
 // -------------- Fichas por Condicion 
-router.get('/listados/fichasCondicion', getListadoFichasCondicion); // FALTA QUERY
+router.get('/listados/fichasCondicion', getListadoFichasCondicion); 
 
 // -------------- Tipos de Unidades Informacion
 router.get('/listados/TiposUnidadesInformacion', getListadoTiposUnidadesInformacion); // FALTA QUERY 
