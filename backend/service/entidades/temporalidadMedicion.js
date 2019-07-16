@@ -27,7 +27,7 @@ async function createTemporalidadMedicion(req, res) {
     try {
         const { temporalidad } = req.body;
 
-        const sql = 'INSERT INTO TEMPORALIDAD_MEDICION (temporalidad) VALUES ($1)';
+        const sql = 'INSERT INTO TEMPORALIDAD_MEDICION (temporalidad) VALUES ($1) RETURNING idtemporalidad';
         const params = [temporalidad];
         const users = await client.query(sql, params);
         res.json({

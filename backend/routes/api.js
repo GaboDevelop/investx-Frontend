@@ -16,12 +16,12 @@ const { getAnalisisEventoById, createAnalisisEvento, updateAnalisisEvento, delet
 const { getAspectoLegalById, createAspectoLegal, updateAspectoLegal, deleteAspectoLegal } = require('../service/entidades/aspectoLegalService');
 const { getCategoriaById, createCategoria, updateCategoria, deleteCategoria } = require('../service/entidades/categoriaService');
 const { getCategoriaUnidadInformativaById, createCategoriaUnidadInformativa, updateCategoriaUnidadInformativa, deleteCategoriaUnidadInformativa } = require('../service/entidades/categoriaUnidadInformativa');
-const { getClaseEventoById, createClaseEvento, updateClaseEvento, deleteClaseEvento } = require('../service/entidades/claseEventoService');
+const { getClaseEventoById, getClaseEvento, createClaseEvento, updateClaseEvento, deleteClaseEvento } = require('../service/entidades/claseEventoService');
 const { getComparacionById, createComparacion, updateComparacion, deleteComparacion } = require('../service/entidades/comparacionService');
 const { getCondicionMetodologicaById, createCondicionMetodologica, updateCondicionMetodologica, deleteCondicionMetodologica } = require('../service/entidades/condicionMetodologicaService');
 const { getCondicionPersonalById, createCondicionPersonal, updateCondicionPersonal, deleteCondicionPersonal} = require('../service/entidades/condicionPersonalService');
 const { getCondicionSocialById, createCondicionSocial, updateCondicionSocial, deleteCondicionSocial } = require('../service/entidades/condicionSocialService');
-const { getConsecuenciaById, createConsecuencia, updateConsecuencia, deleteConsecuencia } = require('../service/entidades/consecuenciaService');
+const { getConsecuenciaById, getConsecuencias, createConsecuencia, updateConsecuencia, deleteConsecuencia } = require('../service/entidades/consecuenciaService');
 const { getConsecuenciaTemaById, createConsecuenciaTema, updateConsecuenciaTema, deleteConsecuenciaTema } = require('../service/entidades/consecuenciaTemaInvestigacionService');
 const { getIndicioById, createIndicio, updateIndicio, deleteIndicio } = require('../service/entidades/indicioService');
 const { getContextoUnidadEstudioById, createContextoUnidadEstudio, updateContextoUnidadEstudio, deleteContextoUnidadEstudio } = require('../service/entidades/contextoUnidadEstudioService');
@@ -42,13 +42,13 @@ const { getFundamentoProyectivoAspectoById, createFundamentoProyectivoAspecto, u
 const { getFundamentoProyectivoInvestigacionById, createFundamentoProyectivoInvestigacion, updateFundamentoProyectivoInvestigacion, deleteFundamentoProyectivoInvestigacion } = require('../service/entidades/fundamentoProyectivoInvestigacionService');
 const { getGradoParticipacionById, createGradoParticipacion, updateGradoParticipacion, deleteGradoParticipacion } = require('../service/entidades/gradoParticipacionService');
 const { getInstrumentoById, createInstrumento, updateInstrumento, deleteInstrumento } = require('../service/entidades/instrumentoService');
-const { getInvolucradoById, createInvolucrado, updateInvolucrado, deleteInvolucrado } = require('../service/entidades/involucradoService');
+const { getInvolucradoById, getInvolucrados, createInvolucrado, updateInvolucrado, deleteInvolucrado } = require('../service/entidades/involucradoService');
 const { getInvolucradoTemaIById, createInvolucradoTemaI, updateInvolucradoTemaI, deleteInvolucradoTemaI } = require('../service/entidades/involucradoTemaInvestigacion');
 const { getItemById, createItem, updateItem, deleteItem } = require('../service/entidades/itemService');
 const { getMotivacionById, createMotivacion, updateMotivacion, deleteMotivacion } = require('../service/entidades/motivacionInteresService');
 const { getMuestraById, createMuestra, updateMuestra, deleteMuestra } = require('../service/entidades/muestraService');
 const { getNecesidadById, createNecesidad, updateNecesidad, deleteNecesidad } = require('../service/entidades/necesidadService');
-const { getNivelInvestigacionById, createNivelInvestigacion, updateNivelInvestigacion, deleteNivelInvestigacion } = require('../service/entidades/nivelInvestigacionService');
+const { getNivelInvestigacionById, getNivelesInvestigacion, createNivelInvestigacion, updateNivelInvestigacion, deleteNivelInvestigacion } = require('../service/entidades/nivelInvestigacionService');
 const { getObjetivoEspecificoById, createObjetivoEspecifico, updateObjetivoEspecifico, deleteObjetivoEspecifico } = require('../service/entidades/objetivoEspecificoService');
 const { getObjetivoGeneralById, createObjetivoGeneral, updateObjetivoGeneral, deleteObjetivoGeneral } = require('../service/entidades/objetivoGeneralService');
 const { getOportunidadById, createOportunidad, updateOportunidad, deleteOportunidad } = require('../service/entidades/oportunidadService');
@@ -69,7 +69,7 @@ const { getTemaInvestigacionById, createTemaInvestigacion, updateTemaInvestigaci
 const { getTemporalidadMedicionById, createTemporalidadMedicion, updateTemporalidadMedicion, deleteTemporalidadMedicion } = require('../service/entidades/temporalidadMedicion');
 const { getTemporalidadMedicionContextoById , createTemporalidadMedicionContexto, updateTemporalidadMedicionContexto, deleteTemporalidadMedicionContexto } = require('../service/entidades/temporalidadMedicionContextoService');
 const { getTendenciaById, createTendencia, updateTendencia, deleteTendencia } = require('../service/entidades/tendenciaService');
-const { getTipoInvestigacionById, createTipoInvestigacion, deleteTipoInvestigacion, updateTipoInvestigacion } = require('../service/entidades/tipoInvestigacionService');
+const { getTipoInvestigacionById, getTiposInvestigacion, createTipoInvestigacion, deleteTipoInvestigacion, updateTipoInvestigacion } = require('../service/entidades/tipoInvestigacionService');
 const { getUnidadInformativaById, createUnidadInformativa, updateUnidadInformativa, deleteUnidadInformativa } = require('../service/entidades/unidadInformativaService');
 const { getVersionById, createVersion, updateVersion, deleteVersion } = require('../service/entidades/versionService');
 
@@ -88,10 +88,10 @@ const {} = require('../service/consultas/reportesCalidadService');
 // ****************************** ROUTES ***************************************
 
 // ------------------------- Usuario ---------------------------
+router.post('/usuarios', createUser);
 router.get('/usuarios', getUsers);
 router.get('/usuarios/roles', getUsersAndRoles);
 router.get('/usuarios/:id', getUserById);
-router.post('/usuarios', createUser);
 router.put('/usuarios/:id', updateUser);
 router.put('/usuarios/:id/disable', deleteUser);
 router.get('/usuarios/:correo/correo', getUserByCorreo);
@@ -175,6 +175,7 @@ router.put('/categoriasUnidades/:id', updateCategoriaUnidadInformativa);
 router.put('/categoriasUnidades/:id/disable', deleteCategoriaUnidadInformativa);
 
 // ------------------------ Clase Evento ----------------------------------------
+router.get('/clases',getClaseEvento);
 router.get('/clases/:id',getClaseEventoById );
 router.post('/clases', createClaseEvento );
 router.put('/clases/:id', updateClaseEvento );
@@ -211,6 +212,7 @@ router.put('/condicionesSociales/:id/disable', deleteCondicionSocial);
 
 // ------------------------ Consecuencia ----------------------------------------
 router.get('/consecuencias/:id', getConsecuenciaById );
+router.get('/consecuencias', getConsecuencias );
 router.post('/consecuencias', createConsecuencia);
 router.put('/consecuencias/:id', updateConsecuencia);
 router.put('/consecuencias/:id/disable', deleteConsecuencia );
@@ -373,6 +375,7 @@ router.put('/instrumentos/:id/disable', deleteInstrumento);
 
 // ------------------------ Involucrado ----------------------------------------
 router.get('/involucrados/:id', getInvolucradoById);
+router.get('/involucrados', getInvolucrados)
 router.post('/involucrados', createInvolucrado);
 router.put('/involucrados/:id',updateInvolucrado );
 router.put('/involucrados/:id/disable',deleteInvolucrado );
@@ -416,6 +419,7 @@ router.put('/necesidades/:id/disable', deleteNecesidad);
 
 // ------------------------ Nivel Investigacion ----------------------------------------
 router.get('/nivelesInvestigacion/:id',getNivelInvestigacionById );
+router.get('/nivelesInvestigacion',getNivelesInvestigacion );
 router.post('/nivelesInvestigacion',createNivelInvestigacion );
 router.put('/nivelesInvestigacion/:id', updateNivelInvestigacion);
 router.put('/nivelesInvestigacion/:id/disable',deleteNivelInvestigacion );
@@ -569,6 +573,7 @@ router.put('/tendencias/:id/disable',deleteTendencia );
 
 // ------------------------ Tipo Invesstigacion  ----------------------------------------
 router.get('/tiposInvestigacion/:id', getTipoInvestigacionById);
+router.get('/tiposInvestigacion', getTiposInvestigacion);
 router.post('/tiposInvestigacion', createTipoInvestigacion);
 router.put('/tiposInvestigacion/:id',updateTipoInvestigacion );
 router.put('/tiposInvestigacion/:id/disable', deleteTipoInvestigacion);
