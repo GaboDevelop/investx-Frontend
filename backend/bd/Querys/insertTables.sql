@@ -4,11 +4,11 @@
 INSERT INTO USUARIO
     (idUsuario,correo,contrasena,nombre,segundoNombre,apellido,segundoApellido)
 VALUES
-    ('7', 'ucab@ucab.ve', '123456', 'UCAB', 'NULL', 'NULL', 'NULL');
+    ('7000', 'ucab@ucab.ve', '123456', 'UCAB', 'NULL', 'NULL', 'NULL');
 INSERT INTO USUARIO
     (idUsuario,correo,contrasena,nombre,segundoNombre,apellido,segundoApellido)
 VALUES
-    ('6', 'maximiliano@gmail.com', '123456', 'Maximiliano', 'NULL', 'Bogoljubskij', 'Hernández');
+    ('6000', 'maximiliano@gmail.com', '123456', 'Maximiliano', 'NULL', 'Bogoljubskij', 'Hernández');
 INSERT INTO USUARIO
     (idUsuario,correo,contrasena,nombre,segundoNombre,apellido,segundoApellido)
 VALUES
@@ -88,19 +88,19 @@ VALUES
 INSERT INTO NIVEL_INVESTIGACION
     (idNivelInvestigacion,nivel)
 VALUES
-    ('1', 'Comprensivo');
+    ('1000', 'Comprensivo');
 INSERT INTO NIVEL_INVESTIGACION
     (idNivelInvestigacion,nivel)
 VALUES
-    ('2', 'Aprehensivo');
+    ('2000', 'Aprehensivo');
 INSERT INTO NIVEL_INVESTIGACION
     (idNivelInvestigacion,nivel)
 VALUES
-    ('3', 'Perceptual');
+    ('3000', 'Perceptual');
 INSERT INTO NIVEL_INVESTIGACION
     (idNivelInvestigacion,nivel)
 VALUES
-    ('4', 'Integrativo');
+    ('4000', 'Integrativo');
 
 /*==============================================================*/
 /* Table: TIPO_INVESTIGACION                                   */
@@ -108,19 +108,19 @@ VALUES
 INSERT INTO TIPO_INVESTIGACION
     (idTipoInvestigacion,tipo)
 VALUES
-    ('1', 'Exploratoria');
+    ('1000', 'Exploratoria');
 INSERT INTO TIPO_INVESTIGACION
     (idTipoInvestigacion,tipo)
 VALUES
-    ('2', 'Proyectiva');
+    ('2000', 'Proyectiva');
 INSERT INTO TIPO_INVESTIGACION
     (idTipoInvestigacion,tipo)
 VALUES
-    ('3', 'Analitica');
+    ('3000', 'Analitica');
 INSERT INTO TIPO_INVESTIGACION
     (idTipoInvestigacion,tipo)
 VALUES
-    ('4', 'Predictiva');
+    ('4000', 'Predictiva');
 
 /*==============================================================*/
 /* Table: TEMA_INVESTIGACION                                    */
@@ -128,23 +128,23 @@ VALUES
 INSERT INTO TEMA_INVESTIGACION
     (idTemaInvestigacion,idUsuario,idNivelInvestigacion,idTipoInvestigacion,temaIncompleto,tema,situacionPreocupante,conexionOtrosT)
 VALUES
-    ('77', '33', '1', '2', 'Desarrollar un DataMart', 'Desarrollar un DataMart aplicable a una solución de Inteligencia de Negocios, Business Intelligence, para la empresa ABB Venezuela ', 'Uso poco eficaz y no eficiente del análisis de la información en un gran volumen de datos', 'Desarrollo de sistemas para análisis de datos ');
+    ('77', '33', '1000', '2000', 'Desarrollar un DataMart', 'Desarrollar un DataMart aplicable a una solución de Inteligencia de Negocios, Business Intelligence, para la empresa ABB Venezuela ', 'Uso poco eficaz y no eficiente del análisis de la información en un gran volumen de datos', 'Desarrollo de sistemas para análisis de datos ');
 INSERT INTO TEMA_INVESTIGACION
     (idTemaInvestigacion,idUsuario,idNivelInvestigacion,idTipoInvestigacion,temaIncompleto,tema,situacionPreocupante,conexionOtrosT)
 VALUES
-    ('20', '333', '1', '2', 'Desarrollar un sistema de gestión de riesgos', 'Desarrollar un sistema de gestión de riesgos, que permita apoyar los procesos de gestión de riesgos en proyectos de tecnologia de informacion a nivel de planificación y seguimiento', 'Errores y riesgos que interfieren en los proyectos que afectan el desenvolvimiento de las actividades ', 'Interferencia de errores a nivel planificativo y de seguimiento');
+    ('20', '333', '1000', '2000', 'Desarrollar un sistema de gestión de riesgos', 'Desarrollar un sistema de gestión de riesgos, que permita apoyar los procesos de gestión de riesgos en proyectos de tecnologia de informacion a nivel de planificación y seguimiento', 'Errores y riesgos que interfieren en los proyectos que afectan el desenvolvimiento de las actividades ', 'Interferencia de errores a nivel planificativo y de seguimiento');
 INSERT INTO TEMA_INVESTIGACION
     (idTemaInvestigacion,idUsuario,idNivelInvestigacion,idTipoInvestigacion,temaIncompleto,tema,situacionPreocupante,conexionOtrosT)
 VALUES
-    ('63', '4', '1', '2', 'Diseñar e implementar un componente de extracción de datos', 'Diseñar e implementar un componente de extracción de datos el cual sea capaz de extraer la información requerida sobre cualquier fuente de datos', 'Fraude en las transacciones electrónicas de Venezuela', 'Utilización del canal de SMS para verificación de transacciones electrónicas de cualquier tipo');
+    ('63', '4', '1000', '2000', 'Diseñar e implementar un componente de extracción de datos', 'Diseñar e implementar un componente de extracción de datos el cual sea capaz de extraer la información requerida sobre cualquier fuente de datos', 'Fraude en las transacciones electrónicas de Venezuela', 'Utilización del canal de SMS para verificación de transacciones electrónicas de cualquier tipo');
 INSERT INTO TEMA_INVESTIGACION
     (idTemaInvestigacion,idUsuario,idNivelInvestigacion,idTipoInvestigacion,temaIncompleto,tema,situacionPreocupante,conexionOtrosT)
 VALUES
-    ('1234', '1111', '1', '2', 'Diseñar e implementar un portal Web de empresas para Domiciliaciones', 'Diseñar e implementar un portal Web de Registro de Empresas Ordenantes para Domiciliaciones y Procesamiento de operaciones de Créditos Directos ordenadas por organismos oficiales a través de la cámara de compensación electrónica  ', 'La Camara de Compensacion Electronica carece de interfaces que permitan a los usuarios realizar el registro de empresas ', 'Desarrollo de aplicaciones para la banca electrónica');
+    ('1234', '1111', '1000', '2000', 'Diseñar e implementar un portal Web de empresas para Domiciliaciones', 'Diseñar e implementar un portal Web de Registro de Empresas Ordenantes para Domiciliaciones y Procesamiento de operaciones de Créditos Directos ordenadas por organismos oficiales a través de la cámara de compensación electrónica  ', 'La Camara de Compensacion Electronica carece de interfaces que permitan a los usuarios realizar el registro de empresas ', 'Desarrollo de aplicaciones para la banca electrónica');
 INSERT INTO TEMA_INVESTIGACION
     (idTemaInvestigacion,idUsuario,idNivelInvestigacion,idTipoInvestigacion,temaIncompleto,tema,situacionPreocupante,conexionOtrosT)
 VALUES
-    ('45', '23', '1', '2', 'Software para Linux', 'Diseño y desarrollo de una herramienta que administre software en máquinas con sistema operativo Linux', 'Obsoletismo en herramientas de gestión de software bajo ambiente Linux', 'Desarrollo de aplicaciones para S.O Linux');
+    ('45', '23', '1000', '2000', 'Software para Linux', 'Diseño y desarrollo de una herramienta que administre software en máquinas con sistema operativo Linux', 'Obsoletismo en herramientas de gestión de software bajo ambiente Linux', 'Desarrollo de aplicaciones para S.O Linux');
 
 /*==============================================================*/
 /* Table: VERSION                                               */
@@ -196,11 +196,11 @@ VALUES
 INSERT INTO ROL_USUARIO
     (idRolUsuario,idUsuario,idRol)
 VALUES
-    ('1', '7', '75');
+    ('1000', '7000', '75');
 INSERT INTO ROL_USUARIO
     (idRolUsuario,idUsuario,idRol)
 VALUES
-    ('2', '6', '10');
+    ('2000', '6000', '10');
 INSERT INTO ROL_USUARIO
     (idRolUsuario,idUsuario,idRol)
 VALUES
@@ -260,7 +260,7 @@ VALUES
 INSERT INTO INVOLUCRADO
     (idInvolucrado,involucrado)
 VALUES
-    ('1', 'Personal de la empresa');
+    ('1000', 'Personal de la empresa');
 INSERT INTO INVOLUCRADO
     (idInvolucrado,involucrado)
 VALUES
@@ -496,11 +496,11 @@ VALUES
 INSERT INTO CONDICION_SOCIAL
     (idCondicionSocial,idTemaInvestigacion,contribucion,necesidad,aporte,aplicacion)
 VALUES
-    ('1', '20', 'TRUE', 'TRUE', 'TRUE', 'TRUE');
+    ('1000', '20', 'TRUE', 'TRUE', 'TRUE', 'TRUE');
 INSERT INTO CONDICION_SOCIAL
     (idCondicionSocial,idTemaInvestigacion,contribucion,necesidad,aporte,aplicacion)
 VALUES
-    ('2', '63', 'TRUE', 'TRUE', 'TRUE', 'TRUE');
+    ('2000', '63', 'TRUE', 'TRUE', 'TRUE', 'TRUE');
 INSERT INTO CONDICION_SOCIAL
     (idCondicionSocial,idTemaInvestigacion,contribucion,necesidad,aporte,aplicacion)
 VALUES
@@ -520,23 +520,23 @@ VALUES
 INSERT INTO CONDICION_PERSONAL
     (idCondicionPersonal,idTemaInvestigacion,recursos,expectativa,conocimiento,asesoriaInformacion,accesoInformacion)
 VALUES
-    ('1', '20', 'TRUE', 'TRUE', 'FALSE', 'TRUE', 'TRUE');
+    ('1000', '20', 'TRUE', 'TRUE', 'FALSE', 'TRUE', 'TRUE');
 INSERT INTO CONDICION_PERSONAL
     (idCondicionPersonal,idTemaInvestigacion,recursos,expectativa,conocimiento,asesoriaInformacion,accesoInformacion)
 VALUES
-    ('2', '63', 'FALSE', 'TRUE', 'TRUE', 'TRUE', 'TRUE');
+    ('2000', '63', 'FALSE', 'TRUE', 'TRUE', 'TRUE', 'TRUE');
 INSERT INTO CONDICION_PERSONAL
     (idCondicionPersonal,idTemaInvestigacion,recursos,expectativa,conocimiento,asesoriaInformacion,accesoInformacion)
 VALUES
-    ('3', '1234', 'TRUE', 'TRUE', 'TRUE', 'TRUE', 'TRUE');
+    ('3000', '1234', 'TRUE', 'TRUE', 'TRUE', 'TRUE', 'TRUE');
 INSERT INTO CONDICION_PERSONAL
     (idCondicionPersonal,idTemaInvestigacion,recursos,expectativa,conocimiento,asesoriaInformacion,accesoInformacion)
 VALUES
-    ('4', '45', 'TRUE', 'FALSE', 'TRUE', 'TRUE', 'TRUE');
+    ('4000', '45', 'TRUE', 'FALSE', 'TRUE', 'TRUE', 'TRUE');
 INSERT INTO CONDICION_PERSONAL
     (idCondicionPersonal,idTemaInvestigacion,recursos,expectativa,conocimiento,asesoriaInformacion,accesoInformacion)
 VALUES
-    ('5', '77', 'TRUE', 'TRUE', 'TRUE', 'TRUE', 'TRUE');
+    ('5000', '77', 'TRUE', 'TRUE', 'TRUE', 'TRUE', 'TRUE');
 
 /*==============================================================*/
 /* Table: CONTEXTO                                              */
@@ -735,110 +735,110 @@ VALUES
 INSERT INTO DISENO_INVESTIGACION
     (idDisenoInvestigacion,tipo)
 VALUES
-    ('1', 'Diseno de Campo');
+    ('1000', 'Diseno de Campo');
 INSERT INTO DISENO_INVESTIGACION
     (idDisenoInvestigacion,tipo)
 VALUES
-    ('2', 'Diseno de Laboratorio');
+    ('2000', 'Diseno de Laboratorio');
 INSERT INTO DISENO_INVESTIGACION
     (idDisenoInvestigacion,tipo)
 VALUES
-    ('3', 'Disenos Documentales');
+    ('3000', 'Disenos Documentales');
 INSERT INTO DISENO_INVESTIGACION
     (idDisenoInvestigacion,tipo)
 VALUES
-    ('4', 'Diseno de Fuente Mixta');
+    ('4000', 'Diseno de Fuente Mixta');
 INSERT INTO DISENO_INVESTIGACION
     (idDisenoInvestigacion,tipo)
 VALUES
-    ('5', 'Disenos Virtuales');
+    ('5000', 'Disenos Virtuales');
 INSERT INTO DISENO_INVESTIGACION
     (idDisenoInvestigacion,tipo)
 VALUES
-    ('6', 'Diseno Transaccionales');
+    ('6000', 'Diseno Transaccionales');
 INSERT INTO DISENO_INVESTIGACION
     (idDisenoInvestigacion,tipo)
 VALUES
-    ('7', 'Diseno Evolutivo Logitudinal');
+    ('7000', 'Diseno Evolutivo Logitudinal');
 INSERT INTO DISENO_INVESTIGACION
     (idDisenoInvestigacion,tipo)
 VALUES
-    ('8', 'Diseno Evolutivo Transversal');
+    ('8000', 'Diseno Evolutivo Transversal');
 INSERT INTO DISENO_INVESTIGACION
     (idDisenoInvestigacion,tipo)
 VALUES
-    ('9', 'Disenos de Cohorte');
+    ('9000', 'Disenos de Cohorte');
 INSERT INTO DISENO_INVESTIGACION
     (idDisenoInvestigacion,tipo)
 VALUES
-    ('10', 'Diseno Retrospectivos o Historicos');
+    ('10000', 'Diseno Retrospectivos o Historicos');
 INSERT INTO DISENO_INVESTIGACION
     (idDisenoInvestigacion,tipo)
 VALUES
-    ('11', 'Disenos Contemporaneos');
+    ('11000', 'Disenos Contemporaneos');
 INSERT INTO DISENO_INVESTIGACION
     (idDisenoInvestigacion,tipo)
 VALUES
-    ('12', 'Diseno Univariable');
+    ('12000', 'Diseno Univariable');
 INSERT INTO DISENO_INVESTIGACION
     (idDisenoInvestigacion,tipo)
 VALUES
-    ('13', 'Diseno de Rasgo o Grupo');
+    ('13000', 'Diseno de Rasgo o Grupo');
 INSERT INTO DISENO_INVESTIGACION
     (idDisenoInvestigacion,tipo)
 VALUES
-    ('14', 'Diseno multivariable de caso');
+    ('14000', 'Diseno multivariable de caso');
 INSERT INTO DISENO_INVESTIGACION
     (idDisenoInvestigacion,tipo)
 VALUES
-    ('15', 'Diseno no Experimental');
+    ('15000', 'Diseno no Experimental');
 INSERT INTO DISENO_INVESTIGACION
     (idDisenoInvestigacion,tipo)
 VALUES
-    ('16', 'Diseno Cuasi Experimental de un solo grupo');
+    ('16000', 'Diseno Cuasi Experimental de un solo grupo');
 INSERT INTO DISENO_INVESTIGACION
     (idDisenoInvestigacion,tipo)
 VALUES
-    ('17', 'Diseno Cuasi Experimental de dos grupos');
+    ('17000', 'Diseno Cuasi Experimental de dos grupos');
 INSERT INTO DISENO_INVESTIGACION
     (idDisenoInvestigacion,tipo)
 VALUES
-    ('18', 'Diseno Cuasi Experimental de mas de dos grupos');
+    ('18000', 'Diseno Cuasi Experimental de mas de dos grupos');
 INSERT INTO DISENO_INVESTIGACION
     (idDisenoInvestigacion,tipo)
 VALUES
-    ('19', 'Diseno Controlado por Azar');
+    ('19000', 'Diseno Controlado por Azar');
 INSERT INTO DISENO_INVESTIGACION
     (idDisenoInvestigacion,tipo)
 VALUES
-    ('20', 'Diseno Controlado por constancia');
+    ('20000', 'Diseno Controlado por constancia');
 INSERT INTO DISENO_INVESTIGACION
     (idDisenoInvestigacion,tipo)
 VALUES
-    ('21', 'Diseno de Linea Base');
+    ('21000', 'Diseno de Linea Base');
 /*==============================================================*/
 /* Table: PROYECTIVA                                            */
 /*==============================================================*/
 INSERT INTO PROYECTIVA
     (idProyectiva,idUnidadEstudio,idDisenoInvestigacion)
 VALUES
-    ('9233', '489', '10');
+    ('9233', '489', '10000');
 INSERT INTO PROYECTIVA
     (idProyectiva,idUnidadEstudio,idDisenoInvestigacion)
 VALUES
-    ('436', '46', '5');
+    ('436', '46', '5000');
 INSERT INTO PROYECTIVA
     (idProyectiva,idUnidadEstudio,idDisenoInvestigacion)
 VALUES
-    ('7412', '7586', '17');
+    ('7412', '7586', '17000');
 INSERT INTO PROYECTIVA
     (idProyectiva,idUnidadEstudio,idDisenoInvestigacion)
 VALUES
-    ('4363', '483', '13');
+    ('4363', '483', '13000');
 INSERT INTO PROYECTIVA
     (idProyectiva,idUnidadEstudio,idDisenoInvestigacion)
 VALUES
-    ('760', '7502', '4');
+    ('760', '7502', '4000');
 
 /*==============================================================*/
 /* Table: CLASE_EVENTO                                          */
@@ -890,76 +890,76 @@ VALUES
 INSERT INTO INSTRUMENTO
     (idInstrumento,idEvento,instrumento,nivel)
 VALUES
-    ('1', '4256', 'Escala de Estimacion','1 al 10');
+    ('1000', '4256', 'Escala de Estimacion','1 al 10');
 INSERT INTO INSTRUMENTO
     (idInstrumento,idEvento,instrumento,nivel)
 VALUES
-    ('2', '4288', 'Test','1 al 20');
+    ('2000', '4288', 'Test','1 al 20');
 INSERT INTO INSTRUMENTO
     (idInstrumento,idEvento,instrumento,nivel)
 VALUES
-    ('3', '74', 'Matriz de analisis','1 al 350');
+    ('3000', '74', 'Matriz de analisis','1 al 350');
 INSERT INTO INSTRUMENTO
     (idInstrumento,idEvento,instrumento,nivel)
 VALUES
-    ('4', '123', 'Matriz de registro','1 al 60');
+    ('4000', '123', 'Matriz de registro','1 al 60');
 INSERT INTO INSTRUMENTO
     (idInstrumento,idEvento,instrumento,nivel)
 VALUES
-    ('5', '963', 'Matriz de categorias','1 al 250');
+    ('5000', '963', 'Matriz de categorias','1 al 250');
 INSERT INTO INSTRUMENTO
     (idInstrumento,idEvento,instrumento,nivel)
 VALUES
-    ('6', '5632', 'Registro global','1 al 100');
+    ('6000', '5632', 'Registro global','1 al 100');
 INSERT INTO INSTRUMENTO
     (idInstrumento,idEvento,instrumento,nivel)
 VALUES
-    ('7', '752', 'Lista de chequeo o de cotejo','1 al 50');
+    ('7000', '752', 'Lista de chequeo o de cotejo','1 al 50');
 
 /*==============================================================*/
 /* Table: FUENTE                                                */
 /*==============================================================*/
-INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('1', '1', 'Trabajadores del area de proyectos');
-INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('2', '2', 'Riesgos generales por los que pasa un evento');
-INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('3', '3', 'Sistema electronico de las finanzas');
-INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('4', '4', 'Seccion de registro y pagos en linea');
-INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('5', '5', 'Misma muestra');
-INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('6', '6', 'Computadores que trabajen con el mismo protocolo');
-INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('7', '7', 'Trabajadores del area');
+INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('1000', '1000', 'Trabajadores del area de proyectos');
+INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('2000', '2000', 'Riesgos generales por los que pasa un evento');
+INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('3000', '3000', 'Sistema electronico de las finanzas');
+INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('4000', '4000', 'Seccion de registro y pagos en linea');
+INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('5000', '5000', 'Misma muestra');
+INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('6000', '6000', 'Computadores que trabajen con el mismo protocolo');
+INSERT INTO FUENTE (idFuente,idInstrumento,fuente) VALUES ('7000', '7000', 'Trabajadores del area');
 
 /*==============================================================*/
 /* Table: ITEM                                                  */
 /*==============================================================*/
-INSERT INTO ITEM (idItem,idInstrumento,item) VALUES ('1', '1', 'Dato');
-INSERT INTO ITEM (idItem,idInstrumento,item) VALUES ('2', '2', 'Indicadores');
-INSERT INTO ITEM (idItem,idInstrumento,item) VALUES ('3', '3', 'Filas y columnas con indentificadores independientes');
-INSERT INTO ITEM (idItem,idInstrumento,item) VALUES ('4', '4', 'Registros en filas y columna a decision');
-INSERT INTO ITEM (idItem,idInstrumento,item) VALUES ('5', '5', 'Categorias en filas y semejanzas y/o diferencias en columnas');
-INSERT INTO ITEM (idItem,idInstrumento,item) VALUES ('6', '6', 'Artilugio global');
-INSERT INTO ITEM (idItem,idInstrumento,item) VALUES ('7', '7', 'Identificadores a evaluar');
+INSERT INTO ITEM (idItem,idInstrumento,item) VALUES ('1000', '1000', 'Dato');
+INSERT INTO ITEM (idItem,idInstrumento,item) VALUES ('2000', '2000', 'Indicadores');
+INSERT INTO ITEM (idItem,idInstrumento,item) VALUES ('3000', '3000', 'Filas y columnas con indentificadores independientes');
+INSERT INTO ITEM (idItem,idInstrumento,item) VALUES ('4000', '4000', 'Registros en filas y columna a decision');
+INSERT INTO ITEM (idItem,idInstrumento,item) VALUES ('5000', '5000', 'Categorias en filas y semejanzas y/o diferencias en columnas');
+INSERT INTO ITEM (idItem,idInstrumento,item) VALUES ('6000', '6000', 'Artilugio global');
+INSERT INTO ITEM (idItem,idInstrumento,item) VALUES ('7000', '7000', 'Identificadores a evaluar');
 
 
 /*==============================================================*/
 /* Table: SINERGIA                                              */
 /*==============================================================*/
-INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('1', '4256', 'Riesgo de desborde');
-INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('2', '4288', 'Cantidad de veces que ocurre un problema');
-INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('3', '74', 'Robo de divisas extranjeras');
-INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('4', '123', 'Robo de identidad virtual');
-INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('5', '963', 'Empaquetado de Windows en cadenas de 8 bits');
-INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('6', '5632', 'Protocolo HDLC');
-INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('7', '752', 'Mal manejo de la tecnica de instrumentacion');
+INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('1000', '4256', 'Riesgo de desborde');
+INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('2000', '4288', 'Cantidad de veces que ocurre un problema');
+INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('3000', '74', 'Robo de divisas extranjeras');
+INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('4000', '123', 'Robo de identidad virtual');
+INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('5000', '963', 'Empaquetado de Windows en cadenas de 8 bits');
+INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('6000', '5632', 'Protocolo HDLC');
+INSERT INTO SINERGIA (idSinergia,idEvento,sinergia) VALUES ('7000', '752', 'Mal manejo de la tecnica de instrumentacion');
 
 /*==============================================================*/
 /* Table: INDICIO                                               */
 /*==============================================================*/
-INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('1', '1', 'Como un aspecto deforma el proyecto');
-INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('2', '2', 'Ciclaje de en proyectos');
-INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('3', '3', 'Fallo del protocolo HTTPS');
-INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('4', '4', 'Fallo en identificacion por IPv4');
-INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('5', '5', 'Clasificacion de cadenas');
-INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('6', '6', 'Envio de informacion');
-INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('7', '7', 'Aspecto caracteristico');
+INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('1000', '1000', 'Como un aspecto deforma el proyecto');
+INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('2000', '2000', 'Ciclaje de en proyectos');
+INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('3000', '3000', 'Fallo del protocolo HTTPS');
+INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('4000', '4000', 'Fallo en identificacion por IPv4');
+INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('5000', '5000', 'Clasificacion de cadenas');
+INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('6000', '6000', 'Envio de informacion');
+INSERT INTO INDICIO (idIndicio,idSinergia,indicio) VALUES ('7000', '7000', 'Aspecto caracteristico');
 
 /*==============================================================*/
 /* Table: UNIDAD_INFORMATIVA                                    */
@@ -1484,23 +1484,23 @@ VALUES
 INSERT INTO OBJETIVO_GENERAL
     (idObjetivoGeneral,idProyectiva,objetivo)
 VALUES
-    ('1', '9233', 'Desarrollar un sistema para la gestión de riesgos, que apoye los procesos de gestión de riesgos en proyectos de tecnología de informaciona nivel de planificación (identificación y valoración) y seguimiento');
+    ('1000', '9233', 'Desarrollar un sistema para la gestión de riesgos, que apoye los procesos de gestión de riesgos en proyectos de tecnología de informaciona nivel de planificación (identificación y valoración) y seguimiento');
 INSERT INTO OBJETIVO_GENERAL
     (idObjetivoGeneral,idProyectiva,objetivo)
 VALUES
-    ('2', '760', 'Desarrollar un DataMart aplicable a una solución de Inteligencia de Negocios, Business Intelligence, para la empresa ABB Venezuela.');
+    ('2000', '760', 'Desarrollar un DataMart aplicable a una solución de Inteligencia de Negocios, Business Intelligence, para la empresa ABB Venezuela.');
 INSERT INTO OBJETIVO_GENERAL
     (idObjetivoGeneral,idProyectiva,objetivo)
 VALUES
-    ('3', '436', 'Desarrollar un componente que dada una agenda configurable de planificación de procesos, valide los procesos que se deban iniciar, localice y extraiga de una fuente de datos información categorizada, permitiendo la relación de las categorías entre distintas fuentes de datos y el almacenamiento de los resultados para auditoría');
+    ('3000', '436', 'Desarrollar un componente que dada una agenda configurable de planificación de procesos, valide los procesos que se deban iniciar, localice y extraiga de una fuente de datos información categorizada, permitiendo la relación de las categorías entre distintas fuentes de datos y el almacenamiento de los resultados para auditoría');
 INSERT INTO OBJETIVO_GENERAL
     (idObjetivoGeneral,idProyectiva,objetivo)
 VALUES
-    ('4', '7412', 'Desarrollar un portal Web que sea interfaz y procese el registro de empresas ordenantes de pagos domiciliados, así como el procesamiento de operaciones de créditos directos ordenados por organismos oficiales en el Sistema de Cámara de Compensación Electrónica del Banco Central de Venezuela');
+    ('4000', '7412', 'Desarrollar un portal Web que sea interfaz y procese el registro de empresas ordenantes de pagos domiciliados, así como el procesamiento de operaciones de créditos directos ordenados por organismos oficiales en el Sistema de Cámara de Compensación Electrónica del Banco Central de Venezuela');
 INSERT INTO OBJETIVO_GENERAL
     (idObjetivoGeneral,idProyectiva,objetivo)
 VALUES
-    ('5', '4363', 'Diseñar y desarrollar un sistema que permita controlar, remover e inventariar el software instalado en estaciones de trabajo Linux utilizando herramientas basadas en Software Libre (GNU)');
+    ('5000', '4363', 'Diseñar y desarrollar un sistema que permita controlar, remover e inventariar el software instalado en estaciones de trabajo Linux utilizando herramientas basadas en Software Libre (GNU)');
 
 /*==============================================================*/
 /* Table: ESTRUCTURACION_PREVIA                                 */
@@ -1608,7 +1608,7 @@ VALUES
 INSERT INTO OBJETIVO_ESPECIFICO
     (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
-    ('7', '9233', '6691', '¿Que proyeccion se debe realizar para disminuir los riesgos?','Diseñar e implementar los algoritmos necesarios para la valoración de riesgos y la probabilidad que ocurran, basados en la evaluación previa de las mejores prácticas y/o los elaborados como aporte personal');
+    ('7000', '9233', '6691', '¿Que proyeccion se debe realizar para disminuir los riesgos?','Diseñar e implementar los algoritmos necesarios para la valoración de riesgos y la probabilidad que ocurran, basados en la evaluación previa de las mejores prácticas y/o los elaborados como aporte personal');
 INSERT INTO OBJETIVO_ESPECIFICO
     (idObjetivoEspecifico,idProyectiva,idEstadio,preguntaEspecifica,objetivo)
 VALUES
@@ -1709,11 +1709,11 @@ VALUES
 INSERT INTO EFECTO_LOGRAR
     (idEfectoLograr,idFundamentoProyectivo,efecto)
 VALUES
-    ('7', '3651', 'Se desea lograr el diseño y desarrollo de cada uno de los módulos para proporcionar una vía para realizar estas operaciones de una manera más rápida y eficaz que el proceso utilizado actualmente');
+    ('7000', '3651', 'Se desea lograr el diseño y desarrollo de cada uno de los módulos para proporcionar una vía para realizar estas operaciones de una manera más rápida y eficaz que el proceso utilizado actualmente');
 INSERT INTO EFECTO_LOGRAR
     (idEfectoLograr,idFundamentoProyectivo,efecto)
 VALUES
-    ('6', '633', 'Se desea una solución factible y acorde a las necesidades de la empresa ABB');
+    ('6000', '633', 'Se desea una solución factible y acorde a las necesidades de la empresa ABB');
 INSERT INTO EFECTO_LOGRAR
     (idEfectoLograr,idFundamentoProyectivo,efecto)
 VALUES
@@ -1773,7 +1773,7 @@ VALUES
 INSERT INTO PROCESO_EXPLICATIVO
     (idProcesoExplicativo,idFundamentoProyectivo,proceso)
 VALUES
-    ('4', '1254', 'Mal manejo o nulo de los riesgos en un proyecto de tecnología de información lo cual conlleva a errores futuros de implementación');
+    ('4000', '1254', 'Mal manejo o nulo de los riesgos en un proyecto de tecnología de información lo cual conlleva a errores futuros de implementación');
 INSERT INTO PROCESO_EXPLICATIVO
     (idProcesoExplicativo,idFundamentoProyectivo,proceso)
 VALUES
@@ -1785,7 +1785,7 @@ VALUES
 INSERT INTO PROCESO_EXPLICATIVO
     (idProcesoExplicativo,idFundamentoProyectivo,proceso)
 VALUES
-    ('5', '3651', 'Carencia de interfaces que permitan a los usuarios realizar el registro de empresas involucradas en el medio de Domiciliaciones');
+    ('5000', '3651', 'Carencia de interfaces que permitan a los usuarios realizar el registro de empresas involucradas en el medio de Domiciliaciones');
 INSERT INTO PROCESO_EXPLICATIVO
     (idProcesoExplicativo,idFundamentoProyectivo,proceso)
 VALUES
@@ -1801,55 +1801,55 @@ VALUES
 INSERT INTO TECNICA_ANALISIS
     (idTecnicaAnalisis,tecnica)
 VALUES
-    ('1', 'Análisis de Correlaciones');
+    ('1000', 'Análisis de Correlaciones');
 INSERT INTO TECNICA_ANALISIS
     (idTecnicaAnalisis,tecnica)
 VALUES
-    ('2', 'Análisis de Regresion');
+    ('2000', 'Análisis de Regresion');
 INSERT INTO TECNICA_ANALISIS
     (idTecnicaAnalisis,tecnica)
 VALUES
-    ('3', 'Visualizacion de datos');
+    ('3000', 'Visualizacion de datos');
 INSERT INTO TECNICA_ANALISIS
     (idTecnicaAnalisis,tecnica)
 VALUES
-    ('4', 'Análisis de escenarios');
+    ('4000', 'Análisis de escenarios');
 INSERT INTO TECNICA_ANALISIS
     (idTecnicaAnalisis,tecnica)
 VALUES
-    ('5', 'Data mining');
+    ('5000', 'Data mining');
 INSERT INTO TECNICA_ANALISIS
     (idTecnicaAnalisis,tecnica)
 VALUES
-    ('6', 'Análisis de sentimiento');
+    ('6000', 'Análisis de sentimiento');
 INSERT INTO TECNICA_ANALISIS
     (idTecnicaAnalisis,tecnica)
 VALUES
-    ('7', 'Análisis semánticos de textos');
+    ('7000', 'Análisis semánticos de textos');
 INSERT INTO TECNICA_ANALISIS
     (idTecnicaAnalisis,tecnica)
 VALUES
-    ('8', 'Análisis o de patentes y literatura científica');
+    ('8000', 'Análisis o de patentes y literatura científica');
 INSERT INTO TECNICA_ANALISIS
     (idTecnicaAnalisis,tecnica)
 VALUES
-    ('9', 'Simulación de Monte Carlo');
+    ('9000', 'Simulación de Monte Carlo');
 INSERT INTO TECNICA_ANALISIS
     (idTecnicaAnalisis,tecnica)
 VALUES
-    ('10', 'Programación y optimización matemática');
+    ('10000', 'Programación y optimización matemática');
 INSERT INTO TECNICA_ANALISIS
     (idTecnicaAnalisis,tecnica)
 VALUES
-    ('11', 'Predicción matemática');
+    ('11000', 'Predicción matemática');
 INSERT INTO TECNICA_ANALISIS
     (idTecnicaAnalisis,tecnica)
 VALUES
-    ('12', 'Redes neuronales');
+    ('12000', 'Redes neuronales');
 INSERT INTO TECNICA_ANALISIS
     (idTecnicaAnalisis,tecnica)
 VALUES
-    ('13', 'Experimientos AB');
+    ('13000', 'Experimientos AB');
 
 /*==============================================================*/
 /* Table: ANALISIS_EVENTO                                       */
@@ -1857,23 +1857,23 @@ VALUES
 INSERT INTO ANALISIS_EVENTO
     (idAnalisisEvento,idFundamentoProyectivo,idTecnicaAnalisis,analisis)
 VALUES
-    ('6632', '1254', '2', 'Actualizar las tablas de categorías permite modificarlas para añadir o eliminar los riesgos que pueden ocurrir');
+    ('6632', '1254', '2000', 'Actualizar las tablas de categorías permite modificarlas para añadir o eliminar los riesgos que pueden ocurrir');
 INSERT INTO ANALISIS_EVENTO
     (idAnalisisEvento,idFundamentoProyectivo,idTecnicaAnalisis,analisis)
 VALUES
-    ('43', '3651', '5', 'Actualizar las tablas de transacciones y el Sistema Financiero Venezolano');
+    ('43', '3651', '5000', 'Actualizar las tablas de transacciones y el Sistema Financiero Venezolano');
 INSERT INTO ANALISIS_EVENTO
     (idAnalisisEvento,idFundamentoProyectivo,idTecnicaAnalisis,analisis)
 VALUES
-    ('6', '633', '8', 'Actualizar las tablas en donde están contenido los datos para un buen análisis de los mismos ');
+    ('6', '633', '8000', 'Actualizar las tablas en donde están contenido los datos para un buen análisis de los mismos ');
 INSERT INTO ANALISIS_EVENTO
     (idAnalisisEvento,idFundamentoProyectivo,idTecnicaAnalisis,analisis)
 VALUES
-    ('892', '1254', '13', 'Actualizar las tablas de factores de riesgo permite modificar los valores principales de ocurrencia');
+    ('892', '1254', '13000', 'Actualizar las tablas de factores de riesgo permite modificar los valores principales de ocurrencia');
 INSERT INTO ANALISIS_EVENTO
     (idAnalisisEvento,idFundamentoProyectivo,idTecnicaAnalisis,analisis)
 VALUES
-    ('77', '3651', '1', 'Actualizar las tablas de los pagos de las domiciliaciones ');
+    ('77', '3651', '1000', 'Actualizar las tablas de los pagos de las domiciliaciones ');
 
 /*==============================================================*/
 /* Table: DESCRIPCION_EVENTO                                    */
@@ -1881,11 +1881,11 @@ VALUES
 INSERT INTO DESCRIPCION_EVENTO
     (idDescripcionEvento,idFundamentoProyectivo,definicion,explicacion)
 VALUES
-    ('1', '1254', 'Identificar los riesgos', 'Define los riesgos y sus categorías');
+    ('1000', '1254', 'Identificar los riesgos', 'Define los riesgos y sus categorías');
 INSERT INTO DESCRIPCION_EVENTO
     (idDescripcionEvento,idFundamentoProyectivo,definicion,explicacion)
 VALUES
-    ('2', '1254', 'Cuantificar el riesgo', 'Permite asignar a los riesgos valores de la probabilidad de ocurrencia');
+    ('2000', '1254', 'Cuantificar el riesgo', 'Permite asignar a los riesgos valores de la probabilidad de ocurrencia');
 INSERT INTO DESCRIPCION_EVENTO
     (idDescripcionEvento,idFundamentoProyectivo,definicion,explicacion)
 VALUES
@@ -1916,17 +1916,12 @@ VALUES
     ('468', '419', 'Empaquetamiento de archivos', 'Significa que un archivo ocupe menos espacio sin corromperlo');
 
 /*==============================================================*/
-/* Table: FUNDAMENTO_PROYECTIVO_INVESTIGA                       */
-/*==============================================================*/
-
-
-/*==============================================================*/
 /* Table: COMPARACION                                           */
 /*==============================================================*/
 INSERT INTO COMPARACION
     (idComparacion,idFundamentoProyectivo,comparacion)
 VALUES
-    ('1', '1254', 'Las practicas de gestion y valoracion de riesgos de proyectos publicadas en por la PMI resultan ser la más destacada con respecto a las ISO21500 y la ISO10006');
+    ('1000', '1254', 'Las practicas de gestion y valoracion de riesgos de proyectos publicadas en por la PMI resultan ser la más destacada con respecto a las ISO21500 y la ISO10006');
 
 /*==============================================================*/
 /* Table: EXPLICACION                                           */
@@ -1934,11 +1929,11 @@ VALUES
 INSERT INTO EXPLICACION
     (idExplicacion,idFundamentoProyectivo,explicacion)
 VALUES
-    ('1', '1254', 'Respecto a la utilización de los métodos publicados por la PMI correspondiente al 2004 facilita la manera de análisis y aplicación de diferentes aspectos de gestión de riesgos');
+    ('1000', '1254', 'Respecto a la utilización de los métodos publicados por la PMI correspondiente al 2004 facilita la manera de análisis y aplicación de diferentes aspectos de gestión de riesgos');
 INSERT INTO EXPLICACION
     (idExplicacion,idFundamentoProyectivo,explicacion)
 VALUES
-    ('3', '64', 'Es importante la automatización en la planificación de tareas debido a que dedicar recursos bien pagados a tareas serviles es un desperdicio de dinero y tiempo ya que a medida que aumenta la complejidad del procesos incrementa el beneficio de automatizar los procesos ');
+    ('3000', '64', 'Es importante la automatización en la planificación de tareas debido a que dedicar recursos bien pagados a tareas serviles es un desperdicio de dinero y tiempo ya que a medida que aumenta la complejidad del procesos incrementa el beneficio de automatizar los procesos ');
 
 /*==============================================================*/
 /* Table: PREDICCION                                            */
@@ -1946,7 +1941,7 @@ VALUES
 INSERT INTO PREDICCION
     (idPrediccion,idFundamentoProyectivo,prediccion)
 VALUES
-    ('4', '64', 'Si los incrementa la complejidad de un trabajo, incrementa el beneficio de automatización exponencialmente');
+    ('4000', '64', 'Si los incrementa la complejidad de un trabajo, incrementa el beneficio de automatización exponencialmente');
 INSERT INTO PREDICCION
     (idPrediccion,idFundamentoProyectivo,prediccion)
 VALUES
@@ -1954,7 +1949,7 @@ VALUES
 INSERT INTO PREDICCION
     (idPrediccion,idFundamentoProyectivo,prediccion)
 VALUES
-    ('5', '64', 'El centralizar el manejo de SMS y MMS de las instituciones bancaria mejorará el rendimiento del envío de mensajes sobre acciones de la parte electrónica');
+    ('5000', '64', 'El centralizar el manejo de SMS y MMS de las instituciones bancaria mejorará el rendimiento del envío de mensajes sobre acciones de la parte electrónica');
 INSERT INTO PREDICCION
     (idPrediccion,idFundamentoProyectivo,prediccion)
 VALUES
@@ -1966,23 +1961,23 @@ VALUES
 INSERT INTO PROYECTO
     (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva,modalidad)
 VALUES
-    ('1', '77', '8963', '8566', '7502', '760', '1');
+    ('1000', '77', '8963', '8566', '7502', '760', '1');
 INSERT INTO PROYECTO
     (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva,modalidad)
 VALUES
-    ('2', '20', '9696', '7546', '489', '9233', '3');
+    ('2000', '20', '9696', '7546', '489', '9233', '3');
 INSERT INTO PROYECTO
     (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva,modalidad)
 VALUES
-    ('3', '63', '456', '74', '46', '436', '4');
+    ('3000', '63', '456', '74', '46', '436', '4');
 INSERT INTO PROYECTO
     (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva,modalidad)
 VALUES
-    ('4', '1234', '4726', '9080', '7586', '7412', '2');
+    ('4000', '1234', '4726', '9080', '7586', '7412', '2');
 INSERT INTO PROYECTO
     (idProyecto,idTemaInvestigacion,idTemporalidad,idContexto,idUnidadEstudio,idProyectiva,modalidad)
 VALUES
-    ('5', '45', '471', '4569', '483', '4363', '2');
+    ('5000', '45', '471', '4569', '483', '4363', '2');
 
 /*==============================================================*/
 /* Table: JUSTIFICACION                                         */
@@ -1990,35 +1985,35 @@ VALUES
 INSERT INTO JUSTIFICACION
     (idJustificacion,idTemporalidad,idContexto,idUnidadEstudio,idEvento,idTipoInvestigacion)
 VALUES
-    ('1', '8963', '8566', '7502', '4256', '2');
+    ('1000', '8963', '8566', '7502', '4256', '2000');
 INSERT INTO JUSTIFICACION
     (idJustificacion,idTemporalidad,idContexto,idUnidadEstudio,idEvento,idTipoInvestigacion)
 VALUES
-    ('2', '9696', '7546', '489', '5632', '2');
+    ('2000', '9696', '7546', '489', '5632', '2000');
 INSERT INTO JUSTIFICACION
     (idJustificacion,idTemporalidad,idContexto,idUnidadEstudio,idEvento,idTipoInvestigacion)
 VALUES
-    ('3', '456', '74', '46', '74', '2');
+    ('3000', '456', '74', '46', '74', '2000');
 INSERT INTO JUSTIFICACION
     (idJustificacion,idTemporalidad,idContexto,idUnidadEstudio,idEvento,idTipoInvestigacion)
 VALUES
-    ('4', '4726', '9080', '7586', '123', '2');
+    ('4000', '4726', '9080', '7586', '123', '2000');
 INSERT INTO JUSTIFICACION
     (idJustificacion,idTemporalidad,idContexto,idUnidadEstudio,idEvento,idTipoInvestigacion)
 VALUES
-    ('5', '471', '4569', '483', '963', '2');
+    ('5000', '471', '4569', '483', '963', '2000');
 INSERT INTO JUSTIFICACION
     (idJustificacion,idTemporalidad,idContexto,idUnidadEstudio,idEvento,idTipoInvestigacion)
 VALUES
-    ('6', null, null, null, '5632', '2');
+    ('6000', null, null, null, '5632', '2000');
 INSERT INTO JUSTIFICACION
     (idJustificacion,idTemporalidad,idContexto,idUnidadEstudio,idEvento,idTipoInvestigacion)
 VALUES
-    ('7', null, null, null, '4288', '2');
+    ('7000', null, null, null, '4288', '2000');
 INSERT INTO JUSTIFICACION
     (idJustificacion,idTemporalidad,idContexto,idUnidadEstudio,idEvento,idTipoInvestigacion)
 VALUES
-    ('8', null, null, null, '752', '2');
+    ('8000', null, null, null, '752', '2000');
 
 
 /*==============================================================*/
@@ -2027,35 +2022,35 @@ VALUES
 INSERT INTO POTENCIALIDAD
     (idPotencialidad,idJustificacion,argumento)
 VALUES
-    ('1', '1', 'Centralizar el uso de una inteligencia que permita socavar el hecho de tener que realizar todo un trabajo de forma manual');
+    ('1000', '1000', 'Centralizar el uso de una inteligencia que permita socavar el hecho de tener que realizar todo un trabajo de forma manual');
 INSERT INTO POTENCIALIDAD
     (idPotencialidad,idJustificacion,argumento)
 VALUES
-    ('2', '2', 'Poder añadir cualquier tipo de riesgos a un proyecto con el fin de poder medir en su totalidad los riesgos que pueden surgir a lo largo de la ejecución del proyecto');
+    ('2000', '2000', 'Poder añadir cualquier tipo de riesgos a un proyecto con el fin de poder medir en su totalidad los riesgos que pueden surgir a lo largo de la ejecución del proyecto');
 INSERT INTO POTENCIALIDAD
     (idPotencialidad,idJustificacion,argumento)
 VALUES
-    ('3', '3', 'Automatizar el envío de mensajes de todas las empresas financieras con soporte de Angelina');
+    ('3000', '3000', 'Automatizar el envío de mensajes de todas las empresas financieras con soporte de Angelina');
 INSERT INTO POTENCIALIDAD
     (idPotencialidad,idJustificacion,argumento)
 VALUES
-    ('4', '4', 'Poder organizar en su totalidad todas aquella empresas adscritas a la domiciliación');
+    ('4000', '4000', 'Poder organizar en su totalidad todas aquella empresas adscritas a la domiciliación');
 INSERT INTO POTENCIALIDAD
     (idPotencialidad,idJustificacion,argumento)
 VALUES
-    ('5', '5', 'Fácil gestión del software en una red de computadores');
+    ('5000', '5000', 'Fácil gestión del software en una red de computadores');
 INSERT INTO POTENCIALIDAD
     (idPotencialidad,idJustificacion,argumento)
 VALUES
-    ('6', '6', 'Modificacion en la gestión del software en una red de computadores');
+    ('6000', '6000', 'Modificacion en la gestión del software en una red de computadores');
 INSERT INTO POTENCIALIDAD
     (idPotencialidad,idJustificacion,argumento)
 VALUES
-    ('7', '7', 'Forma de eliminar riesgos en los proyectos');
+    ('7000', '7000', 'Forma de eliminar riesgos en los proyectos');
 INSERT INTO POTENCIALIDAD
     (idPotencialidad,idJustificacion,argumento)
 VALUES
-    ('8', '8', 'Establecimiento de tecnicas de analisis');
+    ('8000', '8000', 'Establecimiento de tecnicas de analisis');
 
 /*==============================================================*/
 /* Table: OPORTUNIDAD                                           */
@@ -2063,35 +2058,35 @@ VALUES
 INSERT INTO OPORTUNIDAD
     (idOportunidad,idJustificacion,argumento)
 VALUES
-    ('1', '1', 'El hecho de poder tener gente que conozca sobre aspectos fundamentales para el desarrollo de la inteligencia a formalizar');
+    ('1000', '1000', 'El hecho de poder tener gente que conozca sobre aspectos fundamentales para el desarrollo de la inteligencia a formalizar');
 INSERT INTO OPORTUNIDAD
     (idOportunidad,idJustificacion,argumento)
 VALUES
-    ('2', '2', 'Personal capacitado con conocimientos en el área de gestión de riesgos dentro de la propia empresa facilita la obtención de datos para mejorar el rendimiento de la aplicación');
+    ('2000', '2000', 'Personal capacitado con conocimientos en el área de gestión de riesgos dentro de la propia empresa facilita la obtención de datos para mejorar el rendimiento de la aplicación');
 INSERT INTO OPORTUNIDAD
     (idOportunidad,idJustificacion,argumento)
 VALUES
-    ('3', '3', 'Fundamentación sobre el sistema Angelina que permite la introducción de nuevas tecnologias para el ampliamiento de la misma');
+    ('3000', '3000', 'Fundamentación sobre el sistema Angelina que permite la introducción de nuevas tecnologias para el ampliamiento de la misma');
 INSERT INTO OPORTUNIDAD
     (idOportunidad,idJustificacion,argumento)
 VALUES
-    ('4', '4', 'Centralización a modo de sistema para el registro de todas las empresas adscritas');
+    ('4000', '4000', 'Centralización a modo de sistema para el registro de todas las empresas adscritas');
 INSERT INTO OPORTUNIDAD
     (idOportunidad,idJustificacion,argumento)
 VALUES
-    ('5', '5', 'Poner al límite los cargos de servicio técnico dentro de las empresas para poder gestionar el conjunto de programas que se utiliza en las distintas redes de computadoras');
+    ('5000', '5000', 'Poner al límite los cargos de servicio técnico dentro de las empresas para poder gestionar el conjunto de programas que se utiliza en las distintas redes de computadoras');
 INSERT INTO OPORTUNIDAD
     (idOportunidad,idJustificacion,argumento)
 VALUES
-    ('6', '6', 'Actualizar componente fisicos');
+    ('6000', '6000', 'Actualizar componente fisicos');
 INSERT INTO OPORTUNIDAD
     (idOportunidad,idJustificacion,argumento)
 VALUES
-    ('7', '7', 'Actualizar plataformas de riesgos');
+    ('7000', '7000', 'Actualizar plataformas de riesgos');
 INSERT INTO OPORTUNIDAD
     (idOportunidad,idJustificacion,argumento)
 VALUES
-    ('8', '8', 'Actualizacion de tecnicas de analisis');
+    ('8000', '8000', 'Actualizacion de tecnicas de analisis');
 
 /*==============================================================*/
 /* Table: NECESIDAD                                             */
@@ -2099,35 +2094,35 @@ VALUES
 INSERT INTO NECESIDAD
     (idNecesidad,idJustificacion,argumento)
 VALUES
-    ('1', '1', 'Pocas opciones a la hora de analizar datos para el Modulo de Facturacion ');
+    ('1000', '1000', 'Pocas opciones a la hora de analizar datos para el Modulo de Facturacion ');
 INSERT INTO NECESIDAD
     (idNecesidad,idJustificacion,argumento)
 VALUES
-    ('2', '2', 'Aparición de riesgos en la realización de proyectos que impiden la culminación de los mismos');
+    ('2000', '2000', 'Aparición de riesgos en la realización de proyectos que impiden la culminación de los mismos');
 INSERT INTO NECESIDAD
     (idNecesidad,idJustificacion,argumento)
 VALUES
-    ('3', '3', 'Pocas herramientas que ayuden con la extracción de datos o presencia de estas muy limitadas');
+    ('3000', '3000', 'Pocas herramientas que ayuden con la extracción de datos o presencia de estas muy limitadas');
 INSERT INTO NECESIDAD
     (idNecesidad,idJustificacion,argumento)
 VALUES
-    ('4', '4', 'Problemas con el Pago de las domiciliaciones que impiden proceder a los usuarios');
+    ('4000', '4000', 'Problemas con el Pago de las domiciliaciones que impiden proceder a los usuarios');
 INSERT INTO NECESIDAD
     (idNecesidad,idJustificacion,argumento)
 VALUES
-    ('5', '5', 'Falta de manejo de un software para el sistema operativo de linux ');
+    ('5000', '5000', 'Falta de manejo de un software para el sistema operativo de linux ');
 INSERT INTO NECESIDAD
     (idNecesidad,idJustificacion,argumento)
 VALUES
-    ('6', '6', 'Falta de componente fisicos');
+    ('6000', '6000', 'Falta de componente fisicos');
 INSERT INTO NECESIDAD
     (idNecesidad,idJustificacion,argumento)
 VALUES
-    ('7', '7', 'Falta plataformas de riesgos');
+    ('7000', '7000', 'Falta plataformas de riesgos');
 INSERT INTO NECESIDAD
     (idNecesidad,idJustificacion,argumento)
 VALUES
-    ('8', '8', 'Falta de tecnicas de analisis');
+    ('8000', '8000', 'Falta de tecnicas de analisis');
 
 /*==============================================================*/
 /* Table: TENDENCIA                                             */
@@ -2135,35 +2130,35 @@ VALUES
 INSERT INTO TENDENCIA
     (idTendencia,idJustificacion,argumento)
 VALUES
-    ('1', '1', 'Insuficiencia en el análisis de la información a escalas grandes');
+    ('1000', '1000', 'Insuficiencia en el análisis de la información a escalas grandes');
 INSERT INTO TENDENCIA
     (idTendencia,idJustificacion,argumento)
 VALUES
-    ('2', '2', 'Errores humanos en la consignación de riesgos en un proyecto');
+    ('2000', '2000', 'Errores humanos en la consignación de riesgos en un proyecto');
 INSERT INTO TENDENCIA
     (idTendencia,idJustificacion,argumento)
 VALUES
-    ('3', '3', 'Fraudes electrónicos que sean capaces de robar información de usuarios');
+    ('3000', '3000', 'Fraudes electrónicos que sean capaces de robar información de usuarios');
 INSERT INTO TENDENCIA
     (idTendencia,idJustificacion,argumento)
 VALUES
-    ('4', '4', 'Carencia de interfaces usables a la hora de realizar operación delicadas como el registro de empresas');
+    ('4000', '4000', 'Carencia de interfaces usables a la hora de realizar operación delicadas como el registro de empresas');
 INSERT INTO TENDENCIA
     (idTendencia,idJustificacion,argumento)
 VALUES
-    ('5', '5', 'Carencia de interfaces para el gestionamiento de aplicaciones a nivel de software bajo ambiente Linux');
+    ('5000', '5000', 'Carencia de interfaces para el gestionamiento de aplicaciones a nivel de software bajo ambiente Linux');
 INSERT INTO TENDENCIA
     (idTendencia,idJustificacion,argumento)
 VALUES
-    ('6', '6', 'Carencia de componentes fisicos');
+    ('6000', '6000', 'Carencia de componentes fisicos');
 INSERT INTO TENDENCIA
     (idTendencia,idJustificacion,argumento)
 VALUES
-    ('7', '7', 'Errores en plataformas de riesgos');
+    ('7000', '7000', 'Errores en plataformas de riesgos');
 INSERT INTO TENDENCIA
     (idTendencia,idJustificacion,argumento)
 VALUES
-    ('8', '8', 'Mal uso de tecnicas de analisis');
+    ('8000', '8000', 'Mal uso de tecnicas de analisis');
 
 /*==============================================================*/
 /* Table: CURIOSIDAD_PREOCUPACION                               */
@@ -2171,35 +2166,35 @@ VALUES
 INSERT INTO CURIOSIDAD_PREOCUPACION
     (idCuriosidad,idJustificacion,argumento)
 VALUES
-    ('8219', '1', 'Se busca atacar el análisis de datos con business intelligence ya que el ABB desconoce este tipo de herramientas en esta aplicación');
+    ('8219', '1000', 'Se busca atacar el análisis de datos con business intelligence ya que el ABB desconoce este tipo de herramientas en esta aplicación');
 INSERT INTO CURIOSIDAD_PREOCUPACION
     (idCuriosidad,idJustificacion,argumento)
 VALUES
-    ('8147', '2', 'Es preocupante el poco manejo de riesgos que existen que ayuden a atacar a los mismos');
+    ('8147', '2000', 'Es preocupante el poco manejo de riesgos que existen que ayuden a atacar a los mismos');
 INSERT INTO CURIOSIDAD_PREOCUPACION
     (idCuriosidad,idJustificacion,argumento)
 VALUES
-    ('2', '3', 'Se busca descubrir la gran aparición de fraudes en las transacciones electrónicas ');
+    ('2000', '3000', 'Se busca descubrir la gran aparición de fraudes en las transacciones electrónicas ');
 INSERT INTO CURIOSIDAD_PREOCUPACION
     (idCuriosidad,idJustificacion,argumento)
 VALUES
-    ('3', '4', 'Se estudia nuevas maneras de cancelación de las domiciliaciones ya que se desconoce otros medios para completar esta transacción ');
+    ('3000', '4000', 'Se estudia nuevas maneras de cancelación de las domiciliaciones ya que se desconoce otros medios para completar esta transacción ');
 INSERT INTO CURIOSIDAD_PREOCUPACION
     (idCuriosidad,idJustificacion,argumento)
 VALUES
-    ('6', '5', 'Se desconoce la utilización de software para manejo de softwares en Linux');
+    ('6000', '5000', 'Se desconoce la utilización de software para manejo de softwares en Linux');
 INSERT INTO CURIOSIDAD_PREOCUPACION
     (idCuriosidad,idJustificacion,argumento)
 VALUES
-    ('7', '6', 'Fallos en componente fisico');
+    ('7000', '6000', 'Fallos en componente fisico');
 INSERT INTO CURIOSIDAD_PREOCUPACION
     (idCuriosidad,idJustificacion,argumento)
 VALUES
-    ('8', '7', 'Inexistencia en plataformas de riesgos');
+    ('8000', '7000', 'Inexistencia en plataformas de riesgos');
 INSERT INTO CURIOSIDAD_PREOCUPACION
     (idCuriosidad,idJustificacion,argumento)
 VALUES
-    ('9', '8', 'Mal uso de tecnicas de analisis');
+    ('9000', '8000', 'Mal uso de tecnicas de analisis');
 
 /*==============================================================*/
 /* Table: CONTRADICCION                                         */
@@ -2207,35 +2202,35 @@ VALUES
 INSERT INTO CONTRADICCION
     (idContradiccion,idJustificacion,argumento)
 VALUES
-    ('1', '1', 'Se investiga sobre esta solución BI por la falta de análisis de datos a través de un sistema business intelligence');
+    ('1000', '1000', 'Se investiga sobre esta solución BI por la falta de análisis de datos a través de un sistema business intelligence');
 INSERT INTO CONTRADICCION
     (idContradiccion,idJustificacion,argumento)
 VALUES
-    ('2', '2', 'Se han propuestos diferentes soluciones de software que pueden satisfacer algunas necesidades en cuanto a la gestión de riesgos pero aun así dichas soluciones dentro de la propia gestión podrían causar errores ');
+    ('2000', '2000', 'Se han propuestos diferentes soluciones de software que pueden satisfacer algunas necesidades en cuanto a la gestión de riesgos pero aun así dichas soluciones dentro de la propia gestión podrían causar errores ');
 INSERT INTO CONTRADICCION
     (idContradiccion,idJustificacion,argumento)
 VALUES
-    ('3', '3', 'Los mismos grupos que realizan los fraudes electrónicos se apoyan de cierta forma con las plataformas desarrolladas para la eliminación de forma parcial de fraudes posibles');
+    ('3000', '3000', 'Los mismos grupos que realizan los fraudes electrónicos se apoyan de cierta forma con las plataformas desarrolladas para la eliminación de forma parcial de fraudes posibles');
 INSERT INTO CONTRADICCION
     (idContradiccion,idJustificacion,argumento)
 VALUES
-    ('4', '4', 'Al no haber una sistema que organice dichas domiciliaciones se opta por un sistema físico de llevar en cuenta a mano todas las transacciones aportando un gran material de tiempo, esfuerzo y dinero el cual eliminar conlleva a una reorganización del modelo de negocios');
+    ('4000', '4000', 'Al no haber una sistema que organice dichas domiciliaciones se opta por un sistema físico de llevar en cuenta a mano todas las transacciones aportando un gran material de tiempo, esfuerzo y dinero el cual eliminar conlleva a una reorganización del modelo de negocios');
 INSERT INTO CONTRADICCION
     (idContradiccion,idJustificacion,argumento)
 VALUES
-    ('5', '5', 'Existencia de software para poder administrar los programas pero basado en software de pago aun así para distribuciones de linux el cual conlleva a no poder solucionar el problema desde un ambiente de software libre');
+    ('5000', '5000', 'Existencia de software para poder administrar los programas pero basado en software de pago aun así para distribuciones de linux el cual conlleva a no poder solucionar el problema desde un ambiente de software libre');
 INSERT INTO CONTRADICCION
     (idContradiccion,idJustificacion,argumento)
 VALUES
-    ('6', '6', 'Falta de capital para la actualizacion');
+    ('6000', '6000', 'Falta de capital para la actualizacion');
 INSERT INTO CONTRADICCION
     (idContradiccion,idJustificacion,argumento)
 VALUES
-    ('7', '7', 'Riesgos al aplicar plataforma de riesgos');
+    ('7000', '7000', 'Riesgos al aplicar plataforma de riesgos');
 INSERT INTO CONTRADICCION
     (idContradiccion,idJustificacion,argumento)
 VALUES
-    ('8', '8', 'Mal empleo de tecnicas de analisis para la solucion del problema');
+    ('8000', '8000', 'Mal empleo de tecnicas de analisis para la solucion del problema');
 
 /*==============================================================*/
 /* Table: MOTIVACION_INTERES                                    */
@@ -2243,34 +2238,34 @@ VALUES
 INSERT INTO MOTIVACION_INTERES
     (idMotivacion,idJustificacion,argumento)
 VALUES
-    ('1', '1', 'Generar una solución BI factible para facilitar el trabajo del Modulo de Facturacion');
+    ('1000', '1000', 'Generar una solución BI factible para facilitar el trabajo del Modulo de Facturacion');
 INSERT INTO MOTIVACION_INTERES
     (idMotivacion,idJustificacion,argumento)
 VALUES
-    ('3', '2', 'Apoyar con el descubrimiento de riesgos en la realización de proyectos ');
+    ('3000', '2000', 'Apoyar con el descubrimiento de riesgos en la realización de proyectos ');
 INSERT INTO MOTIVACION_INTERES
     (idMotivacion,idJustificacion,argumento)
 VALUES
-    ('9959', '3', 'Generar un sistema que ayude en la extracción de datos sobre cualquier fuente ');
+    ('9959', '3000', 'Generar un sistema que ayude en la extracción de datos sobre cualquier fuente ');
 INSERT INTO MOTIVACION_INTERES
     (idMotivacion,idJustificacion,argumento)
 VALUES
-    ('96', '4', 'Generar un sistema de pagos para las domiciliaciones en la CCE');
+    ('96', '4000', 'Generar un sistema de pagos para las domiciliaciones en la CCE');
 INSERT INTO MOTIVACION_INTERES
     (idMotivacion,idJustificacion,argumento)
 VALUES
-    ('457', '5', 'Propiciar un software que ayude a administrar software para Linux');
+    ('457', '5000', 'Propiciar un software que ayude a administrar software para Linux');
 INSERT INTO MOTIVACION_INTERES
     (idMotivacion,idJustificacion,argumento)
 VALUES
-    ('6', '6', 'Innovacion en la red');
+    ('6000', '6000', 'Innovacion en la red');
 INSERT INTO MOTIVACION_INTERES
     (idMotivacion,idJustificacion,argumento)
 VALUES
-    ('7', '7', 'Actualizacion de normas');
+    ('7000', '7000', 'Actualizacion de normas');
 INSERT INTO MOTIVACION_INTERES
     (idMotivacion,idJustificacion,argumento)
 VALUES
-    ('8', '8', 'Validacion del uso de tecnicas de analisis');
+    ('8000', '8000', 'Validacion del uso de tecnicas de analisis');
 
 

@@ -272,6 +272,40 @@ FROM TEMA_INVESTIGACION TI
 WHERE TI.idTemaInvestigacion = 45
 
 /*13 - REPORTE DE CALIDAD DEL PROYECTO DE HURTADO*/
+SELECT U.nombre,TI.tema,C.contexto,((SELECT count(*) FROM NECESIDAD WHERE idJustificacion = J.idJustificacion LIMIT 1)+
+		(SELECT count(*) FROM CONTEXTO WHERE idContexto = P.idContexto LIMIT 1)+
+		(SELECT count(*) FROM UNIDAD_ESTUDIO WHERE idUnidadEstudio = P.idUnidadEstudio LIMIT 1)+
+		(SELECT count(*) FROM EVENTO WHERE idEvento = J.idEvento LIMIT 1)+
+		(SELECT count(*) FROM TIPO_INVESTIGACION WHERE idTipoInvestigacion = J.idTipoInvestigacion LIMIT 1)+
+	   	(SELECT count(*) FROM UNIDAD_INFORMATIVA UI WHERE UI.idProyectiva = PR.idProyectiva LIMIT 1)+
+	   	(SELECT count(*) FROM OBJETIVO_GENERAL WHERE idProyectiva = PR.idProyectiva )+
+	   	(SELECT count(*) FROM ANALISIS_EVENTO WHERE idFundamentoProyectivo = FR.idFundamentoProyectivo LIMIT 1)+
+		(SELECT count(*) FROM EXPLICACION WHERE idFundamentoProyectivo = FR.idFundamentoProyectivo LIMIT 1)+
+		(SELECT count(*) FROM FUNDAMENTO_PROYECTIVO_ASPECTO_L WHERE idFundamentoProyectivo = FR.idFundamentoProyectivo LIMIT 1)+
+		(SELECT count(*) FROM EFECTO_LOGRAR WHERE idFundamentoProyectivo = FR.idFundamentoProyectivo LIMIT 1)+
+		(SELECT count(*) FROM DESCRIPCION_EVENTO WHERE idFundamentoProyectivo =FR.idFundamentoProyectivo LIMIT 1)+
+	   	(SELECT count(*) FROM PROCESO_EXPLICATIVO WHERE idFundamentoProyectivo = FR.idFundamentoProyectivo LIMIT 1)+
+	   	((SELECT count(definicion) FROM DESCRIPCION_EVENTO WHERE idFundamentoProyectivo = FR.idFundamentoProyectivo LIMIT 1)+
+	    (SELECT count(explicacion) FROM DESCRIPCION_EVENTO WHERE idFundamentoProyectivo = FR.idFundamentoProyectivo LIMIT 1))/
+	   	((SELECT count(definicion) FROM DESCRIPCION_EVENTO WHERE idFundamentoProyectivo = FR.idFundamentoProyectivo LIMIT 1)+
+	    (SELECT count(explicacion) FROM DESCRIPCION_EVENTO WHERE idFundamentoProyectivo = FR.idFundamentoProyectivo LIMIT 1))+
+		(SELECT count(*) FROM TIPO_INVESTIGACION WHERE idTipoInvestigacion = TI.idTipoInvestigacion)
+	   )/18*100 as "CALIDAD TOTAL"
+FROM JUSTIFICACION J 
+JOIN PROYECTO P 
+ON J.idContexto = P.idContexto
+JOIN PROYECTIVA PR 
+ON PR.idProyectiva = P.idProyectiva
+JOIN OBJETIVO_GENERAL OG
+ON OG.idProyectiva = PR.idProyectiva
+JOIN FUNDAMENTO_PROYECTIVO FR
+ON PR.idProyectiva = FR.idProyectiva
+JOIN TEMA_INVESTIGACION TI
+ON TI.idTemaInvestigacion = P.idTemaInvestigacion
+JOIN CONTEXTO C
+ON P.idContexto = C.idContexto
+JOIN USUARIO U
+ON TI.idUsuario = U.idUsuario
 /*JUSTIFICACION*/
 SELECT ((SELECT count(*) FROM NECESIDAD WHERE idJustificacion = J.idJustificacion LIMIT 1)+
 		(SELECT count(*) FROM CONTEXTO WHERE idContexto = P.idContexto LIMIT 1)+
@@ -284,6 +318,59 @@ JOIN PROYECTO P
 ON J.idContexto = P.idContexto
 JOIN PROYECTIVA PR 
 ON PR.idProyectiva = P.idProyectiva
+WHERE P.idProyecto = 1
+
+/*OBJETIVO GENERAL*/
+SELECT ((SELECT count(*) FROM OBJETIVO_GENERAL WHERE idProyectiva = PR.idProyectiva )*100) as "PORCENTAJE DE CALIDAD EN OBJETIVO GENERAL"
+FROM OBJETIVO_GENERAL OB 
+JOIN PROYECTIVA PR 
+ON OB.idProyectiva = PR.idProyectiva
+JOIN PROYECTO P
+ON PR.idProyectiva = P.idProyectiva
+WHERE P.idProyecto = 1
+
+/*OBJETIVO ESPECIFICO*/
+SELECT ((SELECT count(*) FROM OBJETIVO_ESPECIFICO WHERE idProyectiva = PR.idProyectiva)/(SELECT count(*) FROM OBJETIVO_ESPECIFICO WHERE idProyectiva = PR.idProyectiva))*100 as "PORCENTAJE DE CALIDAD EN OBJETIVO ESPECIFICO"
+FROM OBJETIVO_ESPECIFICO OE 
+JOIN PROYECTIVA PR 
+ON OE.idProyectiva = PR.idProyectiva
+JOIN PROYECTO P
+ON PR.idProyectiva = P.idProyectiva
+WHERE P.idProyecto = 5 LIMIT 1
+
+/*FUNDAMENTACION NOOLOGICA*/
+SELECT ((SELECT count(*) FROM ANALISIS_EVENTO WHERE idFundamentoProyectivo = FR.idFundamentoProyectivo LIMIT 1)+
+		(SELECT count(*) FROM EXPLICACION WHERE idFundamentoProyectivo = FR.idFundamentoProyectivo LIMIT 1)+
+		(SELECT count(*) FROM FUNDAMENTO_PROYECTIVO_ASPECTO_L WHERE idFundamentoProyectivo = FR.idFundamentoProyectivo LIMIT 1)+
+		(SELECT count(*) FROM EFECTO_LOGRAR WHERE idFundamentoProyectivo = FR.idFundamentoProyectivo LIMIT 1)+
+		(SELECT count(*) FROM DESCRIPCION_EVENTO WHERE idFundamentoProyectivo =FR.idFundamentoProyectivo LIMIT 1)+
+	   	(SELECT count(*) FROM PROCESO_EXPLICATIVO WHERE idFundamentoProyectivo = FR.idFundamentoProyectivo LIMIT 1))/6*100 as "PORCENTAJE DE CALIDAD EN FUNDAMENTACION NOOLOGICA"
+FROM FUNDAMENTO_PROYECTIVO FR 
+JOIN PROYECTIVA PR 
+ON PR.idProyectiva = FR.idProyectiva
+JOIN PROYECTO P 
+ON PR.idProyectiva = P.idProyectiva
+WHERE P.idProyecto = 5
+
+/*DEFINICION DE EVENTOS*/
+SELECT (((SELECT count(definicion) FROM DESCRIPCION_EVENTO WHERE idFundamentoProyectivo = FR.idFundamentoProyectivo LIMIT 1)+
+	    (SELECT count(explicacion) FROM DESCRIPCION_EVENTO WHERE idFundamentoProyectivo = FR.idFundamentoProyectivo LIMIT 1))/
+	   	((SELECT count(definicion) FROM DESCRIPCION_EVENTO WHERE idFundamentoProyectivo = FR.idFundamentoProyectivo LIMIT 1)+
+	    (SELECT count(explicacion) FROM DESCRIPCION_EVENTO WHERE idFundamentoProyectivo = FR.idFundamentoProyectivo LIMIT 1)))*100
+		as "PORCENTAJE DE CALIDAD EN DEFINICION DE LOS EVENTOS"
+FROM FUNDAMENTO_PROYECTIVO FR 
+JOIN PROYECTIVA PR
+ON FR.idProyectiva = PR.idProyectiva
+JOIN PROYECTO P
+ON PR.idProyectiva = P.idProyectiva
+WHERE P.idProyecto = 5
+
+
+/*TIPO DE INVESTIGACION*/
+SELECT ((SELECT count(*) FROM TIPO_INVESTIGACION WHERE idTipoInvestigacion = TI.idTipoInvestigacion )*100) as "PORCENTAJE DE CALIDAD EN TIPO DE INVESTIGACION"
+FROM TEMA_INVESTIGACION TI 
+JOIN PROYECTO P
+ON TI.idTemaInvestigacion = P.idTemaInvestigacion
 WHERE P.idProyecto = 1
 
 /*14 - HISTORIAL DE MODIFICACIOES DEL PROYECTO*/
@@ -324,9 +411,6 @@ FROM PROYECTO P
     ON P.idTemporalidad = T.idTemporalidad
 
 /*POR UNIDAD DE ESTUDIO*/
-
-
-
 /*POR POBLACION*/
 SELECT P.idProyecto, TI.idTemaInvestigacion, UE.idUnidadEstudio, TI.tema, PB.poblacion
 FROM PROYECTO P
