@@ -30,7 +30,7 @@ const { getCuriosidadById, createCuriosidad, updateCuriosidad, deleteCuriosidad 
 const { getDescripcionEventoById, createDescripcionEvento, updateDescripcionEvento, deleteDescripcionEvento } = require('../service/entidades/descripcionEventoService');
 const { getDiferenciaById, createDiferencia, updateDiferencia, deleteDiferencia } = require('../service/entidades/diferenciaService');
 const { getDisciplinaEventoById, createDisciplinaEvento, updateDisciplinaEvento, deleteDisciplinaEvento } = require('../service/entidades/disciplinaEventoService');
-const { getDisciplinaById, createDisciplina, updateDisciplina, deleteDisciplina } = require('../service/entidades/disciplinaService');
+const { getDisciplinaById, getDisciplinas,createDisciplina, updateDisciplina, deleteDisciplina } = require('../service/entidades/disciplinaService');
 const { getDisenoInvestigacionById, createDisenoInvestigacion, updateDisenoInvestigacion, deleteDisenoInvestigacion } = require('../service/entidades/disenoInvestigacionService');
 const { getEfectoLograrById, createEfectoLograr, updateEfectoLograr, deleteEfectoLograr } = require('../service/entidades/efectoLograrService');
 const { getEstadioById, createEstadio, updateEstadio, deleteEstadio } = require('../service/entidades/estadioService');
@@ -276,6 +276,7 @@ router.put('/diferencias/:id/disable', deleteDiferencia );
 
 
 // ------------------------ Disciplina Evento ----------------------------------------
+
 router.get('/disciplinasEvento/:id', getDisciplinaEventoById);
 router.post('/disciplinasEvento', createDisciplinaEvento);
 router.put('/disciplinasEvento/:id', updateDisciplinaEvento);
@@ -284,6 +285,7 @@ router.put('/disciplinasEvento/:id/disable', deleteDisciplinaEvento);
 
 
 // ------------------------ Disciplina ----------------------------------------
+router.get('/disciplinas',getDisciplinas);
 router.get('/disciplinas/:id', getDisciplinaById );
 router.post('/disciplinas', createDisciplina );
 router.put('/disciplinas/:id', updateDisciplina);
@@ -399,7 +401,7 @@ router.put('/items/:id/disable', deleteItem);
 // ------------------------ Motivacion ----------------------------------------
 
 router.get('/motivaciones/:id', getMotivacionById);
-router.put('/motivaciones', createMotivacion);
+router.post('/motivaciones', createMotivacion);
 router.put('/motivaciones/:id',updateMotivacion );
 router.put('/motivaciones/:id/disable',deleteMotivacion );
 
